@@ -14,3 +14,4 @@
 | `/contact` | Contact | Affiche les moyens de contact | GET | MainController | contact |  |
 | `/legals` | Mentions légales | Affiche les mentions légales | GET | MainController | legals |  |
 | `/account` | Mon compte | Affiche le compte de l'utilisateur | GET | MainController | account |  |
+| `/cookies` | Préférence cookies | Affiche les préference pour les cookies | GET/POST | MainController | cookies |  |
