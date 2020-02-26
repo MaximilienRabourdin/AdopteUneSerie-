@@ -7,3 +7,22 @@ Rédaction du cahier des charges. Détermination des rôles au sein du projet. D
 ### Informations individuelles
 
 Pas d'informations individuelles : travail en groupe complet.
+
+## Mercredi 26 février 2020 - Sprint 0
+
+Nous avons continué la finalisation du sprint 0. 
+Réunion avec l'équipe O'Clock afin de faire le point sur l'avancement du cahier des charges. Quelques conseils ont été donnés : 
+- Pour la page des mentions légales, il serait bien de préciser que le projet est dans un cadre étudiant et non lucratif, que l'on utilise telle ou telle API.
+- Les Wireframes ont besoin d'être un peu plus commentés, notamment sur l'utilité des boutons
+- Côté fonctionnalité, la partie commentaires des séries serait un gros plus, pas forcément compliqué à mettre en place, cela permet de montrer ce que l'on sait faire lors du TP : sécurisation des entrées utilisateurs notamment. Penser peut-être à mettre en place une intéraction utilisateurs : ajout d'amis, partager des séries intéressantes.
+- Côté exploitation des données, il faut privilégier l'utilisation de l'API puisque les résultats sont complets plutôt que de "perdre" du temps avec la partie algorithmie. 
+- Le MCD a besoin d'être plus poussé, avec notamment la création de plusieurs autres entités qui permettrait de diversifier le tri des séries (acteurs, pays, genres ...) et d'aléger l'entité Série
+- Utilisation du bundle Symfony Easy Admin
+
+## Informations individuelles
+
+- Team Front : 
+    - Création du Flowchart (Arborescence de l'application)
+- Team Back :
+    - Création du MCD
+    - Création du dico de donnéess
