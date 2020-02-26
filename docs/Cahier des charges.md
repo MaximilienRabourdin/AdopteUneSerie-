@@ -69,7 +69,7 @@ Référent SYMFONY :  Nicolas
 ## Lister les technos utilisées
 
 - REACT
-- SYMFONY
+- SYMFONY (EasyAdmin)
 
 ## Décrire la cible 
 
@@ -99,8 +99,7 @@ Référent SYMFONY :  Nicolas
 | Visiteur |Accéder à un formulaire de connexion|Pouvoir me connecter| |
 | Membre |Accéder à mes favoris|Suivre mes séries favorites| |
 | Membre |Accéder à mon compte|Le personnaliser / modifier / compléter| |
-| Admin |Gérer les utilisateurs|Gérer les utilisateurs| |
-| Admin |Accéder à la BDDLa mettre à jour |
+| Admin |Gérer la BDD|Gérer les utilisateurs, les séries, etc...| |
 
 ### Page Série
 
