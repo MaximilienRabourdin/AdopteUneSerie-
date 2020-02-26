@@ -21,7 +21,7 @@ Carnet de bord personnel rempli chaque jour
     - Modification apportés suite a la réunion avec l'équipe O'clock
 
 2. Ce que je comptais faire : 
-    Rien a signaler
+    - Mettre a jour le dictionnaire de donnée
 
 3. Difficultés rencontrés et solutions
     Nous avons eu un peu de mal a trouvé une API correspondant a nos critères mais nous avons finis par trouver deux API potentiels du nom de "The Movie DB" et "TraktAPI"
