@@ -8,10 +8,9 @@
 | `/logout` | Déconnexion | Permet de se deconnecter | POST | MainController | logout |  |
 | `/search` | Rechercher | Recherche une série | GET | MainController | search |  |
 | `/series` | Série | Affiche une série | GET | MainController | series |  |
-| `/paramaters` | Paramètres | Liste des parametres de mon compte | GET/POST | MainController | parameters |  |
+| `/account` | Mon compte | Affiche le compte de l'utilisateur et les parametres du comptes| GET | MainController | account |  |
 | `/faq` | Foire aux questions | Liste des questions | GET | MainController | faq |  |
 | `/favories` | Favoris | Liste des séries mise en favoris | GET/POST | MainController | favories |  |
 | `/contact` | Contact | Affiche les moyens de contact | GET | MainController | contact |  |
 | `/legals` | Mentions légales | Affiche les mentions légales | GET | MainController | legals |  |
-| `/account` | Mon compte | Affiche le compte de l'utilisateur | GET | MainController | account |  |
 | `/cookies` | Préférence cookies | Affiche les préference pour les cookies | GET/POST | MainController | cookies |  |
