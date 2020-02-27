@@ -25,3 +25,14 @@ Carnet de bord personnel rempli chaque jour
 
 3. Difficultés rencontrés et solutions
     Nous avons eu un peu de mal a trouvé une API correspondant a nos critères mais nous avons finis par trouver deux API potentiels du nom de "The Movie DB" et "TraktAPI"
+
+## 27 février 2020
+
+1. Ce que j'ai fait :
+    - Mettre a jour le dictionnaire de donnée et le cahier des charges
+
+2. Ce que je comptais faire : 
+    - 
+
+3. Difficultés rencontrés et solutions
+    
