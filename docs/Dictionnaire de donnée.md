@@ -14,15 +14,10 @@
 | episode_run_time | INT | NULL |La durée d'un épisode moyen|
 | last_episode_to_air | TIMESTAMP | NULL |La date de sortie du dernier épisode|
 | next_episode_to_air | TIMESTAMP | NULL |La date de sortie du prochain épisode|
-| genres_id | VARCHAR(64) | NULL |L'id des genres|
-| networks_id | VARCHAR(64) | NULL |L'id de l'hébergeur de la série|
-| created_by_id | VARCHAR(64) | NULL |L'id des réalisateurs|
 | overview | VARCHAR(64) | NULL |Un résumé de la série|
 | popularity | INT | NULL |La popularité de la série|
 | languages | VARCHAR(64) | NULL |Les langues disponibles|
-| origin_country_id | VARCHAR(64) | NULL |L'id du/des pays de production|
 | poster_path | VARCHAR(64) | NULL |L'affiche|
-| seasons_id | VARCHAR(64) | NULL |L'id de la liste des saisons avec résumé et d'autres infos|
 | number_of_seasons | INT | NULL |Le nombre de saisons|
 | number_of_episodes | INT | NULL |Le nombre d'épisodes|
 | status | VARCHAR(64) | NULL |Indique si la série est en cours ou fini|
@@ -65,7 +60,6 @@
 |-|-|-|-|
 | name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
 | character | VARCHAR(64) | NOT NULL |Nom du personage de l'acteur|
-| genre | VARCHAR(64) | NOT NULL |Sexe de l'acteur|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
 
@@ -122,16 +116,15 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des récompenses|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des récompenses|
 
-## Réalisateurs(`creator`)
+## Réalisateurs(`created_by`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 | name | VARCHAR(64) | NOT NULL |Nom du/des réalisateurs|
-| genre | VARCHAR(64) | NOT NULL |Sexe du/des réalisateurs|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
 
-## Réseaux(`network`)
+## Réseaux(`networks`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|

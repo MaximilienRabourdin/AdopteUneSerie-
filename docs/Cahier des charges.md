@@ -102,11 +102,14 @@ Référent SYMFONY :  Nicolas
 ### Accueil / FAQ 
 https://whimsical.com/L8nw9yC7VWqMVWrYuoYKpt
 
-### Resultat recherche / Parametres
+### Resultat recherche / Paramètres / Contact / Mentions Légales
 https://whimsical.com/4hQAxgnKzzC9BvaygfUoEq
 
-### Inscription / Connexion
+### Inscription / Connexion / Mot de passe oublié
 https://whimsical.com/VkppVHmbLp7QbHdwHWKwqD
 
 ### Séries / Favoris
 https://whimsical.com/TADKHpHCV4J9dG7V8iwRTy
+
+### Cookies
+https://whimsical.com/MHmB6p9CWaRHXtyCE68YR2
