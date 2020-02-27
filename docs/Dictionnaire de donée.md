@@ -5,23 +5,27 @@
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
-| title | VARCHAR(64) | NOT NULL |Le titre de la série|
-| released | TIMESTAMP | NULL |La date de sortie de la série|
-| rated | VARCHAR(64) | NULL |La limite d'age|
-| runtime | VARCHAR(64) | NULL |La durée d'un épisode moyen|
-| genre | VARCHAR(64) | NULL |Le genre|
-| writer | VARCHAR(64) | NULL |Les réalisateurs|
-| actors | VARCHAR(64) | NULL |Les acteurs|
-| plot | VARCHAR(64) | NULL |Un résumé de la série|
-| language | VARCHAR(64) | NULL |Les langues disponibles|
-| country | VARCHAR(64) | NULL |Le/s pays de production|
-| awards | VARCHAR(64) | NULL |Les récompense décernés|
-| poster | VARCHAR(64) | NULL |L'affiche|
-| ratings | VARCHAR(64) | NULL |Les differentes évaluation des professionels|
-| metascore | VARCHAR(64) | NULL |Score du site Metacritic|
-| imdbvotes | VARCHAR(64) | NULL |Nombre de votes|
-| imdbid | VARCHAR(64) | NULL |Identifiant sur le site IMDB|
-| totalseasons | VARCHAR(64) | NULL |Le nombre de saisons|
+| name | VARCHAR(64) | NOT NULL |Le titre de la série|
+| original_name | VARCHAR(64) | NOT NULL |Le titre original de la série|
+| first_air_date | TIMESTAMP | NULL |La date de sortie de la série|
+| last_air_date | TIMESTAMP | NULL |La date de fin de la série|
+| vote_average | INT | NULL |La note attribué par les critiques|
+| vote_count | INT | NULL |Le nombre de votant|
+| episode_run_time | INT | NULL |La durée d'un épisode moyen|
+| last_episode_to_air | TIMESTAMP | NULL |La date de sortie du dernier épisode|
+| next_episode_to_air | TIMESTAMP | NULL |La date de sortie du prochain épisode|
+| genres_id | VARCHAR(64) | NULL |L'id des genres|
+| networks_id | VARCHAR(64) | NULL |L'id de l'hébergeur de la série|
+| created_by_id | VARCHAR(64) | NULL |L'id des réalisateurs|
+| overview | VARCHAR(64) | NULL |Un résumé de la série|
+| popularity | INT | NULL |La popularité de la série|
+| languages | VARCHAR(64) | NULL |Les langues disponibles|
+| origin_country_id | VARCHAR(64) | NULL |L'id du/des pays de production|
+| poster_path | VARCHAR(64) | NULL |L'affiche|
+| seasons_id | VARCHAR(64) | NULL |L'id de la liste des saisons avec résumé et d'autres infos|
+| number_of_seasons | INT | NULL |Le nombre de saisons|
+| number_of_episodes | INT | NULL |Le nombre d'épisodes|
+| status | VARCHAR(64) | NULL |Indique si la série est en cours ou fini|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de la série
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de la série|
 
@@ -29,7 +33,6 @@
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
-|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page utilisateurs|
 | firstname | VARCHAR(64) | NOT NULL |Prénom de l'utilisateur|
 | lastname | VARCHAR(64) | NOT NULL |Nom de l'utilisateur|
 | email | VARCHAR(320) | NOT NULL |Adresse mail de l'utilisateur|
@@ -41,14 +44,99 @@
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
-|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page utilisateurs|
 |label|VARCHAR(64)|NOT NULL|Label du role|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des roles|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des roles|
 
 
-## USERS HAS FAVORITES(`users_has_favorites`)
+## Saisons(`seasons`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
-|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page utilisateurs|
-|user_id|INT|NOT NULL|Id de l'utilisateur|
-|serie_id|INT|NOT NULL|Id de la série|
+| name | VARCHAR(64) | NOT NULL |Nom de la saison|
+| episode_count | INT | NOT NULL |Nombre d'épisode de la saison|
+| air_date | TIMESTAMP | NOT NULL |Date de diffusion de la saison|
+| overview| VARCHAR(64) | NOT NULL |Résumé de la saison|
+| season_number | INT | NOT NULL |Nombre de saison|
+
+## Acteur(`cast`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
+| character | VARCHAR(64) | NOT NULL |Nom du personage de l'acteur|
+| genre | VARCHAR(64) | NOT NULL |Sexe de l'acteur|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
+
+## Pays d'origine(`origin_country`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| name | VARCHAR(64) | NOT NULL |Nom du pays|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des pays|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des pays|
+
+## Compagnie de Production(`production_compagny`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| tmdb_id | INT | NOT NULL |L'id de la base de donnée|
+| name | VARCHAR(64) | NOT NULL |Nom de la compagnie|
+| orgin_country | VARCHAR(64) | NOT NULL |Pays d'origine de la compagnie|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des compagnie|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des compagnie|
+
+## Episodes(`episodes`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| name | VARCHAR(64) | NOT NULL |Nom de l'épisode|
+| air_date | TIMESTAMP | NOT NULL |Date de diffusion de l'épisode|
+| overview| VARCHAR(64) | NOT NULL |Résumé de l'épisode|
+| guest_stars | VARCHAR(64) | NOT NULL |Acteurs présent dans l'épisode|
+
+## Genre(`genre`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| label | VARCHAR(64) | NOT NULL |Label du genre|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des genres|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des genres|
+
+## Notes(`rating`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| title | VARCHAR(64) | NOT NULL |Titre de la critique|
+| body | VARCHAR(64) | NOT NULL |La critique|
+| vote | INT | NOT NULL |La note attribué|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des critiques|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des critiques|
+
+## Récompense(`award`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| label | VARCHAR(64) | NOT NULL |Label de la récompense|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des récompenses|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des récompenses|
+
+## Réalisateurs(`creator`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| name | VARCHAR(64) | NOT NULL |Nom du/des réalisateurs|
+| genre | VARCHAR(64) | NOT NULL |Sexe du/des réalisateurs|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
+
+## Réseaux(`network`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+| tmdb_id | INT | NOT NULL |L'id de la base de donnée|
+| name | VARCHAR(64) | NOT NULL |Nom du réseau|
+| orgin_country | VARCHAR(64) | NOT NULL |Pays d'origine du réseau|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réseaux|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réseaux|
