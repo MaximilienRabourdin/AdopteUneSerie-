@@ -124,7 +124,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
 
-## Réseaux(`networks`)
+## Chaine de télévision(`networks`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
