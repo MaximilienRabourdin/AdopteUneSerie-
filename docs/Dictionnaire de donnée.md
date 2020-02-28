@@ -1,6 +1,6 @@
 # Dictionnaire de données
 
-## Série (`series`)
+## Série (`serie`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -24,7 +24,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de la série
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de la série|
 
-## Users(`users`)
+## Users(`user`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -35,7 +35,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de l'utilisateur|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de l'utilisateur|
 
-## Roles(`roles`)
+## Roles(`role`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -44,7 +44,7 @@
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des roles|
 
 
-## Saisons(`seasons`)
+## Saisons(`season`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -81,7 +81,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des compagnie|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des compagnie|
 
-## Episodes(`episodes`)
+## Episodes(`episode`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -124,7 +124,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
 
-## Chaine de télévision(`networks`)
+## Chaine de télévision(`network`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
