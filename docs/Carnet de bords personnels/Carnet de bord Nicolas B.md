@@ -42,12 +42,14 @@ Carnet de bord personnel rempli chaque jour
 
 1. Ce que j'ai fait :
     - Mettre a jour les wireframes Accueil et FAQ selon les remarques de l'équipe O'clock
+    - Créer les entités de l'api et de la BDD ainsi que le MainController
+    - Modifications dans divers fichiers (dictionnaire de donnée, MCD)
 
 2. Ce que je comptais faire : 
-    - Rien
+    - Faire la connexion avec le BDD
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Problèmes pour se connecter a la base de donnée 
 
 ## 2 mars 2020
 
