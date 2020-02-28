@@ -10,3 +10,13 @@ Difficulté: Nous avons eu une difficulté dans la matinée concernant le choix 
 Solution: Après certaines recherches, nous avons trouver un compromis et trouver une bonne API 
 Ce qu'on comptait faire: De finir le sprint 0 
 Mes deux heures de travail personnel :  j'ai effectué les dernières modifications concernant les wireframes. 
+
+Jeudi 26 février 2020 -  Sprint 0
+Avec l'équipe :Nous avons fait de la veille concernant le front et le back notamment.
+
+Difficulté: Aucune
+
+Solution: Aucune
+
+Mes deux heures de travail personnel :  j'ai effectué les dernières modifications concernant les wireframes et réviser sur du code deja effectué. 
+
