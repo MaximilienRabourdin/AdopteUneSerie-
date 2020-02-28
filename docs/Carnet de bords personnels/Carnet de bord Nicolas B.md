@@ -30,9 +30,10 @@ Carnet de bord personnel rempli chaque jour
 
 1. Ce que j'ai fait :
     - Mettre a jour le dictionnaire de donnée et le cahier des charges
+    - Créer la base symfony pour le back-end
 
 2. Ce que je comptais faire : 
-    - 
+    - Rien
 
 3. Difficultés rencontrés et solutions
-    
+    Rien a signaler
