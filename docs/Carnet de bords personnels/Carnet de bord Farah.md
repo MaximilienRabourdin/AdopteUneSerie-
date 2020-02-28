@@ -28,9 +28,25 @@ Visite des encadreurs, mettre plus de commentaires dans les wireframes et rajout
 Création d'un Wireframe pour la page contact et Mentions légales, ajout de commentaires.
 
 
-----27/02 Sprint 1----
+----27/02 Sprint 0----
 
+
+-Temps collectif Full :
+
+maj MCD
+
+
+-Temps perso : correction wireframes
+
+----28/02 Sprint 0----
+
+
+-Temps collectif Full :
+
+Prise en compte des remarques de Charles sur le MCD et les wireframes.
 
 -Temps collectif Front end :
+
+
 
 -Temps perso : 
