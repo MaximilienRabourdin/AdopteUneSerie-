@@ -23,3 +23,18 @@ Carnet de bord personnel rempli chaque jour
 
 - Difficulté à trouver une API correspondante à nos attentes => nous avons trouvé 2 API pouvant correspondre : "The Movie DB" ainsi que "TraktAPI"
 - MCD manque de complexité : petites modifications à faire au niveau du MCD afin de faciliter une éventuelle modification du projet
+
+## Mercredi 26 février 2020 - Sprint 0
+
+### Ce que j'ai fait : 
+
+- Modification du dictionnaire de données
+- Modification du MCD
+
+### Ce que je comptais faire :
+
+- 
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+- 
