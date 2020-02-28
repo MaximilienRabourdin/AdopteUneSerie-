@@ -25,4 +25,19 @@ Réunion avec l'équipe O'Clock afin de faire le point sur l'avancement du cahie
     - Création du Flowchart (Arborescence de l'application)
 - Team Back :
     - Création du MCD
-    - Création du dico de donnéess
+    - Création du dico de données
+
+
+## Jeudi 27 février 2020 - Sprint 0
+
+Nous avons repris le MCD, le dico de données ainsi que les wireframes en suivant les conseils de l'équipe O'Clock.
+Concernant le MCD, nous l'avons complexifié afin de permettre une recherche plus ciblée.
+Retour de Charles concernant le sprint 0, MCD a préciser et Wireframes à uniformiser
+
+## Informations individuelles
+
+- Team Front : 
+    - Modification des wireframes
+- Team Back :
+    - Modification du MCD
+    - Modification du dico de données
