@@ -10,7 +10,7 @@
 | original_name | VARCHAR(64) | NOT NULL |Le titre original de la série|
 | first_air_date | TIMESTAMP | NULL |La date de sortie de la série|
 | last_air_date | TIMESTAMP | NULL |La date de fin de la série|
-| vote_average | INT | NULL |La note attribué par les critiques|
+| vote_average | FLOAT | NULL |La note attribué par les critiques|
 | vote_count | INT | NULL |Le nombre de votant|
 | episode_run_time | INT | NULL |La durée d'un épisode moyen|
 | last_episode_to_air | TIMESTAMP | NULL |La date de sortie du dernier épisode|
