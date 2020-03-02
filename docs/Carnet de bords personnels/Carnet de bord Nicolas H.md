@@ -50,3 +50,17 @@ Carnet de bord personnel rempli chaque jour
 ### Difficultés rencontrées et solutions/contournements apportés : 
 
 - Problème pour la connexion du projet Symfony à une base de données externe. Pas de solutions trouvée pour l'instant.
+
+## Lundi 2 mars 2020 - Sprint 0
+
+### Ce que j'ai fait : 
+
+- MCD terminé, retour positif de l'équie O'Clock. 
+- Création des entités
+- Création des relationships entre chaque entité
+- Connexion à l'API dans un but de test
+
+### Ce que je comptais faire :
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+

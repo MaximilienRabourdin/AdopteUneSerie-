@@ -53,3 +53,15 @@ Création des branches pour chaque partie du projet.
     - Début de création du projet 
 - Team Back :
     - Création du projet Symfony => création des entités, de la base de données.
+
+## Lundi 2 mars 2020 - Sprint 0
+
+Nous avons repris les derniers documents de conception sous les conseils de Charles : MCD, dico de données à préciser. 
+Début de réfléxion autour du thème visuel à adopter sur le site. 
+
+## Informations individuelles
+
+- Team Front : 
+    - 
+- Team Back :
+    - MCD terminé, création des entités, des relationships entre entités, connexion à l'API "The Movie DB"
