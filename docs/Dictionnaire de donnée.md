@@ -209,12 +209,3 @@
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
 |network_id|INT|NOT NULL|L'identifiant de notre network|
 |serie_id|INT|NOT NULL|L'identifiant de notre série|
-
-
-
-
-
-
-
-
-
