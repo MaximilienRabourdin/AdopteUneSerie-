@@ -59,6 +59,8 @@
 | air_date | TIMESTAMP | NOT NULL |Date de diffusion de la saison|
 | overview| VARCHAR(64) | NOT NULL |Résumé de la saison|
 | season_number | INT | NOT NULL |Nombre de saison|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de la saison|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de la saison|
 
 ## Acteur(`cast`)
 
@@ -102,6 +104,8 @@
 | air_date | TIMESTAMP | NOT NULL |Date de diffusion de l'épisode|
 | overview| VARCHAR(64) | NOT NULL |Résumé de l'épisode|
 | guest_stars | VARCHAR(64) | NOT NULL |Acteurs présent dans l'épisode|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de l'épisode|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de l'épisode|
 
 ## Genre(`genre`)
 
