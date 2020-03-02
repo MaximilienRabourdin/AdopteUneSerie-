@@ -99,23 +99,23 @@ class Serie
     private $vote_count;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", mappedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", inversedBy="serie")
      */
     private $creators;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Genre", mappedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="serie")
      */
     private $genres;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ProductionCompagny", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="serie")
      * @ORM\JoinColumn(nullable=false)
      */
     private $productionCompagny;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Network", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Network", inversedBy="serie")
      * @ORM\JoinColumn(nullable=false)
      */
     private $network;
@@ -127,7 +127,7 @@ class Serie
     private $originalCountry;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="serie")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
