@@ -33,7 +33,7 @@
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
 | firstname | VARCHAR(64) | NOT NULL |Prénom de l'utilisateur|
 | lastname | VARCHAR(64) | NOT NULL |Nom de l'utilisateur|
-| email | VARCHAR(320) | NOT NULL, UNIQUE |Adresse mail de l'utilisateur|
+| email | VARCHAR(255) | NOT NULL, UNIQUE |Adresse mail de l'utilisateur|
 | password | VARCHAR(128)| NOT NULL | Mot de passe hashé de l'utilisateur |
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de l'utilisateur|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de l'utilisateur|
