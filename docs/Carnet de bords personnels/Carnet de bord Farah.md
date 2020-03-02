@@ -38,7 +38,7 @@ maj MCD
 
 -Temps perso : correction wireframes
 
-----28/02 Sprint 0----
+----28/02 Sprint 1----
 
 
 -Temps collectif Full :
@@ -47,6 +47,20 @@ Prise en compte des remarques de Charles sur le MCD et les wireframes.
 
 -Temps collectif Front end :
 
+Codage des header et footer
+
+-Temps perso : nada
+
+----02/03 Sprint 1----
 
 
--Temps perso : 
+-Temps collectif Full :
+
+Prise en compte des remarques V2 de Charles sur le MCD et les wireframes.
+Choix du thème LUX de Bootswatch
+
+-Temps collectif Front end :
+
+Mise en place du responsive, et du toggle avec semantic UI. Incompatibilité bootswatch avec responsive mobile --> pas de raison connu. 
+
+-Temps perso : Adaptation du Dropdown pour le projet ---> BUG
