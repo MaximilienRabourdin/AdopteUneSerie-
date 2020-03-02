@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Creator
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\serie", inversedBy="creators")
+     */
+    private $serie;
+
+    public function __construct()
+    {
+        $this->serie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -109,6 +121,32 @@ class Creator
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|serie[]
+     */
+    public function getSerie(): Collection
+    {
+        return $this->serie;
+    }
+
+    public function addSerie(serie $serie): self
+    {
+        if (!$this->serie->contains($serie)) {
+            $this->serie[] = $serie;
+        }
+
+        return $this;
+    }
+
+    public function removeSerie(serie $serie): self
+    {
+        if ($this->serie->contains($serie)) {
+            $this->serie->removeElement($serie);
+        }
 
         return $this;
     }

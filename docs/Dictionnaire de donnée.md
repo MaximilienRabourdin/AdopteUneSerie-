@@ -38,6 +38,15 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de l'utilisateur|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de l'utilisateur|
 
+## Série mise en favoris par un utilisateur (`user_serie`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|user_id|INT|NOT NULL|L'identifiant de notre utilisateur|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
+
+
 ## Roles(`role`)
 
 |Champ|Type|Spécificités|Description|
@@ -62,27 +71,29 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de la saison|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de la saison|
 
-## Acteur(`cast`)
+## Acteur(`actor`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
 | tmdb_id | INT | NOT NULL |L'id de l'API|
 | name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
+| birthdate | TIMESTAMP | NOT NULL |Date de naissance de l'acteur|
+| deathdate | TIMESTAMP | NOT NULL |Date du décés de l'acteur|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
 
-
-## Personnage(`character`)
+## Personnage(`cast`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
+| tmdb_id | INT | NOT NULL |L'id de l'API|
 | name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
-|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
-|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
+|created_at|TIMESTAMP| NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des personnages|
+|updated_at|TIMESTAMP| NULL |La date de la dernière mise à jour des personnages|
 
-## Pays d'origine(`origin_country`)
+## Pays d'origine(`country`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -91,6 +102,14 @@
 | name | VARCHAR(64) | NOT NULL |Nom du pays|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des pays|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des pays|
+
+## Série a un pays (`country_serie`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|country_id|INT|NOT NULL|L'identifiant de notre pays|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
 
 ## Compagnie de Production(`production_compagny`)
 
@@ -102,6 +121,14 @@
 | orgin_country | VARCHAR(64) | NOT NULL |Pays d'origine de la compagnie|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des compagnie|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des compagnie|
+
+## Compagnie de production produit une série(`production_compagny_serie`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|production_compagny_id|INT|NOT NULL|L'identifiant de notre compagnie de production|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
 
 ## Episodes(`episode`)
 
@@ -126,6 +153,14 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des genres|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des genres|
 
+## Genre disponible sur une série(`genre_serie`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|genre_id|INT|NOT NULL|L'identifiant de notre genre|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
+
 ## Notes(`rating`)
 
 |Champ|Type|Spécificités|Description|
@@ -148,7 +183,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
 
-## Série a un réalisateur(`serie has creator`)
+## Série a un réalisateur(`creator_serie`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -166,3 +201,20 @@
 | orgin_country | VARCHAR(64) | NOT NULL |Pays d'origine du réseau|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réseaux|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réseaux|
+
+## Chaine de télévision heberge une série(`network_serie`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|network_id|INT|NOT NULL|L'identifiant de notre network|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
+
+
+
+
+
+
+
+
+

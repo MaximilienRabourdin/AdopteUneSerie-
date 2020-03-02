@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -95,6 +97,16 @@ class Serie
      * @ORM\Column(type="integer", nullable=true)
      */
     private $vote_count;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", mappedBy="serie")
+     */
+    private $creators;
+
+    public function __construct()
+    {
+        $this->creators = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -289,6 +301,34 @@ class Serie
     public function setVoteCount(?int $vote_count): self
     {
         $this->vote_count = $vote_count;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Creator[]
+     */
+    public function getCreators(): Collection
+    {
+        return $this->creators;
+    }
+
+    public function addCreator(Creator $creator): self
+    {
+        if (!$this->creators->contains($creator)) {
+            $this->creators[] = $creator;
+            $creator->addSerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreator(Creator $creator): self
+    {
+        if ($this->creators->contains($creator)) {
+            $this->creators->removeElement($creator);
+            $creator->removeSerie($this);
+        }
 
         return $this;
     }
