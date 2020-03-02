@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
  */
-class Country
+class OriginalCountry
 {
     /**
      * @ORM\Id()
@@ -35,6 +37,16 @@ class Country
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Serie", mappedBy="country")
+     */
+    private $serie;
+
+    public function __construct()
+    {
+        $this->serie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,6 +105,37 @@ class Country
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSerie(): Collection
+    {
+        return $this->serie;
+    }
+
+    public function addSerie(Serie $serie): self
+    {
+        if (!$this->serie->contains($serie)) {
+            $this->serie[] = $serie;
+            $serie->setOriginalCountry($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSerie(Serie $serie): self
+    {
+        if ($this->serie->contains($serie)) {
+            $this->serie->removeElement($serie);
+            // set the owning side to null (unless already changed)
+            if ($serie->getOriginalCountry() === $this) {
+                $serie->setOriginalCountry(null);
+            }
+        }
 
         return $this;
     }

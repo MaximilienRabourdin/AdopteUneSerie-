@@ -36,6 +36,12 @@ class Genre
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="genres")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $serie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +99,18 @@ class Genre
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
+
+        return $this;
+    }
+
+    public function getSerie(): ?Serie
+    {
+        return $this->serie;
+    }
+
+    public function setSerie(?Serie $serie): self
+    {
+        $this->serie = $serie;
 
         return $this;
     }

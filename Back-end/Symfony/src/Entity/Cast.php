@@ -42,6 +42,12 @@ class Cast
      */
     private $actor;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Serie", inversedBy="cast")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $serie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Cast
     public function setActor(?Actor $actor): self
     {
         $this->actor = $actor;
+
+        return $this;
+    }
+
+    public function getSerie(): ?Serie
+    {
+        return $this->serie;
+    }
+
+    public function setSerie(?Serie $serie): self
+    {
+        $this->serie = $serie;
 
         return $this;
     }

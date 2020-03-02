@@ -103,9 +103,56 @@ class Serie
      */
     private $creators;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Genre", mappedBy="serie")
+     */
+    private $genres;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProductionCompagny", inversedBy="serie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $productionCompagny;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Network", inversedBy="serie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $network;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\OriginalCountry", inversedBy="serie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $originalCountry;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="serie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie")
+     */
+    private $cast;
+
+     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="serie")
+     */
+    private $rating;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="serie")
+     */
+    private $seasons;
+
     public function __construct()
     {
         $this->creators = new ArrayCollection();
+        $this->genres = new ArrayCollection();
+        $this->cast = new ArrayCollection();
+        $this->seasons = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -328,6 +375,159 @@ class Serie
         if ($this->creators->contains($creator)) {
             $this->creators->removeElement($creator);
             $creator->removeSerie($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenres(): Collection
+    {
+        return $this->genres;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genres->contains($genre)) {
+            $this->genres[] = $genre;
+            $genre->setSerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        if ($this->genres->contains($genre)) {
+            $this->genres->removeElement($genre);
+            // set the owning side to null (unless already changed)
+            if ($genre->getSerie() === $this) {
+                $genre->setSerie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getProductionCompagny(): ?ProductionCompagny
+    {
+        return $this->productionCompagny;
+    }
+
+    public function setProductionCompagny(?ProductionCompagny $productionCompagny): self
+    {
+        $this->productionCompagny = $productionCompagny;
+
+        return $this;
+    }
+
+    public function getNetwork(): ?Network
+    {
+        return $this->network;
+    }
+
+    public function setNetwork(?Network $network): self
+    {
+        $this->network = $network;
+
+        return $this;
+    }
+
+    public function getOriginalCountry(): ?OriginalCountry
+    {
+        return $this->originalCountry;
+    }
+
+    public function setOriginalCountry(?OriginalCountry $original_country): self
+    {
+        $this->originalCountry = $original_country;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getRating(): ?Rating
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?Rating $rating): self
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cast[]
+     */
+    public function getCast(): Collection
+    {
+        return $this->cast;
+    }
+
+    public function addCast(Cast $cast): self
+    {
+        if (!$this->cast->contains($cast)) {
+            $this->cast[] = $cast;
+            $cast->setSerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCast(Cast $cast): self
+    {
+        if ($this->Cast->contains($cast)) {
+            $this->Cast->removeElement($cast);
+            // set the owning side to null (unless already changed)
+            if ($cast->getSerie() === $this) {
+                $cast->setSerie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Season[]
+     */
+    public function getSeasons(): Collection
+    {
+        return $this->seasons;
+    }
+
+    public function addSeason(Season $season): self
+    {
+        if (!$this->seasons->contains($season)) {
+            $this->seasons[] = $season;
+            $season->setSerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeason(Season $season): self
+    {
+        if ($this->seasons->contains($season)) {
+            $this->seasons->removeElement($season);
+            // set the owning side to null (unless already changed)
+            if ($season->getSerie() === $this) {
+                $season->setSerie(null);
+            }
         }
 
         return $this;

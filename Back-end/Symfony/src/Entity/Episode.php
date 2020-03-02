@@ -51,6 +51,12 @@ class Episode
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\season", inversedBy="episodes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $season;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -152,6 +158,18 @@ class Episode
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getSeason(): ?season
+    {
+        return $this->season;
+    }
+
+    public function setSeason(?season $season): self
+    {
+        $this->season = $season;
 
         return $this;
     }

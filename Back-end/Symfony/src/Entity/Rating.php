@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,22 @@ class Rating
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="rating")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Serie", mappedBy="rating")
+     */
+    private $serie;
+
+    public function __construct()
+    {
+        $this->serie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -127,6 +145,49 @@ class Rating
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSerie(): Collection
+    {
+        return $this->serie;
+    }
+
+    public function addSerie(Serie $serie): self
+    {
+        if (!$this->serie->contains($serie)) {
+            $this->serie[] = $serie;
+            $serie->setRating($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSerie(Serie $serie): self
+    {
+        if ($this->serie->contains($serie)) {
+            $this->serie->removeElement($serie);
+            // set the owning side to null (unless already changed)
+            if ($serie->getRating() === $this) {
+                $serie->setRating(null);
+            }
+        }
 
         return $this;
     }

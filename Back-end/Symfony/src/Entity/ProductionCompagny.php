@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,16 @@ class ProductionCompagny
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="productionCompagny")
+     */
+    private $serie;
+
+    public function __construct()
+    {
+        $this->serie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,37 @@ class ProductionCompagny
     {
         $this->updated_at = $updated_at;
         
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSerie(): Collection
+    {
+        return $this->serie;
+    }
+
+    public function addSerie(Serie $serie): self
+    {
+        if (!$this->serie->contains($serie)) {
+            $this->serie[] = $serie;
+            $serie->setProductionCompagny($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSerie(Serie $serie): self
+    {
+        if ($this->serie->contains($serie)) {
+            $this->serie->removeElement($serie);
+            // set the owning side to null (unless already changed)
+            if ($serie->getProductionCompagny() === $this) {
+                $serie->setProductionCompagny(null);
+            }
+        }
+
         return $this;
     }
 }

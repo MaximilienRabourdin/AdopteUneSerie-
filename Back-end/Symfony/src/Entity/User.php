@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +52,28 @@ class User
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="user")
+     */
+    private $serie;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="user")
+     */
+    private $rating;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $role;
+
+    public function __construct()
+    {
+        $this->serie = new ArrayCollection();
+        $this->rating = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -144,6 +168,80 @@ class User
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSerie(): Collection
+    {
+        return $this->serie;
+    }
+
+    public function addSerie(Serie $serie): self
+    {
+        if (!$this->serie->contains($serie)) {
+            $this->serie[] = $serie;
+            $serie->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSerie(Serie $serie): self
+    {
+        if ($this->serie->contains($serie)) {
+            $this->serie->removeElement($serie);
+            // set the owning side to null (unless already changed)
+            if ($serie->getUser() === $this) {
+                $serie->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rating[]
+     */
+    public function getRating(): Collection
+    {
+        return $this->rating;
+    }
+
+    public function addRating(Rating $rating): self
+    {
+        if (!$this->rating->contains($rating)) {
+            $this->rating[] = $rating;
+            $rating->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): self
+    {
+        if ($this->rating->contains($rating)) {
+            $this->rating->removeElement($rating);
+            // set the owning side to null (unless already changed)
+            if ($rating->getUser() === $this) {
+                $rating->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRole(): ?Role
+    {
+        return $this->role;
+    }
+
+    public function setRole(?Role $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
