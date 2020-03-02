@@ -1,25 +1,39 @@
-// == Import npm
+ //== Import npm
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon, Checkbox } from 'semantic-ui-react';
 
 // == Import
 
 import ButtonsStyled from './ButtonsStyled';
+import MediaQuery from 'react-responsive';
 
 // == Composant
 const Buttons = () => (
 
   <ButtonsStyled>
-    <div>
-      <Button circular color='facebook' icon='facebook' />
-      <Button circular color='twitter' icon='twitter' />
-      <Button circular color='linkedin' icon='linkedin' />
-      <Button circular color='google plus' icon='google plus' />
-    </div>
-  </ButtonsStyled>
+    
+
+    <Button circular color='facebook'>
+      <Icon name='facebook' /> 
+    </Button>
+
+    <Button circular color='twitter'>
+      <Icon name='twitter' /> 
+    </Button>
+    <MediaQuery minDeviceWidth={405}>
+    <Checkbox toggle />
+    </MediaQuery>
+
+
+
+
+   
+      
+   
+</ButtonsStyled>
   
   );
   
-// == Export
-export default Buttons;
+ // == Export
+export default Buttons; 
 
