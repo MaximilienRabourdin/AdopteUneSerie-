@@ -13,8 +13,5 @@ const Notices = () => (
 );
 
 
-
 // == Export
 export default Notices;
-
-

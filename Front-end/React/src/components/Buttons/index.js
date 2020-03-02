@@ -1,3 +1,4 @@
+/*
 // == Import npm
 import React from 'react';
 import { Button } from 'semantic-ui-react';
@@ -22,4 +23,5 @@ const Buttons = () => (
   
 // == Export
 export default Buttons;
+*/
 

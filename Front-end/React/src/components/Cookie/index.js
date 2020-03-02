@@ -13,6 +13,5 @@ const Cookie = () => (
 );
 
 
-
 // == Export
 export default Cookie;

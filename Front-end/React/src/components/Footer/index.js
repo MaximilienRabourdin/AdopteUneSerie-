@@ -12,7 +12,6 @@ import FooterStyled from './FooterStyled';
 
 // == Composant
 const Footer = () => (
-  
   <FooterStyled>
     <Buttons />
     <Contact />
