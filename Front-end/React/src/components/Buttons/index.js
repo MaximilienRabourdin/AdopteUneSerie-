@@ -1,7 +1,6 @@
-/*
 // == Import npm
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 // == Import
 
@@ -11,17 +10,12 @@ import ButtonsStyled from './ButtonsStyled';
 const Buttons = () => (
 
   <ButtonsStyled>
-    <div>
-      <Button circular color='facebook' icon='facebook' />
-      <Button circular color='twitter' icon='twitter' />
-      <Button circular color='linkedin' icon='linkedin' />
-      <Button circular color='google plus' icon='google plus' />
-    </div>
+    <Button color='facebook'>
+      <Icon name='facebook' /> Facebook
+    </Button>
   </ButtonsStyled>
-  
-  );
-  
+
+);
+
 // == Export
 export default Buttons;
-*/
-
