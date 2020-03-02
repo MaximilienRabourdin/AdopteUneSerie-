@@ -55,9 +55,12 @@ Carnet de bord personnel rempli chaque jour
 
 1. Ce que j'ai fait :
     - Connexion avec nos BDD local 
+    - Import des entités sur nos BDD local
+    - Creations des entité intermediaires (serie has creator, etc...)
+    - Premiere consommation de l'api, affichage d'une série sur une template twig
 
 2. Ce que je comptais faire : 
-    - 
+    - Envoyer une série venant de l'api vers nos BDD local
 
 3. Difficultés rencontrés et solutions
     Même probleme que précedement pour se connecter a la BDD, nous avons donc choisie d'utiliser nos BDD local respectives (Nicolas B, Nicolas H) pour ne pas perdre de temps avec un probleme où personne n'a su trouvé de réponse.
