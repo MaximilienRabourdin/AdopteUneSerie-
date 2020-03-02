@@ -138,7 +138,7 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des critiques|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des critiques|
 
-## Réalisateurs(`created_by`)
+## Réalisateurs(`creator`)
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
@@ -147,6 +147,14 @@
 | name | VARCHAR(64) | NOT NULL |Nom du/des réalisateurs|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
+
+## Série a un réalisateur(`serie has creator`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre relation|
+|creator_id|INT|NOT NULL|L'identifiant de notre créateur|
+|serie_id|INT|NOT NULL|L'identifiant de notre série|
 
 ## Chaine de télévision(`network`)
 
