@@ -2,15 +2,14 @@
 import React from 'react';
 
 // == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import Footer from 'src/components/Footer';
+import AppStyled from './AppStyled';
 
 // == Composant
 const App = () => (
-  <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-  </div>
+  <AppStyled>
+    <Footer />
+  </AppStyled>
 );
 
 // == Export
