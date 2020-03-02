@@ -9,12 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello ! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Program Files (x86)/XAMPP/htdocs/Project/projet-adopte-une-serie/Back-end/Symfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Program Files (x86)/XAMPP/htdocs/Project/projet-adopte-une-serie/Back-end/Symfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+        {{ name }} 
+<hr>
+        {{ plot }}
+        <hr>
+        {% for network in networks %}
+{{ network.origin_country }}
+<img src="https://image.tmdb.org/t/p/w500{{ network.logo_path }}">
+{% endfor %}
+    
 </div>
 {% endblock %}
