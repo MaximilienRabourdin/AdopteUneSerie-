@@ -16,7 +16,7 @@ Une page favoris pourrait être créée également.
 ## Définition du MVP
 
 - Pouvoir trouver une série se basant sur des critères de recherches spécifiques.
-- Pouvoir avoir accès à un compte utilisateur recensant les séries suivis.
+- Pouvoir avoir accès à un compte utilisateur recensant les séries mise en favoris.
 
 ## Décrire les fonctionnalités (spécifications fonctionnelles)
 
