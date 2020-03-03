@@ -137,7 +137,7 @@ class Serie
      */
     private $cast;
 
-     /**
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="serie")
      */
     private $rating;
@@ -220,12 +220,12 @@ class Serie
         return $this;
     }
 
-    public function getLastEpisodeToAir(): ?string
+    public function getLastEpisodeToAir(): ?array
     {
         return $this->last_episode_to_air;
     }
 
-    public function setLastEpisodeToAir(string $last_episode_to_air): self
+    public function setLastEpisodeToAir(array $last_episode_to_air): self
     {
         $this->last_episode_to_air = $last_episode_to_air;
 
@@ -366,6 +366,13 @@ class Serie
             $this->creators[] = $creator;
             $creator->addSerie($this);
         }
+
+        return $this;
+    }
+
+    public function setCreator(?Creator $creator): self
+    {
+        $this->creator = $creator;
 
         return $this;
     }

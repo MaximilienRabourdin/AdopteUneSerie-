@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Creator;
+use App\Entity\Network;
+use App\Entity\Serie;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,25 +21,54 @@ class MainController extends AbstractController
     {
         $client = HttpClient::create();
 
-        // Paramètres de la recherche
+        // API search parameters
         $tv_id = 1399;
         $apiKey = "273116a48e6155286bb1ce0b34262df3";
         $language = "fr-FR";
         $url = "https://api.themoviedb.org/3/tv/$tv_id?api_key=$apiKey&language=$language";
-      
+
         $response = $client->request("GET", $url);
 
-        // Liste des éléments retournés par l'API
+        // Element's list sent by the API
         $listElement = $response->toArray();
-        $name = $listElement["name"];
-        $plot = $listElement["overview"];
-        $networks = $listElement["networks"];
+
+        $newSerie = new Serie();
+        $newSerie->setName($listElement["name"]);
+        $newSerie->setTmdbId($listElement["id"]);
+        $newSerie->setEpisodeRunTime(implode($listElement["episode_run_time"]));
+        $newSerie->setFirstAirDate($listElement["first_air_date"]);
+        $newSerie->setLastAirDate($listElement["last_air_date"]);
+        $newSerie->setLastEpisodeToAir($listElement["last_episode_to_air"]);
+        $newSerie->setInProduction($listElement["in_production"]);
+        $newSerie->setNumberOfEpisodes($listElement["number_of_episodes"]);
+        $newSerie->setNumberOfSeasons($listElement["number_of_seasons"]);
+        $newSerie->setOriginalLanguage($listElement["original_language"]);
+        $newSerie->setOverview($listElement["overview"]);
+        $newSerie->setPosterPath($listElement["poster_path"]);
+        $newSerie->setStatus($listElement["status"]);
+        $newSerie->setVoteAverage($listElement["vote_average"]);
+        $newSerie->setVoteCount($listElement["vote_count"]);
+        foreach ($listElement["created_by"] as $creator) {
+            $newCreator = new Creator();
+            $newCreator->setTmdb_id($creator["id"]);
+            $newCreator->setName($creator["name"]);
+            $newSerie->setCreator($newCreator);
+            dump($newCreator);
+        }
+        foreach ($listElement["networks"] as $network) {
+            $newNetwork = new Network();
+            $newNetwork->setName($network["name"]);
+            $newNetwork->setTmdbId($network["id"]);
+            $newNetwork->setOriginCountry($network["origin_country"]);
+            $newSerie->setNetwork($newNetwork);
+            dump($newNetwork);
+        }
+
+        dump($newSerie);
         dump($listElement);
 
         return $this->render('home/home.html.twig', [
-            'plot' => $plot,
-            'networks' => $networks,
-            'name' => $name
+            'serie' => $newSerie
         ]);
     }
 }
