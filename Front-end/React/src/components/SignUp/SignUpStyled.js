@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  text-align: center;
+  position: absolute;
+  bottom: 5px; 
+  right: 80px;
   
 `;

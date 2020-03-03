@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  margin: 1em;
-  
+position: absolute;
+top: 15px; 
+display: block;
+align-content: space-between;
+align-items: center;  
+.searchBar {
+  margin: 2px;
+  height: 33px;
+}
+
 `;

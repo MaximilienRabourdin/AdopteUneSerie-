@@ -30,13 +30,14 @@ const SearchBar = () => (
   <SearchBarStyled>
     <Input
       className="searchBar"
+      size="large"
       icon={{ name: 'search', circular: true, link: true }}
-      placeholder="Entrez le nom d'une série"
+      placeholder="Recherchez une série"
     />
     <Dropdown
-      size="small"
+      style={{ minWidth: '200px', minheight: '150px' }}
       className="dropdown"
-      placeholder="Genre"
+      placeholder="Découvrez des séries"
       multiple
       search
       selection

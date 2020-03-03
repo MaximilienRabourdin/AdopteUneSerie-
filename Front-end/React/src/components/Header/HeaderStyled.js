@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
 export default styled.div`
+#topMobileHeader {
   position: relative;
-  background-color: darkgrey;
+  background-color: #343a40;
   padding: 2em;
-  .toggle{ 
+  height: 100px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow:  0px 15px 10px -10px gray;
+}
+  #bottomMobileHeader {
+    background-color: #343a40;
+    height: 50px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px -15px 10px -10px gray;
     position: absolute;
-    right: 1em;
-  }
-  #topHeader{ 
-    display: block;
-    align-content: space-between;
-    align-items: center;
-    
-  }
-  .logoTop{ 
-    text-align: center;
-    position: absolute;
-    top: 3em;
-    margin-bottom: 1em;
+    bottom: 0px;
+    width: 100%;
   }
 `;

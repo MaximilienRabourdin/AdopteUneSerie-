@@ -16,10 +16,14 @@ import Toggle from './Toggle';
 const Header = () => (
   <HeaderStyled>
     <MediaQuery maxDeviceWidth={425}>
-      <Toggle className="toggle" />
-      <div id="topHeader">
+      <div id="topMobileHeader">
         <Home href="#" className="logoTop" />
+        <Toggle className="toggle" />
         <SearchBar />
+      </div>
+      <div id="bottomMobileHeader">
+        <SignUp />
+        <SignIn />
       </div>
     </MediaQuery>
 

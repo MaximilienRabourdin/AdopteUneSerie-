@@ -8,7 +8,7 @@ import SignInStyled from './SignInStyled';
 // == Composant
 const SignIn = () => (
   <SignInStyled>
-    <button type="button" className="btn btn-outline-success btn-sm"> Connexion </button>
+    <button type="button" className="btn btn-outline-info btn-sm"> Connexion </button>
   </SignInStyled>
 );
 

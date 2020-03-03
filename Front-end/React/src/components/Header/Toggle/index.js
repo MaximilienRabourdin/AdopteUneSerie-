@@ -9,7 +9,10 @@ import ToggleStyled from './ToggleStyled';
 // == Composant
 const Toggle = () => (
   <ToggleStyled>
-    <Checkbox toggle />
+    <Checkbox
+      style={{ minWidth: '40px', minheight: '20px' }}
+      toggle
+    />
   </ToggleStyled>
 );
 
