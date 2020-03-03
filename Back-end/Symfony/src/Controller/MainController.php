@@ -25,7 +25,7 @@ class MainController extends AbstractController
         $client = HttpClient::create();
 
         // API search parameters
-        $tv_id = 1399;
+        $tv_id = 70613;
         $apiKey = "273116a48e6155286bb1ce0b34262df3";
         $language = "fr-FR";
         $url = "https://api.themoviedb.org/3/tv/$tv_id?api_key=$apiKey&language=$language";
@@ -73,6 +73,8 @@ class MainController extends AbstractController
         foreach ($listElement["origin_country"] as $originalCountry) {
             $newCountry = new OriginalCountry();
             $newCountry->setName($originalCountry);
+            $newCountry->getSeries()->add($newSerie);
+            dump($newCountry->getSeries());
             $newSerie->getOriginCountry()->add($newCountry);
         }
         foreach ($listElement["production_companies"] as $production) {
@@ -85,7 +87,7 @@ class MainController extends AbstractController
         }
 
         dump($newSerie);
-        dump($listElement);
+        
 
         return $this->render('home/home.html.twig', [
             'serie' => $newSerie
