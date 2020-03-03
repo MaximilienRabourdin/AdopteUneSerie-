@@ -68,14 +68,15 @@ Carnet de bord personnel rempli chaque jour
 ## 3 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Rien (Présentation démo Sprint 0)
 
 2. Ce que je comptais faire : 
-    - 
+    - Via l'API faire une requete de recherche grace aux genre pour pouvoir afficher une liste de série correspondant aux genres souhaitait
+    - Envoyer une donner de l'api sur nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
-
+    J'ai eu des soucis avec mon repo, plus precisement j'ai perdu l'acces au repo git sur VSCode donc j'ai du supprimer le repo et le cloner mais il manquait les dossier du git ignore donc je les ai copié via le liveshare de Nicolas H mais j'avais des erreurs sur le site donc j'ai fais un composer update mais la j'ai eu une erreur me disant qu'il y avait pas assez de RAM alloué, j'ai donc modifié le fichier php.ini et modifier la ram attribuer a -1, puis le site m'affichait une page blanche j'ai donc décidé de supprimer mon repo, j'ai demandé a Nicolas H de supprimer son git ignore puis de push son repo pour que je puisse le cloner avec tout les fichiers puis de remettre le git ignore et ca a marcher.
+    
 ## 4 mars 2020
 
 1. Ce que j'ai fait :
