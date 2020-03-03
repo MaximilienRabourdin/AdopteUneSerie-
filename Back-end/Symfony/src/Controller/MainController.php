@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Creator;
+use App\Entity\Genre;
 use App\Entity\Network;
+use App\Entity\OriginalCountry;
+use App\Entity\ProductionCompagny;
 use App\Entity\Serie;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,8 +36,8 @@ class MainController extends AbstractController
         $listElement = $response->toArray();
 
         $newSerie = new Serie();
-        $newSerie->setName($listElement["name"]);
         $newSerie->setTmdbId($listElement["id"]);
+        $newSerie->setName($listElement["name"]);
         $newSerie->setEpisodeRunTime(implode($listElement["episode_run_time"]));
         $newSerie->setFirstAirDate($listElement["first_air_date"]);
         $newSerie->setLastAirDate($listElement["last_air_date"]);
@@ -52,16 +55,33 @@ class MainController extends AbstractController
             $newCreator = new Creator();
             $newCreator->setTmdb_id($creator["id"]);
             $newCreator->setName($creator["name"]);
-            $newSerie->setCreator($newCreator);
-            dump($newCreator);
+            $newSerie->getCreators()->add($newCreator);
         }
         foreach ($listElement["networks"] as $network) {
             $newNetwork = new Network();
-            $newNetwork->setName($network["name"]);
             $newNetwork->setTmdbId($network["id"]);
+            $newNetwork->setName($network["name"]);
             $newNetwork->setOriginCountry($network["origin_country"]);
-            $newSerie->setNetwork($newNetwork);
-            dump($newNetwork);
+            $newSerie->getNetworks()->add($newNetwork);
+        }
+        foreach ($listElement["genres"] as $genre) {
+            $newGenre = new Genre();
+            $newGenre->setTmdb_id($genre["id"]);
+            $newGenre->setLabel($genre["name"]);
+            $newSerie->getGenres()->add($newGenre);
+        }
+        foreach ($listElement["origin_country"] as $originalCountry) {
+            $newCountry = new OriginalCountry();
+            $newCountry->setName($originalCountry);
+            $newSerie->getOriginCountry()->add($newCountry);
+        }
+        foreach ($listElement["production_companies"] as $production) {
+            $newProd = new ProductionCompagny();
+            $newProd->setTmdbId($production["id"]);
+            $newProd->setName($production["name"]);
+            $newProd->setOriginCountry($production["origin_country"]);
+            $newProd->getSeries()->add($newSerie);
+            $newSerie->getProductionCompagnies()->add($newProd);
         }
 
         dump($newSerie);

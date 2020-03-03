@@ -69,10 +69,16 @@ class User
      */
     private $role;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="users")
+     */
+    private $series;
+
     public function __construct()
     {
         $this->serie = new ArrayCollection();
         $this->rating = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -242,6 +248,34 @@ class User
     public function setRole(?Role $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
+
+    public function addSeries(Serie $series): self
+    {
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
+            $series->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeries(Serie $series): self
+    {
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
+            $series->removeUser($this);
+        }
 
         return $this;
     }

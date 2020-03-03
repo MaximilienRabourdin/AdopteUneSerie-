@@ -18,11 +18,6 @@ class OriginalCountry
      */
     private $id;
 
-        /**
-     * @ORM\Column(type="integer")
-     */
-    private $tmdb_id;
-
     /**
      * @ORM\Column(type="string", length=64)
      */
@@ -39,13 +34,13 @@ class OriginalCountry
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Serie", mappedBy="country")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="origin_country")
      */
-    private $serie;
+    private $series;
 
     public function __construct()
     {
-        $this->serie = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -91,7 +86,7 @@ class OriginalCountry
 
     /**
      * Get the value of tmdb_id
-     */ 
+     */
     public function getTmdb_id()
     {
         return $this->tmdb_id;
@@ -101,7 +96,7 @@ class OriginalCountry
      * Set the value of tmdb_id
      *
      * @return  self
-     */ 
+     */
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
@@ -112,29 +107,26 @@ class OriginalCountry
     /**
      * @return Collection|Serie[]
      */
-    public function getSerie(): Collection
+    public function getSeries(): Collection
     {
-        return $this->serie;
+        return $this->series;
     }
 
-    public function addSerie(Serie $serie): self
+    public function addSeries(Serie $series): self
     {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
-            $serie->setOriginalCountry($this);
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
+            $series->addOriginCountry($this);
         }
 
         return $this;
     }
 
-    public function removeSerie(Serie $serie): self
+    public function removeSeries(Serie $series): self
     {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
-            // set the owning side to null (unless already changed)
-            if ($serie->getOriginalCountry() === $this) {
-                $serie->setOriginalCountry(null);
-            }
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
+            $series->removeOriginCountry($this);
         }
 
         return $this;

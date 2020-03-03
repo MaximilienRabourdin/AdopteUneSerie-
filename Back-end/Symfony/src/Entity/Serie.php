@@ -109,43 +109,39 @@ class Serie
     private $genres;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="serie")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $productionCompagny;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Network", inversedBy="serie")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $network;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\OriginalCountry", inversedBy="serie")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $originalCountry;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="serie")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie")
      */
     private $cast;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="serie")
-     */
-    private $rating;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="serie")
      */
     private $seasons;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="series")
+     */
+    private $productionCompagnies;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="series")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Network", inversedBy="series")
+     */
+    private $networks;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="serie", orphanRemoval=true)
+     */
+    private $ratings;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\OriginalCountry", inversedBy="series")
+     */
+    private $origin_country;
 
     public function __construct()
     {
@@ -153,6 +149,11 @@ class Serie
         $this->genres = new ArrayCollection();
         $this->cast = new ArrayCollection();
         $this->seasons = new ArrayCollection();
+        $this->productionCompagnies = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->networks = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
+        $this->origin_country = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -418,66 +419,6 @@ class Serie
         return $this;
     }
 
-    public function getProductionCompagny(): ?ProductionCompagny
-    {
-        return $this->productionCompagny;
-    }
-
-    public function setProductionCompagny(?ProductionCompagny $productionCompagny): self
-    {
-        $this->productionCompagny = $productionCompagny;
-
-        return $this;
-    }
-
-    public function getNetwork(): ?Network
-    {
-        return $this->network;
-    }
-
-    public function setNetwork(?Network $network): self
-    {
-        $this->network = $network;
-
-        return $this;
-    }
-
-    public function getOriginalCountry(): ?OriginalCountry
-    {
-        return $this->originalCountry;
-    }
-
-    public function setOriginalCountry(?OriginalCountry $original_country): self
-    {
-        $this->originalCountry = $original_country;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    public function getRating(): ?Rating
-    {
-        return $this->rating;
-    }
-
-    public function setRating(?Rating $rating): self
-    {
-        $this->rating = $rating;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Cast[]
      */
@@ -535,6 +476,141 @@ class Serie
             if ($season->getSerie() === $this) {
                 $season->setSerie(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProductionCompagny[]
+     */
+    public function getProductionCompagnies(): Collection
+    {
+        return $this->productionCompagnies;
+    }
+
+    public function addProductionCompagny(ProductionCompagny $productionCompagny): self
+    {
+        if (!$this->productionCompagnies->contains($productionCompagny)) {
+            $this->productionCompagnies[] = $productionCompagny;
+        }
+
+        return $this;
+    }
+
+    public function removeProductionCompagny(ProductionCompagny $productionCompagny): self
+    {
+        if ($this->productionCompagnies->contains($productionCompagny)) {
+            $this->productionCompagnies->removeElement($productionCompagny);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Network[]
+     */
+    public function getNetworks(): Collection
+    {
+        return $this->networks;
+    }
+
+    public function addNetwork(Network $network): self
+    {
+        if (!$this->networks->contains($network)) {
+            $this->networks[] = $network;
+        }
+
+        return $this;
+    }
+
+    public function removeNetwork(Network $network): self
+    {
+        if ($this->networks->contains($network)) {
+            $this->networks->removeElement($network);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rating[]
+     */
+    public function getRatings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function addRating(Rating $rating): self
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings[] = $rating;
+            $rating->setSerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): self
+    {
+        if ($this->ratings->contains($rating)) {
+            $this->ratings->removeElement($rating);
+            // set the owning side to null (unless already changed)
+            if ($rating->getSerie() === $this) {
+                $rating->setSerie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OriginalCountry[]
+     */
+    public function getOriginCountry(): Collection
+    {
+        return $this->origin_country;
+    }
+
+    public function addOriginCountry(OriginalCountry $originCountry): self
+    {
+        if (!$this->origin_country->contains($originCountry)) {
+            $this->origin_country[] = $originCountry;
+        }
+
+        return $this;
+    }
+
+    public function removeOriginCountry(OriginalCountry $originCountry): self
+    {
+        if ($this->origin_country->contains($originCountry)) {
+            $this->origin_country->removeElement($originCountry);
         }
 
         return $this;

@@ -48,9 +48,15 @@ class Network
      */
     private $serie;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="Networks")
+     */
+    private $series;
+
     public function __construct()
     {
         $this->serie = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -144,6 +150,34 @@ class Network
             if ($serie->getNetwork() === $this) {
                 $serie->setNetwork(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
+
+    public function addSeries(Serie $series): self
+    {
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
+            $series->addNetwork($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeries(Serie $series): self
+    {
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
+            $series->removeNetwork($this);
         }
 
         return $this;

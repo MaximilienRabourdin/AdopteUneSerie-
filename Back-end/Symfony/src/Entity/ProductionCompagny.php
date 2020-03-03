@@ -44,13 +44,13 @@ class ProductionCompagny
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="productionCompagny")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="productionCompagnies")
      */
-    private $serie;
+    private $series;
 
     public function __construct()
     {
-        $this->serie = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,40 +114,36 @@ class ProductionCompagny
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
-        
+
         return $this;
     }
+
 
     /**
      * @return Collection|Serie[]
      */
-    public function getSerie(): Collection
+    public function getSeries(): Collection
     {
-        return $this->serie;
+        return $this->series;
     }
 
-    public function addSerie(Serie $serie): self
+    public function addSeries(Serie $series): self
     {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
-            $serie->setProductionCompagny($this);
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
+            $series->addProductionCompagny($this);
         }
 
         return $this;
     }
 
-    public function removeSerie(Serie $serie): self
+    public function removeSeries(Serie $series): self
     {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
-            // set the owning side to null (unless already changed)
-            if ($serie->getProductionCompagny() === $this) {
-                $serie->setProductionCompagny(null);
-            }
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
+            $series->removeProductionCompagny($this);
         }
 
         return $this;
     }
 }
-
-

@@ -18,7 +18,7 @@ class Rating
      */
     private $id;
 
-        /**
+    /**
      * @ORM\Column(type="integer")
      */
     private $tmdb_id;
@@ -55,14 +55,11 @@ class Rating
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Serie", mappedBy="rating")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Serie", inversedBy="ratings")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $serie;
 
-    public function __construct()
-    {
-        $this->serie = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -131,7 +128,7 @@ class Rating
 
     /**
      * Get the value of tmdb_id
-     */ 
+     */
     public function getTmdb_id()
     {
         return $this->tmdb_id;
@@ -141,7 +138,7 @@ class Rating
      * Set the value of tmdb_id
      *
      * @return  self
-     */ 
+     */
     public function setTmdb_id($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
@@ -161,33 +158,15 @@ class Rating
         return $this;
     }
 
-    /**
-     * @return Collection|Serie[]
-     */
-    public function getSerie(): Collection
+
+    public function getSerie(): ?Serie
     {
         return $this->serie;
     }
 
-    public function addSerie(Serie $serie): self
+    public function setSerie(?Serie $serie): self
     {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
-            $serie->setRating($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSerie(Serie $serie): self
-    {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
-            // set the owning side to null (unless already changed)
-            if ($serie->getRating() === $this) {
-                $serie->setRating(null);
-            }
-        }
+        $this->serie = $serie;
 
         return $this;
     }
