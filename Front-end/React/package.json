@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "axios": "*",
+    "bootswatch": "^4.4.1",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",

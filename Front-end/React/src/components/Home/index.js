@@ -7,7 +7,7 @@ import HomeStyled from './HomeStyled';
 // == Composant
 const Home = () => (
   <HomeStyled>
-    coucou home
+    LOGO
   </HomeStyled>
 );
 

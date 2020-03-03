@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import 'bootswatch/dist/lux/bootstrap.min.css';
 
 // == Import
 import SignUpStyled from './SignUpStyled';
@@ -7,7 +8,7 @@ import SignUpStyled from './SignUpStyled';
 // == Composant
 const SignUp = () => (
   <SignUpStyled>
-    coucou SignUp
+    <button type="button" className="btn btn-outline-success btn-sm"> Inscription </button>
   </SignUpStyled>
 );
 

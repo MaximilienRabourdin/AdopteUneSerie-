@@ -2,15 +2,13 @@
 // == Import npm
 import React from 'react';
 import { Checkbox } from 'semantic-ui-react';
+import MediaQuery from 'react-responsive';
 
 // == Import
-import ToggleStyled from './ToggleStyled';
 
 // == Composant
 const Toggle = () => (
-  <ToggleStyled>
     <Checkbox toggle />
-  </ToggleStyled>
 );
 
 // == Export
