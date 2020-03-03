@@ -130,3 +130,4 @@ a2b1bb,::1,GET,http://localhost:8000/favicon.ico,1583240064,,404
 35b311,::1,GET,http://localhost:8000/api,1583240069,,301
 3e9e38,::1,GET,http://localhost:8000/api/,1583240070,,200
 ead3cd,::1,GET,http://localhost:8000/api/,1583240170,,200
+eef53f,::1,GET,http://localhost:8000/api/,1583240388,,200
