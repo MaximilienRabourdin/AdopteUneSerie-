@@ -65,3 +65,28 @@ Début de réfléxion autour du thème visuel à adopter sur le site.
     - 
 - Team Back :
     - MCD terminé, création des entités, des relationships entre entités, connexion à l'API "The Movie DB"
+
+## Mardi 3 mars 2020 - Sprint 0
+
+Nous avons passé en revue les documents du sprint 0 et nous avons présenté le projet et son avancement en cockpit
+
+## Informations individuelles
+
+- Team Front : 
+
+- Team Back :
+
+
+## Mercredi 4 mars 2020 - Sprint 1
+
+Nous avons continué le développement de notre application. La décision a été prise de se concentrer sur la page d'accueil afin d'avoir quelque chose de concret à présenter Mardi 10 mars pour le point de situation du sprint 1. Le déploiement a été fixé à vendredi. 
+
+## Informations individuelles
+
+- Team Front : 
+    - finition du header mobile et avancement du header desktop (95%) + correction de bug 
+- Team Back :
+    - Routes de l'API terminées, début de l'envoie de données en JSON, reflexion faite autour d'API Platform, qui nous permettrait de gérer notre API de la meilleure manière.
+
+
+

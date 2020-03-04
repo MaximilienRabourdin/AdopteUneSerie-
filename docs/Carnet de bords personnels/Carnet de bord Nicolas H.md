@@ -64,3 +64,30 @@ Carnet de bord personnel rempli chaque jour
 
 ### Difficultés rencontrées et solutions/contournements apportés : 
 
+
+## Mardi 3 mars 2020 - Sprint 0 
+
+### Ce que j'ai fait :
+
+- reprise des relations entre entitées
+- Présentation de l'avancement sprint 0 en cockpit
+
+### Ce que je comptais faire : 
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+## Mercredi 4 mars 2020 - Sprint 1
+
+### Ce que j'ai fait :
+
+- J'ai continué la récupération des données de l'API ainsi que l'ajout dans mes entités
+- Finalisation des routes de l'API
+- Début d'envoie en JSON pour permettre la récupération des données par le front
+
+### Ce que je comptais faire : 
+
+- Finir l'envoie en JSON
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+Ràs
