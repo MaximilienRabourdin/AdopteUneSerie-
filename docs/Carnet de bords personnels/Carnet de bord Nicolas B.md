@@ -42,45 +42,52 @@ Carnet de bord personnel rempli chaque jour
 
 1. Ce que j'ai fait :
     - Mettre a jour les wireframes Accueil et FAQ selon les remarques de l'équipe O'clock
+    - Créer les entités de l'api et de la BDD ainsi que le MainController
+    - Modifications dans divers fichiers (dictionnaire de donnée, MCD)
 
 2. Ce que je comptais faire : 
-    - Rien
+    - Faire la connexion avec le BDD
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Problèmes pour se connecter a la base de donnée 
 
 ## 2 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Connexion avec nos BDD local 
+    - Import des entités sur nos BDD local
+    - Creations des entité intermediaires (serie has creator, etc...)
+    - Premiere consommation de l'api, affichage d'une série sur une template twig
 
 2. Ce que je comptais faire : 
-    - 
+    - Envoyer une série venant de l'api vers nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Même probleme que précedement pour se connecter a la BDD, nous avons donc choisie d'utiliser nos BDD local respectives (Nicolas B, Nicolas H) pour ne pas perdre de temps avec un probleme où personne n'a su trouvé de réponse.
 
 ## 3 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Rien (Présentation démo Sprint 0)
 
 2. Ce que je comptais faire : 
-    - 
+    - Via l'API faire une requete de recherche grace aux genre pour pouvoir afficher une liste de série correspondant aux genres souhaitait
+    - Envoyer une donner de l'api sur nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
-
+    J'ai eu des soucis avec mon repo, plus precisement j'ai perdu l'acces au repo git sur VSCode donc j'ai du supprimer le repo et le cloner mais il manquait les dossier du git ignore donc je les ai copié via le liveshare de Nicolas H mais j'avais des erreurs sur le site donc j'ai fais un composer update mais la j'ai eu une erreur me disant qu'il y avait pas assez de RAM alloué, j'ai donc modifié le fichier php.ini et modifier la ram attribuer a -1, puis le site m'affichait une page blanche j'ai donc décidé de supprimer mon repo, j'ai demandé a Nicolas H de supprimer son git ignore puis de push son repo pour que je puisse le cloner avec tout les fichiers puis de remettre le git ignore et ca a marcher.
+    
 ## 4 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Finir les routes abritant les differentes requetes nous permettant de faire des recherches par un nom ou par des critères, d'afficher une série en détails et enfin d'afficher la page d'acceuil avec les tendances, mieux notés, sortie recentes
+    - Creation des templates correspondant au routes (requetes api)
 
 2. Ce que je comptais faire : 
-    - 
+    - Envoyer des donne sur nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Petit probleme concernant la route de la recherche par criteres, on ne sait pas comment faire pour que les valeurs mise dans la route (au moment de la rechercher nous auront des critère modifialble) ne soit pas requise
 
 ## 5 mars 2020
 
