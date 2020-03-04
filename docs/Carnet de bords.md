@@ -84,7 +84,8 @@ Nous avons continué le développement de notre application. La décision a ét�
 ## Informations individuelles
 
 - Team Front : 
-    - finition du header mobile et avancement du header desktop (95%) + correction de bug 
+    - finition du header mobile et avancement du header desktop (95%) + correction de bug.
+    - tentative de finaliser le footer pour le mobile et le desktop car pas encore reussi, objectif trouver les erreurs et reussir a finaliser ça 
 - Team Back :
     - Routes de l'API terminées, début de l'envoie de données en JSON, reflexion faite autour d'API Platform, qui nous permettrait de gérer notre API de la meilleure manière.
 
