@@ -16,41 +16,34 @@ import Twitter from './Twitter';
 
 // == Composant
 const Footer = () => (
-  
-<FooterStyled>
 
-<MediaQuery maxDeviceWidth={426}>
-<div id="MobileFooter">
+  <FooterStyled>
+    <MediaQuery minDeviceWidth={426}>
 
-  <div id="social-media">
-    <Twitter href="#" className="tweet"/>
-    <Facebook href="#" className="fb"/>
-  </div>
-  
-    <Contact  href="#" className="contact"/>
-    <Cookie  href="#"className="cookie"/>
-    <FAQ  href="#"className="FAQ"/>
-    <Notices href="#"className="notices"/>
-    
-</div>
-</MediaQuery>
-
- <MediaQuery maxDeviceWidth={430}>
-<div id="DesktopFooter">
-
-    <Twitter href="#" className="tweet"/>
-    <Facebook href="#" className="fb"/>
-    <Contact  href="#" className="contact"/>
-    <Cookie  href="#"className="cookie"/>
-    <FAQ  href="#"className="FAQ"/>
-    <Notices href="#"className="notices"/>
-    <Toggle href="#"className="toggle" />
-    
-</div>
-</MediaQuery> 
+      <div id="DesktopFooter">
+        <Twitter href="#" className="tweet" />
+        <Facebook href="#" className="fb" />
+        <Contact href="#" className="contact" />
+        <Cookie href="#" className="cookie" />
+        <FAQ href="#" className="FAQ" />
+        <Notices href="#" className="notices" />
+        <Toggle href="#" className="toggle" />
+      </div>
+    </MediaQuery>
 
 
-</FooterStyled>
+    <MediaQuery maxDeviceWidth={425}>
+      <div id="MobileFooter">
+        <Twitter href="#" className="tweet" />
+        <Facebook href="#" className="fb" />
+        <Contact href="#" className="contact" />
+        <Cookie href="#" className="cookie" />
+        <FAQ href="#" className="FAQ" />
+        <Notices href="#" className="notices" />
+      </div>
+    </MediaQuery>
+
+  </FooterStyled>
 
 
 );

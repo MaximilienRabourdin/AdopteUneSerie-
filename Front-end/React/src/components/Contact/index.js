@@ -6,11 +6,12 @@ import ContactStyled from './ContactStyled';
 
 // == Composant
 const Contact = () => (
- <ContactStyled>
-   Contact 
- </ContactStyled>
-);
 
+  <ContactStyled>
+    Contact
+  </ContactStyled>
+
+);
 
 
 // == Export

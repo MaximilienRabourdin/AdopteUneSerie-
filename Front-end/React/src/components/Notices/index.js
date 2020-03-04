@@ -12,9 +12,5 @@ const Notices = () => (
   </NoticesStyled>
 );
 
-
-
 // == Export
 export default Notices;
-
-

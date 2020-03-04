@@ -1,26 +1,21 @@
 import React from 'react';
-import { Button, Icon, Checkbox } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 // == Import
 
-import TwitterStyled from './TwitterStyled.js';
-import MediaQuery from 'react-responsive';
+import TwitterStyled from './TwitterStyled';
+
 
 // == Composant
 
 const Twitter = () => (
-  
+
   <TwitterStyled>
 
-  <div id='twitter'>
 
-  <Button circular color='twitter'>
-    <Icon classame='twitter' /> 
-  </Button>
-  </div>
-  
+    <Icon disabled name="twitter" />
+
   </TwitterStyled>
 );
-
 // == Export
 export default Twitter;

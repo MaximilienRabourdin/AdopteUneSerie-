@@ -8,11 +8,9 @@ import FaqStyled from './FaqStyled';
 // == Composant
 const FAQ = () => (
   <FaqStyled>
-     FAQ 
+    FAQ
   </FaqStyled>
 );
 
 // == Export
 export default FAQ;
-
-
