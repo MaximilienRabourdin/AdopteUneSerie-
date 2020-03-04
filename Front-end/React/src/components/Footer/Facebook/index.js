@@ -7,11 +7,7 @@ import FacebookStyled from './FacebookStyled';
 // == Composant
 const Facebook = () => (
   <FacebookStyled>
-    <div id="facebook">
-      <Button circular color="facebook">
-        <Icon classname="facebook" />
-      </Button>
-    </div>
+    <Icon className="facebook" />
   </FacebookStyled>
 );
 

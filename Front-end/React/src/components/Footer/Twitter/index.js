@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Checkbox } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 // == Import
 
@@ -9,13 +9,7 @@ import TwitterStyled from './TwitterStyled';
 
 const Twitter = () => (
   <TwitterStyled>
-
-    <div id="twitter">
-      <Button circular color="twitter">
-        <Icon classame="twitter" />
-      </Button>
-    </div>
-
+    <Icon className="twitter" />
   </TwitterStyled>
 );
 

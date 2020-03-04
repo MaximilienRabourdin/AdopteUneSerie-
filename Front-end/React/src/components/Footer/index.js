@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import MediaQuery from 'react-responsive';
 
 // == Import
 
@@ -16,40 +15,20 @@ import Twitter from './Twitter';
 // == Composant
 const Footer = () => (
   <FooterStyled>
-
-    <MediaQuery maxDeviceWidth={425}>
-      <div id="MobileFooter">
-
-        <div id="social-media">
-          <Twitter href="#" className="tweet" />
-          <Facebook href="#" className="fb" />
-        </div>
-
-        <Contact href="#" className="contact" />
-        <Cookie href="#" className="cookie" />
-        <FAQ href="#" className="FAQ" />
-        <Notices href="#" className="notices" />
-
-      </div>
-    </MediaQuery>
-
-    <MediaQuery minDeviceWidth={426}>
-      <div id="DesktopFooter">
-
-        <Twitter href="#" className="tweet" />
-        <Facebook href="#" className="fb" />
-        <Contact href="#" className="contact" />
-        <Cookie href="#" className="cookie" />
-        <FAQ href="#" className="FAQ" />
-        <Notices href="#" className="notices" />
-        <Toggle href="#" className="toggle" />
-
-      </div>
-    </MediaQuery>
-
-
+    <div id="text">
+      <Notices href="#" className="notices" />
+      <FAQ href="#" className="FAQ" />
+      <Cookie href="#" className="cookie" />
+      <Contact href="#" className="contact" />
+    </div>
+    <div id="toggle">
+      <Toggle className="toggle" />
+    </div>
+    <div id="buttons">
+      <Twitter href="#" className="tweet" />
+      <Facebook href="#" className="fb" />
+    </div>
   </FooterStyled>
-
 
 );
 
