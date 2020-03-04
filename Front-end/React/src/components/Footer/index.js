@@ -35,7 +35,7 @@ const Footer = () => (
 </div>
 </MediaQuery>
 
-<MediaQuery maxDeviceWidth={430}>
+ <MediaQuery maxDeviceWidth={430}>
 <div id="DesktopFooter">
 
     <Twitter href="#" className="tweet"/>
@@ -47,7 +47,7 @@ const Footer = () => (
     <Toggle href="#"className="toggle" />
     
 </div>
-</MediaQuery>
+</MediaQuery> 
 
 
 </FooterStyled>
