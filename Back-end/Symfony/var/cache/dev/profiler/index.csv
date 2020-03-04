@@ -136,7 +136,12 @@ f92d63,::1,GET,http://localhost:8000/,1583240060,,404
 a2b1bb,::1,GET,http://localhost:8000/favicon.ico,1583240064,,404
 35b311,::1,GET,http://localhost:8000/api,1583240069,,301
 3e9e38,::1,GET,http://localhost:8000/api/,1583240070,,200
+<<<<<<< HEAD
+ead3cd,::1,GET,http://localhost:8000/api/,1583240170,,200
+eef53f,::1,GET,http://localhost:8000/api/,1583240388,,200
+=======
 >>>>>>> 388864fdb60aab734890d835a23fd2e4e0924cc9
+<<<<<<< HEAD
 202cd6,127.0.0.1,GET,https://127.0.0.1:8000/,1583308943,,404
 2dd1f7,127.0.0.1,GET,https://127.0.0.1:8000/favicon.ico,1583308943,0f8fb9,404
 0f8fb9,127.0.0.1,GET,https://127.0.0.1:8000/favicon.ico,1583308943,,404
@@ -604,3 +609,8 @@ e6e8e2,127.0.0.1,GET,https://127.0.0.1:8000/tv/show/1399,1583334505,,500
 5494fc,127.0.0.1,GET,https://localhost:8000/tv/show/1399,1583334598,,500
 05830d,127.0.0.1,GET,https://127.0.0.1:8000/tv/show/1399,1583334610,c1705f,500
 c1705f,127.0.0.1,GET,https://127.0.0.1:8000/tv/show/1399,1583334610,,500
+=======
+>>>>>>> 1dede4fb40d7e89d09376af86f4c3941d90f2f5e
+fc4d97,::1,GET,http://localhost:8000/,1583245839,,404
+13c9dd,::1,GET,http://localhost:8000/,1583245848,,404
+>>>>>>> fcaf0c3b37014022cc476edd5050db1ebea15aa8
