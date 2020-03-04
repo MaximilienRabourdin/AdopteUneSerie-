@@ -18,13 +18,13 @@ const Header = () => (
 
     <MediaQuery maxDeviceWidth={425}>
       <Toggle />
-      <div className="topHeaderMobile">
-        <Logo href="#" className="logoMobile" />
-        <SearchBar className="searchBarMobile" />
+      <div className="topMobile">
+        <Logo href="#" />
+        <SearchBar />
       </div>
-      <div className="bottomHeaderMobile">
-        <SignUp className="SignUpMobile" />
-        <SignIn className="SignInMobile" />
+      <div className="bottomMobile">
+        <SignUp />
+        <SignIn />
       </div>
     </MediaQuery>
 
@@ -36,7 +36,7 @@ const Header = () => (
         <SignIn />
       </div>
     </MediaQuery>
-    
+
   </HeaderStyled>
 );
 
