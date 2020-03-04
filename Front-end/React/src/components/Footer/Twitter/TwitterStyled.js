@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export default styled.div`
 
-color: white;
-
+top: 70%;
+right: 15px;
  
   
 

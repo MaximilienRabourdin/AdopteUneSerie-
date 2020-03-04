@@ -8,7 +8,7 @@ import FaqStyled from './FaqStyled';
 // == Composant
 const FAQ = () => (
   <FaqStyled>
-    <button type ="button" className="btn"> FAQ </button>
+     FAQ 
   </FaqStyled>
 );
 

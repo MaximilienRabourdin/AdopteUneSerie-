@@ -8,8 +8,9 @@ import styled from 'styled-components';
 export default styled.div`
 #MobileFooter {
   position: absolute;
-  bottom: 1em;
-  
+  justify-content : space-between;
+  bottom: 14em;
+  right: 50px;
   background-color: #343a40;
   padding: 2em;
   height: 20px;
