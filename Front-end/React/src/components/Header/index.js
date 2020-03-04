@@ -5,7 +5,7 @@ import 'bootswatch/dist/lux/bootstrap.min.css';
 import MediaQuery from 'react-responsive';
 
 // == Import
-import Home from 'src/components/Home';
+import Logo from 'src/components/Logo';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import HeaderStyled from './HeaderStyled';
@@ -16,26 +16,25 @@ import Toggle from './Toggle';
 const Header = () => (
   <HeaderStyled>
     <MediaQuery maxDeviceWidth={425}>
-      <div id="topMobileHeader">
-        <Home href="#" className="logoTop" />
-        <Toggle className="toggle" />
-        <SearchBar />
+      <Toggle />
+      <div className="topHeaderMobile">
+        <Logo href="#" className="logoMobile" />
+        <SearchBar className="searchBarMobile" />
       </div>
-      <div id="bottomMobileHeader">
-        <SignUp />
-        <SignIn />
+      <div className="bottomHeaderMobile">
+        <SignUp className="SignUpMobile" />
+        <SignIn className="SignInMobile" />
       </div>
     </MediaQuery>
 
     <MediaQuery minDeviceWidth={426}>
       <div id="header">
-        <Home href="#" />
+        <Logo href="#" />
         <SearchBar />
         <SignUp />
         <SignIn />
       </div>
     </MediaQuery>
-
   </HeaderStyled>
 );
 

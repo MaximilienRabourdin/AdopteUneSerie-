@@ -35,7 +35,7 @@ const SearchBar = () => (
       placeholder="Recherchez une série"
     />
     <Dropdown
-      style={{ minWidth: '200px', minheight: '150px' }}
+      style={{ minWidth: '202px', minheight: '150px' }}
       className="dropdown"
       placeholder="Découvrez des séries"
       multiple

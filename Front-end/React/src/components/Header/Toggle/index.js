@@ -10,7 +10,6 @@ import ToggleStyled from './ToggleStyled';
 const Toggle = () => (
   <ToggleStyled>
     <Checkbox
-      style={{ minWidth: '40px', minheight: '20px' }}
       toggle
     />
   </ToggleStyled>
