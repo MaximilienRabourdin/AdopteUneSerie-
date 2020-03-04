@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export default styled.div`
 text-align: center;
+margin: 2px;
 .searchBar {
   margin: 1px;
-  height: 33px;
 } 
 .dropdown {
   margin: 1px;

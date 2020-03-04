@@ -6,12 +6,12 @@ background-color: #343a40;
 height: 100px;
 border-bottom-left-radius: 15px;
 border-bottom-right-radius: 15px;
-box-shadow:  0px 15px 10px -10px #1A82AE;
-
+box-shadow:  10px 15px 10px -10px #1A82AE,
+            -10px 15px 10px -10px #1A82AE;
 .topHeaderMobile {
   position: relative;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-left : 15px;
 }
   .searchBarMobile {
@@ -22,7 +22,8 @@ box-shadow:  0px 15px 10px -10px #1A82AE;
     height: 50px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    box-shadow: 0px -15px 10px -10px #1A82AE;
+    box-shadow: 10px -15px 10px -10px #1A82AE,
+                -10px -15px 10px -10px #1A82AE;
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -36,6 +37,7 @@ box-shadow:  0px 15px 10px -10px #1A82AE;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
   }
 
 `;

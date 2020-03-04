@@ -4,5 +4,5 @@ export default styled.div`
   position: absolute;
   right: 3px;
   top: 1px; 
-  transform: scale(0.5);
+  transform: scale(0.75);
 `;

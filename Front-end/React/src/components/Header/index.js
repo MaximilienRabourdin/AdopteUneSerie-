@@ -15,6 +15,7 @@ import Toggle from './Toggle';
 // == Composant
 const Header = () => (
   <HeaderStyled>
+
     <MediaQuery maxDeviceWidth={425}>
       <Toggle />
       <div className="topHeaderMobile">
@@ -35,6 +36,7 @@ const Header = () => (
         <SignIn />
       </div>
     </MediaQuery>
+    
   </HeaderStyled>
 );
 
