@@ -80,13 +80,14 @@ Carnet de bord personnel rempli chaque jour
 ## 4 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Finir les routes abritant les differentes requetes nous permettant de faire des recherches par un nom ou par des critères, d'afficher une série en détails et enfin d'afficher la page d'acceuil avec les tendances, mieux notés, sortie recentes
+    - Creation des templates correspondant au routes (requetes api)
 
 2. Ce que je comptais faire : 
-    - 
+    - Envoyer des donne sur nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Petit probleme concernant la route de la recherche par criteres, on ne sait pas comment faire pour que les valeurs mise dans la route (au moment de la rechercher nous auront des critère modifialble) ne soit pas requise
 
 ## 5 mars 2020
 
