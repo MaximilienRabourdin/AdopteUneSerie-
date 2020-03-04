@@ -7,7 +7,7 @@ import ContactStyled from './ContactStyled';
 // == Composant
 const Contact = () => (
  <ContactStyled>
-   Contact
+   Contact 
  </ContactStyled>
 );
 

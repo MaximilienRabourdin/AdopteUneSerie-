@@ -1,22 +1,23 @@
 
-import styled from 'styled-components';
-
-import theme from 'src/assets/styles/theme';
-
 // Composant stylisé
 
-const FooterStyled = styled.footer`
-  justify-content: space-between;
-  color: #ccc;
-  padding: ${theme.gutter * 2}rem;
-  margin-top: ${theme.gutter}rem;
-  background-color: ${theme.darkColor};
+import styled from 'styled-components';
 
-.Contact {
-  justify-content: flex-end;
+
+// Export du composant
+export default styled.div`
+#MobileFooter {
+  position: absolute;
+  bottom: 1em;
+  
+  background-color: #343a40;
+  padding: 2em;
+  height: 20px;
+  
+  
 }
+
 
 `;
 
-// Export du composant
-export default FooterStyled;
+

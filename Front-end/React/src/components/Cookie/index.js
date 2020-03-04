@@ -8,7 +8,7 @@ import CookieStyled from './CookieStyled';
 // == Composant
 const Cookie = () => (
   <CookieStyled>
-    Cookie
+     Cookie
   </CookieStyled>
 );
 
