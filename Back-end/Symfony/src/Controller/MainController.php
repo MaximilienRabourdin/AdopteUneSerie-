@@ -141,14 +141,9 @@ class MainController extends AbstractController
 
         $json = $serializer->serialize($newSerie, 'json', ['groups' => 'serie:details']);
 
-<<<<<<< HEAD
         $response = new Response();
         $response->setContent($json);
         $response->headers->add(['Content-type' => 'application/json']);
-=======
-        dump($newSerie);
-        
->>>>>>> fcaf0c3b37014022cc476edd5050db1ebea15aa8
 
         return $response;
         /*return $this->render('details/details.html.twig', [
