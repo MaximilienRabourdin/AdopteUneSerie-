@@ -11,6 +11,5 @@ const Contact = () => (
   </ContactStyled>
 );
 
-
 // == Export
 export default Contact;

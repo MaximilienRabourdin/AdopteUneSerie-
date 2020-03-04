@@ -12,9 +12,5 @@ const FAQ = () => (
   </FaqStyled>
 );
 
-
-
 // == Export
 export default FAQ;
-
-

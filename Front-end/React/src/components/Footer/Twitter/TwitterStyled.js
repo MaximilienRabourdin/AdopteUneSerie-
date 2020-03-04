@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  position: absolute;
-  bottom: 16px; 
-  right: 255px; 
+
+top: 70%;
+right: 15px;
+ 
   
-  
+
+
+
 `;

@@ -8,7 +8,7 @@ import NoticesStyled from './NoticesStyled';
 // == Composant
 const Notices = () => (
   <NoticesStyled>
-    Notices
+    Mentions légales
   </NoticesStyled>
 );
 
