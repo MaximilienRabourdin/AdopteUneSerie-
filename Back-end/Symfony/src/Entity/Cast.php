@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,17 +38,23 @@ class Cast
      */
     private $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Actor", inversedBy="cast")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $actor;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Serie", inversedBy="cast")
      * @ORM\JoinColumn(nullable=false)
      */
     private $serie;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="casts")
+     */
+    private $actors;
+
+    public function __construct()
+    {
+        $this->actors = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -101,17 +109,6 @@ class Cast
         return $this;
     }
 
-    public function getActor(): ?Actor
-    {
-        return $this->actor;
-    }
-
-    public function setActor(?Actor $actor): self
-    {
-        $this->actor = $actor;
-
-        return $this;
-    }
 
     public function getSerie(): ?Serie
     {
@@ -124,4 +121,33 @@ class Cast
 
         return $this;
     }
+
+    /**
+     * @return Collection|Actor[]
+     */
+    public function getActors(): Collection
+    {
+        return $this->actors;
+    }
+
+    public function addActor(Actor $actor): self
+    {
+        if (!$this->actors->contains($actor)) {
+            $this->actors[] = $actor;
+            $actor->addCast($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): self
+    {
+        if ($this->actors->contains($actor)) {
+            $this->actors->removeElement($actor);
+            $actor->removeCast($this);
+        }
+
+        return $this;
+    }
+
 }

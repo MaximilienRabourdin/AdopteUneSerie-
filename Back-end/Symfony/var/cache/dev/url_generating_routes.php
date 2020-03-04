@@ -15,6 +15,10 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
-    'home' => [[], ['_controller' => 'App\\Controller\\MainController::home'], [], [['text', '/api/']], [], []],
+    'homepage' => [[], ['_controller' => 'App\\Controller\\MainController::homepage'], [], [['text', '/tv/']], [], []],
+    'api_serie_id' => [['serie_id'], ['_controller' => 'App\\Controller\\MainController::serieById'], [], [['variable', '/', '[^/]++', 'serie_id', true], ['text', '/tv/show']], [], []],
+    'api_serie_name' => [['serie_name'], ['_controller' => 'App\\Controller\\MainController::serieByName'], [], [['variable', '/', '[^/]++', 'serie_name', true], ['text', '/tv/search']], [], []],
+    'api_serie_discover' => [[], ['_controller' => 'App\\Controller\\MainController::serieDiscover'], [], [['text', '/tv/discover']], [], []],
+    'api_serie_standard' => [['vote_average', 'with_runtime', 'with_genres', 'with_networks'], ['_controller' => 'App\\Controller\\MainController::serieByStandard'], [], [['variable', '/', '[^/]++', 'with_networks', true], ['variable', '/', '[^/]++', 'with_genres', true], ['variable', '/', '[^/]++', 'with_runtime', true], ['variable', '/', '[^/]++', 'vote_average', true], ['text', '/tv/discover/standard']], [], []],
     'easyadmin' => [[], ['_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\EasyAdminController::indexAction'], [], [['text', '/admin/']], [], []],
 ];

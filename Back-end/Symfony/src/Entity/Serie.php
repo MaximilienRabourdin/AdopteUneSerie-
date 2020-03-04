@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SerieRepository")
@@ -15,91 +16,109 @@ class Serie
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $tmdb_id;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $episode_run_time;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $first_air_date;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"serie:details"})
      */
     private $last_air_date;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"serie:details"})
      */
     private $last_episode_to_air;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"serie:details"})
      */
     private $next_episode_to_air;
 
     /**
      * @ORM\Column(type="string", length=32)
+     * @Groups({"serie:details"})
      */
     private $in_production;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $number_of_episodes;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $number_of_seasons;
 
     /**
      * @ORM\Column(type="string", length=32)
+     * @Groups({"serie:details"})
      */
     private $original_language;
 
     /**
      * @ORM\Column(type="string", length=128)
+     * @Groups({"serie:details"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"serie:details"})
      */
     private $poster_path;
 
     /**
      * @ORM\Column(type="string", length=32)
+     * @Groups({"serie:details"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"serie:details"})
      */
     private $vote_average;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"serie:details"})
      */
     private $vote_count;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Creator", inversedBy="serie")
+     *  @Groups({"serie:details"})
      */
     private $creators;
 

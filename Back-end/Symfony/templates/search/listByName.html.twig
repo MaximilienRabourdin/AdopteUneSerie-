@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+		<h1>Hello ! ✅</h1>
+
+		<hr>
+<table>
+    <tbody>
+		{% for serie in series %}
+                <tr>
+                            <td><img src="https://image.tmdb.org/t/p/w500{{serie["poster_path"]}}" alt="Card image cap"></td>
+                            <td><h5>{{ serie.name }}</h5></td>
+                            <td><p>{{ serie.overview }}</p></td>
+                            <td><small>Note : {{ serie["vote_average"] }}</small></td>
+                            <td><small>id : {{ serie["id"] }}</small></td>
+                </tr>
+            {% endfor %}
+        
+    </tbody>
+</table>
+
+{% endblock %}

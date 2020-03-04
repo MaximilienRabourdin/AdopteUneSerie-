@@ -28,16 +28,6 @@ class Actor
      */
     private $name;
 
-     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $birthdate;
-    
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $deathdate;
-
     /**
      * @ORM\Column(type="datetime")
      */
@@ -49,13 +39,13 @@ class Actor
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="actor")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Cast", inversedBy="actors")
      */
-    private $cast;
+    private $casts;
 
     public function __construct()
     {
-        $this->cast = new ArrayCollection();
+        $this->casts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,30 +77,6 @@ class Actor
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
-    {
-        return $this->birthdate;
-    }
-
-    public function setBirthdate(\DateTimeInterface $birthdate): self
-    {
-        $this->birthdate = $birthdate;
-
-        return $this;
-    }
-
-    public function getDeathdate(): ?\DateTimeInterface
-    {
-        return $this->deathdate;
-    }
-
-    public function setDeathdate(\DateTimeInterface $deathdate): self
-    {
-        $this->deathdate = $deathdate;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -138,16 +104,15 @@ class Actor
     /**
      * @return Collection|Cast[]
      */
-    public function getCast(): Collection
+    public function getCasts(): Collection
     {
-        return $this->cast;
+        return $this->casts;
     }
 
     public function addCast(Cast $cast): self
     {
-        if (!$this->cast->contains($cast)) {
-            $this->cast[] = $cast;
-            $cast->setActor($this);
+        if (!$this->casts->contains($cast)) {
+            $this->casts[] = $cast;
         }
 
         return $this;
@@ -155,14 +120,12 @@ class Actor
 
     public function removeCast(Cast $cast): self
     {
-        if ($this->cast->contains($cast)) {
-            $this->cast->removeElement($cast);
-            // set the owning side to null (unless already changed)
-            if ($cast->getActor() === $this) {
-                $cast->setActor(null);
-            }
+        if ($this->casts->contains($cast)) {
+            $this->casts->removeElement($cast);
         }
 
         return $this;
     }
+
+    
 }

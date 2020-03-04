@@ -87,29 +87,17 @@ class __TwigTemplate_ace0b541280fc72b9fad40ddc6a1cd877215008255ad904ac1476821eeb
 
         // line 7
         echo "
-\t<div class=\"example-wrapper\">
-\t\t<h1>Hello ! ✅</h1>
+\t\t<div class=\"example-wrapper\">
+\t\t\t<h1>Hello ! ✅</h1>
 
-\t\t<hr>
-
-\t\t<hr>
-\t\t";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["serie"]) || array_key_exists("serie", $context) ? $context["serie"] : (function () { throw new RuntimeError('Variable "serie" does not exist.', 14, $this->source); })()), "LastEpisodeToAir", [], "any", false, false, false, 14), "name", [], "any", false, false, false, 14), "html", null, true);
-        echo "
-\t\t<br>
-\t\t";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["serie"]) || array_key_exists("serie", $context) ? $context["serie"] : (function () { throw new RuntimeError('Variable "serie" does not exist.', 16, $this->source); })()), "LastEpisodeToAir", [], "any", false, false, false, 16), "episode_number", [], "any", false, false, false, 16), "html", null, true);
-        echo "
-\t\t<br>
-\t\t";
-        // line 18
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["serie"]) || array_key_exists("serie", $context) ? $context["serie"] : (function () { throw new RuntimeError('Variable "serie" does not exist.', 18, $this->source); })()), "LastEpisodeToAir", [], "any", false, false, false, 18), "overview", [], "any", false, false, false, 18), "html", null, true);
-        echo "
-
-\t</div>
-";
+\t\t\t<h2>List des routes de l'api</h2>
+\t\t\t<ul>
+\t\t\t\t<li>Série par Id : \"/serie/id/{serie_id}\"</li>
+\t\t\t\t<li>Série par recherche : \"/serie/name/{serie_name}\"</li>
+\t\t\t\t<li>Série par critères : \"/serie/discover/{first_air_date_after}&{first_air_date_before}&{first_air_year}&{rate_average}&{with_genre}&{without_genre}&{with_network}&{with_runtime_more}&{with_runtime_less}\", name=\"api_serie_discover\"</li>
+\t\t\t</ul>
+\t\t</div>
+\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -130,7 +118,7 @@ class __TwigTemplate_ace0b541280fc72b9fad40ddc6a1cd877215008255ad904ac1476821eeb
 
     public function getDebugInfo()
     {
-        return array (  108 => 18,  103 => 16,  98 => 14,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -142,20 +130,17 @@ class __TwigTemplate_ace0b541280fc72b9fad40ddc6a1cd877215008255ad904ac1476821eeb
 
 {% block body %}
 
-\t<div class=\"example-wrapper\">
-\t\t<h1>Hello ! ✅</h1>
+\t\t<div class=\"example-wrapper\">
+\t\t\t<h1>Hello ! ✅</h1>
 
-\t\t<hr>
-
-\t\t<hr>
-\t\t{{ serie.LastEpisodeToAir.name }}
-\t\t<br>
-\t\t{{ serie.LastEpisodeToAir.episode_number }}
-\t\t<br>
-\t\t{{ serie.LastEpisodeToAir.overview }}
-
-\t</div>
-{% endblock %}
+\t\t\t<h2>List des routes de l'api</h2>
+\t\t\t<ul>
+\t\t\t\t<li>Série par Id : \"/serie/id/{serie_id}\"</li>
+\t\t\t\t<li>Série par recherche : \"/serie/name/{serie_name}\"</li>
+\t\t\t\t<li>Série par critères : \"/serie/discover/{first_air_date_after}&{first_air_date_before}&{first_air_year}&{rate_average}&{with_genre}&{without_genre}&{with_network}&{with_runtime_more}&{with_runtime_less}\", name=\"api_serie_discover\"</li>
+\t\t\t</ul>
+\t\t</div>
+\t{% endblock %}
 ", "home/home.html.twig", "/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/templates/home/home.html.twig");
     }
 }

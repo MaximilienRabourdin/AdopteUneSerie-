@@ -1,0 +1,11 @@
+img, td {
+    height: 50%;
+}
+
+td>p  {
+    width: 40em;
+}
+
+table>img {
+    height: 25em;
+}

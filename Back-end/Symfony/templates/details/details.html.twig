@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+	<h2>Page de la série
+		{{ serie.name }}</h2>
+	<img src="https://image.tmdb.org/t/p/w500{{ serie.posterPath }}" alt="Card image cap">
+	<p>{{ serie.overview }}</p>
+	<p>Vote :
+		{{ serie.voteAverage }}</p>
+	{% for network in serie.networks %}
+		{{ network.name }}
+	{% endfor %}
+	{% for season in serie.seasons %}
+		{{ season.name }}
+	{% endfor %}
+{% endblock %}
