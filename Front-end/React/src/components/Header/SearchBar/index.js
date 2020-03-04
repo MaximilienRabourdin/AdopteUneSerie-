@@ -31,41 +31,45 @@ const SearchBar = () => (
   <SearchBarStyled>
 
     <MediaQuery maxDeviceWidth={425}>
-      <Input
-        style={{ minWidth: '202px' }}
-        className="searchBar"
-        size="large"
-        icon={{ name: 'search', circular: true, link: true }}
-        placeholder="Recherchez une série"
-      />
-      <Dropdown
-        style={{ minWidth: '202px', minheight: '38px' }}
-        className="dropdown"
-        placeholder="Découvrez des séries"
-        multiple
-        search
-        selection
-        options={genreOptions}
-      />
+      <div id="mobile">
+        <Input
+          style={{ minWidth: '202px' }}
+          className="searchBar"
+          size="large"
+          icon={{ name: 'search', circular: true, link: true }}
+          placeholder="Recherchez une série"
+        />
+        <Dropdown
+          style={{ minWidth: '202px', minheight: '38px' }}
+          className="dropdown"
+          placeholder="Découvrez des séries"
+          multiple
+          search
+          selection
+          options={genreOptions}
+        />
+      </div>
     </MediaQuery>
 
     <MediaQuery minDeviceWidth={426}>
-      <Input
-        style={{ minWidth: '302px' }}
-        className="searchBar"
-        size="large"
-        icon={{ name: 'search', circular: true, link: true }}
-        placeholder="Recherchez une série"
-      />
-      <Dropdown
-        style={{ minWidth: '302px', minHeight: '38px' }}
-        className="dropdown"
-        placeholder="Découvrez des séries"
-        multiple
-        search
-        selection
-        options={genreOptions}
-      />
+      <div id="desktop">
+        <Input
+          style={{ minWidth: '302px' }}
+          className="searchBar"
+          size="large"
+          icon={{ name: 'search', circular: true, link: true }}
+          placeholder="Recherchez une série"
+        />
+        <Dropdown
+          style={{ minWidth: '302px', minHeight: '38px' }}
+          className="dropdown"
+          placeholder="Découvrez des séries"
+          multiple
+          search
+          selection
+          options={genreOptions}
+        />
+      </div>
     </MediaQuery>
 
   </SearchBarStyled>

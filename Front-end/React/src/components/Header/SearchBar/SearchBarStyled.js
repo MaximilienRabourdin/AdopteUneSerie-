@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export default styled.div`
+
+#mobile {
 text-align: center;
-margin: 2px;
+margin: 2px;  
+}
 .searchBar {
   margin: 1px;
 } 
@@ -14,6 +17,13 @@ margin: 2px;
 }
 .dropdown:hover {
   color: #1A82AE;
+}
+
+#desktop {
+  display: flex;  
+  position: absolute;
+  left: 25%; 
+  top: 30px;
 }
 
 `;

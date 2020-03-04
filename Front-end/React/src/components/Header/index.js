@@ -28,11 +28,13 @@ const Header = () => (
     </MediaQuery>
 
     <MediaQuery minDeviceWidth={426}>
-      <div id="header">
+      <div className="topDesktop">
         <Logo href="#" />
-        <SearchBar />
-        <SignUp />
-        <SignIn />
+        <SearchBar id="searchBar" />
+        <div id="signDesktop">
+          <SignUp id="signUpDesktop" />
+          <SignIn />
+        </div>
       </div>
     </MediaQuery>
 

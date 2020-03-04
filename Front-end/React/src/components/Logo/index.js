@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import MediaQuery from 'react-responsive';
 
 // == Import
 import LogoStyled from './LogoStyled';
@@ -7,7 +8,16 @@ import LogoStyled from './LogoStyled';
 // == Composant
 const Logo = () => (
   <LogoStyled>
-    LOGO
+    <MediaQuery maxDeviceWidth={425}>
+      <div id="logoMobile">
+        LOGO
+      </div>
+    </MediaQuery>
+    <MediaQuery minDeviceWidth={426}>
+      <div id="logoDesktop">
+        LOGO
+      </div>
+    </MediaQuery>
   </LogoStyled>
 );
 

@@ -32,10 +32,21 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   justify-content: space-evenly;
 }
 
-#header {
+.topDesktop {    
+  width: 100%;
+  padding: 15px;
+}
+
+#signDesktop {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 30px;
+  right: 4%; 
+}
+
+#signUpDesktop {
+  margin-right: 10px;
 }
 
 `;
