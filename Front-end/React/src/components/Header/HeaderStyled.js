@@ -13,7 +13,7 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   width: 100%;
   padding-top: 10px;
   padding-left : 15px;
-  position: sticky;
+  position: fixed;
 }
 
 .bottomMobile {
@@ -32,14 +32,10 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   justify-content: space-evenly;
 }
 
-#sticky{
-  position: sticky;
-}
-
 .topDesktop {    
   width: 100%;
   padding: 15px;
-  position: sticky;
+  position: fixed;
 }
 
 #signDesktop {
@@ -48,6 +44,7 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   position: absolute;
   top: 30px;
   right: 4%; 
+  position: fixed;
 }
 
 #signUpDesktop {

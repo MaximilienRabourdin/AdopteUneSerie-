@@ -22,7 +22,7 @@ const Header = () => (
         <SearchBar />
       </div>
       <div className="bottomMobile">
-        <SignUp id="sticky" />
+        <SignUp />
         <SignIn />
       </div>
     </MediaQuery>
