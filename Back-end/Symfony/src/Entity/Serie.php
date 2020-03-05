@@ -16,7 +16,6 @@ class Serie
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"serie:details"})
      */
     private $id;
 
@@ -124,41 +123,49 @@ class Serie
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="serie")
+     * @Groups({"serie:details"})
      */
     private $genres;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie")
+     * @Groups({"serie:details"})
      */
     private $cast;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="serie")
+     * @Groups({"serie:details"})
      */
     private $seasons;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="series")
+     * @Groups({"serie:details"})
      */
     private $productionCompagnies;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="series")
+     * @Groups({"serie:details"})
      */
     private $users;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Network", inversedBy="series")
+     * @Groups({"serie:details"})
      */
     private $networks;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="serie", orphanRemoval=true)
+     * @Groups({"serie:details"})
      */
     private $ratings;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\OriginalCountry", inversedBy="series")
+     * @Groups({"serie:details"})
      */
     private $origin_country;
 

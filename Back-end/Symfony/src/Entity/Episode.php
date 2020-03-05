@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EpisodeRepository")
@@ -18,26 +19,31 @@ class Episode
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $tmdb_id;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"serie:details"})
      */
     private $air_date;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $guest_stars;
 

@@ -19,6 +19,7 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
+      <parameter key="LexikJWTAuthenticationBundle">Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -68,6 +69,10 @@
       <parameter key="EasyAdminBundle" type="collection">
         <parameter key="path">/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/easycorp/easyadmin-bundle/src</parameter>
         <parameter key="namespace">EasyCorp\Bundle\EasyAdminBundle</parameter>
+      </parameter>
+      <parameter key="LexikJWTAuthenticationBundle" type="collection">
+        <parameter key="path">/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/lexik/jwt-authentication-bundle</parameter>
+        <parameter key="namespace">Lexik\Bundle\JWTAuthenticationBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -276,6 +281,13 @@
       </parameter>
       <parameter key="entities" type="collection"/>
     </parameter>
+    <parameter key="lexik_jwt_authentication.pass_phrase">%env(JWT_PASSPHRASE)%</parameter>
+    <parameter key="lexik_jwt_authentication.token_ttl">3600</parameter>
+    <parameter key="lexik_jwt_authentication.clock_skew">0</parameter>
+    <parameter key="lexik_jwt_authentication.user_identity_field">username</parameter>
+    <parameter key="lexik_jwt_authentication.user_id_claim">username</parameter>
+    <parameter key="lexik_jwt_authentication.encoder.signature_algorithm">RS256</parameter>
+    <parameter key="lexik_jwt_authentication.encoder.crypto_engine">openssl</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -371,6 +383,7 @@
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\MainController"/>
       </call>
@@ -1417,7 +1430,8 @@
       <argument type="service" id=".debug.http_client" on-invalid="ignore"/>
     </service>
     <service id="notifier.transport_factory.null" class="Symfony\Component\Notifier\Transport\NullTransportFactory">
-      <tag name="notifier.transport_factory"/>
+      <tag name="chatter.transport_factory"/>
+      <tag name="texter.transport_factory"/>
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id=".debug.http_client" on-invalid="ignore"/>
     </service>
@@ -1866,6 +1880,7 @@
           <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/doctrine/doctrine-migrations-bundle/translations</argument>
           <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/symfony/security-bundle/translations</argument>
           <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/symfony/maker-bundle/src/translations</argument>
+          <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/vendor/lexik/jwt-authentication-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1885,6 +1900,7 @@
             <argument>vendor/doctrine/doctrine-migrations-bundle/translations</argument>
             <argument>vendor/symfony/security-bundle/translations</argument>
             <argument>vendor/symfony/maker-bundle/src/translations</argument>
+            <argument>vendor/lexik/jwt-authentication-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2551,6 +2567,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -5057,6 +5081,123 @@
       <tag name="easyadmin.filter.type" alias="time"/>
       <argument>Symfony\Component\Form\Extension\Core\Type\TimeType</argument>
     </service>
+    <service id="lexik_jwt_authentication.check_config_command" class="Lexik\Bundle\JWTAuthenticationBundle\Command\CheckConfigCommand" public="true">
+      <tag name="console.command" command="lexik:jwt:check-config"/>
+      <argument type="service" id="lexik_jwt_authentication.key_loader.raw"/>
+      <argument>RS256</argument>
+      <call method="setName">
+        <argument>lexik:jwt:check-config</argument>
+      </call>
+    </service>
+    <service id="lexik_jwt_authentication.generate_token_command" class="Lexik\Bundle\JWTAuthenticationBundle\Command\GenerateTokenCommand" public="true">
+      <tag name="console.command" command="lexik:jwt:generate-token"/>
+      <argument type="service" id="lexik_jwt_authentication.jwt_manager"/>
+      <argument type="iterator">
+        <argument type="service" id="security.user.provider.concrete.users_in_memory"/>
+      </argument>
+      <call method="setName">
+        <argument>lexik:jwt:generate-token</argument>
+      </call>
+    </service>
+    <service id="lexik_jwt_authentication.security.authentication.provider" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Authentication\Provider\JWTProvider" public="false">
+      <argument></argument>
+      <argument type="service" id="lexik_jwt_authentication.jwt_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>username</argument>
+      <call method="setUserIdentityField">
+        <argument>username</argument>
+      </call>
+      <deprecated>The "%service_id%" service is deprecated since LexikJWTAuthenticationBundle version 2.0 and will be removed in 3.0</deprecated>
+    </service>
+    <service id="lexik_jwt_authentication.security.authentication.listener" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Firewall\JWTListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <call method="setDispatcher">
+        <argument type="service" id="debug.event_dispatcher"/>
+      </call>
+      <deprecated>The "%service_id%" service is deprecated since LexikJWTAuthenticationBundle version 2.0 and will be removed in 3.0</deprecated>
+    </service>
+    <service id="lexik_jwt_authentication.security.authentication.entry_point" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Http\EntryPoint\JWTEntryPoint" public="false">
+      <deprecated>The "%service_id%" service is deprecated since LexikJWTAuthenticationBundle version 2.0 and will be removed in 3.0</deprecated>
+    </service>
+    <service id="lexik_jwt_authentication.jwt_manager" class="Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager" public="true">
+      <argument type="service" id="lexik_jwt_authentication.encoder.lcobucci"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>username</argument>
+      <call method="setUserIdentityField">
+        <argument>username</argument>
+      </call>
+    </service>
+    <service id="lexik_jwt_authentication.key_loader.abstract" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument>%env(JWT_PASSPHRASE)%</argument>
+    </service>
+    <service id="lexik_jwt_authentication.key_loader.openssl" class="Lexik\Bundle\JWTAuthenticationBundle\Services\KeyLoader\OpenSSLKeyLoader" public="false">
+      <argument></argument>
+      <argument></argument>
+      <argument>%env(JWT_PASSPHRASE)%</argument>
+      <deprecated>The "%service_id%" service is deprecated since version 2.5 and will be removed in 3.0. Use lexik_jwt_authentication.key_loader.raw instead.</deprecated>
+    </service>
+    <service id="lexik_jwt_authentication.key_loader.raw" class="Lexik\Bundle\JWTAuthenticationBundle\Services\KeyLoader\RawKeyLoader" public="false">
+      <argument>%env(resolve:JWT_SECRET_KEY)%</argument>
+      <argument>%env(resolve:JWT_PUBLIC_KEY)%</argument>
+      <argument>%env(JWT_PASSPHRASE)%</argument>
+    </service>
+    <service id="lexik_jwt_authentication.encoder.default" class="Lexik\Bundle\JWTAuthenticationBundle\Encoder\DefaultEncoder">
+      <argument type="service" id="lexik_jwt_authentication.jws_provider.default"/>
+    </service>
+    <service id="lexik_jwt_authentication.jws_provider.default" class="Lexik\Bundle\JWTAuthenticationBundle\Services\JWSProvider\DefaultJWSProvider" public="false">
+      <argument type="service" id="lexik_jwt_authentication.key_loader.raw"/>
+      <argument>openssl</argument>
+      <argument>RS256</argument>
+      <argument>3600</argument>
+      <argument>0</argument>
+      <deprecated>The "%service_id%" is deprecated since version 2.5 and will be removed in 5.0, use "lexik_jwt_authentication.jws_provider.lcobucci" instead.</deprecated>
+    </service>
+    <service id="lexik_jwt_authentication.encoder.lcobucci" class="Lexik\Bundle\JWTAuthenticationBundle\Encoder\LcobucciJWTEncoder">
+      <argument type="service" id="lexik_jwt_authentication.jws_provider.lcobucci"/>
+    </service>
+    <service id="lexik_jwt_authentication.jws_provider.lcobucci" class="Lexik\Bundle\JWTAuthenticationBundle\Services\JWSProvider\LcobucciJWSProvider" public="false">
+      <argument type="service" id="lexik_jwt_authentication.key_loader.raw"/>
+      <argument>openssl</argument>
+      <argument>RS256</argument>
+      <argument>3600</argument>
+      <argument>0</argument>
+    </service>
+    <service id="lexik_jwt_authentication.handler.authentication_success" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationSuccessHandler">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="lexik_jwt_authentication.jwt_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="lexik_jwt_authentication.handler.authentication_failure" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationFailureHandler">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="lexik_jwt_authentication.security.guard.jwt_token_authenticator" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator">
+      <argument type="service" id="lexik_jwt_authentication.jwt_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="lexik_jwt_authentication.extractor.chain_extractor"/>
+    </service>
+    <service id="lexik_jwt_authentication.extractor.chain_extractor" class="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\ChainTokenExtractor" public="false">
+      <argument type="collection">
+        <argument type="service" id="lexik_jwt_authentication.extractor.authorization_header_extractor"/>
+      </argument>
+    </service>
+    <service id="lexik_jwt_authentication.extractor.authorization_header_extractor" class="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\AuthorizationHeaderTokenExtractor">
+      <argument>Bearer</argument>
+      <argument>Authorization</argument>
+    </service>
+    <service id="lexik_jwt_authentication.extractor.query_parameter_extractor" class="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\QueryParameterTokenExtractor">
+      <argument></argument>
+    </service>
+    <service id="lexik_jwt_authentication.extractor.cookie_extractor" class="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\CookieTokenExtractor">
+      <argument></argument>
+    </service>
+    <service id="lexik_jwt_authentication.security.jwt_user_provider" class="Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserProvider" public="false">
+      <argument></argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5298,7 +5439,6 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MainController::serieById" type="service" id=".service_locator.6qgzrgD"/>
-        <argument key="App\Controller\MainController:serieById" type="service" id=".service_locator.6qgzrgD"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5794,7 +5934,7 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.Y.4mDr7"/>
+      <argument type="service" id=".service_locator.8nJllIh"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5858,6 +5998,8 @@
         <argument key="doctrine:migrations:version">doctrine_migrations.version_command</argument>
         <argument key="security:encode-password">security.command.user_password_encoder</argument>
         <argument key="make:admin:migration">easyadmin.command.make_admin_migration</argument>
+        <argument key="lexik:jwt:check-config">lexik_jwt_authentication.check_config_command</argument>
+        <argument key="lexik:jwt:generate-token">lexik_jwt_authentication.generate_token_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -5878,7 +6020,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.Y.4mDr7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.8nJllIh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5938,6 +6080,8 @@
         <argument key="doctrine_migrations.up_to_date_command" type="service" id="doctrine_migrations.up_to_date_command"/>
         <argument key="doctrine_migrations.version_command" type="service" id="doctrine_migrations.version_command"/>
         <argument key="easyadmin.command.make_admin_migration" type="service" id="easyadmin.command.make_admin_migration"/>
+        <argument key="lexik_jwt_authentication.check_config_command" type="service" id="lexik_jwt_authentication.check_config_command"/>
+        <argument key="lexik_jwt_authentication.generate_token_command" type="service" id="lexik_jwt_authentication.generate_token_command"/>
         <argument key="maker.auto_command.make_auth" type="service" id="maker.auto_command.make_auth"/>
         <argument key="maker.auto_command.make_command" type="service" id="maker.auto_command.make_command"/>
         <argument key="maker.auto_command.make_controller" type="service" id="maker.auto_command.make_controller"/>
@@ -6168,6 +6312,16 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Search\Autocomplete" alias="easyadmin.autocomplete"/>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Security\AuthorizationChecker" alias="easyadmin.security.authorization_checker"/>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Form\Filter\FilterRegistry" alias="easyadmin.filter.registry" public="true"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenInterface" alias="lexik_jwt_authentication.jwt_manager"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface" alias="lexik_jwt_authentication.jwt_manager"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Services\JWSProvider\JWSProviderInterface" alias="lexik_jwt_authentication.jws_provider.lcobucci"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationSuccessHandler" alias="lexik_jwt_authentication.handler.authentication_success"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationFailureHandler" alias="lexik_jwt_authentication.handler.authentication_failure"/>
+    <service id="lexik_jwt_authentication.jwt_token_authenticator" alias="lexik_jwt_authentication.security.guard.jwt_token_authenticator"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\TokenExtractorInterface" alias="lexik_jwt_authentication.extractor.chain_extractor"/>
+    <service id="lexik_jwt_authentication.encoder" alias="lexik_jwt_authentication.encoder.lcobucci" public="true"/>
+    <service id="Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface" alias="lexik_jwt_authentication.encoder.lcobucci"/>
+    <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.cJ3PDDn"/>

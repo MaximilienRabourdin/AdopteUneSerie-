@@ -115,9 +115,18 @@ class ComposerStaticInitdf53fba34ed5f5c58defea705bf781be
             'Pagerfanta\\' => 11,
             'PackageVersions\\' => 16,
         ),
+        'N' => 
+        array (
+            'Namshi\\JOSE\\' => 12,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'L' => 
+        array (
+            'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 37,
+            'Lcobucci\\JWT\\' => 13,
         ),
         'E' => 
         array (
@@ -463,9 +472,21 @@ class ComposerStaticInitdf53fba34ed5f5c58defea705bf781be
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
+        'Namshi\\JOSE\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (

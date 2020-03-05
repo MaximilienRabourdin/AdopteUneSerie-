@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SeasonRepository")
@@ -20,31 +21,37 @@ class Season
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $tmdb_id;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"serie:details"})
      */
     private $air_date;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $season_number;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $episode_count;
 
@@ -60,6 +67,7 @@ class Season
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season")
+     * @Groups({"serie:details"})
      */
     private $episodes;
 

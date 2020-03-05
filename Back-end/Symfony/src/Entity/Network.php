@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NetworkRepository")
@@ -20,16 +21,19 @@ class Network
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $tmdb_id;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $origin_country;
 
@@ -42,11 +46,6 @@ class Network
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Serie", mappedBy="network")
-     */
-    private $serie;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="Networks")
@@ -120,37 +119,6 @@ class Network
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Serie[]
-     */
-    public function getSerie(): Collection
-    {
-        return $this->serie;
-    }
-
-    public function addSerie(Serie $serie): self
-    {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
-            $serie->setNetwork($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSerie(Serie $serie): self
-    {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
-            // set the owning side to null (unless already changed)
-            if ($serie->getNetwork() === $this) {
-                $serie->setNetwork(null);
-            }
-        }
 
         return $this;
     }

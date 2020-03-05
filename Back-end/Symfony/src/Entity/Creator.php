@@ -43,7 +43,7 @@ class Creator
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\serie", inversedBy="creators")
+     * @ORM\ManyToMany(targetEntity="App\Entity\serie", inversedBy="creators", cascade={"persist"}))
      */
     private $serie;
 
@@ -72,7 +72,7 @@ class Creator
     /**
      * Get the value of tmdb_id
      */ 
-    public function getTmdb_id()
+    public function getTmdbId()
     {
         return $this->tmdb_id;
     }
@@ -82,7 +82,7 @@ class Creator
      *
      * @return  self
      */ 
-    public function setTmdb_id($tmdb_id)
+    public function setTmdbId($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GenreRepository")
@@ -18,11 +19,13 @@ class Genre
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"serie:details"})
      */
     private $tmdb_id;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"serie:details"})
      */
     private $label;
 
@@ -86,7 +89,7 @@ class Genre
     /**
      * Get the value of tmdb_id
      */ 
-    public function getTmdb_id()
+    public function getTmdbId()
     {
         return $this->tmdb_id;
     }
@@ -96,7 +99,7 @@ class Genre
      *
      * @return  self
      */ 
-    public function setTmdb_id($tmdb_id)
+    public function setTmdbId($tmdb_id)
     {
         $this->tmdb_id = $tmdb_id;
 

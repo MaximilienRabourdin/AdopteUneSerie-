@@ -8,7 +8,6 @@ use App\Entity\Genre;
 use App\Entity\Serie;
 use App\Entity\Season;
 use App\Entity\Creator;
-use App\Entity\Episode;
 use App\Entity\Network;
 use App\Entity\OriginalCountry;
 use App\Entity\ProductionCompagny;
@@ -17,12 +16,22 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
-     * @Route("/tv")
-     */
+ * @Route("/tv")
+ */
 class MainController extends AbstractController
 {
+
+
+    private $manager;
+
+    public function __construct(EntityManagerInterface $manager)
+    {
+        $this->manager = $manager;
+    }
+
     /**
      * @Route("/", name="homepage")
      */
@@ -72,7 +81,7 @@ class MainController extends AbstractController
 
         foreach ($listElement["created_by"] as $creator) {
             $newCreator = new Creator();
-            $newCreator->setTmdb_id($creator["id"]);
+            $newCreator->setTmdbId($creator["id"]);
             $newCreator->setName($creator["name"]);
             $newSerie->getCreators()->add($newCreator);
         }
@@ -99,7 +108,7 @@ class MainController extends AbstractController
         }
         foreach ($listElement["genres"] as $genre) {
             $newGenre = new Genre();
-            $newGenre->setTmdb_id($genre["id"]);
+            $newGenre->setTmdbId($genre["id"]);
             $newGenre->setLabel($genre["name"]);
             $newSerie->getGenres()->add($newGenre);
         }
@@ -128,17 +137,21 @@ class MainController extends AbstractController
             $newSeason->setSeasonNumber($season["season_number"]);
             $newSerie->getSeasons()->add($newSeason);
         }
-    
-        /* ajouter en BDD un Forecast ou un Meteo
-        $forecast = new Forecast();
-        $forecast->setTemperature($temperature);
-        $forecast->setWindVelocity($windVelocity);
-        $forecast->setUpdatedAt(new \DateTime());
 
-        $this->manager->persist($forecast);
+        // Add in the database
+        /*$this->manager->persist($newSerie);
+        $this->manager->persist($newCreator);
+        $this->manager->persist($newCast);
+        $this->manager->persist($newActor);
+        $this->manager->persist($newNetwork);
+        $this->manager->persist($newGenre);
+        $this->manager->persist($newCountry);
+        $this->manager->persist($newProd);
+        $this->manager->persist($newSeason);
         $this->manager->flush();
         */
 
+        // Send all of the informations to the Front end in JSON format
         $json = $serializer->serialize($newSerie, 'json', ['groups' => 'serie:details']);
 
         $response = new Response();
@@ -171,8 +184,8 @@ class MainController extends AbstractController
         $series = $listElement["results"];
 
         return $this->render('search/listByName.html.twig', [
-                "series" => $series
-        ]); 
+            "series" => $series
+        ]);
     }
 
     /**
@@ -197,7 +210,7 @@ class MainController extends AbstractController
         $urlRecent = "https://api.themoviedb.org/3/discover/tv?api_key=$apiKey&language=$language&sort_by=first_air_date.desc&first_air_date.lte=$firstAirDate&with_networks=49&include_null_first_air_dates=false";
 
         $urlTopRated = "https://api.themoviedb.org/3/discover/tv?api_key=$apiKey&language=$language&sort_by=vote_average.desc&first_air_date.lte=$firstAirDate&vote_count.gte=200&include_null_first_air_dates=false";
-        
+
         $responseTrending = $client->request("GET", $urlTrending);
         $responseRecent = $client->request("GET", $urlRecent);
 
@@ -216,7 +229,8 @@ class MainController extends AbstractController
     /**
      * @Route("/discover/standard/{vote_average}/{with_runtime}/{with_genres}/{with_networks}", name="api_serie_standard")
      */
-    public function serieByStandard($vote_average, $with_runtime, $with_genres, $with_networks) {
+    public function serieByStandard($vote_average, $with_runtime, $with_genres, $with_networks)
+    {
 
         $client = HttpClient::create();
 
@@ -235,6 +249,5 @@ class MainController extends AbstractController
         return $this->render('search/listByStandard.html.twig', [
             'seriesStandard' => $seriesStandard
         ]);
-
     }
 }

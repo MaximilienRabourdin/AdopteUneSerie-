@@ -428,10 +428,10 @@ class __TwigTemplate_fc11d9fa307c93e2ae10fd51efd3647d3dc224903dffc38b1308b0bc464
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 154, $this->source); })()), "symfonyeol", [], "any", false, false, false, 154), "html", null, true);
         echo "</td>
                 <td class=\"font-normal\">
-                    <a href=\"https://symfony.com/roadmap?version=";
+                    <a href=\"https://symfony.com/releases/";
         // line 156
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 156, $this->source); })()), "symfonyminorversion", [], "any", false, false, false, 156), "html", null, true);
-        echo "#checker\">View roadmap</a>
+        echo "#release-checker\">View roadmap</a>
                 </td>
             </tr>
         </tbody>
@@ -732,7 +732,7 @@ class __TwigTemplate_fc11d9fa307c93e2ae10fd51efd3647d3dc224903dffc38b1308b0bc464
                 <td class=\"font-normal\">{{ collector.symfonyeom }}</td>
                 <td class=\"font-normal\">{{ collector.symfonyeol }}</td>
                 <td class=\"font-normal\">
-                    <a href=\"https://symfony.com/roadmap?version={{ collector.symfonyminorversion }}#checker\">View roadmap</a>
+                    <a href=\"https://symfony.com/releases/{{ collector.symfonyminorversion }}#release-checker\">View roadmap</a>
                 </td>
             </tr>
         </tbody>
