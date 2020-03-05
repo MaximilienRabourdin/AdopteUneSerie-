@@ -54,10 +54,16 @@
     "webpack-merge": "^4.2"
   },
   "dependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-responsive": "^8.0.2",
     "axios": "*",
+<<<<<<< HEAD
     "bootswatch": "^4.4.1",
+=======
+    "i": "^0.3.6",
+>>>>>>> Component1
     "prop-types": "*",
-    "react": "*",
+    "react": "^16.13.0",
     "react-dom": "*",
     "react-redux": "^7.1.3",
     "react-responsive": "^8.0.3",

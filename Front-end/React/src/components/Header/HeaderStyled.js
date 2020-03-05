@@ -32,6 +32,13 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   justify-content: space-evenly;
 }
 
+<<<<<<< HEAD
+=======
+#sticky{
+  position: fixed;
+}
+
+>>>>>>> Component1
 .topDesktop {    
   width: 100%;
   padding: 15px;
@@ -44,7 +51,10 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   position: absolute;
   top: 30px;
   right: 4%; 
+<<<<<<< HEAD
   position: fixed;
+=======
+>>>>>>> Component1
 }
 
 #signUpDesktop {

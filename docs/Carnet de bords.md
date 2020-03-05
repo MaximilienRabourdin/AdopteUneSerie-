@@ -41,3 +41,15 @@ Retour de Charles concernant le sprint 0, MCD a préciser et Wireframes à unifo
 - Team Back :
     - Modification du MCD
     - Modification du dico de données
+
+## Vendredi 28 février 2020 - Sprint 0
+
+Nous avons finalisé le sprint 0 : uniformiser les wireframes, finaliser le MCD (reprise des cardinalitées) et demandé un retour à Charles.
+Création des branches pour chaque partie du projet.
+
+## Informations individuelles
+
+- Team Front : 
+    - Début de création du projet 
+- Team Back :
+    - Création du projet Symfony => création des entités, de la base de données.
