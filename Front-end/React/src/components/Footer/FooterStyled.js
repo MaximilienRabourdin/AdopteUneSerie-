@@ -15,16 +15,13 @@ export default styled.div`
   color: white;
   align-items : center;
   flex-shrink: 0;
+}
 
 #toggle {
-
 position: absolute;
 top: 10px;
 right: 20px;
 flex-direction: flex-end;
-
-}
-
 }
 
 #MobileFooter {

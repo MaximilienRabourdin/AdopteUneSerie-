@@ -10,7 +10,7 @@ const Facebook = () => (
 
     <div id="facebook">
 
-      <Icon disable className="facebook f" />
+      <Icon disabled className="facebook f" />
 
 
     </div>

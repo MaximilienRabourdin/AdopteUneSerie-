@@ -2,15 +2,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // middlewares
-import logMiddleware from 'src/middlewares/logMiddleware';
+// import ajaxMiddleware from 'src/middlewares/ajaxMiddleware';
 
-// Reducer
+// reducer
 import rootReducer from 'src/reducers';
 
 const enhancers = composeWithDevTools(
   applyMiddleware(
-    logMiddleware,
-    // ... autres middlewares
+    //  ajaxMiddleware,
+    // ... middlewares
   ),
 );
 
