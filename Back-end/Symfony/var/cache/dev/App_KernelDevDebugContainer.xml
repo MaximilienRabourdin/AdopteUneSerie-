@@ -228,36 +228,124 @@
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="easyadmin.config" type="collection">
-      <parameter key="site_name">EasyAdmin</parameter>
       <parameter key="formats" type="collection">
-        <parameter key="date">Y-m-d</parameter>
-        <parameter key="time">H:i:s</parameter>
-        <parameter key="datetime">F j, Y H:i</parameter>
+        <parameter key="date">d/m/Y</parameter>
+        <parameter key="time">H:i</parameter>
+        <parameter key="datetime">d/m/Y H:i:s</parameter>
         <parameter key="dateinterval">%y Year(s) %m Month(s) %d Day(s)</parameter>
       </parameter>
-      <parameter key="disabled_actions" type="collection"/>
-      <parameter key="translation_domain">messages</parameter>
+      <parameter key="entities" type="collection">
+        <parameter key="Rating" type="collection">
+          <parameter key="class">App\Entity\Rating</parameter>
+          <parameter key="label">Ratings</parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Les avis des utilisateurs</parameter>
+            <parameter key="item_permission">ROLE_ADMIN</parameter>
+          </parameter>
+          <parameter key="name">Rating</parameter>
+        </parameter>
+        <parameter key="Serie" type="collection">
+          <parameter key="class">App\Entity\Serie</parameter>
+          <parameter key="label">Series</parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Les Séries</parameter>
+            <parameter key="item_permission">ROLE_ADMIN</parameter>
+            <parameter key="fields" type="collection">
+              <parameter>id</parameter>
+              <parameter>tmdb_id</parameter>
+              <parameter>name</parameter>
+              <parameter>episode_run_time</parameter>
+              <parameter>first_air_date</parameter>
+              <parameter>last_air_date</parameter>
+              <parameter>last_episode_to_air</parameter>
+              <parameter>next_episode_to_air</parameter>
+              <parameter>in_production</parameter>
+              <parameter>number_of_episodes</parameter>
+              <parameter>number_of_seasons</parameter>
+              <parameter>original_language</parameter>
+              <parameter>overview</parameter>
+              <parameter>poster_path</parameter>
+              <parameter>status</parameter>
+              <parameter>vote_average</parameter>
+              <parameter>vote_count</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">Serie</parameter>
+        </parameter>
+        <parameter key="User" type="collection">
+          <parameter key="class">App\Entity\User</parameter>
+          <parameter key="controller">App\Controller\UserController</parameter>
+          <parameter key="label">Users</parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Les utilisateurs</parameter>
+            <parameter key="fields" type="collection">
+              <parameter>id</parameter>
+              <parameter>tmdb_id</parameter>
+              <parameter>firstname</parameter>
+              <parameter>lastname</parameter>
+              <parameter type="collection">
+                <parameter key="property">contact</parameter>
+                <parameter key="type">email</parameter>
+              </parameter>
+              <parameter>password</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Ajouter un utilisateur</parameter>
+            <parameter key="item_permission">ROLE_ADMIN</parameter>
+            <parameter key="fields" type="collection">
+              <parameter>firstname</parameter>
+              <parameter>lastname</parameter>
+              <parameter type="collection">
+                <parameter key="property">email</parameter>
+                <parameter key="type_options" type="collection">
+                  <parameter key="required">false</parameter>
+                </parameter>
+              </parameter>
+              <parameter>password</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Modifier un utilisateur</parameter>
+            <parameter key="item_permission">ROLE_ADMIN</parameter>
+            <parameter key="fields" type="collection">
+              <parameter>id</parameter>
+              <parameter>firstname</parameter>
+              <parameter>lastname</parameter>
+              <parameter type="collection">
+                <parameter key="property">email</parameter>
+                <parameter key="help">Email is required</parameter>
+              </parameter>
+              <parameter>password</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">User</parameter>
+        </parameter>
+      </parameter>
+      <parameter key="site_name">Adopte Une Serie</parameter>
       <parameter key="user" type="collection">
         <parameter key="display_name">true</parameter>
-        <parameter key="display_avatar">true</parameter>
+        <parameter key="display_avatar">false</parameter>
         <parameter key="name_property_path">__toString</parameter>
         <parameter key="avatar_property_path">null</parameter>
       </parameter>
       <parameter key="design" type="collection">
+        <parameter key="assets" type="collection">
+          <parameter key="favicon" type="collection">
+            <parameter key="path">/docs/img/favicon.png</parameter>
+            <parameter key="mime_type">image/png</parameter>
+          </parameter>
+          <parameter key="css" type="collection"/>
+          <parameter key="js" type="collection"/>
+        </parameter>
         <parameter key="brand_color">hsl(230, 55%, 60%)</parameter>
         <parameter key="form_theme" type="collection">
           <parameter>@EasyAdmin/form/bootstrap_4.html.twig</parameter>
         </parameter>
-        <parameter key="assets" type="collection">
-          <parameter key="css" type="collection"/>
-          <parameter key="js" type="collection"/>
-          <parameter key="favicon" type="collection">
-            <parameter key="path">favicon.ico</parameter>
-            <parameter key="mime_type">image/x-icon</parameter>
-          </parameter>
-        </parameter>
         <parameter key="menu" type="collection"/>
       </parameter>
+      <parameter key="disabled_actions" type="collection"/>
+      <parameter key="translation_domain">messages</parameter>
       <parameter key="list" type="collection">
         <parameter key="actions" type="collection"/>
         <parameter key="collapse_actions">false</parameter>
@@ -279,7 +367,6 @@
         <parameter key="max_results">10</parameter>
         <parameter key="item_permission">null</parameter>
       </parameter>
-      <parameter key="entities" type="collection"/>
     </parameter>
     <parameter key="lexik_jwt_authentication.pass_phrase">%env(JWT_PASSPHRASE)%</parameter>
     <parameter key="lexik_jwt_authentication.token_ttl">3600</parameter>
@@ -388,6 +475,23 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\MainController"/>
       </call>
     </service>
+    <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\UserController"/>
+      </call>
+    </service>
+    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -439,6 +543,12 @@
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Security\LoginFormAuthenticator" class="App\Security\LoginFormAuthenticator" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="security.csrf.token_manager"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener" public="false">
@@ -841,10 +951,12 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
         <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1179,7 +1291,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.IaOyiLB"/>
+      <argument type="service" id=".service_locator.YQwmLo5"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5141,8 +5253,8 @@
       <deprecated>The "%service_id%" service is deprecated since version 2.5 and will be removed in 3.0. Use lexik_jwt_authentication.key_loader.raw instead.</deprecated>
     </service>
     <service id="lexik_jwt_authentication.key_loader.raw" class="Lexik\Bundle\JWTAuthenticationBundle\Services\KeyLoader\RawKeyLoader" public="false">
-      <argument>%env(resolve:JWT_SECRET_KEY)%</argument>
-      <argument>%env(resolve:JWT_PUBLIC_KEY)%</argument>
+      <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/config/jwt/private.pem</argument>
+      <argument>/home/nicolas/apothéose/projet-adopte-une-serie/Back-end/Symfony/config/jwt/public.pem</argument>
       <argument>%env(JWT_PASSPHRASE)%</argument>
     </service>
     <service id="lexik_jwt_authentication.encoder.default" class="Lexik\Bundle\JWTAuthenticationBundle\Encoder\DefaultEncoder">
@@ -5201,6 +5313,14 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CastRepository" class="App\Repository\CastRepository" autowire="true" abstract="true"/>
@@ -5435,10 +5555,28 @@
         <argument key="serializer" type="service" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.cJ3PDDn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7h1j9MZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
+        <argument key="serializer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.hszs.DW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="encoder" type="service" id="security.user_password_encoder.generic"/>
+      </argument>
+    </service>
+    <service id=".service_locator.0ke5aAt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MainController::serieById" type="service" id=".service_locator.6qgzrgD"/>
+        <argument key="App\Controller\MainController::serieByName" type="service" id=".service_locator.6qgzrgD"/>
+        <argument key="App\Controller\MainController::serieByStandard" type="service" id=".service_locator.6qgzrgD"/>
+        <argument key="App\Controller\MainController::serieDiscover" type="service" id=".service_locator.6qgzrgD"/>
+        <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.7h1j9MZ"/>
+        <argument key="App\Controller\UserController::new" type="service" id=".service_locator.hszs.DW"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5500,9 +5638,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.IaOyiLB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.YQwmLo5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType" type="service" id="easyadmin.form.type.autocomplete"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminBatchFormType" type="service" id="easyadmin.form.type.batch"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType" type="service" id="easyadmin.form.type.divider"/>
@@ -5748,6 +5887,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
+      <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\UserController"/>
+      <argument>App\Controller\UserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.JFjjyG5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5918,12 +6069,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.cJ3PDDn"/>
+      <argument type="service" id=".service_locator.0ke5aAt"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.cJ3PDDn"/>
+      <argument type="service" id=".service_locator.0ke5aAt"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6324,7 +6475,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.cJ3PDDn"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0ke5aAt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

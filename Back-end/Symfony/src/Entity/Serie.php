@@ -38,25 +38,25 @@ class Serie
     private $episode_run_time;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @Groups({"serie:details"})
      */
     private $first_air_date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      * @Groups({"serie:details"})
      */
     private $last_air_date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="object")
      * @Groups({"serie:details"})
      */
     private $last_episode_to_air;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="object")
      * @Groups({"serie:details"})
      */
     private $next_episode_to_air;
@@ -116,31 +116,31 @@ class Serie
     private $vote_count;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", mappedBy="serie", cascade={"persist"})
      *  @Groups({"serie:details"})
      */
     private $creators;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="serie", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $genres;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $cast;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="serie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="serie", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $seasons;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="series")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="series", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $productionCompagnies;
@@ -168,6 +168,16 @@ class Serie
      * @Groups({"serie:details"})
      */
     private $origin_country;
+
+     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -638,6 +648,46 @@ class Serie
         if ($this->origin_country->contains($originCountry)) {
             $this->origin_country->removeElement($originCountry);
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created_at
+     */ 
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set the value of created_at
+     *
+     * @return  self
+     */ 
+    public function setCreated_at($created_at)
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updated_at
+     */ 
+    public function getUpdated_at()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set the value of updated_at
+     *
+     * @return  self
+     */ 
+    public function setUpdated_at($updated_at)
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

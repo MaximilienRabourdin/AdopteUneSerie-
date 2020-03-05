@@ -32,7 +32,7 @@ class Season
     private $name;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      * @Groups({"serie:details"})
      */
     private $air_date;
