@@ -92,13 +92,15 @@ Carnet de bord personnel rempli chaque jour
 ## 5 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Creation du controller de sécurité et celui des user ainsi que les routes (et leurs parametres) pour la connexion, l'inscription, l'affichage de son compte.
+    - Creation (modifications) du fichier easy_admin.yaml pour y configurer la page (uniquement accessible par les admin et les mdérateur) l'affichage et la modifcation (edit et delete) de donnée (utilisateur, role, série) 
+    - Nicolas H a réussi a établir le code permettant de return (envoyer) le resultat d'une recherche en JSON, pour plus tard l'envoyer au Front-End
 
 2. Ce que je comptais faire : 
-    - 
+    - Envoyer des donnée sur nos BDD local
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Quelques difficultés sur le code permettant l'envoie de donnée au front-end en json, mais surtout bloquage sur l'envoie de donnée en BDD a cause de plusieurs erreurs (created_at connot be null) et autres ne nous permettant pas d'avance d'avantage, nous somme dans l'obligation de demander de l'aide a l'équipe O'clock. Aucune solutions trouvé pour le moment
 
 ## 6 mars 2020
 
