@@ -11,6 +11,7 @@ import AppStyled from './AppStyled';
 const App = () => (
   <AppStyled>
     <Header />
+    HOME
     <Footer />
   </AppStyled>
 );
