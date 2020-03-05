@@ -5,7 +5,7 @@ import news from 'src/images/new.jpg';
 
 // Initial State
 const initialState = {
-  cards: [
+  series: [
     {
       picture: note,
       title: 'Séries les mieux notées ',

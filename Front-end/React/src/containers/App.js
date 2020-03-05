@@ -7,11 +7,9 @@ import App from 'src/components/App';
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
-const mapStateToProps = (state) => {
-  return {
-    cards: state.home.cards,
-  };
-};
+const mapStateToProps = (state) => ({
+  series: state.home.series,
+});
 
 // == Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?

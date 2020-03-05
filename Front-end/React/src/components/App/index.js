@@ -10,17 +10,17 @@ import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
 // == Composant
-const App = ({ cards }) => (
+const App = ({ series }) => (
   <AppStyled>
     <Header />
-    <Home cards={cards} />
+    <Home cards={series} />
     <Footer />
   </AppStyled>
 );
 
 
 App.propTypes = {
-  cards: PropTypes.arrayOf(
+  series: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
 };
