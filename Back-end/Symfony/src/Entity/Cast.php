@@ -50,7 +50,7 @@ class Cast
     private $serie;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="casts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="casts", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $actors;

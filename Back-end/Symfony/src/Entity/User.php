@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email", message="Cet email est déjà utilisé")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,8 +22,8 @@ class User
      */
     private $id;
 
-        /**
-     * @ORM\Column(type="integer")
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $tmdb_id;
 
@@ -45,7 +48,7 @@ class User
     private $password;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $created_at;
 
@@ -53,11 +56,6 @@ class User
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="user")
-     */
-    private $serie;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="user")
@@ -81,7 +79,7 @@ class User
         $this->rating = new ArrayCollection();
         $this->series = new ArrayCollection();
     }
-
+  
     public function getId(): ?int
     {
         return $this->id;
@@ -180,37 +178,6 @@ class User
     }
 
     /**
-     * @return Collection|Serie[]
-     */
-    public function getSerie(): Collection
-    {
-        return $this->serie;
-    }
-
-    public function addSerie(Serie $serie): self
-    {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
-            $serie->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSerie(Serie $serie): self
-    {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
-            // set the owning side to null (unless already changed)
-            if ($serie->getUser() === $this) {
-                $serie->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Rating[]
      */
     public function getRating(): Collection
@@ -241,9 +208,18 @@ class User
         return $this;
     }
 
-    public function getRole(): ?Role
+   /**
+     * Get the value of role
+     */
+    public function getRole()
     {
-        return $this->role;
+        $roleCodes = array();
+
+        foreach($this->role as $role) {
+            $roleCodes[] = $role->getCode();
+        }
+        // symfo voudrai recevoir un truc du genre ['ROLE_USER', ROLE_TRUC ....]
+        return $roleCodes;
     }
 
     public function setRole(?Role $role): self
@@ -279,5 +255,34 @@ class User
         }
 
         return $this;
+    }
+
+    /**
+     * Get the value of roles
+     */
+    public function getRoles()
+    {
+        $roleCodes = array();
+
+        foreach($this->roles as $role) {
+            $roleCodes[] = $role->getCode();
+        }
+        // symfo voudrai recevoir un truc du genre ['ROLE_USER', ROLE_TRUC ....]
+        return $roleCodes;
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    
+    public function getSalt()
+    {
+    }
+
+    // Aucune donnée sensible dans notre objet User donc on laisse vide
+    public function eraseCredentials()
+    {
     }
 }

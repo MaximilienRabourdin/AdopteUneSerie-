@@ -11,26 +11,29 @@ use App\Entity\Creator;
 use App\Entity\Network;
 use App\Entity\OriginalCountry;
 use App\Entity\ProductionCompagny;
+use DateTime;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/tv")
- */
-class MainController extends AbstractController
+class MainController extends AbstractController 
 {
-
-
-    private $manager;
 
     public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
     }
+
+    /**
+     * @Route("/token_check", name="api_token_check")
+     */
+    // public function tokenCheck()
+    // {
+    // }
 
     /**
      * @Route("/", name="homepage")
@@ -41,14 +44,17 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/show/{serie_id}", name="api_serie_id")
+     * @Route("/show/", name="api_serie_id")
      */
-    public function serieById(int $serie_id, SerializerInterface $serializer)
+    public function serieById(SerializerInterface $serializer, Request $request)
     {
+        $createdAt = new DateTime();
         $client = HttpClient::create();
 
+        // Get the serie's id from the request sent by the frontend
+        $serie_id = $request->query->get('serie_id');
+        
         // API search parameters
-        //70613;
         $apiKey = "273116a48e6155286bb1ce0b34262df3";
         $language = "fr-FR";
         $url = "https://api.themoviedb.org/3/tv/$serie_id?api_key=$apiKey&language=$language";
@@ -78,45 +84,53 @@ class MainController extends AbstractController
         $newSerie->setStatus($listElement["status"]);
         $newSerie->setVoteAverage($listElement["vote_average"]);
         $newSerie->setVoteCount($listElement["vote_count"]);
-
         foreach ($listElement["created_by"] as $creator) {
             $newCreator = new Creator();
             $newCreator->setTmdbId($creator["id"]);
             $newCreator->setName($creator["name"]);
+            $newCreator->setCreated_at($createdAt);
             $newSerie->getCreators()->add($newCreator);
+            $this->manager->persist($newCreator);
         }
-        // This is the character of the actor
+        // This is the actor
         foreach ($listCast["cast"] as $cast) {
             $newCast = new Cast();
             $newCast->setTmdbId($cast["id"]);
             $newCast->setCharacter($cast["character"]);
-            $newSerie->getCast()->add($newCast);
-        }
-        // This is the actor
-        foreach ($listCast["cast"] as $cast) {
             $newActor = new Actor();
             $newActor->setName($cast["name"]);
             $newActor->setTmdbId($cast["id"]);
+            $newCast->setCreatedAt($createdAt);
+            $newActor->setCreatedAt($createdAt);
+            $newSerie->getCast()->add($newCast);
             $newCast->getActors()->add($newActor);
+            $this->manager->persist($newCast);
+            $this->manager->persist($newActor);
         }
         foreach ($listElement["networks"] as $network) {
             $newNetwork = new Network();
             $newNetwork->setTmdbId($network["id"]);
             $newNetwork->setName($network["name"]);
             $newNetwork->setOriginCountry($network["origin_country"]);
+            $newNetwork->setCreatedAt($createdAt);
             $newSerie->getNetworks()->add($newNetwork);
+            $this->manager->persist($newNetwork);
         }
         foreach ($listElement["genres"] as $genre) {
             $newGenre = new Genre();
             $newGenre->setTmdbId($genre["id"]);
             $newGenre->setLabel($genre["name"]);
+            $newGenre->setCreatedAt($createdAt);
             $newSerie->getGenres()->add($newGenre);
+            $this->manager->persist($newGenre);
         }
         foreach ($listElement["origin_country"] as $originalCountry) {
             $newCountry = new OriginalCountry();
             $newCountry->setName($originalCountry);
             $newCountry->getSeries()->add($newSerie);
+            $newCountry->setCreatedAt($createdAt);
             $newSerie->getOriginCountry()->add($newCountry);
+            $this->manager->persist($newCountry);
         }
         foreach ($listElement["production_companies"] as $production) {
             $newProd = new ProductionCompagny();
@@ -124,7 +138,9 @@ class MainController extends AbstractController
             $newProd->setName($production["name"]);
             $newProd->setOriginCountry($production["origin_country"]);
             $newProd->getSeries()->add($newSerie);
+            $newProd->setCreatedAt($createdAt);
             $newSerie->getProductionCompagnies()->add($newProd);
+            $this->manager->persist($newProd);
         }
         // !!! We will add more infos about episodes and others during V2 !!!
         foreach ($listElement["seasons"] as $season) {
@@ -135,22 +151,17 @@ class MainController extends AbstractController
             $newSeason->setEpisodeCount($season["episode_count"]);
             $newSeason->setAirDate($season["air_date"]);
             $newSeason->setSeasonNumber($season["season_number"]);
+            $newSeason->setCreated_at($createdAt);
             $newSerie->getSeasons()->add($newSeason);
+            $this->manager->persist($newSeason);
         }
+           
+        $newSerie->setCreated_at($createdAt);
+        $this->manager->persist($newSerie);
 
         // Add in the database
-        /*$this->manager->persist($newSerie);
-        $this->manager->persist($newCreator);
-        $this->manager->persist($newCast);
-        $this->manager->persist($newActor);
-        $this->manager->persist($newNetwork);
-        $this->manager->persist($newGenre);
-        $this->manager->persist($newCountry);
-        $this->manager->persist($newProd);
-        $this->manager->persist($newSeason);
         $this->manager->flush();
-        */
-
+        
         // Send all of the informations to the Front end in JSON format
         $json = $serializer->serialize($newSerie, 'json', ['groups' => 'serie:details']);
 
@@ -159,19 +170,22 @@ class MainController extends AbstractController
         $response->headers->add(['Content-type' => 'application/json']);
 
         return $response;
-        /*return $this->render('details/details.html.twig', [
+        /*
+        return $this->render('details/details.html.twig', [
             'serie' => $newSerie
         ]);
         */
     }
 
     /**
-     * @Route("/search/{serie_name}", name="api_serie_name")
+     * @Route("/search/", name="api_serie_name")
      */
-    public function serieByName(string $serie_name)
+    public function serieByName(SerializerInterface $serializer, Request $request)
     {
         $client = HttpClient::create();
 
+        // get the parameter "serie_name" from the url
+        $serie_name = $request->query->get("serie_name");
         // API search parameters
         $apiKey = "273116a48e6155286bb1ce0b34262df3";
         $language = "fr-FR";
@@ -183,15 +197,24 @@ class MainController extends AbstractController
         $listElement = $response->toArray();
         $series = $listElement["results"];
 
-        return $this->render('search/listByName.html.twig', [
+        // Send all of the informations to the Front end in JSON format
+        $json = $serializer->serialize($series, 'json', ['groups' => 'serie:details']);
+
+        $response = new Response();
+        $response->setContent($json);
+        $response->headers->add(['Content-type' => 'application/json']);
+
+        return $response;
+        /*return $this->render('search/listByName.html.twig', [
             "series" => $series
         ]);
+        */
     }
 
     /**
-     * @Route("/discover", name="api_serie_discover")
+     * @Route("/discover/", name="api_serie_discover")
      */
-    public function serieDiscover()
+    public function serieDiscover(SerializerInterface $serializer)
     {
         $client = HttpClient::create();
 
@@ -213,41 +236,82 @@ class MainController extends AbstractController
 
         $responseTrending = $client->request("GET", $urlTrending);
         $responseRecent = $client->request("GET", $urlRecent);
+        $responseTopRated = $client->request("GET", $urlTopRated);
 
+        // One list for each API's request
         $listElementTrending = $responseTrending->toArray();
         $listElementRecent = $responseRecent->toArray();
+        $listElementTopRated = $responseTopRated->toArray();
 
+        // One array for each list of series
         $seriesRecent =  $listElementRecent["results"];
         $seriesTrending = $listElementTrending["results"];
+        $seriesTopRated = $listElementTopRated["results"];
 
+        // All of the series in one array 
+        $seriesArray = array_merge($seriesRecent, $seriesTopRated, $seriesTrending);
+
+        // Transform series' array into json
+        $json = $serializer->serialize($seriesArray, 'json', ['groups' => 'serie:details']);
+
+
+        $response = new Response();
+        $response->setContent($json);
+        $response->headers->add(['Content-type' => 'application/json']);
+        // DEBUG : 
+        // dump($response);
+
+        return $response;
+
+        /*
         return $this->render('home/homelist.html.twig', [
             'seriesTrending' => $seriesTrending,
             'seriesRecent' => $seriesRecent
         ]);
+        */      
     }
 
     /**
-     * @Route("/discover/standard/{vote_average}/{with_runtime}/{with_genres}/{with_networks}", name="api_serie_standard")
+     * @Route("/discover/standard/", name="api_serie_standard")
      */
-    public function serieByStandard($vote_average, $with_runtime, $with_genres, $with_networks)
+    public function serieByStandard(SerializerInterface $serializer, Request $request)
     {
-
         $client = HttpClient::create();
+
+        // API parameters from URL
+        $voteAverage = $request->query->get("vote_average");
+        $withGenres = $request->query->get("with_genres");
+        $withNetworks = $request->query->get("with_networks");
+        $withRuntime = $request->query->get("with_runtime");
+        $firstAirYear = $request->query->get("first_air_year");
+        $sortBy = $request->query->get("sort_by");
 
         // API search parameters
         $apiKey = "273116a48e6155286bb1ce0b34262df3";
-        $firstAirDate = date_format(new \DateTime(), 'Y-m-d');
+        $airYearMax = date_format(new \DateTime(), 'Y-m-d');
         $language = "fr-FR";
-        $url = "https://api.themoviedb.org/3/discover/tv?api_key=$apiKey&language=$language&first_air_date_year=$firstAirDate&page=1&vote_average.gte=$vote_average&with_genres=$with_genres&with_networks=$with_networks&with_runtime.lte=$with_runtime&include_null_first_air_dates=false";
+        $url = "https://api.themoviedb.org/3/discover/tv?api_key=$apiKey&language=$language&sort_by=$sortBy&first_air_date.lte=$airYearMax&first_air_date_year=$firstAirYear&page=1&vote_average.gte=$voteAverage&with_genres=$withGenres&with_networks=$withNetworks&with_runtime.lte=$withRuntime&include_null_first_air_dates=false";
+
 
         $responseStandard = $client->request("GET", $url);
-
         $listElementStandard = $responseStandard->toArray();
-
         $seriesStandard =  $listElementStandard["results"];
 
+        $json = $serializer->serialize($seriesStandard, 'json', ['groups' => 'serie:details']);
+
+        $response = new Response();
+        $response->setContent($json);
+        $response->headers->add(['Content-type' => 'application/json']);
+        
+        // DEBUG : 
+        // dump($response);
+
+        return $response;
+
+        /*
         return $this->render('search/listByStandard.html.twig', [
             'seriesStandard' => $seriesStandard
         ]);
+        */
     }
 }

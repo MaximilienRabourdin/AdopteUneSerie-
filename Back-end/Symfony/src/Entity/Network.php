@@ -48,7 +48,7 @@ class Network
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="Networks")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="networks")
      */
     private $series;
 

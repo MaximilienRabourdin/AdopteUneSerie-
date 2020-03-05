@@ -1,6 +1,76 @@
-#easy_admin:
-#    entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Product
-#        - App\Entity\Category
-#        - App\Entity\User
+easy_admin:
+    formats:
+        date: 'd/m/Y'
+        time: 'H:i'
+        datetime: 'd/m/Y H:i:s'
+    entities:
+        # List the entity class name you want to manage
+        Rating: 
+            class: App\Entity\Rating
+            label: 'Ratings'
+            list:
+                title: "Les avis des utilisateurs"  
+                item_permission: 'ROLE_ADMIN'
+        Serie:
+            class: App\Entity\Serie
+            label: 'Series'
+            list:
+                title: "Les Séries"
+                item_permission: 'ROLE_ADMIN'
+                fields: 
+                    - id
+                    - tmdb_id
+                    - name
+                    - episode_run_time
+                    - first_air_date
+                    - last_air_date
+                    - last_episode_to_air
+                    - next_episode_to_air
+                    - in_production
+                    - number_of_episodes
+                    - number_of_seasons
+                    - original_language
+                    - overview
+                    - poster_path
+                    - status
+                    - vote_average
+                    - vote_count
+        User:
+            class: App\Entity\User
+            controller: App\Controller\UserController
+            label: 'Users'
+            list:
+                title: "Les utilisateurs"  
+                fields:
+                    - id
+                    - tmdb_id
+                    - firstname
+                    - lastname
+                    - { property: 'contact', type: 'email' }
+                    - password
+            new:
+                title: 'Ajouter un utilisateur'
+                item_permission: 'ROLE_ADMIN'
+                fields:
+                    - 'firstname'
+                    - 'lastname'
+                    - { property: 'email', type_options: { required: false } }
+                    - 'password'
+            edit:
+                title: 'Modifier un utilisateur'
+                item_permission: 'ROLE_ADMIN'
+                fields:
+                    - 'id'
+                    - 'firstname'
+                    - 'lastname'
+                    - { property: 'email', help: 'Email is required' }
+                    - 'password'
+    # We can use a logo
+    site_name: 'Adopte Une Serie'
+    # Settings for the user 
+    user:
+        display_name: true
+        display_avatar: false
+    design:
+        assets:
+            favicon: '/docs/img/favicon.png' 
