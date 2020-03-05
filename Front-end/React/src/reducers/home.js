@@ -1,24 +1,11 @@
 // Import
-import note from 'src/images/note.jpg';
-import tendance from 'src/images/tendance.jpg';
-import news from 'src/images/new.jpg';
+import data from 'src/data/series';
+
+console.log(data);
 
 // Initial State
 const initialState = {
-  series: [
-    {
-      picture: note,
-      title: 'Séries les mieux notées ',
-    },
-    {
-      picture: tendance,
-      title: 'Tendances',
-    },
-    {
-      picture: news,
-      title: 'Sortie récentes',
-    },
-  ],
+  series: data.series,
 };
 
 const homeReducer = (state = initialState, action = {}) => {

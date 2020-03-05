@@ -12,9 +12,9 @@ import HomeStyled from './HomeStyled';
 
 const Home = ({ cards }) => (
   <HomeStyled>
-    <Card.Group itemsPerRow={3} stackable>
+    <Card.Group itemsPerRow={5} stackable>
       {cards.map((card) => (
-        <Criteria {...card} />
+        <Criteria key={card.id} {...card} />
       ))}
     </Card.Group>
   </HomeStyled>

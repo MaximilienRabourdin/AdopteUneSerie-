@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import { Card, Image } from 'semantic-ui-react';
 
 // == Composant
-const Criteria = ({ picture, title }) => (
+const Criteria = ({ poster_path, name }) => (
   <Card>
-    <Image src={picture} wrapped ui={false} />
+    <Image src={poster_path} wrapped ui={false} />
     <Card.Content>
-      <Card.Header>{title}</Card.Header>
+      <Card.Header>{name}</Card.Header>
     </Card.Content>
   </Card>
 );
 
 Criteria.propTypes = {
-  picture: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 // == Export
 export default Criteria;
