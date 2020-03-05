@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Import
 import Header from 'src/components/Header';
+import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
@@ -11,7 +12,7 @@ import AppStyled from './AppStyled';
 const App = () => (
   <AppStyled>
     <Header />
-    HOME
+    <Home />
     <Footer />
   </AppStyled>
 );

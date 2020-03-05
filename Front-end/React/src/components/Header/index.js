@@ -16,14 +16,16 @@ const Header = () => (
   <HeaderStyled>
 
     <MediaQuery maxDeviceWidth={425}>
-      <Toggle />
-      <div className="topMobile">
-        <Logo href="#" />
-        <SearchBar />
-      </div>
-      <div className="bottomMobile">
-        <SignUp />
-        <SignIn />
+      <div id="TOP">
+        <Toggle />
+        <div className="topMobile">
+          <Logo href="#" />
+          <SearchBar />
+        </div>
+        <div className="bottomMobile">
+          <SignUp />
+          <SignIn />
+        </div>
       </div>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>

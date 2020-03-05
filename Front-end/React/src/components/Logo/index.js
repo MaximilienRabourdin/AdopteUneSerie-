@@ -15,7 +15,7 @@ const Logo = () => (
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>
       <div id="logoDesktop">
-        LOGO
+        ADOPTE UNE SERIE
       </div>
     </MediaQuery>
   </LogoStyled>
