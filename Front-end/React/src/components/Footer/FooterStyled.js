@@ -11,8 +11,7 @@ export default styled.div`
   justify-content : space-evenly;
   bottom: 0;
   background-color: #343a40;
-  padding: 5em;
-  height: 10px;
+  height: 50px;
   width: 100%;
   color: white;
   align-items : center;
@@ -33,7 +32,7 @@ flex-direction: flex-end;
   display: flex;
   flex: row;
   justify-content : space-evenly;
-  bottom: 50px;
+  bottom: 65px;
   background-color: #343a40;
   padding: 2em;
   height: 20px;
@@ -41,7 +40,6 @@ flex-direction: flex-end;
   color: white;
   align-items : center;
   font-size: 1em;
-
 }
   
 
