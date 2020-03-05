@@ -22,11 +22,10 @@ const Header = () => (
         <SearchBar />
       </div>
       <div className="bottomMobile">
-        <SignUp />
+        <SignUp id="sticky" />
         <SignIn />
       </div>
     </MediaQuery>
-
     <MediaQuery minDeviceWidth={426}>
       <div className="topDesktop">
         <Logo href="#" />

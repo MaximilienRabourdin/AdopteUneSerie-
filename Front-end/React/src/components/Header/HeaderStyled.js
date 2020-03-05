@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.div`
-
 background-color: #343a40;
 height: 100px;
 border-bottom-left-radius: 15px;
@@ -14,6 +13,7 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   width: 100%;
   padding-top: 10px;
   padding-left : 15px;
+  position: sticky;
 }
 
 .bottomMobile {
@@ -32,9 +32,14 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
   justify-content: space-evenly;
 }
 
+#sticky{
+  position: sticky;
+}
+
 .topDesktop {    
   width: 100%;
   padding: 15px;
+  position: sticky;
 }
 
 #signDesktop {
