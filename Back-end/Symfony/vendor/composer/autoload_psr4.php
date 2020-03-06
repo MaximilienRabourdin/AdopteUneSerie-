@@ -104,6 +104,10 @@ return array(
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common', $vendorDir . '/doctrine/event-manager/lib/Doctrine/Common', $vendorDir . '/doctrine/persistence/lib/Doctrine/Common', $vendorDir . '/doctrine/reflection/lib/Doctrine/Common'),
     'Doctrine\\Bundle\\MigrationsBundle\\' => array($vendorDir . '/doctrine/doctrine-migrations-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
+    'Deployer\\Component\\Version\\' => array($vendorDir . '/deployer/phar-update/src/Version'),
+    'Deployer\\Component\\PharUpdate\\' => array($vendorDir . '/deployer/phar-update/src'),
+    'Deployer\\Component\\PHPUnit\\' => array($vendorDir . '/deployer/phar-update/src/PHPUnit'),
+    'Deployer\\' => array($vendorDir . '/deployer/deployer/src'),
     'App\\Tests\\' => array($baseDir . '/tests'),
     'App\\' => array($baseDir . '/src'),
 );
