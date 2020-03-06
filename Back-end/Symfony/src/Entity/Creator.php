@@ -43,14 +43,15 @@ class Creator
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\serie", inversedBy="creators", cascade={"persist"}))
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="creators")
      */
-    private $serie;
+    private $series;
 
     public function __construct()
     {
-        $this->serie = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -130,28 +131,30 @@ class Creator
     }
 
     /**
-     * @return Collection|serie[]
+     * @return Collection|Serie[]
      */
-    public function getSerie(): Collection
+    public function getSeries(): Collection
     {
-        return $this->serie;
+        return $this->series;
     }
 
-    public function addSerie(serie $serie): self
+    public function addSeries(Serie $series): self
     {
-        if (!$this->serie->contains($serie)) {
-            $this->serie[] = $serie;
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
         }
 
         return $this;
     }
 
-    public function removeSerie(serie $serie): self
+    public function removeSeries(Serie $series): self
     {
-        if ($this->serie->contains($serie)) {
-            $this->serie->removeElement($serie);
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
         }
 
         return $this;
     }
+
+
 }

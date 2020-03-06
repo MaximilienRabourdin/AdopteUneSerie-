@@ -26,10 +26,11 @@ class Cast
     private $tmdb_id;
 
      /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     * @ORM\Column(name="protagonist")
      * @Groups({"serie:details"})
      */
-    private $character;
+    private $protagonist;
 
     /**
      * @ORM\Column(type="datetime")
@@ -78,14 +79,14 @@ class Cast
         return $this;
     }
 
-    public function getCharacter(): ?string
+    public function getProtagonist(): ?string
     {
-        return $this->character;
+        return $this->protagonist;
     }
 
-    public function setCharacter(string $character): self
+    public function setProtagonist(string $protagonist): self
     {
-        $this->character = $character;
+        $this->protagonist = $protagonist;
 
         return $this;
     }

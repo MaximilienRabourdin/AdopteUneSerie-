@@ -5,13 +5,8 @@
 
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
-<<<<<<< HEAD
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerTNxe9VV/App_KernelDevDebugContainer.php';
-=======
-require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerEzOmFZ5/App_KernelDevDebugContainer.php';
->>>>>>> 9bd720ce6ba2391edd3715867b2fb9b28d620e95
+require __DIR__.'/ContainerLWrRznk/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'App\Kernel';

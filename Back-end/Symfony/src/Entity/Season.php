@@ -38,7 +38,7 @@ class Season
     private $air_date;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=5000)
      * @Groups({"serie:details"})
      */
     private $overview;
@@ -72,7 +72,7 @@ class Season
     private $episodes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\serie", inversedBy="seasons")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Serie", inversedBy="seasons")
      * @ORM\JoinColumn(nullable=false)
      */
     private $serie;

@@ -69,13 +69,12 @@ class User implements UserInterface
     private $role;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="users")
      */
     private $series;
 
     public function __construct()
     {
-        $this->serie = new ArrayCollection();
         $this->rating = new ArrayCollection();
         $this->series = new ArrayCollection();
     }
@@ -257,18 +256,8 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * Get the value of roles
-     */
-    public function getRoles()
-    {
-        $roleCodes = array();
 
-        foreach($this->roles as $role) {
-            $roleCodes[] = $role->getCode();
-        }
-        // symfo voudrai recevoir un truc du genre ['ROLE_USER', ROLE_TRUC ....]
-        return $roleCodes;
+    public function getRoles(){
     }
 
     public function getUsername()

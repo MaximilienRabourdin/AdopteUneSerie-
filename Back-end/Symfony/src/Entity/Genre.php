@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GenreRepository")
@@ -41,9 +43,14 @@ class Genre
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="genres")
-     * @ORM\JoinColumn(nullable=false)
      */
-    private $serie;
+    private $series;
+
+    public function __construct()
+    {
+        $this->series = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -106,15 +113,31 @@ class Genre
         return $this;
     }
 
-    public function getSerie(): ?Serie
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getSeries(): Collection
     {
-        return $this->serie;
+        return $this->series;
     }
 
-    public function setSerie(?Serie $serie): self
+    public function addSeries(Serie $series): self
     {
-        $this->serie = $serie;
+        if (!$this->series->contains($series)) {
+            $this->series[] = $series;
+        }
 
         return $this;
     }
+
+    public function removeSeries(Serie $series): self
+    {
+        if ($this->series->contains($series)) {
+            $this->series->removeElement($series);
+        }
+
+        return $this;
+    }
+
+    
 }

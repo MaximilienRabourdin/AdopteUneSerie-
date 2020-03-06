@@ -6,9 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SerieRepository")
+ * @UniqueEntity("tmdb_id")
  */
 class Serie
 {
@@ -50,13 +53,13 @@ class Serie
     private $last_air_date;
 
     /**
-     * @ORM\Column(type="object")
+     * @ORM\Column(type="string")
      * @Groups({"serie:details"})
      */
     private $last_episode_to_air;
 
     /**
-     * @ORM\Column(type="object")
+     * @ORM\Column(type="string")
      * @Groups({"serie:details"})
      */
     private $next_episode_to_air;
@@ -86,7 +89,7 @@ class Serie
     private $original_language;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=3000)
      * @Groups({"serie:details"})
      */
     private $overview;
@@ -115,17 +118,6 @@ class Serie
      */
     private $vote_count;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", mappedBy="serie", cascade={"persist"})
-     *  @Groups({"serie:details"})
-     */
-    private $creators;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="serie", cascade={"persist"})
-     * @Groups({"serie:details"})
-     */
-    private $genres;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Cast", mappedBy="serie", cascade={"persist"})
@@ -140,19 +132,19 @@ class Serie
     private $seasons;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", inversedBy="series", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProductionCompagny", mappedBy="series", cascade={"persist"})
      * @Groups({"serie:details"})
      */
     private $productionCompagnies;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="series")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="series")
      * @Groups({"serie:details"})
      */
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Network", inversedBy="series")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Network", mappedBy="series")
      * @Groups({"serie:details"})
      */
     private $networks;
@@ -164,10 +156,15 @@ class Serie
     private $ratings;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\OriginalCountry", inversedBy="series")
+     * @ORM\ManyToMany(targetEntity="App\Entity\OriginalCountry", mappedBy="series")
      * @Groups({"serie:details"})
      */
     private $origin_country;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="series")
+     */
+    private $genres;
 
      /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -179,10 +176,13 @@ class Serie
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Creator", mappedBy="series")
+     */
+    private $creators;
+   
     public function __construct()
     {
-        $this->creators = new ArrayCollection();
-        $this->genres = new ArrayCollection();
         $this->cast = new ArrayCollection();
         $this->seasons = new ArrayCollection();
         $this->productionCompagnies = new ArrayCollection();
@@ -190,6 +190,8 @@ class Serie
         $this->networks = new ArrayCollection();
         $this->ratings = new ArrayCollection();
         $this->origin_country = new ArrayCollection();
+        $this->genres = new ArrayCollection();
+        $this->creators = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -257,12 +259,12 @@ class Serie
         return $this;
     }
 
-    public function getLastEpisodeToAir(): ?array
+    public function getLastEpisodeToAir(): ?string
     {
         return $this->last_episode_to_air;
     }
 
-    public function setLastEpisodeToAir(array $last_episode_to_air): self
+    public function setLastEpisodeToAir(string $last_episode_to_air): self
     {
         $this->last_episode_to_air = $last_episode_to_air;
 
@@ -329,12 +331,12 @@ class Serie
         return $this;
     }
 
-    public function getOverview(): ?string
+    public function getOverview()
     {
         return $this->overview;
     }
 
-    public function setOverview(string $overview): self
+    public function setOverview($overview)
     {
         $this->overview = $overview;
 
@@ -389,71 +391,6 @@ class Serie
         return $this;
     }
 
-    /**
-     * @return Collection|Creator[]
-     */
-    public function getCreators(): Collection
-    {
-        return $this->creators;
-    }
-
-    public function addCreator(Creator $creator): self
-    {
-        if (!$this->creators->contains($creator)) {
-            $this->creators[] = $creator;
-            $creator->addSerie($this);
-        }
-
-        return $this;
-    }
-
-    public function setCreator(?Creator $creator): self
-    {
-        $this->creator = $creator;
-
-        return $this;
-    }
-
-    public function removeCreator(Creator $creator): self
-    {
-        if ($this->creators->contains($creator)) {
-            $this->creators->removeElement($creator);
-            $creator->removeSerie($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Genre[]
-     */
-    public function getGenres(): Collection
-    {
-        return $this->genres;
-    }
-
-    public function addGenre(Genre $genre): self
-    {
-        if (!$this->genres->contains($genre)) {
-            $this->genres[] = $genre;
-            $genre->setSerie($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGenre(Genre $genre): self
-    {
-        if ($this->genres->contains($genre)) {
-            $this->genres->removeElement($genre);
-            // set the owning side to null (unless already changed)
-            if ($genre->getSerie() === $this) {
-                $genre->setSerie(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Cast[]
@@ -688,6 +625,62 @@ class Serie
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenres(): Collection
+    {
+        return $this->genres;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genres->contains($genre)) {
+            $this->genres[] = $genre;
+            $genre->addSeries($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        if ($this->genres->contains($genre)) {
+            $this->genres->removeElement($genre);
+            $genre->removeSeries($this);
+        }
+
+        return $this;
+     }
+
+    /**
+     * @return Collection|Creator[]
+     */
+    public function getCreators(): Collection
+    {
+        return $this->creators;
+    }
+
+    public function addCreator(Creator $creator): self
+    {
+        if (!$this->creators->contains($creator)) {
+            $this->creators[] = $creator;
+            $creator->addSeries($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreator(Creator $creator): self
+    {
+        if ($this->creators->contains($creator)) {
+            $this->creators->removeElement($creator);
+            $creator->removeSeries($this);
+        }
 
         return $this;
     }

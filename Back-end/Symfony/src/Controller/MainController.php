@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\SerieRepository;
 
 class MainController extends AbstractController 
 {
@@ -46,135 +47,162 @@ class MainController extends AbstractController
     /**
      * @Route("/show/", name="api_serie_id")
      */
-    public function serieById(SerializerInterface $serializer, Request $request)
+    public function serieById(SerializerInterface $serializer, Request $request, SerieRepository $repository)
     {
-        $createdAt = new DateTime();
-        $client = HttpClient::create();
-
         // Get the serie's id from the request sent by the frontend
-        $serie_id = $request->query->get('serie_id');
+        $tmdb_id = $request->query->get('serie_id');
         
-        // API search parameters
-        $apiKey = "273116a48e6155286bb1ce0b34262df3";
-        $language = "fr-FR";
-        $url = "https://api.themoviedb.org/3/tv/$serie_id?api_key=$apiKey&language=$language";
-        $urlCast = "https://api.themoviedb.org/3/tv/$serie_id/credits?api_key=$apiKey&language=$language";
+       if($repository->findOneByTmdbId($tmdb_id) === null ) {
 
-        $response = $client->request("GET", $url);
-        $responseCast = $client->request("GET", $urlCast);
+            $createdAt = new DateTime();
+            $client = HttpClient::create();
+            // API search parameters
+            $apiKey = "273116a48e6155286bb1ce0b34262df3";
+            $language = "fr-FR";
+            $url = "https://api.themoviedb.org/3/tv/$tmdb_id?api_key=$apiKey&language=$language";
+            $urlCast = "https://api.themoviedb.org/3/tv/$tmdb_id/credits?api_key=$apiKey&language=$language";
 
-        // Element's list sent by the API
-        $listElement = $response->toArray();
-        $listCast = $responseCast->toArray();
+            $response = $client->request("GET", $url);
+            $responseCast = $client->request("GET", $urlCast);
 
-        $newSerie = new Serie();
-        $newSerie->setTmdbId($listElement["id"]);
-        $newSerie->setTmdbId($listCast["id"]);
-        $newSerie->setName($listElement["name"]);
-        $newSerie->setEpisodeRunTime(implode($listElement["episode_run_time"]));
-        $newSerie->setFirstAirDate($listElement["first_air_date"]);
-        $newSerie->setLastAirDate($listElement["last_air_date"]);
-        $newSerie->setLastEpisodeToAir($listElement["last_episode_to_air"]);
-        $newSerie->setInProduction($listElement["in_production"]);
-        $newSerie->setNumberOfEpisodes($listElement["number_of_episodes"]);
-        $newSerie->setNumberOfSeasons($listElement["number_of_seasons"]);
-        $newSerie->setOriginalLanguage($listElement["original_language"]);
-        $newSerie->setOverview($listElement["overview"]);
-        $newSerie->setPosterPath($listElement["poster_path"]);
-        $newSerie->setStatus($listElement["status"]);
-        $newSerie->setVoteAverage($listElement["vote_average"]);
-        $newSerie->setVoteCount($listElement["vote_count"]);
-        foreach ($listElement["created_by"] as $creator) {
-            $newCreator = new Creator();
-            $newCreator->setTmdbId($creator["id"]);
-            $newCreator->setName($creator["name"]);
-            $newCreator->setCreated_at($createdAt);
-            $newSerie->getCreators()->add($newCreator);
-            $this->manager->persist($newCreator);
-        }
-        // This is the actor
-        foreach ($listCast["cast"] as $cast) {
-            $newCast = new Cast();
-            $newCast->setTmdbId($cast["id"]);
-            $newCast->setCharacter($cast["character"]);
-            $newActor = new Actor();
-            $newActor->setName($cast["name"]);
-            $newActor->setTmdbId($cast["id"]);
-            $newCast->setCreatedAt($createdAt);
-            $newActor->setCreatedAt($createdAt);
-            $newSerie->getCast()->add($newCast);
-            $newCast->getActors()->add($newActor);
-            $this->manager->persist($newCast);
-            $this->manager->persist($newActor);
-        }
-        foreach ($listElement["networks"] as $network) {
-            $newNetwork = new Network();
-            $newNetwork->setTmdbId($network["id"]);
-            $newNetwork->setName($network["name"]);
-            $newNetwork->setOriginCountry($network["origin_country"]);
-            $newNetwork->setCreatedAt($createdAt);
-            $newSerie->getNetworks()->add($newNetwork);
-            $this->manager->persist($newNetwork);
-        }
-        foreach ($listElement["genres"] as $genre) {
-            $newGenre = new Genre();
-            $newGenre->setTmdbId($genre["id"]);
-            $newGenre->setLabel($genre["name"]);
-            $newGenre->setCreatedAt($createdAt);
-            $newSerie->getGenres()->add($newGenre);
-            $this->manager->persist($newGenre);
-        }
-        foreach ($listElement["origin_country"] as $originalCountry) {
-            $newCountry = new OriginalCountry();
-            $newCountry->setName($originalCountry);
-            $newCountry->getSeries()->add($newSerie);
-            $newCountry->setCreatedAt($createdAt);
-            $newSerie->getOriginCountry()->add($newCountry);
-            $this->manager->persist($newCountry);
-        }
-        foreach ($listElement["production_companies"] as $production) {
-            $newProd = new ProductionCompagny();
-            $newProd->setTmdbId($production["id"]);
-            $newProd->setName($production["name"]);
-            $newProd->setOriginCountry($production["origin_country"]);
-            $newProd->getSeries()->add($newSerie);
-            $newProd->setCreatedAt($createdAt);
-            $newSerie->getProductionCompagnies()->add($newProd);
-            $this->manager->persist($newProd);
-        }
-        // !!! We will add more infos about episodes and others during V2 !!!
-        foreach ($listElement["seasons"] as $season) {
-            $newSeason = new Season();
-            $newSeason->setTmdbId($season["id"]);
-            $newSeason->setName($season["name"]);
-            $newSeason->setOverview($season["overview"]);
-            $newSeason->setEpisodeCount($season["episode_count"]);
-            $newSeason->setAirDate($season["air_date"]);
-            $newSeason->setSeasonNumber($season["season_number"]);
-            $newSeason->setCreated_at($createdAt);
-            $newSerie->getSeasons()->add($newSeason);
-            $this->manager->persist($newSeason);
-        }
-           
-        $newSerie->setCreated_at($createdAt);
-        $this->manager->persist($newSerie);
+            // Element's list sent by the API
+            $listElement = $response->toArray();
+            $listCast = $responseCast->toArray();
+            $newSerie = new Serie();
+            $newSerie->setTmdbId($listElement["id"]);
+            $newSerie->setTmdbId($listCast["id"]);
+            $newSerie->setName($listElement["name"]);
+            $newSerie->setEpisodeRunTime(implode($listElement["episode_run_time"]));
+            $newSerie->setFirstAirDate($listElement["first_air_date"]);
+            $newSerie->setLastAirDate($listElement["last_air_date"]);
+            $newSerie->setLastEpisodeToAir($listElement["last_episode_to_air"]["name"] . " " . $listElement["last_episode_to_air"]["episode_number"] . " " . $listElement["last_episode_to_air"]["season_number"]);
+            $newSerie->setNextEpisodeToAir($listElement["next_episode_to_air"]["name"] . " " . $listElement["next_episode_to_air"]["episode_number"] . " " . $listElement["next_episode_to_air"]["season_number"]);
+            $newSerie->setInProduction($listElement["in_production"]);
+            $newSerie->setNumberOfEpisodes($listElement["number_of_episodes"]);
+            $newSerie->setNumberOfSeasons($listElement["number_of_seasons"]);
+            $newSerie->setOriginalLanguage($listElement["original_language"]);
+            $newSerie->setOverview($listElement["overview"]);
+            $newSerie->setPosterPath($listElement["poster_path"]);
+            $newSerie->setStatus($listElement["status"]);
+            $newSerie->setVoteAverage($listElement["vote_average"]);
+            $newSerie->setVoteCount($listElement["vote_count"]);
+            
+            foreach ($listElement["created_by"] as $creator) {
+                $newCreator = new Creator();
+                $newCreator->setTmdbId($creator["id"]);
+                $newCreator->setName($creator["name"]);
+                $newCreator->setCreated_at($createdAt);
+                $newCreator->getSeries()->add($newSerie);
+                $newSerie->getCreators()->add($newCreator);
+                $this->manager->persist($newCreator);
+            }
+            // This is the actor
+            foreach ($listCast["cast"] as $cast) {
+                $newActor = new Actor();
+                $newActor->setName($cast["name"]);
+                $newActor->setTmdbId($cast["id"]);
+                $newActor->setCreatedAt($createdAt);
+                
+                $newCast = new Cast();
+                $newCast->setTmdbId($cast["id"]);
+                $newCast->setProtagonist($cast["character"]);
+                $newCast->setSerie($newSerie);
+                $newCast->setCreatedAt($createdAt);
+                $newCast->getActors()->add($newActor);
+                $newActor->getCasts()->add($newCast);
+                $newSerie->getCast()->add($newCast);
 
-        // Add in the database
-        $this->manager->flush();
+                $this->manager->persist($newActor); 
+                $this->manager->persist($newCast);
+            }
+            foreach ($listElement["networks"] as $network) {
+                $newNetwork = new Network();
+                $newNetwork->setTmdbId($network["id"]);
+                $newNetwork->setName($network["name"]);
+                $newNetwork->setOriginCountry($network["origin_country"]);
+                $newNetwork->setCreatedAt($createdAt);
+                $newNetwork->getSeries()->add($newSerie);
+                $newSerie->getNetworks()->add($newNetwork);
+               $this->manager->persist($newNetwork);
+            }
+            foreach ($listElement["genres"] as $genre) {
+                $newGenre = new Genre();
+                $newGenre->setTmdbId($genre["id"]);
+                $newGenre->setLabel($genre["name"]);
+                $newGenre->setCreatedAt($createdAt);
+                $newGenre->getSeries()->add($newSerie);
+                $newSerie->getGenres()->add($newGenre);
+               $this->manager->persist($newGenre);
+            }
+            foreach ($listElement["origin_country"] as $originalCountry) {
+                $newCountry = new OriginalCountry();
+                $newCountry->setName($originalCountry);
+                $newCountry->getSeries()->add($newSerie);
+                $newCountry->setCreatedAt($createdAt);
+                $newSerie->getOriginCountry()->add($newCountry);
+               $this->manager->persist($newCountry);
+            }
+            foreach ($listElement["production_companies"] as $production) {
+                $newProd = new ProductionCompagny();
+                $newProd->setTmdbId($production["id"]);
+                $newProd->setName($production["name"]);
+                $newProd->setOriginCountry($production["origin_country"]);
+                $newProd->getSeries()->add($newSerie);
+                $newProd->setCreatedAt($createdAt);
+                $newSerie->getProductionCompagnies()->add($newProd);
+                $this->manager->persist($newProd);
+            }
+            // !!! We will add more infos about episodes and others during V2 !!!
+            foreach ($listElement["seasons"] as $season) {
+                $newSeason = new Season();
+                $newSeason->setTmdbId($season["id"]);
+                $newSeason->setName($season["name"]);
+                $newSeason->setOverview($season["overview"]);
+                $newSeason->setEpisodeCount($season["episode_count"]);
+                $newSeason->setAirDate($season["air_date"]);
+                $newSeason->setSeasonNumber($season["season_number"]);
+                $newSeason->setCreated_at($createdAt);
+                $newSeason->setSerie($newSerie);
+                $newSerie->getSeasons()->add($newSeason);
+                $this->manager->persist($newSeason);
+            }
+            
+            $newSerie->setCreated_at($createdAt);
+            $this->manager->persist($newSerie);
+
+            // Add in the database
+            $this->manager->flush();
         
-        // Send all of the informations to the Front end in JSON format
-        $json = $serializer->serialize($newSerie, 'json', ['groups' => 'serie:details']);
+       
+            // Send all of the informations to the Front end in JSON format
+            $json = $serializer->serialize($newSerie, 'json', ['groups' => 'serie:details']);
 
-        $response = new Response();
-        $response->setContent($json);
-        $response->headers->add(['Content-type' => 'application/json']);
+            $response = new Response();
+            $response->setContent($json);
+            $response->headers->add(['Content-type' => 'application/json']);
 
-        return $response;
-        /*
-        return $this->render('details/details.html.twig', [
-            'serie' => $newSerie
-        ]);
-        */
+            return $response;
+    
+       } else 
+        { 
+            $serie= $repository->findOneByTmdbId($tmdb_id);
+            $creators = $serie->getGenres();
+            dump($serie);
+            dump($creators->getValues());
+            // Send all of the informations to the Front end in JSON format
+            $json = $serializer->serialize($serie, 'json', ['groups' => 'serie:details']);
+
+            $response = new Response();
+            $response->setContent($json);
+            $response->headers->add(['Content-type' => 'application/json']);
+
+            return $response;
+            /*return $this->render('details/details.html.twig', [
+            'serie' => $serie
+            ]);
+            */
+        }
+        
     }
 
     /**

@@ -48,7 +48,7 @@ class ProductionCompagny
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="productionCompagnies")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="productionCompagnies")
      */
     private $series;
 

@@ -36,7 +36,7 @@ class OriginalCountry
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="origin_country")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="origin_country")
      */
     private $series;
 

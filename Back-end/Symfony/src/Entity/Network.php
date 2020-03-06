@@ -48,13 +48,12 @@ class Network
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", mappedBy="networks")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Serie", inversedBy="networks")
      */
     private $series;
 
     public function __construct()
     {
-        $this->serie = new ArrayCollection();
         $this->series = new ArrayCollection();
     }
 
