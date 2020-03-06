@@ -1,5 +1,5 @@
 // == Import npm
-import _ from 'lodash';
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
@@ -10,11 +10,13 @@ import HomeStyled from './HomeStyled';
 
 // == Composant
 
-const Home = ({ cards }) => (
+const Home = ({ cards, name }) => (
   <HomeStyled>
     <Card.Group itemsPerRow={5} stackable>
       {cards.map((card) => (
-        <Criteria key={card.id} {...card} />
+        if (card.name === name){
+          <Criteria key={card.id} {...card} />
+        }
       ))}
     </Card.Group>
   </HomeStyled>
@@ -24,6 +26,7 @@ Home.propTypes = {
   cards: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Home;

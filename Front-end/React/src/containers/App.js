@@ -9,6 +9,7 @@ import App from 'src/components/App';
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
   series: state.home.series,
+  name: state.name.inputName,
 });
 
 // == Actions / dispatch

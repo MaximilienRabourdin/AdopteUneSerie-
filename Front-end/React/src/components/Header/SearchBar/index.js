@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Input, Dropdown } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
@@ -27,9 +28,19 @@ const genreOptions = genreTab.map( state => ({
 }));
 
 // == Composant
-const SearchBar = () => (
-  <SearchBarStyled>
+const SearchBar = ({ inputValue, sendName, changeInputValue }) => (
+  const handleChange = (evt) => {
+    changeInputValue(evt.target.value);
+  };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log('Soumission du formulaire');
+    // La prop venant du container (action qui sera dispatchée)
+    sendName();
+  };
+
+  <SearchBarStyled onSubmit={handleSubmit}>
     <MediaQuery maxDeviceWidth={425}>
       <div id="mobile">
         <Input
@@ -38,6 +49,7 @@ const SearchBar = () => (
           size="large"
           icon={{ name: 'search', circular: true, link: true }}
           placeholder="Recherchez une série"
+          
         />
         <Dropdown
           style={{ minWidth: '202px', minheight: '38px' }}
@@ -57,8 +69,11 @@ const SearchBar = () => (
           style={{ minWidth: '302px' }}
           className="searchBar"
           size="large"
-          icon={{ name: 'search', circular: true, link: true }}
           placeholder="Recherchez une série"
+          type="text"
+          value={inputValue}
+          onChange={handleChange} 
+          onKeyPress={handleSubmit}
         />
         <Dropdown
           style={{ minWidth: '302px', minHeight: '38px' }}
@@ -74,6 +89,12 @@ const SearchBar = () => (
 
   </SearchBarStyled>
 );
+
+SearchBar.propTypes = {
+  inputValue: PropTypes.string.isRequired,
+  sendName: PropTypes.func.isRequired,
+  changeInputValue: PropTypes.func.isRequired,
+};
 
 
 // == Export

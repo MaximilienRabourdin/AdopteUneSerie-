@@ -31,7 +31,7 @@ const Header = () => (
     <MediaQuery minDeviceWidth={426}>
       <div className="topDesktop">
         <Logo href="#" />
-        <SearchBar id="searchBar" />
+        <SearchBar id="searchBar" name={name}/>
         <div id="signDesktop">
           <SignUp id="signUpDesktop" />
           <SignIn />

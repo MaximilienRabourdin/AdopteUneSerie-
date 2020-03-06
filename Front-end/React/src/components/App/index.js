@@ -10,10 +10,10 @@ import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
 // == Composant
-const App = ({ series }) => (
+const App = ({ series, name }) => (
   <AppStyled>
     <Header />
-    <Home cards={series} />
+    <Home cards={series}  name={name}/>
     <Footer />
   </AppStyled>
 );
