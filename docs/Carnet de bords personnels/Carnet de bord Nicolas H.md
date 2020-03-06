@@ -91,3 +91,38 @@ Carnet de bord personnel rempli chaque jour
 ### Difficultés rencontrées et solutions/contournements apportés : 
 
 Ràs
+
+## Jeudi 5 mars 2020 - Sprint 1
+
+### Ce que j'ai fait :
+
+- J'ai finalisé la conception de l'API pour l'envoie des séries en JSON
+
+### Ce que je comptais faire : 
+
+- 
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+Problème d'ajout de données dans la base de données au niveau de la longueur des éléments du dernier épisode diffusé. La solution prise a été de ne récupérer que la date, le numéro de l'épisode et la saison. 
+Problème de création des routes de l'API et des paramètres de la route. Solution trouvée : utiliser la Request afin de récupérer les éléments de l'url nécessaires à la requête. 
+
+## Vendredi 6 mars 2020 - Sprint 1
+
+### Ce que j'ai fait :
+
+- l'API d'envoie des données des séries est terminée, les routes ont été complétées et fonctionnent bien. 
+- J'ai refais un mappage des relations entre entités pour solutionner le remplissage des tables intermédiaires qui ne se faisait pas. 
+
+### Ce que je comptais faire : 
+
+- Déployer la partie API de l'application afin de pouvoir communiquer avec le back
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+Problème avec une propriété de l'entité `cast`, erreur lors de l'ajout en base de données : la propriété `character` est un nom reservé par SQL, ce qui empéchait donc l'éxploitation des données. La propriété a été changée pour le nom `protagonist`.
+Problème de mappage entre entités : tout a été repris (presque) à zéro.
+Problème de déploiement avec Deployer : aucune solution pour le moment, une issue a été ouverte
+
+
+

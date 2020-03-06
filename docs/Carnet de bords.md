@@ -89,5 +89,22 @@ Nous avons continué le développement de notre application. La décision a ét�
 - Team Back :
     - Routes de l'API terminées, début de l'envoie de données en JSON, reflexion faite autour d'API Platform, qui nous permettrait de gérer notre API de la meilleure manière.
 
+## Jeudi 5 mars 2020 - Sprint 1
 
+Nous avons continué la page d'accueil afin de pouvoir la présenter lors de la fin du sprint 1.
 
+- Team Front : 
+    - 
+- Team Back : 
+    - Début de l'installation d'un bundle pour l'authentification par l'API
+    - Finalisation des routes de l'API avec les paramètres envoyés par le front
+
+## Vendredi 6 mars 2020 - Sprint 1
+
+Nous avons finalisé la page d'accueil ainsi que l'affichage des séries avec un tableau transmis au front en attendant la liaison avec l'API
+
+- Team Front : 
+    - 
+- Team Back : 
+    - Finalisation de l'envoie de données par l'API
+    - Problème d'ajout de données dans les entités réglé.
