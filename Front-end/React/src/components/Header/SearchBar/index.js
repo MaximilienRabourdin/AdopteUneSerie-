@@ -28,9 +28,7 @@ const genreOptions = genreTab.map( state => ({
 }));
 
 // == Composant
-// const SearchBar = ({ inputValue, sendName, changeInputValue }) => (
-
-  const SearchBar = () => (
+// const SearchBar = ({ inputValue, sendName, changeInputValue }) => {
   // const handleChange = (evt) => {
   //    changeInputValue(evt.target.value);
   // };
@@ -41,6 +39,7 @@ const genreOptions = genreTab.map( state => ({
   // La prop venant du container (action qui sera dispatchée)
   //  sendName();
  // };
+  const SearchBar = () => (
 
   // <SearchBarStyled onSubmit={handleSubmit}>
   <SearchBarStyled >
@@ -92,7 +91,7 @@ const genreOptions = genreTab.map( state => ({
     </MediaQuery>
   </SearchBarStyled>
 );
-
+  // };
 SearchBar.propTypes = {
   // inputValue: PropTypes.string.isRequired,
  // sendName: PropTypes.func.isRequired,

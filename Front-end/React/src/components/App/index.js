@@ -2,6 +2,7 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
 
 // == Import
 import Header from 'src/components/Header';

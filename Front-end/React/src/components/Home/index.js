@@ -12,7 +12,7 @@ import HomeStyled from './HomeStyled';
 
 const Home = ({ cards, name }) => (
   <HomeStyled>
-    <Card.Group itemsPerRow={5} stackable>
+    <Card.Group itemsPerRow={10} stackable>
       {cards.map((card) => (
         // if (card.name === name){
           <Criteria key={card.id} {...card} />
