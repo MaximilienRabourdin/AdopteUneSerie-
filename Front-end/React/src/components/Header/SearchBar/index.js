@@ -94,7 +94,7 @@ const genreOptions = genreTab.map( state => ({
 );
 
 SearchBar.propTypes = {
-  inputValue: PropTypes.string.isRequired,
+  // inputValue: PropTypes.string.isRequired,
  // sendName: PropTypes.func.isRequired,
  // changeInputValue: PropTypes.func.isRequired,
 };

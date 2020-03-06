@@ -12,7 +12,7 @@ const initialState = {
 
 // Reducer
 const nameReducer = (state = initialState, action = {}) => {
-  console.log('name reducer : ', action);
+  // console.log('name reducer : ', action);
 
   switch (action.type) {
     case SEND_NEW_NAME_SERIE:

@@ -5,16 +5,16 @@ import styled from 'styled-components';
 export default styled.div`
 
 #DesktopFooter {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content : space-evenly;
-  bottom: 0%;
+  bottom: 0;
   background-color: #343a40;
   height: 50px;
   width: 100%;
   color: white;
   align-items : center;
-  flex-shrink: 0;
 }
 
 #toggle {
@@ -25,10 +25,11 @@ flex-direction: flex-end;
 }
 
 #MobileFooter {
+  position: absolute;
   display: flex;
-  flex: row;
+  flex-direction: row;
   justify-content : space-evenly;
-  margin-bottom: 65px;
+  bottom: 65px;
   background-color: #343a40;
   padding: 2em;
   height: 20px;
@@ -36,7 +37,6 @@ flex-direction: flex-end;
   color: white;
   align-items : center;
   font-size: 1em;  
-  flex-shrink: 0;
 }
 
 

@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-import { LOAD_RECIPES, saveRecipes } from 'src/actions/recipe';
+import { LOAD_SERIES, saveSeries } from 'src/actions/series';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOAD_RECIPES:
+    case LOAD_SERIES:
       axios({
         method: 'get',
         url: 'http://localhost:3001/recipes',
       })
         // succès
         .then((response) => {
-          store.dispatch(saveRecipes(response.data));
+          store.dispatch(saveSeries(response.data));
         })
         // échec
         .catch((error) => {
