@@ -4,8 +4,8 @@
 // console.log(data);
 
 import {
-  SAVE_SERIE,
-  SEARCH } from 'src/actions/series';
+  SAVE_INPUT,
+  SEARCH } from 'src/actions/name';
 
 // Initial State
 const initialState = {
@@ -15,20 +15,16 @@ const initialState = {
 
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_SERIE:
+    case SAVE_INPUT:
       return {
         ...state, // state actuel
         inputName: action.value,
       };
-    case SEARCH:
-      //{data.series.map((serie) => {
-       // if (serie.name == inputName){          
-          return {
-            ...state, // state actuel
-            series: data.series,
-          };
-       // }
-    //  })}
+    case SEARCH:      
+      return {
+        ...state, // state actuel
+        series: data.series,
+      };
     default:
      // console.log(state);
       return state;

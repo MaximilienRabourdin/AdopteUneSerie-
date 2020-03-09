@@ -1,15 +1,15 @@
 // Types
-export const SEND_NEW_NAME_SERIE = 'SEND_NEW_NAME_SERIE';
+export const SAVE_INPUT = 'SAVE_INPUT';
 export const SEARCH = 'SEARCH';
 
 // Creators
-export const sendNewNameSerie = (value) => {
-  console.log(value);
-  return {
-    type: SEND_NEW_NAME_SERIE ,
+export const saveInput = (value) => ({
+  //console.log(value);
+  //return {
+    type: SAVE_INPUT ,
     value,
-  }
-};
+ // }
+});
 
 export const search = () => ({
   type: SEARCH,

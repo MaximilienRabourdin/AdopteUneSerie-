@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SearchBar from 'src/components/Header/SearchBar';
 
 // Action Creators
-import { saveSerie, search } from 'src/actions/series';
+import { saveInput, search } from 'src/actions/name';
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({
   sendName: (value) => {
-    dispatch(saveSerie(value));
+    dispatch(saveInput(value));
   },
   handleSearch: () => {
     dispatch(search());
