@@ -77,9 +77,23 @@
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
 | tmdb_id | INT | NOT NULL |L'id de l'API|
+<<<<<<< HEAD
 | name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
 | birthdate | TIMESTAMP | NOT NULL |Date de naissance de l'acteur|
 | deathdate | TIMESTAMP | NOT NULL |Date du décés de l'acteur|
+=======
+| name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
+
+
+## Personnage(`character`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre page série|
+| name | VARCHAR(64) | NOT NULL |Nom complet de l'acteur|
+>>>>>>> 8711067b860823129703fed9c1abf48682fa3ed4
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des acteurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des acteurs|
 
@@ -183,7 +197,11 @@
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création des réalisateurs|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour des réalisateurs|
 
+<<<<<<< HEAD
 ## Série a un réalisateur(`creator_serie`)
+=======
+## Série a un réalisateur(`serie has creator`)
+>>>>>>> 8711067b860823129703fed9c1abf48682fa3ed4
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
