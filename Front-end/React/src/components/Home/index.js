@@ -13,11 +13,13 @@ import HomeStyled from './HomeStyled';
 const Home = ({ cards, name }) => (
   <HomeStyled>
     <Card.Group itemsPerRow={5} stackable>
-      {cards.map((card) => (
-        // if (card.name === name){
-          <Criteria key={card.id} {...card} />
-        // }
-      ))}
+      {cards.map((card) => {
+        if (card.name === name){
+          return (
+            <Criteria key={card.id} {...card} />
+          )
+        }
+      })}
     </Card.Group>
   </HomeStyled>
 );

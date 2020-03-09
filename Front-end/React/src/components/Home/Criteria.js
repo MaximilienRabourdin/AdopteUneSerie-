@@ -6,7 +6,7 @@ import { Card, Image } from 'semantic-ui-react';
 // == Composant
 const Criteria = ({ poster_path, name }) => (
   <Card>
-    <Image src={poster_path} wrapped ui={false} />
+    <Image src={"https://image.tmdb.org/t/p/w500" + poster_path} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{name}</Card.Header>
     </Card.Content>

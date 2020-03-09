@@ -12,7 +12,7 @@ import AppStyled from './AppStyled';
 // == Composant
 const App = ({ series, name }) => (
   <AppStyled>
-    <Header />
+    <Header/>
     <Home cards={series}  name={name}/>
     <Footer />
   </AppStyled>
@@ -23,6 +23,7 @@ App.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
+  name: PropTypes.string.isRequired,
 };
 // == Export
 export default App;
