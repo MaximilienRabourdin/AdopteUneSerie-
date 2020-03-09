@@ -5,25 +5,25 @@ import PropTypes from 'prop-types';
 
 // == Import
 import Header from 'src/components/Header';
-import Home from 'src/components/Home';
+import Login from 'src/components/Login';
+import Password from 'src/components/Password';
+import Register from 'src/components/Register';
+//import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
 // == Composant
-const App = ({ series, name }) => (
+const App = () => (
   <AppStyled>
     <Header/>
-    <Home cards={series}  name={name}/>
+    <Login/>
+    <Password/>
+    <Register/>
     <Footer />
   </AppStyled>
 );
 
-
-App.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  name: PropTypes.string.isRequired,
-};
 // == Export
 export default App;
+
+

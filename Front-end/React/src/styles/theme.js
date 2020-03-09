@@ -6,5 +6,9 @@ export default {
     light: '#D0D1CD',
     lighter: '#EFF0EB',
   },
+  fonts: {
+    text: 'Roboto, sans-serif',
+    heading: 'Nunito, sans-serif',
+  },
   gutter: 2,
 };
