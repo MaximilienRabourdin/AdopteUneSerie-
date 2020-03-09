@@ -105,24 +105,24 @@ Carnet de bord personnel rempli chaque jour
 ## 6 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nicolas H et moi avons reussi a envoyer des données a la BDD sans repeter des requetes déja réalisé et envoyé dans la BDD (résultat)
 
 2. Ce que je comptais faire : 
-    - 
+    - Continuer le deploiement
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Difficulté a déployer notre projet sur le server distant, solution trouvé le lundi 09 mars 2020
 
 ## 9 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Aider a résoudre le probleme par rapport au deploiement, puis le probleme des routes sur l'ip du server distant
 
 2. Ce que je comptais faire : 
-    - 
+    Rien
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Difficultés rencontrés comme dis dans ce que j'ai fait par rapport au deploy qui ne marchait pas, la solution etait de creer deux repo (un pour le back/api et un pour le front), puis un autre probleme est survenue par rapport au url (routes) utilisé sur le server distant (il fallait mettre index.php avant nos routes pour que cela fonctionne) mais grâce a Pierre (de l'équipe O'clock) notre probleme a été résolue
 
 ## 10 mars 2020
 
