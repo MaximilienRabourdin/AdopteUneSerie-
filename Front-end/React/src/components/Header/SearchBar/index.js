@@ -28,7 +28,7 @@ const genreOptions = genreTab.map( state => ({
 }));
 
 // == Composant
- const SearchBar = ({ inputValue, sendName, handleSearch}) => {
+ const SearchBar = ({ inputValue, sendName, handleSearch }) => {
 // const SearchBar = () => (
 
   const handleSubmit = (evt) => {
@@ -36,6 +36,7 @@ const genreOptions = genreTab.map( state => ({
     handleSearch();
   };
   const handleChange = (evt) => {
+    evt.preventDefault();
    sendName(evt.target.value);
   };
 

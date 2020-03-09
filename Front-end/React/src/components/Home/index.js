@@ -12,15 +12,28 @@ import HomeStyled from './HomeStyled';
 
 const Home = ({ cards, name }) => (
   <HomeStyled>
-    <Card.Group itemsPerRow={5} stackable>
-      {cards.map((card) => {
-        if (card.name === name){
-          return (
-            <Criteria key={card.id} {...card} />
-          )
-        }
-      })}
-    </Card.Group>
+    <div>
+      {name.length>0 && (
+        <Card.Group itemsPerRow={5} stackable>
+          {cards.map((card) => {
+            if (card.name === name){
+              return (
+                <Criteria key={card.id} {...card} />
+              )
+            };
+          })}
+        </Card.Group>
+      )}
+      {name.length===0 && (
+        <Card.Group itemsPerRow={5} stackable>
+          {cards.map((card) => {
+              return (
+                <Criteria key={card.id} {...card} />
+              )
+          })}
+        </Card.Group>
+      )}
+    </div> 
   </HomeStyled>
 );
 
