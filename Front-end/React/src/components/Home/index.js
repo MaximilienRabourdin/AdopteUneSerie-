@@ -5,35 +5,33 @@ import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 
 // == Import
-import Criteria from './Criteria';
+import SerieCard from 'src/components/Home/SerieCard';
 import HomeStyled from './HomeStyled';
 
 // == Composant
 
 const Home = ({ cards, name }) => (
   <HomeStyled>
-    <div>
-      {name.length>0 && (
-        <Card.Group itemsPerRow={5} stackable>
-          {cards.map((card) => {
-            if (card.name === name){
-              return (
-                <Criteria key={card.id} {...card} />
-              )
-            };
-          })}
-        </Card.Group>
-      )}
-      {name.length===0 && (
-        <Card.Group itemsPerRow={5} stackable>
-          {cards.map((card) => {
-              return (
-                <Criteria key={card.id} {...card} />
-              )
-          })}
-        </Card.Group>
-      )}
-    </div> 
+    {name.length>0 && (
+      <Card.Group itemsPerRow={5} stackable>
+        {cards.map((card) => {
+          if (card.name === name){
+            return (
+              <SerieCard key={card.id} {...card} />
+            )
+          };
+        })}
+      </Card.Group>
+    )}
+    {name.length===0 && (
+      <Card.Group itemsPerRow={5} stackable>
+        {cards.map((card) => {
+            return (
+              <SerieCard key={card.id} {...card} />
+            )
+        })}
+      </Card.Group>
+    )}
   </HomeStyled>
 );
 

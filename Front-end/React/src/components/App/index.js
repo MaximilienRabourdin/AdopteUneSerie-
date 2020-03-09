@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // == Import
 import Header from 'src/components/Header';
 import Home from 'src/components/Home';
-import Footer from 'src/components/Footer';
+//import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
 // == Composant
@@ -14,7 +14,7 @@ const App = ({ series, name }) => (
   <AppStyled>
     <Header/>
     <Home cards={series}  name={name}/>
-    <Footer />
+{/* <Footer /> */}
   </AppStyled>
 );
 
