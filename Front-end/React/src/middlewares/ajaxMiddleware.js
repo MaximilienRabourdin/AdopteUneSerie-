@@ -7,7 +7,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
     case LOAD_SERIES:
       axios({
         method: 'get',
-        url: 'http://localhost:3001/recipes',
+        url: 'http://209.182.238.244/AdopteUneSerie/index.php/discover',
       })
         // succès
         .then((response) => {

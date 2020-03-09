@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
 // Du composant qui a besoin de data ou d'actions
-import App from 'src/components/App';
-
+import SerieInfo from 'src/components/SerieInfo';
+import { getSerieFromSlug } from 'src/selectors/urls';
 // Action Creators
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
-const mapStateToProps = (state) => ({
-  series: state.home.series,
-  name: state.home.inputName,
-});
+const mapStateToProps = (state, ownProps) => {
+  const { slug } = ownProps.match.params;
+  return {
+    // j'utilise un selector pour trouver la recette correspondante au slug
+    serie: getSerieFromSlug(state.home.series, slug),
+  };
+};
 
 // == Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
@@ -19,6 +22,6 @@ const mapDispatchToProps = {};
 
 // création du lien : container
 // connect(redux)(react) - connect(ce dont on a besoin)(qui en a besoin)
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+const SerieInfoContainer = connect(mapStateToProps, mapDispatchToProps)(SerieInfo);
 
-export default AppContainer;
+export default SerieInfoContainer;

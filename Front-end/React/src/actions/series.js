@@ -1,13 +1,13 @@
 // Types
 export const LOAD_SERIES= 'LOAD_SERIES';
-export const SAVE_SERIE = 'SAVE_SERIE';
+export const SAVE_SERIES = 'SAVE_SERIES';
 
 // Creators
 export const loadSeries = () => ({
   type: LOAD_SERIES,
 });
 
-export const saveSerie = (value) => ({
-  type: SAVE_SERIE,
-  value,
+export const saveSeries = (series) => ({
+  type: SAVE_SERIES,
+  series,
 });

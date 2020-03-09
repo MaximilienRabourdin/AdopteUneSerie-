@@ -22,10 +22,10 @@ const Footer = () => (
       <div id="DesktopFooter">
         <Twitter href="#" className="tweet" />
         <Facebook href="#" className="fb" />
-        <Contact href="#" className="contact" />
-        <Cookie href="#" className="cookie" />
-        <FAQ href="#" className="FAQ" />
-        <Notices href="#" className="notices" />
+        <a className="contact" href={"http://localhost:8080/contact"}>Contact</a> 
+        <a className="cookie" href={"http://localhost:8080/cookie"}>Cookie</a> 
+        <a className="FAQ" href={"http://localhost:8080/faq"}>FAQ</a> 
+        <a className="notices" href={"http://localhost:8080/mentions-legales"}>Mentions légales</a> 
         <Toggle href="#" className="toggle" />
       </div>
     </MediaQuery>
@@ -35,10 +35,10 @@ const Footer = () => (
       <div id="MobileFooter">
         <Twitter href="#" className="tweet" />
         <Facebook href="#" className="fb" />
-        <Contact href="#" className="contact" />
-        <Cookie href="#" className="cookie" />
-        <FAQ href="#" className="FAQ" />
-        <Notices href="#" className="notices" />
+        <a className="contact" href={"http://localhost:8080/contact"}>Contact</a> 
+        <a className="cookie" href={"http://localhost:8080/cookie"}>Cookie</a> 
+        <a className="FAQ" href={"http://localhost:8080/faq"}>FAQ</a> 
+        <a className="notices" href={"http://localhost:8080/mentions-legales"}>Mentions légales</a> 
       </div>
     </MediaQuery>
 

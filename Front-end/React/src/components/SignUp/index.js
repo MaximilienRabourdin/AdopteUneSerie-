@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
-import 'bootswatch/dist/lux/bootstrap.min.css';
 import MediaQuery from 'react-responsive';
+import { Button } from 'semantic-ui-react'
 
 // == Import
 import SignUpStyled from './SignUpStyled';
@@ -10,10 +10,14 @@ import SignUpStyled from './SignUpStyled';
 const SignUp = () => (
   <SignUpStyled>
     <MediaQuery maxDeviceWidth={425}>
-      <button type="button" className="btn btn-outline-info btn-sm"> Inscription </button>
+      <Button inverted color='blue'>
+      Inscription
+      </Button>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>
-      <button type="button" className="btn btn-outline-info btn-md"> Inscription </button>
+      <Button inverted color='blue'>
+      Inscription
+      </Button>
     </MediaQuery>
   </SignUpStyled>
 );

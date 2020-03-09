@@ -7,26 +7,27 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 
 // Style
-import './styles.css';
+//import './styles.css';
 
 // == Composant
-function SerieInfo({ series }) {
+function SerieInfo({ serie }) {
   return (
     <div className="recipe">
       <Header
-        name={series.name}
-        image={series.poster_path}
-        origin={series.origin_country}
-        vote={series.vote_average}
+        name={serie.name}
+        image={serie.poster_path}
+        vote={serie.vote_average}
+        overview={serie.overview}
+        language={serie.original_language}
+        airDate={serie.first_air_date}
+        country={serie.origin_country}
       />
     </div>
   );
 }
 
 SerieInfo.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
+  serie: PropTypes.object.isRequired,
 };
 
 // == Export
