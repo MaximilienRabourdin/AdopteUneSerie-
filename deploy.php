@@ -16,7 +16,7 @@ add('shared_dirs', []);
 
 // Writable dirs by web server 
 add('writable_dirs', []);
-set('allow_anonymous_stats', false);
+set('allow_anonymous_stats', false); 
 
 // Hosts
 
@@ -24,7 +24,7 @@ host('209.182.238.244')
     ->multiplexing(false)
     ->user('adopteuneserie')
     ->identityFile("/home/nicolas/.ssh/id_rsa")
-    ->set('deploy_path', '/var/webapps/adopte_une_serie_api/releases/1/Back-end/Symfony');    
+    ->set('deploy_path', '/var/webapps/adopte_une_serie_api');    
     
 // Tasks
 
