@@ -4,7 +4,7 @@
 // console.log(data);
 
 import {
-  SAVE_INPUT,
+  SAVE_SERIE,
   SEARCH } from 'src/actions/name';
 
 // Initial State
@@ -15,7 +15,7 @@ const initialState = {
 
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_INPUT:
+    case SAVE_SERIE:
       return {
         ...state, // state actuel
         inputName: action.value,

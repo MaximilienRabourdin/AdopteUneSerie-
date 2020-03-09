@@ -36,7 +36,6 @@ const genreOptions = genreTab.map( state => ({
     handleSearch();
   };
   const handleChange = (evt) => {
-    evt.preventDefault();
    sendName(evt.target.value);
   };
 
@@ -51,8 +50,7 @@ const genreOptions = genreTab.map( state => ({
             icon={{ name: 'search', circular: true, link: true }}
             placeholder="Recherchez une série" 
             value={inputValue}
-            onChange={handleChange} 
-            onKeyDown={handleSubmit}
+            onChange={handleChange}
           />
           <Dropdown
             style={{ minWidth: '202px', minheight: '38px' }}

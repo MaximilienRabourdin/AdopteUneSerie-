@@ -1,12 +1,12 @@
 // Types
-export const SAVE_INPUT = 'SAVE_INPUT';
+export const SAVE_SERIE = 'SAVE_SERIE';
 export const SEARCH = 'SEARCH';
 
 // Creators
-export const saveInput = (value) => ({
+export const saveSerie = (value) => ({
   //console.log(value);
   //return {
-    type: SAVE_INPUT ,
+    type: SAVE_SERIE ,
     value,
  // }
 });
