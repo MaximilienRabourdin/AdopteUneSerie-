@@ -127,13 +127,13 @@ Carnet de bord personnel rempli chaque jour
 ## 10 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - S'occuper du token et des fonctionnalité d'authentification
 
 2. Ce que je comptais faire : 
-    - 
+    - S'occuper du token et des fonctionnalité d'authentification
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Probleme rencontré avec l'obtention du token (le bundle jwt authentification a été utilisé) qui n'est pas obtenue lorsque l'ont va sur la route
 
 ## 11 mars 2020
 
