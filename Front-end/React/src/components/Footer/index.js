@@ -3,11 +3,6 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 
 // == Import
-
-import Contact from 'src/components/Contact';
-import Cookie from 'src/components/Cookie';
-import FAQ from 'src/components/FAQ';
-import Notices from 'src/components/Notices';
 import FooterStyled from './FooterStyled';
 import Toggle from './Toggle';
 import Facebook from './Facebook';

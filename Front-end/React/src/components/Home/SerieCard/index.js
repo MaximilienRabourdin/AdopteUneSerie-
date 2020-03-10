@@ -2,24 +2,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'semantic-ui-react';
+import { getUrl } from 'src/selectors/urls';
 
 // == Composant
-const SerieCard = ({ poster_path, name }) => (
+const SerieCard = ({ serie }) => (
   <Card  color='blue'>
-    <Image src={"https://image.tmdb.org/t/p/w500" + poster_path} 
+    <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
     wrapped ui={false} 
     as='a'
-    href={"http://localhost:8080/" + name}
+    href= {getUrl('http://localhost:8080/', serie.name)}
     />
     <Card.Content>
-      <Card.Header>{name}</Card.Header>
+      <Card.Header>{serie.name}</Card.Header>
     </Card.Content>
   </Card>
 );
 
 SerieCard.propTypes = {
-  poster_path: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  serie: PropTypes.object.isRequired,
 };
 // == Export
 export default SerieCard;

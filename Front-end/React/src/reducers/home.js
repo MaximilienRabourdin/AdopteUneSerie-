@@ -1,6 +1,6 @@
 // Import
- import data from 'src/data/series';
- // import { SAVE_SERIES } from 'src/actions/series';
+import data from 'src/data/series';
+//  import { SAVE_SERIES } from 'src/actions/series';
 // console.log(data);
 
 import {
@@ -11,14 +11,15 @@ import {
 // Initial State
 const initialState = {
   series: data.series,
+  //series: [],
   inputName: '',
 };
 
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
    // case SAVE_SERIES:
-    //  console.log(action.series);
-    //  return {
+      //console.log(action.series);
+   //  return {
     //    ...state, // state actuel
     //    series: action.series,
     //  };

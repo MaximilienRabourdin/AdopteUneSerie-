@@ -7,7 +7,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
     case LOAD_SERIES:
       axios({
         method: 'get',
-        url: 'http://209.182.238.244/AdopteUneSerie/index.php/discover',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover',
       })
         // succès
         .then((response) => {

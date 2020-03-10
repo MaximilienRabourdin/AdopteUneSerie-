@@ -8,9 +8,9 @@ import { getSerieFromSlug } from 'src/selectors/urls';
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state, ownProps) => {
+  console.log(state);
   const { slug } = ownProps.match.params;
   return {
-    // j'utilise un selector pour trouver la recette correspondante au slug
     serie: getSerieFromSlug(state.home.series, slug),
   };
 };

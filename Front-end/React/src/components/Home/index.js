@@ -17,7 +17,7 @@ const Home = ({ series, name }) => (
         {series.map((card) => {
           if (card.name === name){
             return (
-              <SerieCard key={card.id} {...card} />
+              <SerieCard key={card.id} serie={card} />
             )
           };
         })}
@@ -27,7 +27,7 @@ const Home = ({ series, name }) => (
       <Card.Group itemsPerRow={5} stackable>
         {series.map((card) => {
             return (
-              <SerieCard key={card.id} {...card} />
+              <SerieCard key={card.id} serie={card} />
             )
         })}
       </Card.Group>
