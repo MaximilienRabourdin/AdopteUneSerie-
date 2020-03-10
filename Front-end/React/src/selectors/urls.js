@@ -8,10 +8,10 @@ export const getSlugFromString = (string) => {
 };
 
 export const getUrl = (prefix, string) => {
-  return `${prefix}${getSlugFromString(string)}`;
+  return `${prefix}${(string)}`;
 };
 
 export const getSerieFromSlug = (series, slug) => {
-  return series.find((serie) =>  getSlugFromString(serie.name) === slug);
+  return series.find((serie) => (serie.name) === slug);
 };
 
