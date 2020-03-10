@@ -6,25 +6,12 @@ import MediaQuery from 'react-responsive';
 
 // == Import
 import SearchBarStyled from './SearchBarStyled';
-
+import genres from 'src/data/genre';
 // == Genre Table
-const genreTab = [
-  {
-    key: 1,
-    text: 'action',
-    value: 'action',
-  },
-  {
-    key: 2,
-    text: 'animation',
-    value: 'animation',
-  },
-];
-
-const genreOptions = genreTab.map( state => ({
-  key: state.key,
-  text: state.text,
-  value: state.value,
+const genreOptions = genres.genres.map( state => ({
+  key: state.id,
+  text: state.name,
+  value: state.name,
 }));
 
 // == Composant
@@ -56,7 +43,7 @@ const genreOptions = genreTab.map( state => ({
           <Dropdown
             style={{ minWidth: '202px', minheight: '38px' }}
             className="dropdown"
-            placeholder="Découvrez des séries"
+            placeholder="Selectionnez vos critères"
             multiple
             search
             selection
@@ -79,7 +66,7 @@ const genreOptions = genreTab.map( state => ({
           <Dropdown
             style={{ minWidth: '302px', minHeight: '38px' }}
             className="dropdown"
-            placeholder="Découvrez des séries"
+            placeholder="Selectionnez vos critères"
             multiple
             search
             selection

@@ -5,8 +5,7 @@
 
 // Initial State
 const initialState = {
-  series: [],
-  inputName: '',
+  serie: [],
 };
 
 const serieInfoReducer = (state = initialState, action = {}) => {

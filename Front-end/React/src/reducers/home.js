@@ -1,5 +1,6 @@
 // Import
 import { SAVE_SERIES } from 'src/actions/series';
+import { SAVE_SERIE_INFO } from 'src/actions/input';
 // console.log(data);
 
 import {
@@ -11,6 +12,7 @@ import {
 const initialState = {
   series: [],
   inputName: '',
+  serie: [],
 };
 
 const homeReducer = (state = initialState, action = {}) => {
@@ -21,10 +23,16 @@ const homeReducer = (state = initialState, action = {}) => {
         ...state, // state actuel
         series: action.series,
       };
+      case SAVE_SERIE_INFO:
+        //console.log(action.series);
+       return {
+          ...state, // state actuel
+          serie: action.serie,
+        };
     case SAVE_SERIE:
       return {
         ...state, // state actuel
-        inputName: action.value,
+       inputName: action.value,
       };
     case SEARCH:      
       return {
