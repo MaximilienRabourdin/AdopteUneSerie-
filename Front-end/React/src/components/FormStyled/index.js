@@ -5,9 +5,12 @@ import theme from 'src/styles/theme';
 const FormStyled = styled.form`
   background-color: ${theme.colors.lighter};
   padding: ${theme.gutter}rem;
-  border-radius: ${theme.gutter / 4}rem;
+  border-radius: ${theme.gutter / 3}rem;
   width: 500px;
   max-width: 80%;
+  align-self: center;
+  
+
   .title {
     text-align: center;
     font-family: ${theme.fonts.heading};

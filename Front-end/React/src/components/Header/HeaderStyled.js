@@ -50,7 +50,7 @@ z-index: 1;
   position: fixed;
   z-index: 1;
   }
-}
+
 
 #signDesktop {
   display: flex;

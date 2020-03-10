@@ -17,8 +17,7 @@ const Password = () => (
 <div className="actions">
   <button
     type="submit"
-    className="actions-button"
-  >
+    className="actions-button">
     Générer un nouveau mot de passe
   </button>
 </div>

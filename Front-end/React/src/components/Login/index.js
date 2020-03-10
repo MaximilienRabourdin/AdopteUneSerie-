@@ -3,19 +3,17 @@ import React from 'react';
 
 // == Import	// == Import
 import FormStyled from 'src/components/FormStyled';
+import Field from 'src/components/Field';
 
 
 // == Composant	// == Composant
-const Login = () =>  (
+const Login = () => (
   <FormStyled>
-    <h1 className="title">Se connecter</h1>
+    <h1 className="title">Connexion</h1>
 
-    <div className="field">
-      <input type="text" />
-    </div>
-    <div className="field">
-      <input type="text" />
-    </div>
+    <Field />
+    <input type="" />	 
+    <Field />
 
     <div className="actions">
       <button
@@ -27,11 +25,11 @@ const Login = () =>  (
     </div>
 
     <div className="links">
-      <a className="links-item" href="#">mot de passe</a> /
+      <a className="links-item" href="#">mot de passe oublié</a> /
       <a className="links-item" href="#">compte</a>
     </div>
   </FormStyled>
-  );
+);
 
 // == Export	
 export default Login

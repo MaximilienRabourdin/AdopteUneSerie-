@@ -17,7 +17,7 @@ const App = () => (
   <AppStyled>
     <Header/>
     <Login/>
-    <Password/>
+   <Password/>
     <Register/>
     <Footer />
   </AppStyled>
