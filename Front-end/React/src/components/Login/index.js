@@ -1,19 +1,31 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import	// == Import
 import FormStyled from 'src/components/FormStyled';
 import Field from 'src/components/Field';
 
 
-// == Composant	// == Composant
-const Login = () => (
+// == Composant
+const Login = ({ fields, changeField }) => (
   <FormStyled>
-    <h1 className="title">Connexion</h1>
+    <h1 className="title">Se connecter</h1>
 
-    <Field />
-    <input type="" />	 
-    <Field />
+    <Field
+      value={fields.email}
+      changeValue={changeField}
+      placeholder="Votre email"
+      name="email"
+      type="email"
+    />
+    <Field
+      value={fields.password}
+      changeValue={changeField}
+      placeholder="Mot de passe"
+      name="password"
+      type="password"
+    />
 
     <div className="actions">
       <button
@@ -25,11 +37,16 @@ const Login = () => (
     </div>
 
     <div className="links">
-      <a className="links-item" href="#">mot de passe oublié</a> /
-      <a className="links-item" href="#">compte</a>
+      <Link className="links-item" to="/password">Mot de passe</Link>/
+      <Link className="links-item" to="/register">Créer un compte</Link>
     </div>
   </FormStyled>
 );
 
-// == Export	
-export default Login
+Login.propTypes = {
+  fields: PropTypes.object.isRequired,
+  changeField: PropTypes.func.isRequired,
+};
+
+// == Export
+export default Login;
