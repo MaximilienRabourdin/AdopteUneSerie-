@@ -138,13 +138,15 @@ Carnet de bord personnel rempli chaque jour
 ## 11 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nicolas H a réussi a s'occuper du token, il fallait juste recommencer depuis le debut l'installation de jwt et du token et ca a marcher
+    - Nous avons "presque" terminer le Controller de l'inscription, on a fait des assert dans l'entité user pour y mettre du regex, on a decode une requete json pour y recuperer morceau par morceau les donnée qu'ont souhaite, créer une condition pour verifier si l'email existe déja, on s'est occuper de la gestion du formulaire pour y recuperer les erreurs (mot de passe incorect, minimum 8 caracteres etc...) et les envoyer en json au front (car nous avons des erreurs symfony) nous avons fait l'ajout de l'utilisateur dans la BDD et sans faire de doublons grace a une condition
+    - Faire des recherche sur les erreurs du token lors du login en local et sur le server
 
 2. Ce que je comptais faire : 
-    - 
+    - Terminer l'inscription
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Problemes rencontrés lors de l'affichage des erreurs personalisé pour pouvoir les envoyé en json au front
 
 ## 12 mars 2020
 
