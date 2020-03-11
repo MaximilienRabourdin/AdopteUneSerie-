@@ -9,7 +9,7 @@ const infoMiddleware = (store) => (next) => (action) => {
       axios.get('http://209.182.238.244/projet-adopte-une-serie-api/public/search/' + action.value)
         // succès
         .then((response) => {
-          console.log("response middleware",response);
+          console.log("response middleware",response.data);
           store.dispatch(saveSerieInfo(response.data));
         })
         // échec
