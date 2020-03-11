@@ -124,5 +124,33 @@ Problème avec une propriété de l'entité `cast`, erreur lors de l'ajout en ba
 Problème de mappage entre entités : tout a été repris (presque) à zéro.
 Problème de déploiement avec Deployer : aucune solution pour le moment, une issue a été ouverte
 
+## Lundi 9 mars 2020 - Sprint 1
+
+### Ce que j'ai fait :
+
+- Résolution de problème pour le déploiement de la partie API de l'application. 
+- Configuration du VirtualHost pour cibler le projet
+
+### Ce que je comptais faire : 
+
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+Problème de déploiement avec le bundle `deployer`, changement de méthode pour un simple git clone côté déploiement.
+
+## Mardi 10 mars 2020 - Sprint 2
+
+### Ce que j'ai fait :
+
+- Gestion d'un problème de route et tentative de création d'un token avec JWT Token.
+
+### Ce que je comptais faire : 
+
+- Réussir à créer un token pour l'authentification utilisateur
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+- Impossible de créer un token, tentative d'utiliser une autre technique que JWT Token sans succès. 
+
 
 
