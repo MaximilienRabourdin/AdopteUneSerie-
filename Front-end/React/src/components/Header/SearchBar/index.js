@@ -1,18 +1,14 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Dropdown } from 'semantic-ui-react';
+import { Input, Dropdown, Menu } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
 // == Import
 import SearchBarStyled from './SearchBarStyled';
-import genres from 'src/data/genre';
+import options from 'src/data/options';
 // == Genre Table
-const genreOptions = genres.genres.map( state => ({
-  key: state.id,
-  text: state.name,
-  value: state.name,
-}));
+
 
 // == Composant
  const SearchBar = ({ inputValue, sendName, handleSearch }) => {
@@ -47,8 +43,8 @@ const genreOptions = genres.genres.map( state => ({
             multiple
             search
             selection
-            options={genreOptions}
-          />
+            options={options}
+          />             
         </div>
       </MediaQuery>
 
@@ -70,7 +66,7 @@ const genreOptions = genres.genres.map( state => ({
             multiple
             search
             selection
-            options={genreOptions}
+            options={options}
           />
         </div>
       </MediaQuery>

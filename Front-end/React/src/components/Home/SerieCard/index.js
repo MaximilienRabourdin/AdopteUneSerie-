@@ -7,7 +7,7 @@ import { getUrl } from 'src/selectors/urls';
 // == Composant
 const SerieCard = ({ serie, click }) => {
   const handleClick = (serie) => {
-    click(serie.name);
+    click(serie.id);
   };
   return (
     <Card  color='blue'>

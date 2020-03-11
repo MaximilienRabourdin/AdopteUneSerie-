@@ -27,8 +27,8 @@ z-index: 1;
   height: 50px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  box-shadow: 10px -15px 10px -10px #1A82AE,
-              -10px -15px 10px -10px #1A82AE;
+  box-shadow: 10px -15px 10px -10px #437B98,
+              -10px -15px 10px -10px #437B98;
   width: 100%;
   padding-top: 10px;
   display: flex;
@@ -45,8 +45,8 @@ z-index: 1;
   height: 100px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  box-shadow:  10px 15px 10px -10px #1A82AE,
-              -10px 15px 10px -10px #1A82AE;
+  box-shadow:  10px 15px 10px -10px #437B98,
+              -10px 15px 10px -10px #437B98;
   position: fixed;
   z-index: 1;
   }

@@ -6,8 +6,17 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_SERIES:
       axios({
-        method: 'get',
-        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover',
+        method: 'post',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/standard/',
+        data: {
+          "first_air_date.gte":"",
+          "first_air_date.lte":"",
+          "first_air_date_year":"",
+          "vote_average":"",
+          "with_genres":"",
+          "with_networks":"1024",
+          "with_runtime.lte":""
+        }
       })
         // succès
         .then((response) => {

@@ -11,12 +11,12 @@ const SignIn = () => (
   <SignInStyled>
     <MediaQuery maxDeviceWidth={425}>
       <Button inverted color='blue'>
-      Connexion
+        <a href={"http://localhost:8080/connexion"}>Connexion</a>
       </Button>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426} id="signInDesktop">
       <Button inverted color='blue'>
-      Connexion
+        <a href={"http://localhost:8080/connexion"}>Connexion</a>
       </Button>
     </MediaQuery>
   </SignInStyled>

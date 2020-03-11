@@ -15,7 +15,7 @@ const Logo = () => (
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>
       <div id="logoDesktop">
-      <a href={"http://localhost:8080/"}>ADOPTE UNE SERIE</a>        
+        <a href={"http://localhost:8080/"}>ADOPTE UNE SERIE</a>        
       </div>
     </MediaQuery>
   </LogoStyled>

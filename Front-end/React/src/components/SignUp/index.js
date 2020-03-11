@@ -11,12 +11,12 @@ const SignUp = () => (
   <SignUpStyled>
     <MediaQuery maxDeviceWidth={425}>
       <Button inverted color='blue'>
-      Inscription
+        <a href={"http://localhost:8080/inscription"}>Inscription</a>
       </Button>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>
       <Button inverted color='blue'>
-      Inscription
+        <a href={"http://localhost:8080/inscription"}>Inscription</a>
       </Button>
     </MediaQuery>
   </SignUpStyled>
