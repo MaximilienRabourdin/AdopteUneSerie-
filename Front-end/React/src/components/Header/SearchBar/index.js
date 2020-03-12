@@ -10,7 +10,7 @@ import SearchBarStyled from './SearchBarStyled';
 // == Options Table
 import options from 'src/data/options';
 import optionsInput from 'src/data/optionsMerge';
-console.log(optionsInput);
+
 // == Composant
  const SearchBar = ({ inputValue, sendName }) => {
 // const SearchBar = () => (
@@ -20,17 +20,40 @@ console.log(optionsInput);
    sendName(evt.target.value);
   };
   const handleChangeDropdown = (evt, {value}) => {
-    console.log(optionsSelected(value));
+    //console.log(optionsSelected(value));
+    var options = optionsSelected(value);
+    var idGenres = [];
+    var idNetwork = [];
+    var idNote = [];
+    var idTime = [];
+    options.map((option) => {
+      if (option[0].category === "with_genres"){
+        idGenres.push(option[0].id)
+      }
+      if (option[0].category === "with_networks"){
+        idNetwork.push(option[0].id)
+      }
+      if (option[0].category === "vote_average"){
+        idNote.push(option[0].id)
+      }
+      if (option[0].category === "with_runtime.lte"){
+        idTime.push(option[0].id)
+      }
+    })
+    var idGenres = idGenres.toString();
+    var idNetwork = idNetwork.toString();
+    var idNote = idNote.toString();
+    var idTime = idTime.toString();
   };
 
   const optionsSelected = (value) => {
-    var tab=[];
-    var i=0;
+    var options=[];
     value.map((input) =>{ 
-      tab[i] = optionsInput.filter((option) => option.name === input);
-      i=i+1;
+      var option = optionsInput.filter((option) => option.name === input);
+      //console.log(option);
+      options.push(option);
     }) 
-    return(tab);
+    return(options);
   };
 
   return (
