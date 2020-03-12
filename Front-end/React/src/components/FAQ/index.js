@@ -4,10 +4,12 @@ import React from 'react';
 // == Import
 
 import FaqStyled from './FaqStyled';
+import Header from 'src/components/Header';
 
 // == Composant
 const FAQ = () => (
-  <FaqStyled>    
+  <FaqStyled> 
+  <Header/>   
     FAQ
   </FaqStyled>
 );

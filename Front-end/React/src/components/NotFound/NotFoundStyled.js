@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  padding: 1em;
+.notFound{
+  padding: 300px 30% 500px 30%;
   font-size: 2em;
+}
 `;

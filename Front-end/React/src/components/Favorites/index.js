@@ -3,10 +3,12 @@ import React from 'react';
 
 // == Import
 import FavoritesStyled from './FavoritesStyled';
+import Header from 'src/components/Header';
 
 // == Composant
 const Favorites = () => (
   <FavoritesStyled>
+  <Header/>
     coucou Favorites
   </FavoritesStyled>
 );

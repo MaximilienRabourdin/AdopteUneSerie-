@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 // Composants
-import Header from './Header';
+import Header from './HeaderSerie';
+import Header from 'src/components/Header';
 
 // Style
 //import './styles.css';
@@ -12,8 +13,9 @@ import Header from './Header';
 // == Composant
 function SerieInfo({ serie }) {
   return (
+    <Header/>
     <div className="recipe">
-      <Header
+      <HeaderSerie
         name={serie[0].name}
         image={serie[0].poster_path}
         vote={serie[0].vote_average}

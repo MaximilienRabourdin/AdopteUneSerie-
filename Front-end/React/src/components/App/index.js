@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
-import Header from 'src/components/Header';
 //import SerieInfo from 'src/containers/SerieInfo';
 import Home from 'src/containers/Home';
 import Login from 'src/containers/Login';
@@ -16,13 +15,12 @@ import Notices from 'src/components/Notices';
 //import Account from 'src/components/Account';
 //import Favorites from 'src/components/Favorites';
 import NotFound from 'src/components/NotFound';
-//import Footer from 'src/components/Footer';
+import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
 // == Composant
 const App = () => (
   <AppStyled>
-    <Header/>
     <Switch>
       {/* on peut passer la prop component avec le composant
       si on a pas de data à transmettre */}
@@ -41,7 +39,7 @@ const App = () => (
         <NotFound />
       </Route>
     </Switch>
-    {/*<Footer /> */}
+    <Footer />
   </AppStyled>
 );
 
