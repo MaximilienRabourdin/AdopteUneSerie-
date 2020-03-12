@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
-color: #1A82AE; 
+color: black; 
 top: 40px; 
 
 #logoMobile{
@@ -11,6 +11,7 @@ top: 40px;
 }
 
 #logoDesktop{
+  color: black;
   position: absolute;
   top: 40px; 
   left: 100px;

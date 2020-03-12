@@ -8,14 +8,14 @@ import FieldStyled from './FieldStyled';
 // == Composant
 const Field = ({
   value,
-  changeValue,
+  onChange,
   placeholder,
   name,
   type,
 }) => {
   const handleChange = (evt) => {
     // console.log(evt.target.value);
-    changeValue(evt.target.name, evt.target.value);
+    onChange(evt.target.value, name);
   };
 
   return (
@@ -41,13 +41,17 @@ const Field = ({
 
 Field.propTypes = {
   value: PropTypes.string,
-  changeValue: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 
 };
 
+Field.defaultProps = {
+  value: '',
+  type: 'text',
+};
 
 // == Export
 export default Field;

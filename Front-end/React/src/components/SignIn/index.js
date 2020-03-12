@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
-import 'bootswatch/dist/lux/bootstrap.min.css';
 import MediaQuery from 'react-responsive';
+import { Button } from 'semantic-ui-react'
 
 // == Import
 import SignInStyled from './SignInStyled';
@@ -10,10 +10,14 @@ import SignInStyled from './SignInStyled';
 const SignIn = () => (
   <SignInStyled>
     <MediaQuery maxDeviceWidth={425}>
-      <button type="button" className="btn btn-outline-info btn-sm"> Connexion </button>
+      <Button inverted color='blue'>
+        <a href={"http://localhost:8080/connexion"}>Connexion</a>
+      </Button>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426} id="signInDesktop">
-      <button type="button" className="btn btn-outline-info btn-md"> Connexion </button>
+    <Button inverted color='blue'>
+      <a href={"http://localhost:8080/connexion"}>Connexion</a>
+    </Button>
     </MediaQuery>
   </SignInStyled>
 );
