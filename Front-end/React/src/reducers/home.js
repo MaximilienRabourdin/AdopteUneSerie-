@@ -5,6 +5,7 @@ import { SAVE_SERIE_INPUT} from 'src/actions/input';
 
 import {
   SAVE_SERIE,
+  CHANGE_DROPDOWN
 } from 'src/actions/name';
   
 
@@ -13,6 +14,7 @@ const initialState = {
   series: [],
   inputName: '',
   serieInput: [],
+  change: false,
 };
 
 const homeReducer = (state = initialState, action = {}) => {
@@ -34,6 +36,11 @@ const homeReducer = (state = initialState, action = {}) => {
         ...state, // state actuel
        inputName: action.value,
       };
+      case CHANGE_DROPDOWN:
+        return {
+          ...state, // state actuel
+         change: action.change,
+        };
     default:
      // console.log(state);
       return state;

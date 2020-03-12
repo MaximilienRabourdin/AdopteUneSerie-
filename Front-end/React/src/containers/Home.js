@@ -10,6 +10,7 @@ import Home from 'src/components/Home';
 const mapStateToProps = (state) => ({
   series: state.home.series,
   name: state.home.inputName,
+  change: state.home.change,
   serieInput: state.home.serieInput,
 });
 
