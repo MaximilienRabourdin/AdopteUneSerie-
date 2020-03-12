@@ -5,7 +5,7 @@ import { SAVE_SERIE_INPUT} from 'src/actions/input';
 
 import {
   SAVE_SERIE,
-  SEARCH } from 'src/actions/name';
+} from 'src/actions/name';
   
 
 // Initial State
@@ -33,11 +33,6 @@ const homeReducer = (state = initialState, action = {}) => {
       return {
         ...state, // state actuel
        inputName: action.value,
-      };
-    case SEARCH:      
-      return {
-        ...state, // state actuel
-        series: data.series,
       };
     default:
      // console.log(state);

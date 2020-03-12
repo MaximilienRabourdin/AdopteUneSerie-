@@ -1,26 +1,36 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Dropdown, Menu } from 'semantic-ui-react';
+import { Input, Dropdown } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
 // == Import
 import SearchBarStyled from './SearchBarStyled';
+
+// == Options Table
 import options from 'src/data/options';
-// == Genre Table
-
-
+import optionsInput from 'src/data/optionsMerge';
+console.log(optionsInput);
 // == Composant
- const SearchBar = ({ inputValue, sendName, handleSearch }) => {
+ const SearchBar = ({ inputValue, sendName }) => {
 // const SearchBar = () => (
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    handleSearch();
-  };
   const handleChange = (evt) => {
     evt.preventDefault();
    sendName(evt.target.value);
+  };
+  const handleChangeDropdown = (evt, {value}) => {
+    console.log(optionsSelected(value));
+  };
+
+  const optionsSelected = (value) => {
+    var tab=[];
+    var i=0;
+    value.map((input) =>{ 
+      tab[i] = optionsInput.filter((option) => option.name === input);
+      i=i+1;
+    }) 
+    return(tab);
   };
 
   return (
@@ -43,6 +53,7 @@ import options from 'src/data/options';
             multiple
             search
             selection
+            onChange={handleChangeDropdown}
             options={options}
           />             
         </div>
@@ -66,6 +77,7 @@ import options from 'src/data/options';
             multiple
             search
             selection
+            onChange={handleChangeDropdown}
             options={options}
           />
         </div>
@@ -77,7 +89,6 @@ import options from 'src/data/options';
 SearchBar.propTypes = {
   inputValue: PropTypes.string.isRequired,
   sendName: PropTypes.func.isRequired,
-  handleSearch:  PropTypes.func.isRequired,
 };
 
 

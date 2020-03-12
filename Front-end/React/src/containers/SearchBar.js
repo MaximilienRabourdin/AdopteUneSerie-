@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SearchBar from 'src/components/Header/SearchBar';
 
 // Action Creators
-import { saveSerie, search } from 'src/actions/name';
+import { saveSerie } from 'src/actions/name';
 import { loadSerieInput} from 'src/actions/input';
 
 // == Data / state
@@ -20,9 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
   sendName: (value) => {
     dispatch(loadSerieInput(value));
     dispatch(saveSerie(value));
-  },
-  handleSearch: () => {
-    dispatch(search());
   },
 });
 

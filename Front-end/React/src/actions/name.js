@@ -1,6 +1,5 @@
 // Types
 export const SAVE_SERIE = 'SAVE_SERIE';
-export const SEARCH = 'SEARCH';
 
 // Creators
 export const saveSerie = (value) => ({
@@ -9,8 +8,4 @@ export const saveSerie = (value) => ({
     type: SAVE_SERIE ,
     value,
  // }
-});
-
-export const search = () => ({
-  type: SEARCH,
 });

@@ -3,6 +3,7 @@ import networks from 'src/data/networks';
 import notes from 'src/data/notes';
 import runtime from 'src/data/runTimeMax';
 
+import optionsInput from 'src/data/optionsMerge';
 const genresOptions = genres.genres.map( state => ({
   key: state.id,
   text: state.name,
