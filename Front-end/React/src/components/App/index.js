@@ -26,7 +26,7 @@ const App = () => (
     <Switch>
       {/* on peut passer la prop component avec le composant
       si on a pas de data à transmettre */}
-      <Route exact path="/" component={Home} />
+      <Route exact path="/Accueil" component={Home} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/cookie" component={Cookie} />
       <Route exact path="/faq" component={FAQ} />

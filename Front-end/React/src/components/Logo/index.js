@@ -10,12 +10,12 @@ const Logo = () => (
   <LogoStyled>
     <MediaQuery maxDeviceWidth={425}>
       <div id="logoMobile">
-        <a href={"http://localhost:8080/"}>LOGO</a>
+        <a href={"http://localhost:8080/Accueil"}>LOGO</a>
       </div>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>
       <div id="logoDesktop">
-        <a href={"http://localhost:8080/"}>ADOPTE UNE SERIE</a>        
+        <a href={"http://localhost:8080/Accueil"}>ADOPTE UNE SERIE</a>        
       </div>
     </MediaQuery>
   </LogoStyled>
