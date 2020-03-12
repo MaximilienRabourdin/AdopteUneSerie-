@@ -151,13 +151,15 @@ Carnet de bord personnel rempli chaque jour
 ## 12 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nicolas H a trouvé le probleme des erreurs du token lors du login local et server, il s'agisait juste d'un probleme de repo qui ne s'etait pas mis a jour
+    - Nous avons résolu le probleme des erreurs personalisé, il s'agissait en fait du regex du password qui ne conportait pas limite (/) ce qui faisait que les autres regex n'affichait pas leurs erreurs y compris celui qui a causé cela, et nous avons rencontré un second probleme qui faisait que l'erreur password ne marchait pas completement c'est a dire que peut importe ce qu'on rentre dans password il mettra l'erreur meme si le password est correct, aucune solution n'a été trouvé
+    - Nous avons fait la fonction du mot de passe oublié grâce a Mailer pour recevoir un mot de passe provisoir par mail, puis nous avonc créer la fonction permettant de changer son mot de passe dans son compte 
 
 2. Ce que je comptais faire : 
-    - 
+    - Faire le route et fonction des favoris et du compte
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Comme dit précédement, probleme rencontrés au niveau des erreurs personalisé mais résolu a cause du regex, mais un second probleme est arrivé et aucune solution n'a été trouvé.
 
 ## 13 mars 2020
 
