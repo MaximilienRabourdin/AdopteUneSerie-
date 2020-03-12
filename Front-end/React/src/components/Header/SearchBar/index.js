@@ -12,12 +12,12 @@ import options from 'src/data/options';
 import optionsInput from 'src/data/optionsMerge';
 
 // == Composant
- const SearchBar = ({ inputValue, sendName }) => {
+ const SearchBar = ({ inputValue, sendName, sendIds }) => {
 // const SearchBar = () => (
 
   const handleChange = (evt) => {
     evt.preventDefault();
-   sendName(evt.target.value);
+    sendName(evt.target.value);
   };
   const handleChangeDropdown = (evt, {value}) => {
     //console.log(optionsSelected(value));
@@ -44,6 +44,7 @@ import optionsInput from 'src/data/optionsMerge';
     var idNetwork = idNetwork.toString();
     var idNote = idNote.toString();
     var idTime = idTime.toString();
+    sendIds(idGenres, idNetwork, idNote, idTime);
   };
 
   const optionsSelected = (value) => {
@@ -112,6 +113,7 @@ import optionsInput from 'src/data/optionsMerge';
 SearchBar.propTypes = {
   inputValue: PropTypes.string.isRequired,
   sendName: PropTypes.func.isRequired,
+  sendIds: PropTypes.func.isRequired,
 };
 
 

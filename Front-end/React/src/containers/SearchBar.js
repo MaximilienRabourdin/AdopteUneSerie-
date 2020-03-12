@@ -4,7 +4,7 @@ import SearchBar from 'src/components/Header/SearchBar';
 
 // Action Creators
 import { saveSerie } from 'src/actions/name';
-import { loadSerieInput} from 'src/actions/input';
+import { loadSerieInput, loadSerieDropdown} from 'src/actions/input';
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   sendName: (value) => {
     dispatch(loadSerieInput(value));
     dispatch(saveSerie(value));
+  },
+  sendIds: (idGenres, idNetwork, idNote, idTime) => {
+    dispatch(loadSerieDropdown(idGenres, idNetwork, idNote, idTime));
   },
 });
 
