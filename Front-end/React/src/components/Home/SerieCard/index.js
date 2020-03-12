@@ -14,7 +14,7 @@ const SerieCard = ({ serie, click }) => {
       <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
       wrapped ui={false} 
       as='a'
-      href= {getUrl('http://localhost:8080/', serie.name)}
+      href= {getUrl('/', serie.name)}
       onClick={handleClick}
       />
       <Card.Content>

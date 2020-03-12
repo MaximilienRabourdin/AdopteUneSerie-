@@ -5,10 +5,10 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import
 import Header from 'src/components/Header';
-import SerieInfo from 'src/containers/SerieInfo';
+//import SerieInfo from 'src/containers/SerieInfo';
 import Home from 'src/containers/Home';
-//import SignUp from 'src/containers/SignUp';
-//import SignIn from 'src/containers/SignIn';
+import Login from 'src/containers/Login';
+import Register from 'src/containers/Register';
 import Contact from 'src/components/Contact';
 import Cookie from 'src/components/Cookie';
 import FAQ from 'src/components/FAQ';
@@ -31,9 +31,10 @@ const App = () => (
       <Route exact path="/cookie" component={Cookie} />
       <Route exact path="/faq" component={FAQ} />
       <Route exact path="/mentions-legales" component={Notices} />
+      <Route exact path="/inscription" component={Register} />
+      <Route exact path="/connexion" component={Login} />
+      {/*
       <Route exact path="/:slug" component={SerieInfo} />
-      {/*<Route exact path="/inscription" component={SignUp} />
-      <Route exact path="/connexion" component={SignIn} />
       <Route exact path="/mon-compte" component={Account} />
       <Route exact path="/favoris" component={Favorites} /> */}
       <Route>
