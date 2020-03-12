@@ -10,11 +10,11 @@ import HomeStyled from './HomeStyled';
 
 // == Composant
 
-const Home = ({ series, name, serie }) => (
+const Home = ({ series, name, serieInput }) => (
   <HomeStyled>
     {name.length>0 && (
       <Card.Group itemsPerRow={5} stackable>
-      {serie.map((card) => {
+      {serieInput.map((card) => {
           return (
         <SerieCard key={card.id} serie={card} />
         )
@@ -38,7 +38,7 @@ Home.propTypes = {
     PropTypes.object.isRequired,
   ).isRequired,
   name: PropTypes.string.isRequired,
-  serie: PropTypes.arrayOf(
+  serieInput: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
 };

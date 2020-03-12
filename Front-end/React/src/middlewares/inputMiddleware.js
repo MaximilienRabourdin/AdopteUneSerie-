@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-import { LOAD_SERIE_INFO, saveSerieInfo } from 'src/actions/input';
+import { LOAD_SERIE_INPUT, saveSerieInput } from 'src/actions/input';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOAD_SERIE_INFO:
-      console.log(action.value);
+    case LOAD_SERIE_INPUT:
+      //console.log(action.value);
       axios.get('http://209.182.238.244/projet-adopte-une-serie-api/public/search/' + action.value)
         // succès
         .then((response) => {
-          store.dispatch(saveSerieInfo(response.data));
+         // console.log(action.response);
+          store.dispatch(saveSerieInput(response.data));
         })
         // échec
         .catch((error) => {

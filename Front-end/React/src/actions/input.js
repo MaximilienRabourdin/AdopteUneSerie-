@@ -1,14 +1,14 @@
 // Types
-export const LOAD_SERIE_INFO= 'LOAD_SERIE_INFO';
-export const SAVE_SERIE_INFO = 'SAVE_SERIE_INFO';
+export const LOAD_SERIE_INPUT= 'LOAD_SERIE_INPUT';
+export const SAVE_SERIE_INPUT = 'SAVE_SERIE_INPUT';
 
 // Creators
-export const loadSerieInfo = (value) => ({
-  type: LOAD_SERIE_INFO,
+export const loadSerieInput = (value) => ({
+  type: LOAD_SERIE_INPUT,
   value
 });
 
-export const saveSerieInfo = (serie) => ({
-  type: SAVE_SERIE_INFO,
-  serie,
+export const saveSerieInput = (serieInput) => ({
+  type: SAVE_SERIE_INPUT,
+  serieInput,
 });

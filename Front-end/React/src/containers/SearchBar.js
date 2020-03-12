@@ -4,7 +4,7 @@ import SearchBar from 'src/components/Header/SearchBar';
 
 // Action Creators
 import { saveSerie, search } from 'src/actions/name';
-import { loadSerieInfo} from 'src/actions/input';
+import { loadSerieInput} from 'src/actions/input';
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({
   sendName: (value) => {
-    dispatch(loadSerieInfo(value));
+    dispatch(loadSerieInput(value));
     dispatch(saveSerie(value));
   },
   handleSearch: () => {
