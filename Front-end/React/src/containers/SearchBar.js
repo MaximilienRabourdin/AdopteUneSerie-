@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 // Du composant qui a besoin de data ou d'actions
-import SearchBar from 'src/components/Header/SearchBar';
+import SearchBar from 'src/components/HeaderSearch/SearchBar';
 
 // Action Creators
 import { saveSerie, changeDropdown } from 'src/actions/name';
