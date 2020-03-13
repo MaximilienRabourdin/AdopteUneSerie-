@@ -164,13 +164,14 @@ Carnet de bord personnel rempli chaque jour
 ## 13 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Créer les routes et leurs fonctions de la page des favoris (afficher les la page avec les séries, fonction qui sera appeller pour ajouter un série et fonction pour supprimer une série des favoris)
+    - Gerer l'envoie des email (mais cette fois sur server distant)
 
 2. Ce que je comptais faire : 
-    - 
+    - Rien
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Toujours le meme probleme concernant l'erreur du mot de passe qui ne s'affiche sauf qu'en voulant la résoudre le probleme s'est empiré, a présent on ne peut plus valider le formulaire. 
 
 ## 16 mars 2020
 
