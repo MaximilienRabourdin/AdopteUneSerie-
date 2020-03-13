@@ -138,35 +138,40 @@ Carnet de bord personnel rempli chaque jour
 ## 11 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nicolas H a réussi a s'occuper du token, il fallait juste recommencer depuis le debut l'installation de jwt et du token et ca a marcher
+    - Nous avons "presque" terminer le Controller de l'inscription, on a fait des assert dans l'entité user pour y mettre du regex, on a decode une requete json pour y recuperer morceau par morceau les donnée qu'ont souhaite, créer une condition pour verifier si l'email existe déja, on s'est occuper de la gestion du formulaire pour y recuperer les erreurs (mot de passe incorect, minimum 8 caracteres etc...) et les envoyer en json au front (car nous avons des erreurs symfony) nous avons fait l'ajout de l'utilisateur dans la BDD et sans faire de doublons grace a une condition
+    - Faire des recherche sur les erreurs du token lors du login en local et sur le server
 
 2. Ce que je comptais faire : 
-    - 
+    - Terminer l'inscription
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Problemes rencontrés lors de l'affichage des erreurs personalisé pour pouvoir les envoyé en json au front
 
 ## 12 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nicolas H a trouvé le probleme des erreurs du token lors du login local et server, il s'agisait juste d'un probleme de repo qui ne s'etait pas mis a jour
+    - Nous avons résolu le probleme des erreurs personalisé, il s'agissait en fait du regex du password qui ne conportait pas limite (/) ce qui faisait que les autres regex n'affichait pas leurs erreurs y compris celui qui a causé cela, et nous avons rencontré un second probleme qui faisait que l'erreur password ne marchait pas completement c'est a dire que peut importe ce qu'on rentre dans password il mettra l'erreur meme si le password est correct, aucune solution n'a été trouvé
+    - Nous avons fait la fonction du mot de passe oublié grâce a Mailer pour recevoir un mot de passe provisoir par mail, puis nous avonc créer la fonction permettant de changer son mot de passe dans son compte 
 
 2. Ce que je comptais faire : 
-    - 
+    - Faire le route et fonction des favoris et du compte
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Comme dit précédement, probleme rencontrés au niveau des erreurs personalisé mais résolu a cause du regex, mais un second probleme est arrivé et aucune solution n'a été trouvé.
 
 ## 13 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Créer les routes et leurs fonctions de la page des favoris (afficher les la page avec les séries, fonction qui sera appeller pour ajouter un série et fonction pour supprimer une série des favoris)
+    - Gerer l'envoie des email (mais cette fois sur server distant)
 
 2. Ce que je comptais faire : 
-    - 
+    - Rien
 
 3. Difficultés rencontrés et solutions
-    Rien a signaler
+    Toujours le meme probleme concernant l'erreur du mot de passe qui ne s'affiche sauf qu'en voulant la résoudre le probleme s'est empiré, a présent on ne peut plus valider le formulaire. 
 
 ## 16 mars 2020
 
