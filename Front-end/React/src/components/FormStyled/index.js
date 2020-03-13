@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
+
 import theme from 'src/styles/theme';
 
 const FormStyled = styled.form`
+ 
   background-color: ${theme.colors.lighter};
   padding: ${theme.gutter}rem;
   border-radius: ${theme.gutter / 3}rem;
   width: 500px;
   max-width: 80%;
   align-self: center;
+  left: 80px;
+  margin-left: 500px;
+ 
   
-
   .title {
     text-align: center;
-    font-family: ${theme.fonts.heading};
     font-size: 2rem;
     margin-bottom: ${theme.gutter / 2}rem;
   }
@@ -22,7 +25,6 @@ const FormStyled = styled.form`
     text-align: center;
     /* & reprend la valeur du parent : ici ".actions" */
     &-button {
-      font-family: ${theme.fonts.heading};
       text-transform: uppercase;
       padding: ${theme.gutter / 4}rem;
       background-color: ${theme.colors.primary};
@@ -45,6 +47,7 @@ const FormStyled = styled.form`
       margin: ${theme.gutter / 6}rem
     }
   }
+  
 `;
 
 export default FormStyled;

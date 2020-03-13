@@ -12,14 +12,18 @@ import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
+
 // == Composant
 const App = () => (
+  
   <AppStyled>
     <Header />
+    
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/connexion" component={Login}/>
         <Route exact path="/inscription" component={Register}/>
+
         {/*<Route exact path="/mot-de-passe" component={Password}/>
         {/* Redirection : ancienne url => nouvelle url 
         <Redirect from="/join" to="/register" />

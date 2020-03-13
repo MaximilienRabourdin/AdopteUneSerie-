@@ -45,7 +45,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
       </div>
 
       <div className="links">
-        <Link className="links-item" to="/mot-de-passe">Mot de passe oublié</Link>/
+        <Link className="links-item" to="/mot_de-passe">Mot de passe oublié</Link>/
         <Link className="links-item" to="/inscription">Créer un compte</Link>
       </div>
     </FormStyled>

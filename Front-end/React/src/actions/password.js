@@ -3,15 +3,19 @@
 export const PASSWORD= 'PASSWORD';
 
 // Creators
-export const password = (value, name) => ({
-  //console.log(value);
-  //return {
-    type: SAVE_SERIE ,
-    value,
-    name,
- // }
+export const changeField = (value, name) => ({
+  type: CHANGE_FIELD,
+  value,
+  name,
 });
 
-export const search = () => ({
-  type: SEARCH,
+export const setUser = (logged, user) => ({
+  type: SET_USER,
+  logged,
+  user,
+});
+
+
+export const PASSWORD = () => ({
+  type: PASSWORD,
 });

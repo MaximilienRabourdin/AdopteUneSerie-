@@ -30,6 +30,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
           email: state.login.email,
           password: state.login.password,
         },
+
       })
         .then(saveUser)
         .catch(handleError);
