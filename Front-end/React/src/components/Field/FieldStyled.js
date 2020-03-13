@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-import theme from 'src/assets/styles/theme';
+import theme from 'src/styles/theme';
 
 const FieldStyled = styled.div`
   margin: ${theme.gutter}rem 0;

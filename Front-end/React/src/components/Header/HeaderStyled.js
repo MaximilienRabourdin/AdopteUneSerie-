@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.div`
-
 #TOP{
 background-color: #343a40;
 height: 100px;
@@ -18,6 +17,7 @@ z-index: 1;
   width: 100%;
   padding-top: 10px;
   padding-left : 15px;
+  top: 0;
 }
 
 .bottomMobile {
@@ -48,6 +48,7 @@ z-index: 1;
   box-shadow:  10px 15px 10px -10px #437B98,
               -10px 15px 10px -10px #437B98;
   position: fixed;
+  top: 0;
   z-index: 1;
   }
 }

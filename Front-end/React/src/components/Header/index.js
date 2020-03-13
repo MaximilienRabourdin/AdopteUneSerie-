@@ -7,7 +7,6 @@ import Logo from 'src/components/Logo';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import HeaderStyled from './HeaderStyled';
-import SearchBar from 'src/containers/SearchBar';
 import Toggle from './Toggle';
 
 // == Composant

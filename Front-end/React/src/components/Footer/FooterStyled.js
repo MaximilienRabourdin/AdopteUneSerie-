@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export default styled.div`
 
 #DesktopFooter {
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content : space-evenly;
@@ -25,13 +24,12 @@ flex-direction: flex-end;
 }
 
 #MobileFooter {
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content : space-evenly;
-  bottom: 65px;
+  margin-bottom: 65px;
   background-color: #343a40;
-  padding: 2em;
+  padding: 2em ;
   height: 20px;
   width: 100%;
   color: white;

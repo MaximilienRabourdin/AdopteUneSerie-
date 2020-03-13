@@ -19,6 +19,7 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
   return (
     <FormStyled onSubmit={handleSubmit}>
     <Header/>
+    <form className="form">
       <h1 className="title">Créer un compte</h1>
 
       <Field
@@ -71,6 +72,7 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
       <div className="links">
         <Link className="links-item" to="/connexion">Connexion</Link>
       </div>
+    </form>
     </FormStyled>
   );
 };

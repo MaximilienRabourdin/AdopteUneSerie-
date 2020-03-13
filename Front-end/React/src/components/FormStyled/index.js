@@ -1,21 +1,26 @@
 import styled from 'styled-components';
 
-import theme from 'src/assets/styles/theme';
 
-const FormStyled = styled.form`
-  background-color: ${theme.colors.lighter};
-  padding: ${theme.gutter}rem;
+import theme from 'src/styles/theme';
+
+const FormStyled = styled.div`
+min-height: 93vh;
+ .form{
+   background-color : white;
+  padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
   width: 500px;
-  max-width: 80%;
-  align-self: center;
+  margin: 60px 33% 0;  
+  border: 2px solid black;
+ }
+   
   
-
   .title {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: ${theme.gutter / 2}rem;
+    margin-bottom: ${theme.gutter / 3}rem;
   }
+
   .actions {
     margin-top: ${theme.gutter / 2}rem;
     text-align: center;
@@ -28,13 +33,9 @@ const FormStyled = styled.form`
       border: 2px solid transparent;
       border-radius: ${theme.gutter / 4}rem;
       font-weight: 700;
-      &:hover {
-        background-color: ${theme.colors.lighter};
-        color: ${theme.colors.primary};
-        border: 2px solid ${theme.colors.primary};
-      }
     }
   }
+
   .links {
     text-align: center;
     margin-top: ${theme.gutter / 2}rem;
@@ -43,6 +44,7 @@ const FormStyled = styled.form`
       margin: ${theme.gutter / 6}rem
     }
   }
+  
 `;
 
 export default FormStyled;

@@ -24,11 +24,12 @@ const ajaxMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'http://localhost:3001/login',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/api/login_check',
         withCredentials: true,
+        headers: { 'Content-Type':'application/json' },
         data: {
-          email: state.login.email,
-          password: state.login.password,
+          "username": state.login.email,
+          "password": state.login.password,
         },
       })
         .then(saveUser)

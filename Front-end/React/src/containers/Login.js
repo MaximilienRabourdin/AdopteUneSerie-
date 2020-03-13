@@ -8,7 +8,7 @@ import { login, changeField } from 'src/actions/auth';
 //== Data / state
 const mapStateToProps = (state) => ({
   email: state.login.email,
-  password: state.login.email,
+  password: state.login.password,
 });
 
 

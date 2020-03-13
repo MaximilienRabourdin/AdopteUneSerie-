@@ -7,6 +7,7 @@ import { getUrl } from 'src/selectors/urls';
 // == Composant
 const SerieCard = ({ serie, click }) => {
   const handleClick = (serie) => {
+    console.log(serie.id);
     click(serie.id);
   };
   return (

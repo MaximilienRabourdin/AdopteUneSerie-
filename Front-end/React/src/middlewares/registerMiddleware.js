@@ -21,15 +21,15 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case REGISTER: {
       const state = store.getState();
+      console.log("firstname", state.register.firstname);
 
       axios({
         method: 'post',
-        url: 'http://localhost:3001/register',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/user/new',
         withCredentials: true,
         data: {
-          email: state.register.email,
+          username: state.register.email,
           password: state.register.password,
-          confirmPassword: state.register.confirmPassword,
           firstname: state.register.firstname,
           lastname: state.register.lastname,
         },
