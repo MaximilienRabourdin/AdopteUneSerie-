@@ -153,4 +153,57 @@ Problème de déploiement avec le bundle `deployer`, changement de méthode pour
 - Impossible de créer un token, tentative d'utiliser une autre technique que JWT Token sans succès. 
 
 
+## Mercredi 11 mars 2020 - Sprint 2
+
+### Ce que j'ai fait :
+
+- Résolution du problème de création de token avec JWT Token Bundle
+- Gestion de la création d'un utilisateur grâce à json_decode.
+- Création des contraintes de champs de l'entité user. 
+- Modification de la route `standard` afin d'accépter des données en json.
+
+### Ce que je comptais faire : 
+
+- 
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+- Difficulté pour créer un token, solution apportée : reprise du tutoriel de configuration de JWT token et ça a fonctionné.
+
+## Jeudi 12 mars 2020 - Sprint 2
+
+### Ce que j'ai fait :
+
+- Mise en place de la route d'oubli de mot de passe grâce à l'envoi d'un mail => installation du mailer de symfony ainsi que du google mailer. Fonctionnement de la route : envoie d'un mot de passe généré aléatoirement puis assigné à l'utilisateur par mail.
+- Mise en place de la route de modification de mot de passe pour un utilisateur connecté (nécessité d'envoyer le token lors de la requête)
+- Mise en place de la soumission du formulaire de création d'un utilisateur avec les données reçues du front
+- Tentative de récupération des erreurs liées aux contraintes du formulaire de création d'utilisateurs 
+
+### Ce que je comptais faire : 
+
+- Pouvoir récupérer les erreurs liées au formulaires de création d'utilisateur.
+- Mettre en place la soumission d'un formulaire ainsi que la validation des données soumises lors de la modification du mot de passe.
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+- Route création nouvel utilisateur et connexion ne fonctionnent pas lorsqu'appellées par le front => problème de CORS, tentative de résolution en ajoutant manuellement les headers aux responses mais problème au niveau de la route de génération du token puisqu'on ne la gère pas directement.
+
+## Vendredi 13 mars 2020 - Sprint 2
+
+### Ce que j'ai fait :
+
+- Modification des réglages du mailer pour le fonctionnement de l'envoie de mail lorsque le projet est déployé.
+- Nouvelle tentative de récupérer les erreurs du formulaire  pour un nouvel utilisateur en changeant la méthode de soumission du formulaire, presque réussi mais il manque encore les erreurs du mot de passe. 
+- Résolution du problème de CORS policy grâce à l'installation de Nelmios CORS bundle. Les routes front/back fonctionnent donc toutes.
+
+### Ce que je comptais faire : 
+
+- Pouvoir récupérer les erreurs liées au formulaires de création d'utilisateur.
+
+### Difficultés rencontrées et solutions/contournements apportés : 
+
+- Impossible de récupérer les erreurs du mot de passe => mise en place d'un champs "plain_password" afin de faire la validation sur un mot de passe non hashé mais toujours bloqué.
+
+
+
 
