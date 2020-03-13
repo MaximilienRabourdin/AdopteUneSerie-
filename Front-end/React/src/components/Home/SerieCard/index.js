@@ -5,27 +5,18 @@ import { Card, Image, Button } from 'semantic-ui-react';
 import { getUrl } from 'src/selectors/urls';
 
 // == Composant
-const SerieCard = ({ serie, //click 
-}) => {
- // const handleClick = (evt) => {
-    //console.log(serie.id);
- //  click(serie.id);
- // };
+const SerieCard = ({ serie }) => {
   return (
     <Card  color='blue'>
       <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
       wrapped ui={false} 
+      as='a'
+      href= {getUrl('/serie/', serie.id)}
       />
       <Card.Content>
-        <Button
-        attached='bottom'
-        value={serie.id}
-        //onClick={handleClick}
-        as='a'
-        href= {getUrl('/serie/', serie.id)}
-        >
+        <Card.Header>
           {serie.name}
-        </Button>
+        </Card.Header>
       </Card.Content>
     </Card>
   );

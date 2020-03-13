@@ -27,7 +27,8 @@ const infoMiddleware = (store) => (next) => (action) => {
               "vote_average":action.note,
               "with_genres":action.genres,
               "with_networks":action.network,
-              "with_runtime.lte":action.time
+              "with_runtime.lte":action.time,
+              "page_number":""
             }
           })
             // succès

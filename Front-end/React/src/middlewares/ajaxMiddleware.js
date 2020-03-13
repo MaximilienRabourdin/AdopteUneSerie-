@@ -7,7 +7,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
     case LOAD_SERIES:
       axios({
         method: 'post',
-        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/standard/',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/trending',
         data: {
           "first_air_date.gte":"",
           "first_air_date.lte":"",

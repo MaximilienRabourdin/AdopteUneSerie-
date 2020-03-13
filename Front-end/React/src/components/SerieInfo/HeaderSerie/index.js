@@ -8,7 +8,7 @@ import MediaQuery from 'react-responsive';
 import './styles.css';
 
 // == Composant
-const Header = ({
+const HeaderSerie = ({
   name, image, vote, overview, language, airDate, country
 }) => (
   <header className="presentation">
@@ -51,7 +51,7 @@ const Header = ({
   </header>
 );
 
-Header.propTypes = {
+HeaderSerie.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   vote: PropTypes.number.isRequired,
@@ -63,4 +63,4 @@ Header.propTypes = {
 
 
 // == Export
-export default Header;
+export default HeaderSerie;

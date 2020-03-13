@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
-min-height: 90vh;
+min-height: 69vh;
  .formDesktop{
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
@@ -13,7 +13,7 @@ min-height: 90vh;
   margin: 0 33%;  
   border: 2px solid black;
   position: absolute;
-  top: 150px;
+  top: 200px;
  } 
   
   .titleDesktop {
@@ -33,7 +33,7 @@ min-height: 90vh;
       color: ${theme.colors.lighter};
       border: 2px solid transparent;
       border-radius: ${theme.gutter / 4}rem;
-      font-weight: 500;
+      font-weight: 700;
     }
   }
 
@@ -54,7 +54,7 @@ min-height: 90vh;
   margin: 0 10% ;  
   border: 2px solid black;
   position: absolute;
-  top: 130px;
+  top: 200px;
  } 
   
   .titleMobile {

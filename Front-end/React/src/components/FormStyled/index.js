@@ -4,14 +4,16 @@ import styled from 'styled-components';
 import theme from 'src/styles/theme';
 
 const FormStyled = styled.div`
-min-height: 93vh;
+min-height: 75vh;
  .form{
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
   width: 500px;
-  margin: 60px 33% 0;  
+  margin: 0 33%;  
   border: 2px solid black;
+  position: absolute;
+  top: 130px;
  }
    
   

@@ -6,7 +6,7 @@ const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_SERIE_INFO:
      console.log("action middleware", action.value);
-      axios.get('http://209.182.238.244/projet-adopte-une-serie-api/public/search/' + action.value)
+      axios.get('http://209.182.238.244/projet-adopte-une-serie-api/public/serie_id=' + action.value)
         // succès
         .then((response) => {
           console.log("response middleware",response.data);

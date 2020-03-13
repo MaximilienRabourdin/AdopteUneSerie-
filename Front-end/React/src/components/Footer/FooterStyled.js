@@ -14,6 +14,7 @@ export default styled.div`
   width: 100%;
   color: white;
   align-items : center;
+  margin-top: 200px;
 }
 
 #toggle {
@@ -29,12 +30,13 @@ flex-direction: flex-end;
   justify-content : space-evenly;
   margin-bottom: 65px;
   background-color: #343a40;
-  padding: 2em ;
+  padding: 2em 2em 4em 2em ;
   height: 20px;
   width: 100%;
   color: white;
   align-items : center;
-  font-size: 1em;  
+  font-size: 1em; 
+  margin:142px 0 20px; 
 }
 
 

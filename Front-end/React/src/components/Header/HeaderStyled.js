@@ -10,13 +10,15 @@ box-shadow:  10px 15px 10px -10px #1A82AE,
             -10px 15px 10px -10px #1A82AE;
 position: fixed;
 z-index: 1;
+left: 0;
+right: 0;
 }
 
 .topMobile {
   position: relative;
   width: 100%;
-  padding-top: 10px;
-  padding-left : 15px;
+  padding-top: 36px;
+  padding-left : 170px;
   top: 0;
 }
 

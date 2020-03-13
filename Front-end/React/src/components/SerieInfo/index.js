@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 // Composants
-import Header from './HeaderSerie';
+import HeaderSerie from './HeaderSerie';
 import Header from 'src/components/Header';
 
 // Style
@@ -13,25 +13,23 @@ import Header from 'src/components/Header';
 // == Composant
 function SerieInfo({ serie }) {
   return (
-    <Header/>
     <div className="recipe">
+      <Header/>
       <HeaderSerie
-        name={serie[0].name}
-        image={serie[0].poster_path}
-        vote={serie[0].vote_average}
-        overview={serie[0].overview}
-        language={serie[0].original_language}
-        airDate={serie[0].first_air_date}
-        country={serie[0].origin_country}
+        name={serie.name}
+        image={serie.poster_path}
+        vote={serie.vote_average}
+        overview={serie.overview}
+        language={serie.original_language}
+        airDate={serie.first_air_date}
+        country={serie.origin_country}
       />
     </div>
   );
 }
 
 SerieInfo.propTypes = {
-  serie: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
+  serie: PropTypes.object.isRequired,
 };
 
 // == Export
