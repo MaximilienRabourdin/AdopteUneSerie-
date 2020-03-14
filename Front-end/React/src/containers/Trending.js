@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 // Du composant qui a besoin de data ou d'actions
-import Home from 'src/components/Home';
+import Trending from 'src/components/Trending';
 
 // Action Creators
 
@@ -9,13 +9,8 @@ import Home from 'src/components/Home';
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
   series: state.home.seriesTendance,
-  seriesTopRated: state.home.seriesTopRated,
-  seriesRecent: state.home.seriesRecent,
   name: state.home.inputName,
-  idGenres: state.home.idGenres,
-  idNetwork: state.home.idNetwork,
-  idNote: state.home.idNote,
-  idTime: state.home.idTime,
+  change: state.home.change,
   serieInput: state.home.serieInput,
 });
 
@@ -26,6 +21,6 @@ const mapDispatchToProps = {};
 
 // création du lien : container
 // connect(redux)(react) - connect(ce dont on a besoin)(qui en a besoin)
-const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
+const TrendingContainer = connect(mapStateToProps, mapDispatchToProps)(Trending);
 
-export default HomeContainer;
+export default TrendingContainer;

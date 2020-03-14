@@ -11,10 +11,13 @@ export const saveSerie = (value) => ({
  // }
 });
 
-export const changeDropdown = (change) => ({
+export const changeDropdown = (idGenres, idNetwork, idNote, idTime) => ({
   //console.log(value);
   //return {
     type: CHANGE_DROPDOWN ,
-    change,
+    idGenres,
+    idNetwork,
+    idNote,
+    idTime,
  // }
 });

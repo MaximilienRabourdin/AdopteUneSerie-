@@ -14,10 +14,9 @@ import optionsInput from 'src/data/optionsMerge';
 // == Composant
  const SearchBar = ({ inputValue, sendName, sendIds }) => {
 // const SearchBar = () => (
-  var change = false;
   
   const handleChange = (evt) => {
-    evt.preventDefault();
+    //evt.preventDefault();
     sendName(evt.target.value);
   };
   const handleChangeDropdown = (evt, {value}) => {
@@ -45,8 +44,7 @@ import optionsInput from 'src/data/optionsMerge';
     var idNetwork = idNetwork.toString();
     var idNote = idNote.toString();
     var idTime = idTime.toString();
-    change = true;
-    sendIds(idGenres, idNetwork, idNote, idTime, change);
+    sendIds(idGenres, idNetwork, idNote, idTime);
   };
 
   const optionsSelected = (value) => {
@@ -119,10 +117,6 @@ SearchBar.propTypes = {
   sendIds: PropTypes.func.isRequired,
 };
 
-
-SearchBar.defaultProps = {
-  change: false,
-};
 
 // == Export
 export default SearchBar;

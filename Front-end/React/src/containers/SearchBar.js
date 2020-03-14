@@ -21,9 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(loadSerieInput(value));
     dispatch(saveSerie(value));
   },
-  sendIds: (idGenres, idNetwork, idNote, idTime, change) => {
+  sendIds: (idGenres, idNetwork, idNote, idTime) => {
     dispatch(loadSerieDropdown(idGenres, idNetwork, idNote, idTime));
-    dispatch(changeDropdown(change));
+    dispatch(changeDropdown(idGenres, idNetwork, idNote, idTime));
   },
 });
 

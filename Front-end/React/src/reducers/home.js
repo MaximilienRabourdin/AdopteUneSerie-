@@ -1,5 +1,5 @@
 // Import
-import { SAVE_SERIES } from 'src/actions/series';
+import { SAVE_SERIES_TENDANCE, SAVE_SERIES_TOP_RATED, SAVE_SERIES_RECENT } from 'src/actions/series';
 import { SAVE_SERIE_INPUT} from 'src/actions/input';
 // console.log(data);
 
@@ -11,19 +11,36 @@ import {
 
 // Initial State
 const initialState = {
-  series: [],
+  seriesTendance: [],
+  seriesTopRated : [],
+  seriesRecent: [],
   inputName: '',
+  idGenres: '',
+  idNetwork: '',
+  idNote: '',
+  idTime: '',
   serieInput: [],
-  change: false,
 };
 
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_SERIES:
+    case SAVE_SERIES_TENDANCE:
       //console.log(action.series);
      return {
         ...state, // state actuel
-        series: action.series,
+        seriesTendance: action.series,
+      };
+    case SAVE_SERIES_TOP_RATED:
+      //console.log(action.series);
+      return {
+        ...state, // state actuel
+        seriesTopRated : action.series,
+      };
+    case SAVE_SERIES_RECENT:
+      //console.log(action.series);
+      return {
+        ...state, // state actuel
+        seriesRecent: action.series,
       };
     case SAVE_SERIE_INPUT:
      // console.log(action.serieInput);
@@ -39,7 +56,10 @@ const homeReducer = (state = initialState, action = {}) => {
       case CHANGE_DROPDOWN:
         return {
           ...state, // state actuel
-         change: action.change,
+         idGenres: action.idGenres,
+         idNetwork: action.idNetwork,
+         idNote: action.idNote,
+         idTime: action.idTime,
         };
     default:
      // console.log(state);

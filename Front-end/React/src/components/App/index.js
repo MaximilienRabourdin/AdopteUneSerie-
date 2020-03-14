@@ -6,6 +6,9 @@ import { Route, Switch } from 'react-router-dom';
 // == Import
 //import SerieInfo from 'src/containers/SerieInfo';
 import Home from 'src/containers/Home';
+import Trending from 'src/containers/Trending';
+import TopRated from 'src/containers/TopRated';
+import Recent from 'src/containers/Recent';
 import Login from 'src/containers/Login';
 import Register from 'src/containers/Register';
 import Contact from 'src/components/Contact';
@@ -25,6 +28,9 @@ const App = () => (
       {/* on peut passer la prop component avec le composant
       si on a pas de data à transmettre */}
       <Route exact path="/Accueil" component={Home} />
+      <Route exact path="/Tendances" component={Trending} />
+      <Route exact path="/Mieux-Notees" component={TopRated} />
+      <Route exact path="/Recentes" component={Recent} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/cookie" component={Cookie} />
       <Route exact path="/faq" component={FAQ} />

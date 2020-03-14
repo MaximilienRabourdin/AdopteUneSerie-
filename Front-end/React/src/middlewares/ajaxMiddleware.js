@@ -1,26 +1,17 @@
 import axios from 'axios';
 
-import { LOAD_SERIES, saveSeries } from 'src/actions/series';
+import { LOAD_SERIES_TENDANCE, LOAD_SERIES_TOP_RATED, LOAD_SERIES_RECENT, saveSeriesTendance, saveSeriesTopRated, saveSeriesRecent } from 'src/actions/series';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOAD_SERIES:
+    case LOAD_SERIES_TENDANCE:
       axios({
         method: 'post',
         url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/trending',
-        data: {
-          "first_air_date.gte":"",
-          "first_air_date.lte":"",
-          "first_air_date_year":"",
-          "vote_average":"",
-          "with_genres":"",
-          "with_networks":"1024",
-          "with_runtime.lte":""
-        }
       })
         // succès
         .then((response) => {
-          store.dispatch(saveSeries(response.data));
+          store.dispatch(saveSeriesTendance(response.data));
         })
         // échec
         .catch((error) => {
@@ -30,6 +21,40 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       // alternative à
       // axios.get('http://localhost:3001/recipes');
       break;
+      case LOAD_SERIES_TOP_RATED:
+        axios({
+          method: 'post',
+          url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/top_rated/{1}',
+        })
+          // succès
+          .then((response) => {
+            store.dispatch(saveSeriesTopRated(response.data));
+          })
+          // échec
+          .catch((error) => {
+            console.log('Une erreur s\'est produite', error);
+          });
+  
+        // alternative à
+        // axios.get('http://localhost:3001/recipes');
+        break;
+        case LOAD_SERIES_RECENT:
+          axios({
+            method: 'post',
+            url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/recent/{1}',
+          })
+            // succès
+            .then((response) => {
+              store.dispatch(saveSeriesRecent(response.data));
+            })
+            // échec
+            .catch((error) => {
+              console.log('Une erreur s\'est produite', error);
+            });
+    
+          // alternative à
+          // axios.get('http://localhost:3001/recipes');
+          break;
 
     default:
       break;
