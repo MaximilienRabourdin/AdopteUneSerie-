@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
 export default styled.div`
+
   height: 100vh;
   overflow: hidden;
   background: #343a40;
 
+#mobile {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 35%%;
+  left: 35%;
+}
 .div
 {
   position: absolute;

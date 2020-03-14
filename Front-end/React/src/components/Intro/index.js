@@ -21,6 +21,11 @@ const Intro = () => (
           </Link>
         </div>            
     </MediaQuery>
+    <MediaQuery maxDeviceWidth={425}>     
+      <Link to="/Accueil">
+       <img id="mobile" src={logo} />
+     </Link>          
+    </MediaQuery>
   </IntroStyled>
 );
 
