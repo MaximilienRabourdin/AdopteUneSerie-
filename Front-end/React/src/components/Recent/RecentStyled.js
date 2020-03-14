@@ -8,9 +8,9 @@ min-height: 100vh;
 .search p{
   padding: 15px 0 20px;
   text-align: center;
-  color: white;
+  color: #1A82AE;
   font-size: 3em;
   border-bottom: 5px solid #1A82AE;
-  font-family: Georgia, serif;
+  font-family: Georgia, sans serif;
 }
 `;
