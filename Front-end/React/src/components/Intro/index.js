@@ -1,22 +1,27 @@
 // == Import : npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
+import { Link } from "react-router-dom";
 
 // == Import : local
-import  './IntroStyled.module.css';
+import IntroStyled from './IntroStyled.module.js';
+import logo from 'src/assets/logo4.png'
 
 // == Composant
 const Intro = () => (
-  //<IntroStyled>
+  <IntroStyled>
     <MediaQuery minDeviceWidth={426}>
-        <a href={"http://localhost:8080/Accueil"} >Adopte une série</a>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div> 
-        <div></div>            
+        <div className="div"></div>
+        <div className="div"></div>
+        <div className="div"></div>
+        <div className="div"></div> 
+        <div className="div">
+          <Link to="/Accueil">
+            <img src={logo} />
+          </Link>
+        </div>            
     </MediaQuery>
-  //</IntroStyled>
+  </IntroStyled>
 );
 
 // == Export

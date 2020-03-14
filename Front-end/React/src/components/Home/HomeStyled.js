@@ -8,6 +8,7 @@ min-height: 100vh;
 #accueil{
 justify-content: center;
 margin-top: 50px;
+padding:
 }
 
 .title{

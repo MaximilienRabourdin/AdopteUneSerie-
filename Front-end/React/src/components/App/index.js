@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import
 //import SerieInfo from 'src/containers/SerieInfo';
+import Intro from 'src/components/Intro';
 import Home from 'src/containers/Home';
 import Trending from 'src/containers/Trending';
 import TopRated from 'src/containers/TopRated';
@@ -27,6 +28,7 @@ const App = () => (
     <Switch>
       {/* on peut passer la prop component avec le composant
       si on a pas de data à transmettre */}
+      <Route exact path="/" component={Intro} /> 
       <Route exact path="/Accueil" component={Home} />
       <Route exact path="/Tendances" component={Trending} />
       <Route exact path="/Mieux-Notees" component={TopRated} />
