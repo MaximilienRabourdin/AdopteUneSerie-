@@ -7,7 +7,23 @@ top: 40px;
 
 #logoDesktop{
   position: absolute;
-  top: 40px; 
-  left: 100px;
+  top: 8px; 
+  left: 170px;
+  height: 65px;
+  width:65px;
+}
+#caption{
+  position: absolute;
+  top: 72px; 
+  left:155px;
+}
+
+
+#logoMobile{
+  position: absolute;
+  top: 25px; 
+  left: 15px;
+  height: 50px;
+  width:50px;
 }
 `;

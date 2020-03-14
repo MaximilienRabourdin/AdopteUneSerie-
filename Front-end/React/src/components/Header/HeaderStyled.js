@@ -14,6 +14,10 @@ left: 0;
 right: 0;
 }
 
+
+#logoMobile{
+  left: 160px;
+}
 .topMobile {
   position: relative;
   width: 100%;

@@ -17,7 +17,7 @@ const Header = () => (
       <div id="TOP">
         <Toggle />
         <div className="topMobile">
-          <Logo />
+          <Logo  id="logoMobile" />
         </div>
         <div className="bottomMobile">
           <SignUp />
@@ -28,7 +28,7 @@ const Header = () => (
 
     <MediaQuery minDeviceWidth={426}>
       <div className="topDesktop">
-        <Logo />
+        <Logo id="logoDesktop" />
         <div id="signDesktop">
           <SignUp id="signUpDesktop" />
           <SignIn />
