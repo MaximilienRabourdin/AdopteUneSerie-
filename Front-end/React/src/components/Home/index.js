@@ -26,7 +26,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
           }
         </Card.Group>
       )}
-      {((idGenres.length && idNetwork.length && idNote.length && idTime.length && name.length) === 0) && (
+      {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
         <Card.Group itemsPerRow={4} stackable id="accueil">
           <Card color='blue'>
             <Image src={"https://image.tmdb.org/t/p/w500\/vxuoMW6YBt6UsxvMfRNwRl9LtWS.jpg"} 
