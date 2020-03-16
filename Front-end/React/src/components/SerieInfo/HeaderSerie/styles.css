@@ -1,32 +1,35 @@
 .presentation {
+  min-height: 90vh;
 }
 
 .presentation-image-desktop {
-    margin: 100px 0 80px 0;
-    position: fixed;
     background-repeat : no-repeat;
     background-position: center;
-    background-size: cover;
     width: 30%;
-    height: 89vh;
     color: white;
     padding: 2em;
+    position: fixed;
+    top: 100px;
 }
 .presentation-content-desktop {
 
   margin: 128px 30px 0 30%;
-  text-transform: uppercase;
   width: 68%;
   height: 100px;
   position: fixed;
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   border-bottom: solid 1px #1A82AE;
 }
 
-.presentation-title-desktop {
+.presentation-title-desktop{
   font-size: 2.5em;
+  text-transform: uppercase;
+  color: white;
+}
+.presentation-content-desktop p{
+  font-size: 1.5em;
+  color: rgb(255, 174, 0);
 }
 
 .synopsis-desktop {
@@ -50,17 +53,21 @@
 .presentation-content-mobile {
   padding: 5px 0;
   margin: 5px 25px;
-  text-transform: uppercase;
   text-align: center;
-  color: white;
   background: rgba(0,0,0,0.3);
   border-bottom: solid 1px #1A82AE;
 }
 
 .presentation-title-mobile {
+  text-transform: uppercase;
   font-size: 1.8em;
+  color: white;
 }
 
+.presentation-content-mobile p{
+  font-size: 1em;
+  color:  rgb(255, 174, 0);
+}
 .synopsis-mobile {
   color: white;
   margin: 10px 25px 80px 25px;

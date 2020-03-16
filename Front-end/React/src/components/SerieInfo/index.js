@@ -21,8 +21,7 @@ function SerieInfo({
     var id = slug.match(/[0-9]+/g)
     //console.log("description path", id)
    sendSlug(id);
-  });
-
+  },[]);
   return (
     <div className="recipe">
       <Header/>
@@ -31,9 +30,6 @@ function SerieInfo({
         image={serie.poster_path}
         vote={serie.vote_average}
         overview={serie.overview}
-        language={serie.original_language}
-        airDate={serie.first_air_date}
-        country={serie.origin_country}
       />
     </div>
   );

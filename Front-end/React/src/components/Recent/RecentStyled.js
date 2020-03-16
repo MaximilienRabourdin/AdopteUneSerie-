@@ -12,5 +12,5 @@ min-height: 100vh;
   font-size: 3em;
   border-bottom: 5px solid #1A82AE;
   font-family: Georgia, sans serif;
-}
+  background: rgba(0, 0, 0, 0.3);
 `;
