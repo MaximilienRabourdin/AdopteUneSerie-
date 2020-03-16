@@ -17,10 +17,10 @@ const Footer = () => (
       <div id="DesktopFooter">
         <Twitter href="#" className="tweet" />
         <Facebook href="#" className="fb" />
-        <a className="contact" href={"http://localhost:8080/contact"}>Contact</a> 
-        <a className="cookie" href={"http://localhost:8080/cookie"}>Cookie</a> 
-        <a className="FAQ" href={"http://localhost:8080/faq"}>FAQ</a> 
-        <a className="notices" href={"http://localhost:8080/mentions-legales"}>Mentions légales</a> 
+        <a className="contact" href={"/contact"}>Contact</a> 
+        <a className="cookie" href={"/cookie"}>Cookie</a> 
+        <a className="FAQ" href={"/faq"}>FAQ</a> 
+        <a className="notices" href={"/mentions-legales"}>Mentions légales</a> 
         <Toggle href="#" className="toggle" />
       </div>
     </MediaQuery>
@@ -30,10 +30,10 @@ const Footer = () => (
       <div id="MobileFooter">
         <Twitter href="#" className="tweet" />
         <Facebook href="#" className="fb" />
-        <a className="contact" href={"http://localhost:8080/contact"}>Contact</a> 
-        <a className="cookie" href={"http://localhost:8080/cookie"}>Cookie</a> 
-        <a className="FAQ" href={"http://localhost:8080/faq"}>FAQ</a> 
-        <a className="notices" href={"http://localhost:8080/mentions-legales"}>Mentions légales</a> 
+        <a className="contact" href={"/contact"}>Contact</a> 
+        <a className="cookie" href={"/cookie"}>Cookie</a> 
+        <a className="FAQ" href={"/faq"}>FAQ</a> 
+        <a className="notices" href={"/mentions-legales"}>Mentions légales</a> 
       </div>
     </MediaQuery>
 

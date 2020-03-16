@@ -2,21 +2,28 @@ import { connect } from 'react-redux';
 // Du composant qui a besoin de data ou d'actions
 import SerieInfo from 'src/components/SerieInfo';
 // Action Creators
+import { loadSerieInfo } from 'src/actions/serieInfo';
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
-const mapStateToProps = (state) => {
-  console.log("state SerieInfo", state.serie.serie);
+const mapStateToProps = (state, ownProps) => {
+  //console.log("state SerieInfo", state.serie.serie);
   return {
     serie: state.serie.serie,
+    slug: ownProps.location.pathname,
   };
 };
 
 // == Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  sendSlug: (id) => {
+    const action = loadSerieInfo(id);
+    dispatch(action);
+  },
+});
 
 // création du lien : container
 // connect(redux)(react) - connect(ce dont on a besoin)(qui en a besoin)

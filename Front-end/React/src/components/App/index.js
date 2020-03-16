@@ -4,7 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
-//import SerieInfo from 'src/containers/SerieInfo';
+import SerieInfo from 'src/containers/SerieInfo';
 import Intro from 'src/components/Intro';
 import Home from 'src/containers/Home';
 import Trending from 'src/containers/Trending';
@@ -39,8 +39,8 @@ const App = () => (
       <Route exact path="/mentions-legales" component={Notices} />
       <Route exact path="/inscription" component={Register} />
       <Route exact path="/connexion" component={Login} />
+      <Route exact path="/serie/:slug" component={SerieInfo}/>
       {/*
-      <Route exact path="/serie/:slug" component={SerieInfo} />
       <Route exact path="/mon-compte" component={Account} />
       <Route exact path="/favoris" component={Favorites} /> */}
       <Route>

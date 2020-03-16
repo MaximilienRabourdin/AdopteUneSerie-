@@ -54,7 +54,7 @@ const HeaderSerie = ({
 HeaderSerie.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  vote: PropTypes.number.isRequired,
+  vote: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
   language:PropTypes.string.isRequired,
   airDate:PropTypes.string.isRequired,

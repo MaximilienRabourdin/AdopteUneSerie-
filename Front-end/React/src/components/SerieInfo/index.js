@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -11,7 +11,18 @@ import Header from 'src/components/Header';
 //import './styles.css';
 
 // == Composant
-function SerieInfo({ serie }) {
+function SerieInfo({ 
+  serie,
+  slug,
+  sendSlug
+ }) {
+
+  useEffect(() => {
+    var id = slug.match(/[0-9]+/g)
+    //console.log("description path", id)
+   sendSlug(id);
+  });
+
   return (
     <div className="recipe">
       <Header/>
@@ -30,6 +41,8 @@ function SerieInfo({ serie }) {
 
 SerieInfo.propTypes = {
   serie: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
+  sendSlug: PropTypes.func.isRequired,
 };
 
 // == Export
