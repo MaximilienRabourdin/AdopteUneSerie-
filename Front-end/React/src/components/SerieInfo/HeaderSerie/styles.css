@@ -29,7 +29,11 @@
 }
 .presentation-content-desktop p{
   font-size: 1.5em;
-  color: rgb(255, 174, 0);
+  color: #FBBD08;
+}
+.synopsis-desktop td{
+ padding: 20px;
+ text-align: left;
 }
 
 .synopsis-desktop {
@@ -37,6 +41,9 @@
   color: white;
   width: 97%;
   font-size: 1.5em;
+}
+.synopsis-desktop h1{
+  color: #1A82AE;
 }
 
 .presentation-image-mobile {
@@ -66,10 +73,13 @@
 
 .presentation-content-mobile p{
   font-size: 1em;
-  color:  rgb(255, 174, 0);
+  color:  #FBBD08;
 }
 .synopsis-mobile {
-  color: white;
+  color:white;
   margin: 10px 25px 80px 25px;
   font-size: 0.9em;
+}
+.synopsis-mobile h3{
+  color: #1A82AE;
 }

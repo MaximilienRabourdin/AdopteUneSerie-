@@ -1,11 +1,12 @@
 // Import
-  import { SAVE_SERIE_INFO } from 'src/actions/serieInfo';
+  import { SAVE_SERIE_INFO, SET_LOAD } from 'src/actions/serieInfo';
 // console.log(data);
 
 
 // Initial State
 const initialState = {
   serie: [],
+  load: false,
 };
 
 const serieInfoReducer = (state = initialState, action = {}) => {
@@ -15,6 +16,12 @@ const serieInfoReducer = (state = initialState, action = {}) => {
      return {
         ...state, // state actuel
         serie: action.serie,
+      };
+    case SET_LOAD:
+      //console.log(action.serie);
+      return {
+        ...state, // state actuel
+        load: action.load,
       };
     default:
      // console.log(state);

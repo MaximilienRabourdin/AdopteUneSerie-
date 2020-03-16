@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     serie: state.serie.serie,
     slug: ownProps.location.pathname,
+    load: state.serie.load
   };
 };
 

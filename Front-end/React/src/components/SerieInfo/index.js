@@ -14,31 +14,65 @@ import Header from 'src/components/Header';
 function SerieInfo({ 
   serie,
   slug,
-  sendSlug
+  sendSlug,
+  load,
  }) {
 
   useEffect(() => {
     var id = slug.match(/[0-9]+/g)
-    //console.log("description path", id)
    sendSlug(id);
   },[]);
-  return (
-    <div className="recipe">
-      <Header/>
-      <HeaderSerie
-        name={serie.name}
-        image={serie.poster_path}
-        vote={serie.vote_average}
-        overview={serie.overview}
-      />
-    </div>
-  );
+
+  if(load){
+    return (
+      <div className="recipe">
+        <Header/>
+        <HeaderSerie
+          name={serie.name}
+          image={serie.poster_path}
+          vote={serie.vote_average}
+          voteCount={serie.vote_count}
+          overview={serie.overview}
+          airDate={serie.first_air_date}
+          numberSeasons={serie.number_of_seasons}
+          numberEpisodes={serie.number_of_episodes}
+          runTime={serie.episode_run_time}
+          networks={serie.networks}
+          productions={serie.productionCompagnies}
+          seasons={serie.seasons}
+          cast={serie.cast}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+          Loading...
+      </div>
+    );
+  }
 }
 
 SerieInfo.propTypes = {
   serie: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   sendSlug: PropTypes.func.isRequired,
+  load: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  vote: PropTypes.string.isRequired,
+  voteCount: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  airDate: PropTypes.string.isRequired,
+  numberSeasons: PropTypes.string.isRequired,
+  numberEpisodes: PropTypes.string.isRequired,
+  runTime: PropTypes.string.isRequired,
+  networks: PropTypes.arrayOf(
+    PropTypes.object.isRequired 
+  ).isRequired,
+  productions: PropTypes.arrayOf(
+    PropTypes.object.isRequired 
+  ).isRequired,
 };
 
 // == Export

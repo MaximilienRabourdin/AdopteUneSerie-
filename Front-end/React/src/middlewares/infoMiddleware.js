@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_SERIE_INFO, saveSerieInfo } from 'src/actions/serieInfo';
+import { LOAD_SERIE_INFO, saveSerieInfo, setLoad } from 'src/actions/serieInfo';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -11,6 +11,7 @@ const infoMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           //console.log("response middleware",response.data);
           store.dispatch(saveSerieInfo(response.data));
+          store.dispatch(setLoad(true));
         })
         // échec
         .catch((error) => {
