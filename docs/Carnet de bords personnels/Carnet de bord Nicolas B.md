@@ -176,10 +176,10 @@ Carnet de bord personnel rempli chaque jour
 ## 16 mars 2020
 
 1. Ce que j'ai fait :
-    - 
+    - Nous avons trouvé d'ou venait le probleme lié a l'erreur du mot de passe c'etait le regex présent dans le formType, le parametres mapped qui etait mal configuré.
 
 2. Ce que je comptais faire : 
-    - 
+    - Régler des problemes par si par là
 
 3. Difficultés rencontrés et solutions
     Rien a signaler
