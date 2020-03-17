@@ -6,7 +6,7 @@ import { Card, Image} from 'semantic-ui-react';
 
 // == Import
 import SerieCard from 'src/containers/SerieCard';
-import Header from 'src/components/HeaderSearch';
+import Header from 'src/containers/HeaderSearch';
 import HomeStyled from './HomeStyled';
 import { getUrl } from 'src/selectors/urls';
 

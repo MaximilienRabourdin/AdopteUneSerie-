@@ -6,7 +6,7 @@ import { Card } from 'semantic-ui-react';
 
 // == Import
 import SerieCard from 'src/containers/SerieCard';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import TrendingStyled from './TrendingStyled';
 
 // == Composant

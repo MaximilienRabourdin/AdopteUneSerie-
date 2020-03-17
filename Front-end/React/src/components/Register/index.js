@@ -7,7 +7,7 @@ import MediaQuery from 'react-responsive';
 // == Import	// == Import
 import RegisterStyled from './RegisterStyled';
 import Field from 'src/components/Field';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 
 
 // == Composant	// == Composant

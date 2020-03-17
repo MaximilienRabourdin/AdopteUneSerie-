@@ -4,7 +4,7 @@ import React from 'react';
 // == Import
 
 import FaqStyled from './FaqStyled';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 
 // == Composant
 const FAQ = () => (

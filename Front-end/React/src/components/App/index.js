@@ -16,7 +16,7 @@ import Contact from 'src/components/Contact';
 import Cookie from 'src/components/Cookie';
 import FAQ from 'src/components/FAQ';
 import Notices from 'src/components/Notices';
-//import Account from 'src/components/Account';
+import Account from 'src/components/Account';
 //import Favorites from 'src/components/Favorites';
 import NotFound from 'src/components/NotFound';
 import Footer from 'src/components/Footer';
@@ -40,8 +40,8 @@ const App = () => (
       <Route exact path="/inscription" component={Register} />
       <Route exact path="/connexion" component={Login} />
       <Route exact path="/serie/:slug" component={SerieInfo}/>
-      {/*
       <Route exact path="/mon-compte" component={Account} />
+      {/*
       <Route exact path="/favoris" component={Favorites} /> */}
       <Route>
         <NotFound />

@@ -1,17 +1,24 @@
 // == Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
+import PropTypes from 'prop-types';
 
 // == Import
 import Logo from 'src/components/Logo';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
+import AccountButton from 'src/components/AccountButton';
+import LogOutButton from 'src/components/LogOutButton';
 import HeaderStyled from './HeaderStyled';
 import SearchBar from 'src/containers/SearchBar';
 import Toggle from './Toggle';
 
 // == Composant
-const Header = () => (
+const Header = () => {
+
+  var data = sessionStorage.getItem('token');
+
+  return (
   <HeaderStyled>
 
     <MediaQuery maxDeviceWidth={425}>
@@ -22,8 +29,18 @@ const Header = () => (
           <SearchBar />
         </div>
         <div className="bottomMobile">
-          <SignUp />
-          <SignIn />
+        {!(data) && 
+          <React.Fragment>
+            <SignUp />
+            <SignIn />
+          </React.Fragment>
+        } 
+        {(data) && 
+          <React.Fragment>
+            <AccountButton />
+            <LogOutButton />
+        </React.Fragment>
+        } 
         </div>
       </div>
     </MediaQuery>
@@ -32,14 +49,26 @@ const Header = () => (
         <Logo href="#" />
         <SearchBar id="searchBar" />
         <div id="signDesktop">
-          <SignUp id="signUpDesktop" />
-          <SignIn />
-        </div>
+          {!(data) && 
+            <React.Fragment>
+              <SignUp id="signUpDesktop" />
+              <SignIn />
+            </React.Fragment>
+          }  
+          {(data) && 
+            <React.Fragment>
+              <AccountButton id="signUpDesktop" />
+              <LogOutButton />
+          </React.Fragment>
+          } 
+        </div>   
       </div>
     </MediaQuery>
 
   </HeaderStyled>
-);
+  );
+};
+
 
 // == Export
 export default Header;

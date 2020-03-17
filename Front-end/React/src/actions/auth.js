@@ -11,10 +11,10 @@ export const changeField = (value, name) => ({
   name,
 });
 
-export const setUser = (logged, user) => ({
+export const setUser = (status, data) => ({
   type: SET_USER,
-  logged,
-  user,
+  status,
+  data,
 });
 
 export const login = () => ({

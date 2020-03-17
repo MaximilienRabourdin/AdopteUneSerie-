@@ -7,16 +7,18 @@ import MediaQuery from 'react-responsive';
 	// == Import
 import LoginStyled from './LoginStyled';
 import Field from 'src/components/Field';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 
 
 // == Composant
 const Login = ({ password, email, changeField, handleLogin }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
-    console.log("login");
     handleLogin();
   };
+
+  var data = sessionStorage.getItem('token');
+
   return (
     <LoginStyled onSubmit={handleSubmit}>
     <Header />
@@ -42,8 +44,13 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             <Button 
             className="ui blue button"
             type="submit"
-            className="actions-button" to="/inscription">
-              Connexion
+            className="actions-button">
+              {(data) && 
+              "Vous êtes Connecté"
+              }
+              {(!data) && 
+              "Connexion"
+              }
             </Button>
           
           </div>
@@ -77,8 +84,13 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             <Button 
             className="ui blue button"
             type="submit"
-            className="actions-button" to="/inscription">
-              Connexion
+            className="actions-button">
+              {(data) && 
+                "Vous êtes Connecté"
+              }
+              {(!data) && 
+                "Connexion"
+              }
             </Button>
           
           </div>

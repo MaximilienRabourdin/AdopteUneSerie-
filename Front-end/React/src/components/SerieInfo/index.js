@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // == Import : local
 // Composants
 import HeaderSerie from './HeaderSerie';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 
 // Style
 //import './styles.css';

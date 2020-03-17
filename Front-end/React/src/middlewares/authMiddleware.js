@@ -14,8 +14,10 @@ const handleError = (error) => {
 const ajaxMiddleware = (store) => (next) => (action) => {
   // Fonction utilisée pour sauvegarder l'utilisateur dans le store via le then
   const saveUser = (response) => {
-    console.log(response);
-    store.dispatch(setUser(response.data.logged, response.data.info));
+    if (response.status === 200){
+      sessionStorage.setItem("token", response.data.token);
+      store.dispatch(setUser(response.status, response.data));
+    }
   };
   // En fonction de l'action, je réagis
   switch (action.type) {

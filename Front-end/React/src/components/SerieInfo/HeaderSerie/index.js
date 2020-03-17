@@ -56,6 +56,39 @@ const HeaderSerie = ({
             )}
           </ul>
         </p>
+
+        <Divider section />
+
+        <h3>Saisons</h3>
+        {seasons.map((season) => {
+          if (parseInt(season.season_number)>0){
+            return (
+              <p><span style={{fontWeight: "bold"}}>Saison {season.season_number} :</span> {season.episode_count} épisodes</p>
+            )
+          }
+        })}
+
+        <Divider section />
+
+        <h3>Casting</h3>
+        <table cellSpacing="1" >
+          <thead>
+            <tr>
+              <th style={{fontWeight: "bold"}}>Rôle</th>
+              <th style={{fontWeight: "bold"}}>Acteur</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cast.map((name =>
+              <tr>
+                <td>{name.protagonist}</td>
+                {name.actors.map(actor =>                    
+                  <td>{actor.name}</td>
+                  )}
+              </tr>            
+            ))}
+          </tbody>
+        </table>          
       </div>
       </MediaQuery>
       <MediaQuery minDeviceWidth={426}>
