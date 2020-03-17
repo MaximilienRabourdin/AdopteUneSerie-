@@ -4,6 +4,10 @@ import {
   LOGIN,
   setUser,
 } from 'src/actions/auth';
+import {
+  setUserPassword,
+  PASSWORD,
+} from 'src/actions/password';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
 const handleError = (error) => {
@@ -18,6 +22,9 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       sessionStorage.setItem("token", response.data.token);
       store.dispatch(setUser(response.status, response.data));
     }
+  };
+  const saveUserPassword = (response) => {
+    store.dispatch(setUserPassword(response.data));
   };
   // En fonction de l'action, je réagis
   switch (action.type) {
@@ -35,6 +42,22 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         },
       })
         .then(saveUser)
+        .catch(handleError);
+      break;
+    }
+    case PASSWORD: {
+      const state = store.getState();
+
+      axios({
+        method: 'post',
+        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/user/forget',
+        withCredentials: true,
+        headers: { 'Content-Type':'application/json' },
+        data: {
+          "username": state.login.email,
+        },
+      })
+        .then(saveUserPassword)
         .catch(handleError);
       break;
     }

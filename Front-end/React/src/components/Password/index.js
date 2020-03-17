@@ -5,39 +5,30 @@ import { Button } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
 	// == Import
-import LoginStyled from './LoginStyled';
+import PasswordStyled from './PasswordStyled';
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
 
 
 // == Composant
-const Login = ({ password, email, changeField, handleLogin }) => {
+const Password = ({ email, data, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
-    handleLogin();
+    handlePassword();
   };
 
-  var data = sessionStorage.getItem('token');
-
   return (
-    <LoginStyled onSubmit={handleSubmit}>
+    <PasswordStyled onSubmit={handleSubmit}>
     <Header />
       <MediaQuery minDeviceWidth={426}>
         <form className="formDesktop">
-          <h1 className="titleDesktop">Se connecter</h1>
+          <h1 className="titleDesktop">Mot de passe oublié</h1>
           <Field
           value={email}
           onChange={changeField}
-          placeholder="Votre email"
+          placeholder="Veuillez entrer votre email"
           name="email"
           type="email"
-          />
-          <Field
-            value={password}
-            onChange={changeField}
-            placeholder="Mot de passe"
-            name="password"
-            type="password"
           />
 
           <div className="actionsDesktop">
@@ -46,17 +37,16 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             type="submit"
             className="actions-button">
               {(data) && 
-              "Vous êtes Connecté"
+              "Demande prise en compte"
               }
               {(!data) && 
-              "Connexion"
+              "Envoyer"
               }
             </Button>
           
           </div>
 
           <div className="linksDesktop">
-            <Link className="links-item" to="/mot-de-passe-oublié">Mot de passe oublié</Link>/
             <Link className="links-item" to="/inscription">Créer un compte</Link>
           </div>
         </form>
@@ -64,20 +54,13 @@ const Login = ({ password, email, changeField, handleLogin }) => {
 
       <MediaQuery maxDeviceWidth={425}>
         <form className="formMobile">
-          <h1 className="titleMobile">Se connecter</h1>
+          <h1 className="titleMobile">Mot de passe oublié</h1>
           <Field
           value={email}
           onChange={changeField}
-          placeholder="Votre email"
+          placeholder="Veuillez entrer votre email"
           name="email"
           type="email"
-          />
-          <Field
-            value={password}
-            onChange={changeField}
-            placeholder="Mot de passe"
-            name="password"
-            type="password"
           />
 
           <div className="actionsMobile">
@@ -86,32 +69,30 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             type="submit"
             className="actions-button">
               {(data) && 
-                "Vous êtes Connecté"
+              "Demande prise en compte"
               }
               {(!data) && 
-                "Connexion"
+              "Envoyer"
               }
-            </Button>
-          
+            </Button>         
           </div>
 
-          <div className="linksMobile">
-            <Link className="links-item" to="/mot_de-passe">Mot de passe oublié</Link>/
+          <div className="linksMobile">            
             <Link className="links-item" to="/inscription">Créer un compte</Link>
           </div>
         </form>
       </MediaQuery>
-    </LoginStyled>
+    </PasswordStyled>
 
   );
 };
 
-Login.propTypes = {
+Password.propTypes = {
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  handlePassword: PropTypes.func.isRequired,
 };
 
 // == Export
-export default Login;
+export default Password;

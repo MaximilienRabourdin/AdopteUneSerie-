@@ -11,6 +11,7 @@ import Trending from 'src/containers/Trending';
 import TopRated from 'src/containers/TopRated';
 import Recent from 'src/containers/Recent';
 import Login from 'src/containers/Login';
+import Password from 'src/containers/Password';
 import Register from 'src/containers/Register';
 import Contact from 'src/components/Contact';
 import Cookie from 'src/components/Cookie';
@@ -39,6 +40,7 @@ const App = () => (
       <Route exact path="/mentions-legales" component={Notices} />
       <Route exact path="/inscription" component={Register} />
       <Route exact path="/connexion" component={Login} />
+      <Route exact path="/mot-de-passe-oublié" component={Password} />
       <Route exact path="/serie/:slug" component={SerieInfo}/>
       <Route exact path="/mon-compte" component={Account} />
       {/*
