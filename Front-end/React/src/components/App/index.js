@@ -17,8 +17,8 @@ import Contact from 'src/components/Contact';
 import Cookie from 'src/components/Cookie';
 import FAQ from 'src/components/FAQ';
 import Notices from 'src/components/Notices';
-import Account from 'src/components/Account';
-//import Favorites from 'src/components/Favorites';
+import Account from 'src/containers/Account';
+import Favorites from 'src/components/Favorites';
 import NotFound from 'src/components/NotFound';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
@@ -43,8 +43,7 @@ const App = () => (
       <Route exact path="/mot-de-passe-oublié" component={Password} />
       <Route exact path="/serie/:slug" component={SerieInfo}/>
       <Route exact path="/mon-compte" component={Account} />
-      {/*
-      <Route exact path="/favoris" component={Favorites} /> */}
+      <Route exact path="/Favoris" component={Favorites} />
       <Route>
         <NotFound />
       </Route>

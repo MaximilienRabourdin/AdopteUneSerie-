@@ -67,7 +67,7 @@ right: 0;
   right: 4%; 
 }
 
-#signUpDesktop {
+.signUpDesktop {
   margin-right: 10px;
 }
 

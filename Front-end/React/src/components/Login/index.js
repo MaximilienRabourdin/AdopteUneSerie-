@@ -18,6 +18,8 @@ const Login = ({ password, email, changeField, handleLogin }) => {
   };
 
   var data = sessionStorage.getItem('token');
+  var error = sessionStorage.getItem('error');
+ //console.log(data);
 
   return (
     <LoginStyled onSubmit={handleSubmit}>
@@ -41,6 +43,8 @@ const Login = ({ password, email, changeField, handleLogin }) => {
           />
 
           <div className="actionsDesktop">
+            {(error) &&
+            <p>Email ou mot de passe incorrect</p>}
             <Button 
             className="ui blue button"
             type="submit"
@@ -48,7 +52,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
               {(data) && 
               "Vous êtes Connecté"
               }
-              {(!data) && 
+              {!(data) && 
               "Connexion"
               }
             </Button>
@@ -81,6 +85,8 @@ const Login = ({ password, email, changeField, handleLogin }) => {
           />
 
           <div className="actionsMobile">
+          {(error) &&
+          <p>Email ou mot de passe incorrect</p>}
             <Button 
             className="ui blue button"
             type="submit"

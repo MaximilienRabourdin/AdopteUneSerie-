@@ -60,7 +60,7 @@ z-index: 1;
   right: 4%; 
 }
 
-#signUpDesktop {
+.signUpDesktop {
   margin-right: 10px;
 }
 

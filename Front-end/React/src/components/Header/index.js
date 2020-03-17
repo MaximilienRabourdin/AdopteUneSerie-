@@ -1,7 +1,6 @@
 // == Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import PropTypes from 'prop-types';
 
 // == Import
 import Logo from 'src/components/Logo';
@@ -9,6 +8,7 @@ import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import AccountButton from 'src/components/AccountButton';
 import LogOutButton from 'src/components/LogOutButton';
+import FavoritesButton from 'src/components/FavoritesButton';
 import HeaderStyled from './HeaderStyled';
 import Toggle from './Toggle';
 
@@ -36,6 +36,7 @@ const Header = () => {
         {(data) && 
           <React.Fragment>
             <AccountButton />
+            <FavoritesButton />
             <LogOutButton />
         </React.Fragment>
         }  
@@ -55,7 +56,8 @@ const Header = () => {
         } 
         {(data) && 
           <React.Fragment>
-            <AccountButton id="signUpDesktop" />
+            <AccountButton className="signUpDesktop" />
+            <FavoritesButton className="signUpDesktop"  />
             <LogOutButton />
         </React.Fragment>
         } 

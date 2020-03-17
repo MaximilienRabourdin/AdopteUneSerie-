@@ -36,10 +36,10 @@ const Password = ({ email, data, changeField, handlePassword }) => {
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data) && 
+              {(data.length >0) && 
               "Demande prise en compte"
               }
-              {(!data) && 
+              {!(data.length >0) && 
               "Envoyer"
               }
             </Button>
@@ -68,10 +68,10 @@ const Password = ({ email, data, changeField, handlePassword }) => {
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data) && 
+              {(data.length >0) && 
               "Demande prise en compte"
               }
-              {(!data) && 
+              {!(data.length >0) && 
               "Envoyer"
               }
             </Button>         

@@ -10,9 +10,6 @@ import {
 } from 'src/actions/password';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
-const handleError = (error) => {
-  console.log('Une erreur s\'est produite', error);
-};
 
 // Middleware
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -20,8 +17,15 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   const saveUser = (response) => {
     if (response.status === 200){
       sessionStorage.setItem("token", response.data.token);
+      sessionStorage.removeItem('error');
       store.dispatch(setUser(response.status, response.data));
+      console.log("200", response.data);
+      window.location.reload()
     }
+  };
+  const handleError = (error) => {
+      sessionStorage.setItem("error", error);
+      window.location.reload()
   };
   const saveUserPassword = (response) => {
     store.dispatch(setUserPassword(response.data));
@@ -54,7 +58,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
         headers: { 'Content-Type':'application/json' },
         data: {
-          "username": state.login.email,
+          "email": state.login.email,
         },
       })
         .then(saveUserPassword)
