@@ -7,6 +7,7 @@ import infoMiddleware from 'src/middlewares/infoMiddleware';
 import inputMiddleware from 'src/middlewares/inputMiddleware';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import registerMiddleware from 'src/middlewares/registerMiddleware';
+import accountMiddleware from 'src/middlewares/accountMiddleware';
 
 // reducer
 import rootReducer from 'src/reducers';
@@ -18,6 +19,7 @@ const enhancers = composeWithDevTools(
       inputMiddleware,
       authMiddleware,
       registerMiddleware,
+      accountMiddleware,
     // ... middlewares
   ),
 );

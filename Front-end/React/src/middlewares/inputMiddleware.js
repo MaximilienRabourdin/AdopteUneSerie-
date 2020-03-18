@@ -39,8 +39,6 @@ const infoMiddleware = (store) => (next) => (action) => {
             .catch((error) => {
               console.log('Une erreur s\'est produite', error);
             });
-      // alternative à
-      // axios.get('http://localhost:3001/recipes');
       break;
 
     default:

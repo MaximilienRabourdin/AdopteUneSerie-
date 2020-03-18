@@ -5,7 +5,7 @@ import { SAVE_USER_INFO } from 'src/actions/account';
 // Initial State
 // state.auth....
 const initialState = {
-  data: [],
+  data: {},
 };
 
 // Reducer

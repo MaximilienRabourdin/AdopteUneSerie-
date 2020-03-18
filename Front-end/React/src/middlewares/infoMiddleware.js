@@ -5,7 +5,7 @@ import { LOAD_SERIE_INFO, saveSerieInfo, setLoad } from 'src/actions/serieInfo';
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_SERIE_INFO:
-     //console.log("action middleware", action.id);
+     console.log("action middleware", action.id);
       axios.get('http://209.182.238.244/back/show/' + action.id)
         // succès
         .then((response) => {

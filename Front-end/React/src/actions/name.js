@@ -4,11 +4,8 @@ export const CHANGE_DROPDOWN = 'CHANGE_DROPDOWN';
 
 // Creators
 export const saveSerie = (value) => ({
-  //console.log(value);
-  //return {
     type: SAVE_SERIE ,
     value,
- // }
 });
 
 export const changeDropdown = (idGenres, idNetwork, idNote, idTime) => ({
