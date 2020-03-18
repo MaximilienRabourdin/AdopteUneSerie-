@@ -5,12 +5,12 @@ import { ACCOUNT, saveUserInfo } from 'src/actions/account';
 const accountMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ACCOUNT:
-  console.log(action.value);
+  console.log("middleware", action.token);
           axios({
             method: 'post',
             url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/api/myprofile',
             data: {
-              "token": action.value,
+              "token": action.token,
             }
           })
             // succès

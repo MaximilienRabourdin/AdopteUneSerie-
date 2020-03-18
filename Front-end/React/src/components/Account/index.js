@@ -11,7 +11,7 @@ const Account = ({data, handleAccount}) => {
 
   useEffect(() => {
   var token = sessionStorage.getItem('token');
-    console.log(token);
+    //console.log(token);
     handleAccount(token);
   },[]);
 
