@@ -16,7 +16,7 @@ const Trending = ({ series }) => (
     <Header/>
     <div className="search">
      <p>Séries Tendances</p>
-        <Card.Group itemsPerRow={5} stackable>
+        <Card.Group style={{justifyContent: 'space-between'}}>
           {series.map((card) => {
               return (
                 <SerieCard key={card.id} serie={card} />

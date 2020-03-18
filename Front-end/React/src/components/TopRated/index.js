@@ -16,7 +16,7 @@ const TopRated = ({ series }) => (
     <Header/>
     <div className="search">
      <p>Séries les mieux notées</p>
-        <Card.Group itemsPerRow={5} stackable>
+        <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
               return (
                 <SerieCard key={card.id} serie={card} />

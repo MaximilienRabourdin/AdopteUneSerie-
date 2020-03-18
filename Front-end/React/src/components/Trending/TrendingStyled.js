@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
 min-height: 100vh;
 .search {
-  padding: 130px 60px 30px 60px;
+  padding: 130px 60px 30px 50px;
 }
 .search p{
   padding: 15px 0 20px;

@@ -15,14 +15,14 @@ const Recent = ({ series }) => (
   <RecentStyled>
     <Header/>
     <div className="search">
-     <p>Sorties récentes</p>
-        <Card.Group itemsPerRow={5} stackable>
-          {series.map((card) => {
-              return (
-                <SerieCard key={card.id} serie={card} />
-              )
-          })}
-        </Card.Group>
+      <p>Sorties récentes</p>
+      <Card.Group style={{justifyContent: 'center'}}>
+        {series.map((card) => {
+            return (
+              <SerieCard key={card.id} serie={card} />
+            )
+        })}
+      </Card.Group>
     </div>
   </RecentStyled>
 );

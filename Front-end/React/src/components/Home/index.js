@@ -4,69 +4,125 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image} from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import MediaQuery from 'react-responsive';
 
 // == Import
 import SerieCard from 'src/containers/SerieCard';
 import Header from 'src/containers/HeaderSearch';
 import HomeStyled from './HomeStyled';
-import { getUrl } from 'src/selectors/urls';
 
 // == Composant
 
 const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
   <HomeStyled>
-    <Header/>
-    <div className="search">
-      {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
-        <Card.Group itemsPerRow={5} stackable>
-          {serieInput.map((card) => {
-              return (
-            <SerieCard key={card.id} serie={card} />
-            )
-          })
-          }
-        </Card.Group>
-      )}
-      {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
-        <Card.Group itemsPerRow={4} stackable id="accueil">
-          <Link to="/Tendances">
-            <Card color='blue'>
-              <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
-              wrapped ui={false} 
-              />
-              <Card.Content>
-                <Card.Header className="title">
-                  Séries tendances
-                </Card.Header>
-              </Card.Content>
-            </Card>
-          </Link>
-          <Link to="/Mieux-notees">
-            <Card color='blue'>
-              <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
-              />
-              <Card.Content>
-                <Card.Header className="title">
-                Séries les mieux notées
-                </Card.Header>
-              </Card.Content>
-            </Card>
-          </Link>
-          <Link to="/Recentes">
-            <Card color='blue'>
-              <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
-              wrapped ui={false} 
-              />
-              <Card.Content>
-                <Card.Header className="title">
-                Sorties récentes
-                </Card.Header>
-              </Card.Content>
-            </Card>
-          </Link>
-        </Card.Group>
-      )}
-    </div>
+   <MediaQuery maxDeviceWidth={425}>
+      <Header/>
+      <div className="search">
+        {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
+          <Card.Group itemsPerRow={5} stackable>
+            {serieInput.map((card) => {
+                return (
+              <SerieCard key={card.id} serie={card} />
+              )
+            })
+            }
+          </Card.Group>
+        )}
+        {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
+          <Card.Group itemsPerRow={4} stackable id="accueilMobile">
+            <Link to="/Tendances">
+              <Card color='blue' style={{margin:'0 5% 5% 0'}}>
+                <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
+                wrapped ui={false} 
+                />
+                <Card.Content>
+                  <Card.Header className="title">
+                    Séries tendances
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Link>
+            <Link to="/Mieux-notees">
+              <Card color='blue' style={{margin:'0 5% 5% 0'}}>
+                <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
+                />
+                <Card.Content>
+                  <Card.Header className="title">
+                  Séries les mieux notées
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Link>
+            <Link to="/Recentes">
+              <Card color='blue' style={{margin:'0 5% 5% 0'}}>
+                <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
+                wrapped ui={false} 
+                />
+                <Card.Content>
+                  <Card.Header className="title">
+                  Sorties récentes
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Link>
+          </Card.Group>
+        )}
+      </div>
+    </MediaQuery>
+    <MediaQuery minDeviceWidth={426}>
+       <Header/>
+       <div className="search">
+         {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
+           <Card.Group stackable>
+             {serieInput.map((card) => {
+                 return (
+               <SerieCard key={card.id} serie={card} />
+               )
+             })
+             }
+           </Card.Group>
+         )}
+         {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
+           <Card.Group stackable id="accueilDesktop">
+             <Link to="/Tendances">
+               <Card color='blue' style={{width: '330px'}}>
+                 <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
+                 wrapped ui={false} 
+                 />
+                 <Card.Content>
+                   <Card.Header className="title">
+                     Séries tendances
+                   </Card.Header>
+                 </Card.Content>
+               </Card>
+             </Link>
+             <Link to="/Mieux-notees">
+               <Card color='blue' style={{width: '330px'}}>
+                 <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
+                 />
+                 <Card.Content>
+                   <Card.Header className="title">
+                   Séries les mieux notées
+                   </Card.Header>
+                 </Card.Content>
+               </Card>
+             </Link>
+             <Link to="/Recentes">
+               <Card color='blue' style={{width: '330px'}}>
+                 <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
+                 wrapped ui={false} 
+                 />
+                 <Card.Content>
+                   <Card.Header className="title">
+                   Sorties récentes
+                   </Card.Header>
+                 </Card.Content>
+               </Card>
+             </Link>
+           </Card.Group>
+         )}
+       </div>
+     </MediaQuery>
   </HomeStyled>
 );
 
