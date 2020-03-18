@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image} from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 
 // == Import
 import SerieCard from 'src/containers/SerieCard';
