@@ -7,7 +7,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
     case LOAD_SERIES_TENDANCE:
       axios({
         method: 'post',
-        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/trending',
+        url: 'http://209.182.238.244/back/discover/trending',
       })
         // succès
         .then((response) => {
@@ -24,7 +24,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       case LOAD_SERIES_TOP_RATED:
         axios({
           method: 'post',
-          url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/top_rated/{1}',
+          url: 'http://209.182.238.244/back/discover/top_rated/{1}',
         })
           // succès
           .then((response) => {
@@ -41,7 +41,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         case LOAD_SERIES_RECENT:
           axios({
             method: 'post',
-            url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/recent/{1}',
+            url: 'http://209.182.238.244/back/discover/recent/{1}',
           })
             // succès
             .then((response) => {

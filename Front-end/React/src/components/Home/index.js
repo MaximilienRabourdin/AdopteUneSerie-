@@ -29,42 +29,41 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
       )}
       {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
         <Card.Group itemsPerRow={4} stackable id="accueil">
-          <Card color='blue'>
           <Link to="/Tendances">
-            <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
-            wrapped ui={false} 
-            />
+            <Card color='blue'>
+              <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
+              wrapped ui={false} 
+              />
+              <Card.Content>
+                <Card.Header className="title">
+                  Séries tendances
+                </Card.Header>
+              </Card.Content>
+            </Card>
           </Link>
-            <Card.Content>
-              <Card.Header className="title">
-                Séries tendances
-              </Card.Header>
-            </Card.Content>
-          </Card>
-          <Card color='blue'>
-            <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
-            wrapped ui={false} 
-            as='a'
-            href= {getUrl('/', "Mieux-notees")}
-            />
-            <Card.Content>
-              <Card.Header className="title">
-              Séries les mieux notées
-              </Card.Header>
-            </Card.Content>
-          </Card>
-          <Card color='blue'>
-            <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
-            wrapped ui={false} 
-            as='a'
-            href= {getUrl('/', "Recentes")}
-            />
-            <Card.Content>
-              <Card.Header className="title">
-              Sorties récentes
-              </Card.Header>
-            </Card.Content>
-          </Card>
+          <Link to="/Mieux-notees">
+            <Card color='blue'>
+              <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
+              />
+              <Card.Content>
+                <Card.Header className="title">
+                Séries les mieux notées
+                </Card.Header>
+              </Card.Content>
+            </Card>
+          </Link>
+          <Link to="/Recentes">
+            <Card color='blue'>
+              <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
+              wrapped ui={false} 
+              />
+              <Card.Content>
+                <Card.Header className="title">
+                Sorties récentes
+                </Card.Header>
+              </Card.Content>
+            </Card>
+          </Link>
         </Card.Group>
       )}
     </div>

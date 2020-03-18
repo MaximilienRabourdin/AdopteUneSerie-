@@ -6,7 +6,7 @@ const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_SERIE_INPUT:
       //console.log(action.value);
-      axios.get('http://209.182.238.244/projet-adopte-une-serie-api/public/search/' + action.value)
+      axios.get('http://209.182.238.244/back/search/' + action.value)
         // succès
         .then((response) => {
          // console.log(action.response);
@@ -19,7 +19,7 @@ const infoMiddleware = (store) => (next) => (action) => {
         case LOAD_SERIE_DROPDOWN:
           axios({
             method: 'post',
-            url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/discover/standard/',
+            url: 'http://209.182.238.244/back/discover/standard/',
             data: {
               "first_air_date.gte":"",
               "first_air_date.lte":"",

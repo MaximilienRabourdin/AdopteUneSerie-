@@ -8,7 +8,7 @@ const accountMiddleware = (store) => (next) => (action) => {
   console.log(action.value);
           axios({
             method: 'post',
-            url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/api/myprofile',
+            url: 'http://209.182.238.244/back/api/myprofile',
             data: {
               "token": action.value,
             }

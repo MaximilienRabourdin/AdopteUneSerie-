@@ -25,7 +25,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'http://209.182.238.244/projet-adopte-une-serie-api/public/user/new',
+        url: 'http://209.182.238.244/back/user/new',
         withCredentials: true,
         data: {
           firstname: state.register.firstname,
