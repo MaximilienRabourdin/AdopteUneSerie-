@@ -16,7 +16,7 @@ const Recent = ({ series }) => (
     <Header/>
     <div className="search">
       <p>Sorties récentes</p>
-      <Card.Group style={{justifyContent: 'center'}}>
+      <Card.Group style={{justifyContent: 'space-between'}}>
         {series.map((card) => {
             return (
               <SerieCard key={card.id} serie={card} />

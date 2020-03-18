@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
 min-height: 100vh;
 .search {
-  padding: 130px 60px 30px 60px;
+  padding: 130px 50px 30px 50px;
 }
 .search p{
   padding: 15px 0 20px;
@@ -13,7 +13,6 @@ min-height: 100vh;
   border-bottom: 5px solid #1A82AE;
   font-family: Georgia, sans serif;
   background: rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
 }
-
-
 `;

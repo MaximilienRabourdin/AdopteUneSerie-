@@ -73,7 +73,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
        <Header/>
        <div className="search">
          {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
-           <Card.Group stackable>
+           <Card.Group style={{justifyContent: 'space-between'}}>
              {serieInput.map((card) => {
                  return (
                <SerieCard key={card.id} serie={card} />
