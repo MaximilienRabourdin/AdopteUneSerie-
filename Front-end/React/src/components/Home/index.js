@@ -29,11 +29,11 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
       {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
         <Card.Group itemsPerRow={4} stackable id="accueil">
           <Card color='blue'>
+          <Link to="/Tendances">
             <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
             wrapped ui={false} 
-            as='a'
-            href= {getUrl('/', "Tendances")}
             />
+          </Link>
             <Card.Content>
               <Card.Header className="title">
                 Séries tendances
