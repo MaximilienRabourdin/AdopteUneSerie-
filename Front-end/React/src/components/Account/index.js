@@ -7,12 +7,12 @@ import AccountStyled from './AccountStyled';
 import Header from 'src/containers/Header';
 
 // == Composant
-const Account = ({data, account}) => {
+const Account = ({data, handleAccount}) => {
 
   useEffect(() => {
   var token = sessionStorage.getItem('token');
-  //console.log(token);
-   account(token);
+    console.log(token);
+    handleAccount(token);
   },[]);
 
   return (
@@ -24,7 +24,7 @@ const Account = ({data, account}) => {
 };
 
 Account.propTypes = {
-  account: PropTypes.func.isRequired,
+  handleAccount: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.object.isRequired 
   ).isRequired,
