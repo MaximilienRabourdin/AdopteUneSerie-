@@ -11,7 +11,7 @@ const AccountButton = () => (
   <AccountButtonStyled>
     <MediaQuery maxDeviceWidth={425}>
       <Button inverted color='blue'>
-        <a href={"#"}>Mon compte</a>
+        <a href={"/mon-compte"}>Mon compte</a>
       </Button>
     </MediaQuery>
     <MediaQuery minDeviceWidth={426}>

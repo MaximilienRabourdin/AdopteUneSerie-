@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //import { Rating } from 'semantic-ui-react'
 import MediaQuery from 'react-responsive';
-import { Divider, Icon } from 'semantic-ui-react'
+import { Divider, Icon, Table} from 'semantic-ui-react'
 
 // == Import : local
 import './styles.css';
@@ -47,7 +47,7 @@ const HeaderSerie = ({
         <p><span style={{fontWeight: "bold"}}>Date de première diffusion :</span> {airDate} </p>
         <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
         <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
-        <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime} min</p>        
+        <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime.slice(0, 2)} min</p>        
         <p><span style={{fontWeight: "bold"}}>Disponible sur : </span> {networks[0].name}</p>
         <p><span style={{fontWeight: "bold"}}>Produit par :</span>
           <ul>
@@ -60,35 +60,36 @@ const HeaderSerie = ({
         <Divider section />
 
         <h3>Saisons</h3>
-        {seasons.map((season) => {
-          if (parseInt(season.season_number)>0){
-            return (
-              <p><span style={{fontWeight: "bold"}}>Saison {season.season_number} :</span> {season.episode_count} épisodes</p>
-            )
-          }
-        })}
+        <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+          <Table.Body>
+            {seasons.map((season) => {
+              if (parseInt(season.season_number)>0){
+                return (
+                  <Table.Row>
+                    <Table.Cell singleLine>Saison {season.season_number}</Table.Cell>
+                    <Table.Cell singleLine>{season.episode_count} épisodes</Table.Cell>
+                  </Table.Row>  
+                )
+              }
+            })} 
+          </Table.Body>
+        </Table> 
 
         <Divider section />
 
         <h3>Casting</h3>
-        <table cellSpacing="1" >
-          <thead>
-            <tr>
-              <th style={{fontWeight: "bold"}}>Rôle</th>
-              <th style={{fontWeight: "bold"}}>Acteur</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cast.map((name =>
-              <tr>
-                <td>{name.protagonist}</td>
-                {name.actors.map(actor =>                    
-                  <td>{actor.name}</td>
-                  )}
-              </tr>            
+        <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+          <Table.Body>
+            {cast.map((name =>  
+              <Table.Row>
+                <Table.Cell singleLine>{name.protagonist}</Table.Cell>
+              {name.actors.map(actor => 
+                <Table.Cell singleLine>{actor.name}</Table.Cell>
+                )}
+              </Table.Row>         
             ))}
-          </tbody>
-        </table>          
+          </Table.Body>
+        </Table>         
       </div>
       </MediaQuery>
       <MediaQuery minDeviceWidth={426}>
@@ -125,35 +126,36 @@ const HeaderSerie = ({
           <Divider section />
 
           <h1>Saisons</h1>
-          {seasons.map((season) => {
-            if (parseInt(season.season_number)>0){
-              return (
-                <p><span style={{fontWeight: "bold"}}>Saison {season.season_number} :</span> {season.episode_count} épisodes</p>
-              )
-            }
-          })}
-
+          <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+            <Table.Body>
+              {seasons.map((season) => {
+                if (parseInt(season.season_number)>0){
+                  return (
+                    <Table.Row>
+                      <Table.Cell singleLine>Saison {season.season_number}</Table.Cell>
+                      <Table.Cell singleLine>{season.episode_count} épisodes</Table.Cell>
+                    </Table.Row>  
+                  )
+                }
+              })} 
+            </Table.Body>
+          </Table> 
+  
           <Divider section />
-
-          <h1>Casting</h1>
-          <table cellSpacing="1" >
-            <thead>
-              <tr>
-                <th style={{fontWeight: "bold"}}>Rôle</th>
-                <th style={{fontWeight: "bold"}}>Acteur</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cast.map((name =>
-                <tr>
-                  <td>{name.protagonist}</td>
-                  {name.actors.map(actor =>                    
-                    <td>{actor.name}</td>
-                    )}
-                </tr>            
+  
+          <h3>Casting</h3>
+          <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+            <Table.Body>
+              {cast.map((name =>  
+                <Table.Row>
+                  <Table.Cell singleLine>{name.protagonist}</Table.Cell>
+                {name.actors.map(actor => 
+                  <Table.Cell singleLine>{actor.name}</Table.Cell>
+                  )}
+                </Table.Row>         
               ))}
-            </tbody>
-          </table>          
+            </Table.Body>
+          </Table>        
         </div>
       </MediaQuery>
     </header>

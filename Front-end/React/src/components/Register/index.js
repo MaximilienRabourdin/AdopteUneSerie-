@@ -56,7 +56,7 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
         <Field
           value={confirmPassword}
           onChange={changeField}
-          placeholder="Confirmation de votre mot de passe"
+          placeholder="mot de passe"
           name="confirmPassword"
           type="password"
         />
@@ -112,7 +112,7 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
         <Field
           value={confirmPassword}
           onChange={changeField}
-          placeholder="Confirmation de votre mot de passe"
+          placeholder="mot de passe"
           name="confirmPassword"
           type="password"
         />

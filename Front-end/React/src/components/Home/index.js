@@ -21,9 +21,10 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
         {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
           <Card.Group itemsPerRow={5} stackable>
             {serieInput.map((card) => {
+              if(!(card.poster_path === null)){
                 return (
               <SerieCard key={card.id} serie={card} />
-              )
+              )}
             })
             }
           </Card.Group>
@@ -75,9 +76,10 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
          {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
            <Card.Group style={{justifyContent: 'space-between'}}>
              {serieInput.map((card) => {
+              if(!(card.poster_path === null)){
                  return (
                <SerieCard key={card.id} serie={card} />
-               )
+               )}
              })
              }
            </Card.Group>

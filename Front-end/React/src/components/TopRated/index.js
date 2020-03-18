@@ -18,9 +18,11 @@ const TopRated = ({ series }) => (
      <p>Séries les mieux notées</p>
         <Card.Group style={{justifyContent: 'space-between'}}>
           {series.map((card) => {
+            if(!(card.poster_path === null)){
               return (
                 <SerieCard key={card.id} serie={card} />
               )
+            }
           })}
         </Card.Group>
     </div>

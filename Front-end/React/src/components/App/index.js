@@ -18,6 +18,7 @@ import Cookie from 'src/components/Cookie';
 import FAQ from 'src/components/FAQ';
 import Notices from 'src/components/Notices';
 import Account from 'src/containers/Account';
+import PasswordChange from 'src/containers/PasswordChange';
 import Favorites from 'src/components/Favorites';
 import NotFound from 'src/components/NotFound';
 import Footer from 'src/components/Footer';
@@ -43,6 +44,7 @@ const App = () => (
       <Route exact path="/mot-de-passe-oublié" component={Password} />
       <Route exact path="/serie/:slug" component={SerieInfo}/>
       <Route exact path="/mon-compte" component={Account} />
+      <Route exact path="/modification-mot-de-passe" component={PasswordChange} />
       <Route exact path="/Favoris" component={Favorites} />
       <Route>
         <NotFound />

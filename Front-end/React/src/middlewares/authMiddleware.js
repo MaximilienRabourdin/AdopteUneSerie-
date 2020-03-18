@@ -8,6 +8,10 @@ import {
   setUserPassword,
   PASSWORD,
 } from 'src/actions/password';
+import {
+  setUserPasswordChange,
+  PASSWORD_CHANGE,
+} from 'src/actions/passwordChange';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
 
@@ -29,6 +33,9 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   };
   const saveUserPassword = (response) => {
     store.dispatch(setUserPassword(response.data));
+  };
+  const saveUserPasswordChange = (response) => {
+    store.dispatch(setUserPasswordChange(response.status));
   };
   // En fonction de l'action, je réagis
   switch (action.type) {
@@ -62,6 +69,23 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         },
       })
         .then(saveUserPassword)
+        .catch(handleError);
+      break;
+    }
+    case PASSWORD_CHANGE: {
+      const state = store.getState();
+
+      axios({
+        method: 'post',
+        url: 'http://209.182.238.244/back/api/new_password',
+        withCredentials: true,
+        headers: { Authorization: `Bearer ${action.token}` },
+        data: {
+          "actual_password": state.passwordChange.password,
+          "plainPassword": state.passwordChange.newPassword,
+        },
+      })
+        .then(saveUserPasswordChange)
         .catch(handleError);
       break;
     }
