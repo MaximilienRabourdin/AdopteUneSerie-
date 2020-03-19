@@ -6,7 +6,7 @@ import { CHANGE_FIELD, SET_USER_PASSWORD } from 'src/actions/password';
 // state.auth....
 const initialState = {
   email: '',
-  data: {},
+  status: 0,
 };
 
 // Reducer
@@ -20,7 +20,7 @@ const passwordReducer = (state = initialState, action = {}) => {
       case SET_USER_PASSWORD:
         return {
           ...state,
-          data: action.data,
+          status: action.status,
         };
     default:
       return state;

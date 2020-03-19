@@ -7,7 +7,7 @@ import { CHANGE_FIELD, SET_USER_PASSWORD_CHANGE } from 'src/actions/passwordChan
 const initialState = {
   password: '',
   newPassword: '',
-  data: 0,
+  status: 0,
 };
 
 // Reducer
@@ -21,7 +21,7 @@ const passwordChangeReducer = (state = initialState, action = {}) => {
       case SET_USER_PASSWORD_CHANGE:
         return {
           ...state,
-          data: action.data,
+          status: action.status,
         };
     default:
       return state;

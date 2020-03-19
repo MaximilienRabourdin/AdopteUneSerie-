@@ -21,17 +21,16 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       window.location.reload()
     }
   };
-  const handleError = (error) => {
-    if (error === 400){
-      sessionStorage.setItem("error400", error);
+  const handleError = (errors) => {
+    if (errors === 400){
+      sessionStorage.setItem("error400", errors);
     }
-    else if (error === 409){
-      sessionStorage.setItem("error409", error);
+    else if (errors === 409){
+      sessionStorage.setItem("error409", errors);
     }
-      sessionStorage.setItem("error", error);
-      store.dispatch(setError(error));
+      sessionStorage.setItem("errors", errors);
+      store.dispatch(setError(errors));
       window.location.reload()
-      console.log(error)
   };
   // En fonction de l'action, je réagis
   switch (action.type) {

@@ -8,7 +8,7 @@ import { passwordChange, changeField } from 'src/actions/passwordChange';
 //== Data / state
 
 const mapStateToProps = (state) => ({
-  data: state.passwordChange.data,
+  status: state.passwordChange.status,
   password: state.passwordChange.password,
   newPassword: state.passwordChange.newPassword,
 });

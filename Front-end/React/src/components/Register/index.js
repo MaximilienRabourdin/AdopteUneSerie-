@@ -18,8 +18,9 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
   };
   //var data = sessionStorage.getItem('data');
   console.log(status);
-  //var error = sessionStorage.getItem('error');
-  console.log(error);
+  var errors = sessionStorage.getItem('errors');
+  console.log(errors);
+ // console.log(error);
   var error400 = sessionStorage.getItem('error400');
   console.log(error400);
   var error409 = sessionStorage.getItem('error409');
@@ -75,7 +76,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
         <div className="actionsDesktop">
         {(status>0) &&
         <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
-        {(error.length>0) &&
+        {(errors.length>0) &&
         <p style={{color:"red"}}>Erreur sur le formulaire</p>}
         {(error409) &&
         <p style={{color:"red"}}>Ce compte existe déjà</p>}
@@ -137,7 +138,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
         <div className="actionsMobile">
         {(status>0) &&
         <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
-        {(error.length>0) &&
+        {(errors.length>0) &&
         <p style={{color:"red"}}>Erreur sur le formulaire</p>}
         {(error409) &&
         <p style={{color:"red"}}>Ce compte existe déjà</p>}

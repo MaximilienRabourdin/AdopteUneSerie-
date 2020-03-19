@@ -11,7 +11,7 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const PasswordChange = ({password, data, newPassword, changeField, handlePasswordChange }) => {
+const PasswordChange = ({password, status, newPassword, changeField, handlePasswordChange }) => {
 
   const handleSubmit= (evt) => {
     evt.preventDefault();
@@ -20,15 +20,11 @@ const PasswordChange = ({password, data, newPassword, changeField, handlePasswor
   };
 
   var token = sessionStorage.getItem('token');
-  //var data = sessionStorage.getItem('data');
+  //var status = sessionStorage.getItem('status');
   var error400 = sessionStorage.getItem('error400');
   var error409 = sessionStorage.getItem('error409');
   var error = sessionStorage.getItem('error');
 
-console.log(data)
-console.log(error)
-console.log(error400)
-console.log(error409)
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
     <Header />
@@ -69,7 +65,7 @@ console.log(error409)
               }
             </p>
             <p style={{color:"green"}}>
-              {(data>0) && 
+              {(status>0) && 
               "Mot de passe modifié"
               }
             </p>
@@ -104,7 +100,7 @@ console.log(error409)
 
           <div className="actionsMobile">
           <p style={{color:"red"}}>
-            {(error409) && 
+            {(error) && 
               "Mot de passe incorrect"
             }
           </p> 
@@ -119,7 +115,7 @@ console.log(error409)
             }
           </p>
           <p style={{color:"green"}}>
-            {(data === 200) && 
+            {(status>0) && 
             "Mot de passe modifié"
             }
           </p>
@@ -138,7 +134,7 @@ console.log(error409)
 };
 
 PasswordChange.propTypes = {
-  data: PropTypes.number.isRequired,
+  status: PropTypes.number.isRequired,
   password: PropTypes.string.isRequired,
   newPassword: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,

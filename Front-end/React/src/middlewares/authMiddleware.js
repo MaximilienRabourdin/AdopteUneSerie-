@@ -29,7 +29,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   };
   const handleError = (error) => {
     if (error === 400){
-      sessionStorage.setItem("error400", matches);
+      sessionStorage.setItem("error400", error);
     }
     else if (error === 409){
       sessionStorage.setItem("error409", error);
@@ -38,16 +38,16 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       window.location.reload()
   };
   const saveUserPassword = (response) => {
-    sessionStorage.setItem("data", response.status);
+    sessionStorage.setItem("status", response.status);
     store.dispatch(setUserPassword(response.status));
   };
   const saveUserPasswordChange = (response) => {
     if (response.status === 200){
-      sessionStorage.setItem("data", response.status);
+      sessionStorage.setItem("status", response.status);
       sessionStorage.removeItem('error');
       sessionStorage.removeItem('error400');
       sessionStorage.removeItem('error409');
-      store.dispatch(setUserPasswordChange(response.data));
+      store.dispatch(setUserPasswordChange(response.status));
       window.location.reload()
     }
   };

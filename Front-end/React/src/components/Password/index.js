@@ -11,13 +11,15 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const Password = ({ email, changeField, handlePassword }) => {
+const Password = ({ email, status, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
     handlePassword();
   };
 
-  var data = sessionStorage.getItem('data');
+  //var status = sessionStorage.getItem('status');
+  var error = sessionStorage.getItem('error');
+
   return (
     <PasswordStyled onSubmit={handleSubmit}>
     <Header />
@@ -39,7 +41,7 @@ const Password = ({ email, changeField, handlePassword }) => {
             }
           </p> 
           <p style={{color:"green"}}>
-              {(data===200) && 
+              {(status>0) && 
               "Demande prise en compte"
               }
           </p>
@@ -74,10 +76,10 @@ const Password = ({ email, changeField, handlePassword }) => {
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data.length >0) && 
+              {(status >0) && 
               "Demande prise en compte"
               }
-              {!(data.length >0) && 
+              {!(status>0) && 
               "Envoyer"
               }
             </Button>         
@@ -94,8 +96,8 @@ const Password = ({ email, changeField, handlePassword }) => {
 };
 
 Password.propTypes = {
+  status: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
   changeField: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,
 };
