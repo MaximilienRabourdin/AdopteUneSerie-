@@ -13,24 +13,29 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   const saveUser = (response) => {
     if (response.status === 200){
       sessionStorage.setItem("data", response.status);
-      sessionStorage.removeItem('error400');
-      sessionStorage.removeItem('error409');
+      sessionStorage.removeItem("firstname");
+      sessionStorage.removeItem("lastname");
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("password");
+      sessionStorage.removeItem("error409");
       sessionStorage.removeItem('error');
       store.dispatch(setUser(response.status, response.data));
-      //console.log("200", response.data);
       window.location.reload()
     }
   };
-  const handleError = (errors) => {
-    if (errors === 400){
-      sessionStorage.setItem("error400", errors);
+  const handleError = (error) => {
+     {(error.response.status == 400) &&
+      sessionStorage.setItem("firstname", error.response.data.errors.firstname);
+      sessionStorage.setItem("lastname", error.response.data.errors.lastname);
+      sessionStorage.setItem("email", error.response.data.errors.email);
+      sessionStorage.setItem("password", error.response.data.errors.plainPassword);
     }
-    else if (errors === 409){
-      sessionStorage.setItem("error409", errors);
+    {(error.response.status == 409) &&
+      sessionStorage.setItem("error409", error.response.status);
     }
-      sessionStorage.setItem("errors", errors);
-      store.dispatch(setError(errors));
-      window.location.reload()
+      store.dispatch(setError(error.response.data));
+      
+    window.location.reload()
   };
   // En fonction de l'action, je réagis
   switch (action.type) {

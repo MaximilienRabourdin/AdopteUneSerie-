@@ -22,31 +22,41 @@ const ajaxMiddleware = (store) => (next) => (action) => {
     if (response.status === 200){
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.removeItem('error');
+      sessionStorage.removeItem("firstname");
+      sessionStorage.removeItem("lastname");
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("password");
+      sessionStorage.removeItem("error409");
+    
       store.dispatch(setUser(response.status, response.data));
       //console.log("200", response.data);
       window.location.reload()
     }
   };
   const handleError = (error) => {
-    if (error === 400){
-      sessionStorage.setItem("error400", error);
-    }
-    else if (error === 409){
-      sessionStorage.setItem("error409", error);
-    }
       sessionStorage.setItem("error", error);
       window.location.reload()
   };
   const saveUserPassword = (response) => {
     sessionStorage.setItem("status", response.status);
+    sessionStorage.removeItem('error');
+    sessionStorage.removeItem("firstname");
+    sessionStorage.removeItem("lastname");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("password");
+    sessionStorage.removeItem("error409");
     store.dispatch(setUserPassword(response.status));
+    window.location.reload()
   };
   const saveUserPasswordChange = (response) => {
-    if (response.status === 200){
+    {(response.status === 200) &&
       sessionStorage.setItem("status", response.status);
       sessionStorage.removeItem('error');
-      sessionStorage.removeItem('error400');
-      sessionStorage.removeItem('error409');
+      sessionStorage.removeItem("firstname");
+      sessionStorage.removeItem("lastname");
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("password");
+      sessionStorage.removeItem("error409");
       store.dispatch(setUserPasswordChange(response.status));
       window.location.reload()
     }

@@ -11,13 +11,14 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const Password = ({ email, status, changeField, handlePassword }) => {
+const Password = ({ email, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
+    sessionStorage.removeItem("status");
     handlePassword();
   };
 
-  //var status = sessionStorage.getItem('status');
+  var status = sessionStorage.getItem('status');
   var error = sessionStorage.getItem('error');
 
   return (
@@ -41,8 +42,8 @@ const Password = ({ email, status, changeField, handlePassword }) => {
             }
           </p> 
           <p style={{color:"green"}}>
-              {(status>0) && 
-              "Demande prise en compte"
+              {(status) && 
+              "Nouveau mot de passe envoyé"
               }
           </p>
             <Button 
@@ -76,8 +77,8 @@ const Password = ({ email, status, changeField, handlePassword }) => {
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(status >0) && 
-              "Demande prise en compte"
+            {(status) && 
+            "Nouveau mot de passe envoyé"
               }
               {!(status>0) && 
               "Envoyer"

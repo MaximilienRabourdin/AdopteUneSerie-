@@ -16,15 +16,16 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
     evt.preventDefault();
     handleRegister();
   };
+  
   //var data = sessionStorage.getItem('data');
-  console.log(status);
-  var errors = sessionStorage.getItem('errors');
-  console.log(errors);
- // console.log(error);
-  var error400 = sessionStorage.getItem('error400');
-  console.log(error400);
+  //console.log(status);
+  var firstnameE = sessionStorage.getItem('firstname');
+  var lastnameE = sessionStorage.getItem('lastname');
+  var emailE = sessionStorage.getItem('email');
+  var passwordE = sessionStorage.getItem('password');
+  //console.log(firstname);
   var error409 = sessionStorage.getItem('error409');
-  console.log(error409);
+  //console.log(error409);
 
   return (
     <RegisterStyled onSubmit={handleSubmit}>
@@ -39,8 +40,10 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           placeholder="Prénom"
           name="firstname"
           type="text"
-        />        
-        <p>Votre prénom doit contenir au moins 2 lettres</p>
+        />  
+        {(firstnameE)&&
+        <p style={{color:"red"}}>Votre prénom doit contenir au moins 2 caractères</p>
+        }      
 
         <Field
           value={lastname}
@@ -48,14 +51,20 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           placeholder="Nom de famille"
           name="lastname"
           type="text"
-        />
+        />  
+        {(lastnameE)&&
+        <p style={{color:"red"}}>Votre nom doit contenir au moins 2 caractères</p>
+        }  
         <Field
           value={email}
           onChange={changeField}
           placeholder="Votre email"
           name="email"
           type="email"
-        />
+        />  
+        {(emailE)&&
+        <p style={{color:"red"}}>Votre email est incorrecte</p>
+        }  
 
         <Field
           value={password}
@@ -64,7 +73,9 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           name="password"
           type="password"
         />
-        <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
+        {(passwordE)&&
+        <p style={{color:"red"}}>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une mminuscule, un chiffre et un caractère spécial</p>
+        }  
         <Field
           value={confirmPassword}
           onChange={changeField}
@@ -76,8 +87,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
         <div className="actionsDesktop">
         {(status>0) &&
         <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
-        {(errors.length>0) &&
-        <p style={{color:"red"}}>Erreur sur le formulaire</p>}
+        
         {(error409) &&
         <p style={{color:"red"}}>Ce compte existe déjà</p>}
           <Button
@@ -103,21 +113,31 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           placeholder="Prénom"
           name="firstname"
           type="text"
-        />
+        /> 
+        {(firstname)&&
+        <p style={{color:"red"}}>Votre prénom doit contenir au moins 2 caractères</p>
+        }      
+
         <Field
           value={lastname}
           onChange={changeField}
           placeholder="Nom de famille"
           name="lastname"
           type="text"
-        />
+        />  
+        {(lastname)&&
+        <p style={{color:"red"}}>Votre nom doit contenir au moins 2 caractères</p>
+        }  
         <Field
           value={email}
           onChange={changeField}
           placeholder="Votre email"
           name="email"
           type="email"
-        />
+        />  
+        {(email)&&
+        <p style={{color:"red"}}>Votre email est incorrecte</p>
+        }  
 
         <Field
           value={password}
@@ -126,7 +146,9 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           name="password"
           type="password"
         />
-
+        {(password)&&
+        <p style={{color:"red"}}>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une mminuscule, un chiffre et un caractère spécial</p>
+        } 
         <Field
           value={confirmPassword}
           onChange={changeField}
@@ -138,8 +160,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
         <div className="actionsMobile">
         {(status>0) &&
         <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
-        {(errors.length>0) &&
-        <p style={{color:"red"}}>Erreur sur le formulaire</p>}
+        
         {(error409) &&
         <p style={{color:"red"}}>Ce compte existe déjà</p>}
           <Button

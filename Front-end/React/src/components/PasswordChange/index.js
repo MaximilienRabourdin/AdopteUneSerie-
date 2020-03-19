@@ -11,7 +11,7 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const PasswordChange = ({password, status, newPassword, changeField, handlePasswordChange }) => {
+const PasswordChange = ({password, newPassword, changeField, handlePasswordChange }) => {
 
   const handleSubmit= (evt) => {
     evt.preventDefault();
@@ -20,9 +20,8 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
   };
 
   var token = sessionStorage.getItem('token');
-  //var status = sessionStorage.getItem('status');
-  var error400 = sessionStorage.getItem('error400');
-  var error409 = sessionStorage.getItem('error409');
+  var status = sessionStorage.getItem('status');
+  console.log(status)
   var error = sessionStorage.getItem('error');
 
   return (
@@ -38,7 +37,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
           name="password"
           type="password"
           />
-          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
           <Field
           value={newPassword}
           onChange={changeField}
@@ -46,7 +45,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
           name="newPassword"
           type="password"
           />
-          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsDesktop">
             <p style={{color:"red"}}>
@@ -55,7 +54,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
               }
             </p> 
             <p style={{color:"red"}}>
-              {(error400) && 
+              {(error) && 
               "Format de mot de passe incorrect"
               }
             </p> 
@@ -65,7 +64,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
               }
             </p>
             <p style={{color:"green"}}>
-              {(status>0) && 
+              {(status) && 
               "Mot de passe modifié"
               }
             </p>
@@ -90,6 +89,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
           name="password"
           type="password"
           />
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
           <Field
           value={newPassword}
           onChange={changeField}
@@ -97,6 +97,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
           name="newPassword"
           type="password"
           />
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsMobile">
           <p style={{color:"red"}}>
@@ -105,7 +106,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
             }
           </p> 
           <p style={{color:"red"}}>
-            {(error400) && 
+            {(error) && 
             "Format de mot de passe incorrect"
             }
           </p> 
@@ -115,7 +116,7 @@ const PasswordChange = ({password, status, newPassword, changeField, handlePassw
             }
           </p>
           <p style={{color:"green"}}>
-            {(status>0) && 
+            {(status) && 
             "Mot de passe modifié"
             }
           </p>

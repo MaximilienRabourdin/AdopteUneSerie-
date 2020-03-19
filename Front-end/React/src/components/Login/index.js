@@ -19,7 +19,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
 
   var data = sessionStorage.getItem('token');
   var error = sessionStorage.getItem('error');
- //console.log(data);
+  console.log(error)
 
   return (
     <LoginStyled onSubmit={handleSubmit}>
@@ -41,7 +41,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             name="password"
             type="password"
           />
-          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsDesktop">
             {(error) &&
@@ -84,6 +84,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             name="password"
             type="password"
           />
+          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsMobile">
           {(error) &&
