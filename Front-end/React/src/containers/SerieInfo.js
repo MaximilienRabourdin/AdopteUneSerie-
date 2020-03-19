@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SerieInfo from 'src/components/SerieInfo';
 // Action Creators
 import { loadSerieInfo } from 'src/actions/serieInfo';
+import { loadCheck } from 'src/actions/favorite';
 
 // == Data / state
 // Notre composant à besoin de données depuis le state ?
@@ -12,7 +13,10 @@ const mapStateToProps = (state, ownProps) => {
   return {
     serie: state.serie.serie,
     slug: ownProps.location.pathname,
-    load: state.serie.load
+    load: state.serie.load,
+    status: state.favorite.status,
+    statusAdd: state.favorite.statusAdd,
+    statussDelete: state.favorite.statusDelete,
   };
 };
 
@@ -23,6 +27,8 @@ const mapDispatchToProps = (dispatch) => ({
   sendSlug: (id) => {
     const action = loadSerieInfo(id);
     dispatch(action);
+    const actionCheck = loadCheck(id);
+    dispatch(actionCheck);
   },
 });
 

@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 //import { Rating } from 'semantic-ui-react'
 import MediaQuery from 'react-responsive';
 import { Divider, Icon, Table} from 'semantic-ui-react'
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 // == Import : local
 import './styles.css';
 
 // == Composant
 const HeaderSerie = ({
+  slug,
+  status,
+  statusAdd,
+  statusDelete,
   name, 
   image, 
   vote, 
@@ -23,7 +28,24 @@ const HeaderSerie = ({
   productions,
   seasons,
   cast,
+  handleAdd,
+  handleDelete
 }) => {
+  console.log(status)
+  console.log(statusAdd)
+  console.log(statusDelete)
+  const handleClickAdd= (evt) => {
+    evt.preventDefault();
+    var id = slug.match(/[0-9]+/g)
+    handleAdd(id);
+  };
+  const handleClickDelete= (evt) => {
+    evt.preventDefault();
+    var id = slug.match(/[0-9]+/g)
+    handleDelete(id);
+  };
+
+
   return (
     <header className="presentation">
       <MediaQuery maxDeviceWidth={425}>
@@ -99,7 +121,18 @@ const HeaderSerie = ({
           className="presentation-image-desktop"
         />
         <div className="presentation-content-desktop">
+        {(status === 200)&&
+          <h1 className="presentation-title-desktop">{name}
+          <HeartFilled onClick={handleClickDelete} style={{transform: "scale(0.7)", color: "red"}} /></h1>
+        }
+        {(status === 204)&&
+          <h1 className="presentation-title-desktop">{name}
+          <HeartOutlined onClick={handleClickAdd} style={{transform: "scale(0.7)", color: "red"}} /></h1>
+        }
+        {(!status)&&
           <h1 className="presentation-title-desktop">{name}</h1>
+        }
+
           <p><Icon color = "yellow" name="star"/> {vote}/10 ({voteCount})</p>
         { /* <Rating maxRating={10} defaultRating={vote} icon='star' size='huge' /> */}
         </div>
@@ -163,6 +196,10 @@ const HeaderSerie = ({
 };
 
 HeaderSerie.propTypes = {
+  slug: PropTypes.string.isRequired,
+  status: PropTypes.number.isRequired,
+  statusAdd: PropTypes.number.isRequired,
+  statusDelete: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   vote: PropTypes.string.isRequired,
@@ -184,6 +221,8 @@ HeaderSerie.propTypes = {
   cast: PropTypes.arrayOf(
     PropTypes.object.isRequired 
   ).isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 

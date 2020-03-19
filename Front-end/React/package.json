@@ -54,15 +54,17 @@
     "webpack-merge": "^4.2"
   },
   "dependencies": {
+    "antd": "^4.0.3",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
-    "react-router-dom": "^5.1.2",
     "react-feather": "^2.0.3",
+    "react-heart-checkbox": "^0.0.4",
     "react-redux": "^7.1.3",
     "react-responsive": "^8.0.3",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "semantic-ui-css": "^2.4.1",

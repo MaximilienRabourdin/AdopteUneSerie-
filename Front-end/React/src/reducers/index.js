@@ -7,6 +7,7 @@ import registerReducer from './register';
 import passwordReducer from './password';
 import passwordChangeReducer from './passwordChange';
 import accountReducer from './account';
+import favoriteReducer from './favorite';
 
 const rootReducer = combineReducers({
   home: homeReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   register: registerReducer,
   password: passwordReducer,
   passwordChange: passwordChangeReducer,
-  account: accountReducer
+  account: accountReducer,
+  favorite: favoriteReducer,
   // ... autres reducers
 });
 

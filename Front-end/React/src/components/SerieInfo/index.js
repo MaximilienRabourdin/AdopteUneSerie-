@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 // Composants
-import HeaderSerie from './HeaderSerie';
+import HeaderSerie from 'src/containers/HeaderSerie';
 import Header from 'src/containers/Header';
 
 // Style
@@ -16,6 +16,9 @@ function SerieInfo({
   slug,
   sendSlug,
   load,
+  status,
+  statusAdd,
+  statusDelete,
  }) {
 
   useEffect(() => {
@@ -28,6 +31,10 @@ function SerieInfo({
       <div className="recipe">
         <Header/>
         <HeaderSerie
+          slug={slug}
+          status={status}
+          statusAdd={statusAdd}
+          statusDelete={statusDelete}
           name={serie.name}
           image={serie.poster_path}
           vote={serie.vote_average}
@@ -54,6 +61,9 @@ function SerieInfo({
 }
 
 SerieInfo.propTypes = {
+  status: PropTypes.number.isRequired,
+  statusAdd: PropTypes.number.isRequired,
+  statusDelete: PropTypes.number.isRequired,
   serie: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   sendSlug: PropTypes.func.isRequired,
