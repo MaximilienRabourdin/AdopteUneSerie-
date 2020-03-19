@@ -2,7 +2,7 @@
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const SET_USER = 'SET_USER';
 export const REGISTER = 'REGISTER';
-
+export const SET_ERROR = 'SET_ERROR';
 
 // Creators
 export const changeField = (value, name) => ({
@@ -11,10 +11,15 @@ export const changeField = (value, name) => ({
   name,
 });
 
-export const setUser = (logged, user) => ({
+export const setUser = (status, data) => ({
   type: SET_USER,
-  logged,
-  user,
+  status,
+  data,
+});
+
+export const setError = (error) => ({
+  type: SET_ERROR,
+  error,
 });
 
 export const register = () => ({

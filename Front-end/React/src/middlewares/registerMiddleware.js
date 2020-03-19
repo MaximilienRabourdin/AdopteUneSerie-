@@ -3,19 +3,35 @@ import axios from 'axios';
 import {
   REGISTER,
   setUser,
+  setError,
 } from 'src/actions/register';
 
-// Fonction utilisée par les différents catch pour la gestion de l'erreur
-const handleError = (error) => {
-  console.log('Une erreur s\'est produite', error);
-};
 
 // Middleware
 const ajaxMiddleware = (store) => (next) => (action) => {
   // Fonction utilisée pour sauvegarder l'utilisateur dans le store via le then
   const saveUser = (response) => {
-    console.log(response);
-    store.dispatch(setUser(response.data.logged, response.data.info));
+    if (response.status === 200){
+      sessionStorage.setItem("data", response.status);
+      sessionStorage.removeItem('error400');
+      sessionStorage.removeItem('error409');
+      sessionStorage.removeItem('error');
+      store.dispatch(setUser(response.status, response.data));
+      //console.log("200", response.data);
+      window.location.reload()
+    }
+  };
+  const handleError = (error) => {
+    if (error === 400){
+      sessionStorage.setItem("error400", error);
+    }
+    else if (error === 409){
+      sessionStorage.setItem("error409", error);
+    }
+      sessionStorage.setItem("error", error);
+      store.dispatch(setError(error));
+      window.location.reload()
+      console.log(error)
   };
   // En fonction de l'action, je réagis
   switch (action.type) {

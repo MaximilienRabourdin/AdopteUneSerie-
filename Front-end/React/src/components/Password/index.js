@@ -11,12 +11,13 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const Password = ({ email, data, changeField, handlePassword }) => {
+const Password = ({ email, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
     handlePassword();
   };
 
+  var data = sessionStorage.getItem('data');
   return (
     <PasswordStyled onSubmit={handleSubmit}>
     <Header />
@@ -32,16 +33,21 @@ const Password = ({ email, data, changeField, handlePassword }) => {
           />
 
           <div className="actionsDesktop">
+          <p style={{color:"red"}}>
+            {(error) && 
+            "Email incorrect"
+            }
+          </p> 
+          <p style={{color:"green"}}>
+              {(data===200) && 
+              "Demande prise en compte"
+              }
+          </p>
             <Button 
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data.length >0) && 
-              "Demande prise en compte"
-              }
-              {!(data.length >0) && 
-              "Envoyer"
-              }
+              Envoyer
             </Button>
           
           </div>

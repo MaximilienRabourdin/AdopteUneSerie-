@@ -23,19 +23,33 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.removeItem('error');
       store.dispatch(setUser(response.status, response.data));
-      console.log("200", response.data);
+      //console.log("200", response.data);
       window.location.reload()
     }
   };
   const handleError = (error) => {
+    if (error === 400){
+      sessionStorage.setItem("error400", matches);
+    }
+    else if (error === 409){
+      sessionStorage.setItem("error409", error);
+    }
       sessionStorage.setItem("error", error);
       window.location.reload()
   };
   const saveUserPassword = (response) => {
-    store.dispatch(setUserPassword(response.data));
+    sessionStorage.setItem("data", response.status);
+    store.dispatch(setUserPassword(response.status));
   };
   const saveUserPasswordChange = (response) => {
-    store.dispatch(setUserPasswordChange(response.status));
+    if (response.status === 200){
+      sessionStorage.setItem("data", response.status);
+      sessionStorage.removeItem('error');
+      sessionStorage.removeItem('error400');
+      sessionStorage.removeItem('error409');
+      store.dispatch(setUserPasswordChange(response.data));
+      window.location.reload()
+    }
   };
   // En fonction de l'action, je réagis
   switch (action.type) {

@@ -11,11 +11,20 @@ import Header from 'src/containers/Header';
 
 
 // == Composant	// == Composant
-const Register = ({ firstname, lastname, email, password, confirmPassword, changeField, handleRegister }) => {
+const Register = ({ firstname, status, error, lastname, email, password, confirmPassword, changeField, handleRegister }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
     handleRegister();
   };
+  //var data = sessionStorage.getItem('data');
+  console.log(status);
+  //var error = sessionStorage.getItem('error');
+  console.log(error);
+  var error400 = sessionStorage.getItem('error400');
+  console.log(error400);
+  var error409 = sessionStorage.getItem('error409');
+  console.log(error409);
+
   return (
     <RegisterStyled onSubmit={handleSubmit}>
     <Header/>
@@ -29,7 +38,9 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
           placeholder="Prénom"
           name="firstname"
           type="text"
-        />
+        />        
+        <p>Votre prénom doit contenir au moins 2 lettres</p>
+
         <Field
           value={lastname}
           onChange={changeField}
@@ -52,16 +63,22 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
           name="password"
           type="password"
         />
-
+        <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
         <Field
           value={confirmPassword}
           onChange={changeField}
-          placeholder="mot de passe"
+          placeholder="Confirmation mot de passe"
           name="confirmPassword"
           type="password"
         />
 
         <div className="actionsDesktop">
+        {(status>0) &&
+        <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
+        {(error.length>0) &&
+        <p style={{color:"red"}}>Erreur sur le formulaire</p>}
+        {(error409) &&
+        <p style={{color:"red"}}>Ce compte existe déjà</p>}
           <Button
           className="ui blue button"
           type="submit"
@@ -118,6 +135,12 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
         />
 
         <div className="actionsMobile">
+        {(status>0) &&
+        <p style={{color:"green"}}>L'inscription a bien été prise en compte</p>}
+        {(error.length>0) &&
+        <p style={{color:"red"}}>Erreur sur le formulaire</p>}
+        {(error409) &&
+        <p style={{color:"red"}}>Ce compte existe déjà</p>}
           <Button
           className="ui blue button"
           type="submit"
@@ -136,6 +159,10 @@ const Register = ({ firstname, lastname, email, password, confirmPassword, chang
 };
 
 Register.propTypes = {
+  status: PropTypes.number.isRequired,
+  error: PropTypes.objectOf(
+    PropTypes.object.isRequired
+  ).isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,

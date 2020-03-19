@@ -11,7 +11,7 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const PasswordChange = ({data, password, newPassword, changeField, handlePasswordChange }) => {
+const PasswordChange = ({password, data, newPassword, changeField, handlePasswordChange }) => {
 
   const handleSubmit= (evt) => {
     evt.preventDefault();
@@ -20,9 +20,15 @@ const PasswordChange = ({data, password, newPassword, changeField, handlePasswor
   };
 
   var token = sessionStorage.getItem('token');
+  //var data = sessionStorage.getItem('data');
+  var error400 = sessionStorage.getItem('error400');
+  var error409 = sessionStorage.getItem('error409');
   var error = sessionStorage.getItem('error');
-console.log(error)
+
 console.log(data)
+console.log(error)
+console.log(error400)
+console.log(error409)
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
     <Header />
@@ -36,6 +42,7 @@ console.log(data)
           name="password"
           type="password"
           />
+          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
           <Field
           value={newPassword}
           onChange={changeField}
@@ -43,24 +50,34 @@ console.log(data)
           name="newPassword"
           type="password"
           />
+          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsDesktop">
-             <p>{(error) && 
-              "Mot de passe incorrect"
-              }</p> 
-              <p>{!(token.length>0) && 
+            <p style={{color:"red"}}>
+              {(error) && 
+                "Mot de passe incorrect"
+              }
+            </p> 
+            <p style={{color:"red"}}>
+              {(error400) && 
+              "Format de mot de passe incorrect"
+              }
+            </p> 
+            <p style={{color:"red"}}>
+              {!(token.length>0) && 
               "Vous n'êtes plus connecté"
-              }</p>
+              }
+            </p>
+            <p style={{color:"green"}}>
+              {(data>0) && 
+              "Mot de passe modifié"
+              }
+            </p>
             <Button 
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(!(error) && data === 200) && 
-              "Mot de passe modifié"
-              }
-              {(token.length>0 && !(data === 200)) &&
-              "Envoyer"
-              }
+              Envoyer
             </Button>
           
           </div>
@@ -86,23 +103,32 @@ console.log(data)
           />
 
           <div className="actionsMobile">
-          <p>{(error) && 
-           "Mot de passe incorrect"
-           }</p> 
-           <p>{!(token.length>0) && 
-           "Vous n'êtes plus connecté"
-           }</p>
-            <Button 
-            className="ui blue button"
-            type="submit"
-            className="actions-button">
-            {(!(error) && data === 200) && 
+          <p style={{color:"red"}}>
+            {(error409) && 
+              "Mot de passe incorrect"
+            }
+          </p> 
+          <p style={{color:"red"}}>
+            {(error400) && 
+            "Format de mot de passe incorrect"
+            }
+          </p> 
+          <p style={{color:"red"}}>
+            {!(token.length>0) && 
+            "Vous n'êtes plus connecté"
+            }
+          </p>
+          <p style={{color:"green"}}>
+            {(data === 200) && 
             "Mot de passe modifié"
             }
-            {(token.length>0 && !(data === 200)) &&
+          </p>
+          <Button 
+          className="ui blue button"
+          type="submit"
+          className="actions-button">
             "Envoyer"
-            }
-            </Button>         
+          </Button>        
           </div>
         </form>
       </MediaQuery>

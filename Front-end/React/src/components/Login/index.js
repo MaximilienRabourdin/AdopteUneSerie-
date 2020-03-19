@@ -41,10 +41,11 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             name="password"
             type="password"
           />
+          <p>Votre mot de passe doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsDesktop">
             {(error) &&
-            <p>Email ou mot de passe incorrect</p>}
+            <p style={{color:"red"}}>Email ou mot de passe incorrect</p>}
             <Button 
             className="ui blue button"
             type="submit"
@@ -86,7 +87,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
 
           <div className="actionsMobile">
           {(error) &&
-          <p>Email ou mot de passe incorrect</p>}
+          <p style={{color:"red"}}>Email ou mot de passe incorrect</p>}
             <Button 
             className="ui blue button"
             type="submit"

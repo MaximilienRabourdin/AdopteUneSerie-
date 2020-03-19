@@ -23,6 +23,7 @@ const Field = ({
       <label
         className="label"
         htmlFor={name}
+        style={{fontSize: "1.5em"}}
       >
         {placeholder}
       </label>
