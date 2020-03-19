@@ -19,7 +19,7 @@ import FAQ from 'src/components/FAQ';
 import Notices from 'src/components/Notices';
 import Account from 'src/containers/Account';
 import PasswordChange from 'src/containers/PasswordChange';
-import Favorites from 'src/components/Favorites';
+import Favorites from 'src/containers/Favorites';
 import NotFound from 'src/components/NotFound';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';

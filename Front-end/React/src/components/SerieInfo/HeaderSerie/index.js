@@ -55,7 +55,18 @@ const HeaderSerie = ({
           className="presentation-image-mobile"
           />
         <div className="presentation-content-mobile">
-          <h1 className="presentation-title-mobile">{name}</h1>
+        {(status === 200)&&
+          <h1 className="presentation-title-desktop">{name}
+          <HeartFilled onClick={handleClickDelete} style={{transform: "scale(0.7)", color: "red"}} /></h1>
+        }
+        {(status === 204)&&
+          <h1 className="presentation-title-desktop">{name}
+          <HeartOutlined onClick={handleClickAdd} style={{transform: "scale(0.7)", color: "red"}} /></h1>
+        }
+        {(!status)&&
+          <h1 className="presentation-title-desktop">{name}</h1>
+        }
+
           <p><Icon color = "yellow" name="star"/> {vote}/10 ({voteCount})</p>
          { /*  <Rating maxRating={10} defaultRating={vote} icon='star' size='small' /> */}
         </div>

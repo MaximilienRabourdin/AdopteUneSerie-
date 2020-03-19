@@ -9,7 +9,7 @@ import CardStyled from './CardStyled';
 // == Composant
 const SerieCard = ({ serie }) => {
   return (
-    <Link to={"/serie/" + serie.id}>
+    <Link to={"/serie/" + serie.tmdb_id}>
     <CardStyled>
         <Card  color='blue' style={{height: '500px'}}>
           <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
