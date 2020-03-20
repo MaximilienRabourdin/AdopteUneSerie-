@@ -21,7 +21,6 @@ const Footer = () => (
         <a className="cookie" href={"/cookie"}>Cookie</a> 
         <a className="FAQ" href={"/faq"}>FAQ</a> 
         <a className="notices" href={"/mentions-legales"}>Mentions légales</a> 
-        <Toggle href="#" className="toggle" />
       </div>
     </MediaQuery>
 

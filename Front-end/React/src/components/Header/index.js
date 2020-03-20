@@ -22,7 +22,6 @@ const Header = () => {
 
     <MediaQuery maxDeviceWidth={425}>
       <div id="TOP">
-        <Toggle />
         <div className="topMobile">
           <Logo id="logoMobile" />
         </div>
