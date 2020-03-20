@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
-min-height: 90vh;
+min-height: 150vh;
  .formDesktop{
    background-color : white;
   padding: ${theme.gutter/ 2}rem;

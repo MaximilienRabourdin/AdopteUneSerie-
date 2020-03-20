@@ -11,15 +11,24 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const Login = ({ password, email, changeField, handleLogin }) => {
+const Login = ({ password, status, error, email, changeField, handleLogin }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
     handleLogin();
   };
 
   var data = sessionStorage.getItem('token');
-  var error = sessionStorage.getItem('error');
   console.log(error)
+
+  //console.log(error
+  var error401 = 0;
+
+  //var data = sessionStorage.getItem('data');
+ if(error) {
+    if(error.status){
+      error401=401;
+  }
+}
 
   return (
     <LoginStyled onSubmit={handleSubmit}>
@@ -40,22 +49,21 @@ const Login = ({ password, email, changeField, handleLogin }) => {
             placeholder="Mot de passe"
             name="password"
             type="password"
-          />
+          /> 
           <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsDesktop">
-            {(error) &&
-            <p style={{color:"red"}}>Email ou mot de passe incorrect</p>}
+              {(data) && 
+                <p style={{color:"green"}}>Vous êtes Connecté</p>
+              }
+              {(error401===401) &&
+              <p style={{color:"red"}}>Email ou mot de passe incorrect</p>
+              }
             <Button 
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data) && 
-              "Vous êtes Connecté"
-              }
-              {!(data) && 
-              "Connexion"
-              }
+              Connexion
             </Button>
           
           </div>
@@ -76,7 +84,7 @@ const Login = ({ password, email, changeField, handleLogin }) => {
           placeholder="Votre email"
           name="email"
           type="email"
-          />
+          /> 
           <Field
             value={password}
             onChange={changeField}
@@ -87,24 +95,23 @@ const Login = ({ password, email, changeField, handleLogin }) => {
           <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
 
           <div className="actionsMobile">
-          {(error) &&
-          <p style={{color:"red"}}>Email ou mot de passe incorrect</p>}
+          {(data) && 
+            <p style={{color:"green"}}>Vous êtes Connecté</p>
+          }
+          {(error401===401) &&
+          <p style={{color:"red"}}>Email ou mot de passe incorrect</p>
+          }
             <Button 
             className="ui blue button"
             type="submit"
             className="actions-button">
-              {(data) && 
-                "Vous êtes Connecté"
-              }
-              {(!data) && 
-                "Connexion"
-              }
+                Connexion
             </Button>
           
           </div>
 
           <div className="linksMobile">
-            <Link className="links-item" to="/mot_de-passe">Mot de passe oublié</Link>/
+            <Link className="links-item" to="/mot-de-passe-oublié">Mot de passe oublié</Link>/
             <Link className="links-item" to="/inscription">Créer un compte</Link>
           </div>
         </form>
@@ -115,6 +122,10 @@ const Login = ({ password, email, changeField, handleLogin }) => {
 };
 
 Login.propTypes = {
+  status: PropTypes.number.isRequired,
+  error: PropTypes.objectOf(
+    PropTypes.object.isRequired
+  ).isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,

@@ -77,18 +77,36 @@ const HeaderSerie = ({
         <Divider section />
 
         <h3>Détails</h3>
-        <p><span style={{fontWeight: "bold"}}>Date de première diffusion :</span> {airDate} </p>
-        <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
-        <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
-        <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime.slice(0, 2)} min</p>        
-       
-        <p><span style={{fontWeight: "bold"}}>Produit par :</span>
-          <ul>
-            {productions.map((production) => 
-              <li>{production.name}</li>
-            )}
-          </ul>
-        </p>
+        {(airDate.length >0) &&
+          <p><span style={{fontWeight: "bold"}}>Date de première diffusion :</span> {airDate} </p>
+        }
+        {(numberSeasons.length >0) &&
+         <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
+        }
+        {(numberEpisodes.length >0) &&
+          <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
+        }
+        {(runTime.length >0) &&
+          <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime.slice(0, 2)} min</p>
+        }
+        {(networks.length >0) &&
+          <p><span style={{fontWeight: "bold"}}>Disponible sur : </span> 
+            <ul>
+              {networks.map((network) => 
+                <li>{network.name}</li>
+              )}
+            </ul>
+          </p>
+        }
+        {(productions.length >0) &&
+          <p><span style={{fontWeight: "bold"}}>Produit par :</span>
+            <ul>
+              {productions.map((production) => 
+                <li>{production.name}</li>
+              )}
+            </ul>
+          </p>
+        }
 
         <Divider section />
 
@@ -104,7 +122,7 @@ const HeaderSerie = ({
                   </Table.Row>  
                 )
               }
-            })} 
+            })}
           </Table.Body>
         </Table> 
 
@@ -116,9 +134,9 @@ const HeaderSerie = ({
             {cast.map((name =>  
               <Table.Row>
                 <Table.Cell singleLine>{name.protagonist}</Table.Cell>
-              {name.actors.map(actor => 
-                <Table.Cell singleLine>{actor.name}</Table.Cell>
-                )}
+                  {name.actors.map(actor => 
+                    <Table.Cell singleLine>{actor.name}</Table.Cell>
+                    )}
               </Table.Row>         
             ))}
           </Table.Body>
@@ -154,18 +172,36 @@ const HeaderSerie = ({
           <Divider section />
 
           <h1>Détails</h1>
-          <p><span style={{fontWeight: "bold"}}>Date de première diffusion :</span> {airDate} </p>
-          <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
-          <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
-          <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime} min</p>
-          <p><span style={{fontWeight: "bold"}}>Disponible sur : </span> {networks[0].name}</p>
-          <p><span style={{fontWeight: "bold"}}>Produit par :</span>
-            <ul>
-              {productions.map((production) => 
-                <li>{production.name}</li>
-              )}
-            </ul>
-          </p>
+          {(airDate.length >0) &&
+            <p><span style={{fontWeight: "bold"}}>Date de première diffusion :</span> {airDate} </p>
+          }
+          {(numberSeasons.length >0) &&
+           <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
+          }
+          {(numberEpisodes.length >0) &&
+            <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
+          }
+          {(runTime.length >0) &&
+            <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime.slice(0, 2)} min</p>
+          }
+          {(networks.length >0) &&
+            <p><span style={{fontWeight: "bold"}}>Disponible sur : </span> 
+              <ul>
+                {networks.map((network) => 
+                  <li>{network.name}</li>
+                )}
+              </ul>
+            </p>
+          }
+          {(productions.length >0) &&
+            <p><span style={{fontWeight: "bold"}}>Produit par :</span>
+              <ul>
+                {productions.map((production) => 
+                  <li>{production.name}</li>
+                )}
+              </ul>
+            </p>
+          }
 
           <Divider section />
 
@@ -181,21 +217,21 @@ const HeaderSerie = ({
                     </Table.Row>  
                   )
                 }
-              })} 
+              })}
             </Table.Body>
           </Table> 
   
           <Divider section />
   
-          <h3>Casting</h3>
+          <h1>Casting</h1>
           <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
             <Table.Body>
               {cast.map((name =>  
                 <Table.Row>
                   <Table.Cell singleLine>{name.protagonist}</Table.Cell>
-                {name.actors.map(actor => 
-                  <Table.Cell singleLine>{actor.name}</Table.Cell>
-                  )}
+                    {name.actors.map(actor => 
+                      <Table.Cell singleLine>{actor.name}</Table.Cell>
+                      )}
                 </Table.Row>         
               ))}
             </Table.Body>

@@ -11,15 +11,23 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const Password = ({ email, changeField, handlePassword }) => {
+const Password = ({ email, status, error, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
-    sessionStorage.removeItem("status");
     handlePassword();
   };
+  //console.log(error)
 
-  var status = sessionStorage.getItem('status');
-  var error = sessionStorage.getItem('error');
+  var error409=0;
+  if(error) {     
+    if (error.status) {
+      if (error.status===409) {
+        error409 = 409;
+        //console.log(error.status)
+      }
+    }
+   }
+ 
 
   return (
     <PasswordStyled onSubmit={handleSubmit}>
@@ -36,14 +44,12 @@ const Password = ({ email, changeField, handlePassword }) => {
           />
 
           <div className="actionsDesktop">
-          <p style={{color:"red"}}>
-            {(error) && 
-            "Email incorrect"
-            }
-          </p> 
           <p style={{color:"green"}}>
-              {(status) && 
+              {(status>0) && 
               "Nouveau mot de passe envoyé"
+              }
+              {(error409===409) &&
+              <p style={{color:"red"}}>Email incorrect</p>
               }
           </p>
             <Button 
@@ -73,16 +79,17 @@ const Password = ({ email, changeField, handlePassword }) => {
           />
 
           <div className="actionsMobile">
+            {(status>0) && 
+            <p>Nouveau mot de passe envoyé</p>
+            }
+            {(error409===409) &&
+            <p style={{color:"red"}}>Email incorrect</p>
+            }
             <Button 
             className="ui blue button"
             type="submit"
             className="actions-button">
-            {(status) && 
-            "Nouveau mot de passe envoyé"
-              }
-              {!(status>0) && 
-              "Envoyer"
-              }
+              Envoyer
             </Button>         
           </div>
 
@@ -97,6 +104,10 @@ const Password = ({ email, changeField, handlePassword }) => {
 };
 
 Password.propTypes = {
+  status: PropTypes.number.isRequired,
+  error: PropTypes.objectOf(
+    PropTypes.object.isRequired
+  ).isRequired,
   status: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,

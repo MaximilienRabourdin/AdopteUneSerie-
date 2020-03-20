@@ -11,7 +11,7 @@ import Header from 'src/containers/Header';
 
 
 // == Composant
-const PasswordChange = ({password, newPassword, changeField, handlePasswordChange }) => {
+const PasswordChange = ({password,status, error, newPassword, changeField, handlePasswordChange }) => {
 
   const handleSubmit= (evt) => {
     evt.preventDefault();
@@ -19,11 +19,23 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
     handlePasswordChange(token);
   };
 
-  var token = sessionStorage.getItem('token');
-  var status = sessionStorage.getItem('status');
-  console.log(status)
-  var error = sessionStorage.getItem('error');
+  console.log(error)
 
+  var error409=0;
+  var error400=0;
+
+  if(error) {     
+    if (error.status) {
+      if (error.status===409) {
+        error409 = 409;
+        //console.log(error.status)
+      }
+      if (error.status===400) {
+        error400 = 400;
+        //console.log(error.status)
+      }
+    }
+   }
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
     <Header />
@@ -37,7 +49,9 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
           name="password"
           type="password"
           />
-          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+          {(error409===409) &&
+            <p style={{color:"red"}}>{error.data.false}</p>
+          }
           <Field
           value={newPassword}
           onChange={changeField}
@@ -45,29 +59,16 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
           name="newPassword"
           type="password"
           />
-          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+          {(error400===400) &&
+            <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
+          }
 
           <div className="actionsDesktop">
-            <p style={{color:"red"}}>
-              {(error) && 
-                "Mot de passe incorrect"
-              }
-            </p> 
-            <p style={{color:"red"}}>
-              {(error) && 
-              "Format de mot de passe incorrect"
-              }
-            </p> 
-            <p style={{color:"red"}}>
-              {!(token.length>0) && 
-              "Vous n'êtes plus connecté"
-              }
-            </p>
-            <p style={{color:"green"}}>
-              {(status) && 
-              "Mot de passe modifié"
-              }
-            </p>
+            {(status>0) && 
+              <p style={{color:"green"}}>
+                Mot de passe modifié
+              </p>
+            }
             <Button 
             className="ui blue button"
             type="submit"
@@ -89,7 +90,9 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
           name="password"
           type="password"
           />
-          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+          {(error409===409) &&
+            <p style={{color:"red"}}>{error.data.false}</p>
+          }
           <Field
           value={newPassword}
           onChange={changeField}
@@ -97,34 +100,21 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
           name="newPassword"
           type="password"
           />
-          <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+          {(error400===400) &&
+            <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
+          }
 
           <div className="actionsMobile">
-          <p style={{color:"red"}}>
-            {(error) && 
-              "Mot de passe incorrect"
-            }
-          </p> 
-          <p style={{color:"red"}}>
-            {(error) && 
-            "Format de mot de passe incorrect"
-            }
-          </p> 
-          <p style={{color:"red"}}>
-            {!(token.length>0) && 
-            "Vous n'êtes plus connecté"
-            }
-          </p>
-          <p style={{color:"green"}}>
-            {(status) && 
-            "Mot de passe modifié"
-            }
-          </p>
+          {(status>0) && 
+            <p style={{color:"green"}}>            
+              Mot de passe modifié
+            </p>
+          }
           <Button 
           className="ui blue button"
           type="submit"
           className="actions-button">
-            "Envoyer"
+            Envoyer
           </Button>        
           </div>
         </form>
@@ -136,6 +126,9 @@ const PasswordChange = ({password, newPassword, changeField, handlePasswordChang
 
 PasswordChange.propTypes = {
   status: PropTypes.number.isRequired,
+  error: PropTypes.objectOf(
+    PropTypes.object.isRequired
+  ).isRequired,
   password: PropTypes.string.isRequired,
   newPassword: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,

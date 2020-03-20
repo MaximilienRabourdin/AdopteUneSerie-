@@ -8,9 +8,10 @@ import { passwordChange, changeField } from 'src/actions/passwordChange';
 //== Data / state
 
 const mapStateToProps = (state) => ({
-  status: state.passwordChange.status,
   password: state.passwordChange.password,
   newPassword: state.passwordChange.newPassword,
+  status: state.passwordChange.status,
+  error: state.passwordChange.error,
 });
 
 // == Actions / dispatch

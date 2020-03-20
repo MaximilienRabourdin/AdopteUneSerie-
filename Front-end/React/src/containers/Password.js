@@ -10,6 +10,7 @@ import { password, changeField } from 'src/actions/password';
 const mapStateToProps = (state) => ({
   email: state.password.email,
   status: state.password.status,
+  error: state.password.error,
 });
 
 // == Actions / dispatch

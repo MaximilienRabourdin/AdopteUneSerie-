@@ -9,6 +9,8 @@ import { login, changeField } from 'src/actions/auth';
 const mapStateToProps = (state) => ({
   email: state.login.email,
   password: state.login.password,
+  status: state.login.status,
+  error: state.login.error,
 });
 
 

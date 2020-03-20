@@ -3,14 +3,17 @@ import axios from 'axios';
 import {
   LOGIN,
   setUser,
+  setError,
 } from 'src/actions/auth';
 import {
   setUserPassword,
   PASSWORD,
+  setErrorPassword,
 } from 'src/actions/password';
 import {
   setUserPasswordChange,
   PASSWORD_CHANGE,
+  setErrorPasswordChange,
 } from 'src/actions/passwordChange';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
@@ -20,46 +23,29 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   // Fonction utilisée pour sauvegarder l'utilisateur dans le store via le then
   const saveUser = (response) => {
     if (response.status === 200){
-      sessionStorage.setItem("token", response.data.token);
-      sessionStorage.removeItem('error');
-      sessionStorage.removeItem("firstname");
-      sessionStorage.removeItem("lastname");
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("password");
-      sessionStorage.removeItem("error409");
-    
+      sessionStorage.setItem("token", response.data.token);    
       store.dispatch(setUser(response.status, response.data));
       //console.log("200", response.data);
-      window.location.reload()
+      window.location.href = "/Accueil";
     }
   };
-  const handleError = (error) => {
-      sessionStorage.setItem("error", error);
-      window.location.reload()
+  const handleErrorLogin = (error) => {
+    store.dispatch(setError(error.response));
   };
+  const handleErrorPassword = (error) => {
+    store.dispatch(setErrorPassword(error.response));
+  };
+  const handleErrorPasswordChange = (error) => {
+    store.dispatch(setErrorPasswordChange(error.response));
+  };
+
   const saveUserPassword = (response) => {
-    sessionStorage.setItem("status", response.status);
-    sessionStorage.removeItem('error');
-    sessionStorage.removeItem("firstname");
-    sessionStorage.removeItem("lastname");
-    sessionStorage.removeItem("email");
-    sessionStorage.removeItem("password");
-    sessionStorage.removeItem("error409");
     store.dispatch(setUserPassword(response.status));
-    window.location.reload()
+    window.location.href = "/Accueil";
   };
   const saveUserPasswordChange = (response) => {
-    {(response.status === 200) &&
-      sessionStorage.setItem("status", response.status);
-      sessionStorage.removeItem('error');
-      sessionStorage.removeItem("firstname");
-      sessionStorage.removeItem("lastname");
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("password");
-      sessionStorage.removeItem("error409");
       store.dispatch(setUserPasswordChange(response.status));
-      window.location.reload()
-    }
+      window.location.href = "/Accueil";
   };
   // En fonction de l'action, je réagis
   switch (action.type) {
@@ -77,7 +63,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         },
       })
         .then(saveUser)
-        .catch(handleError);
+        .catch(handleErrorLogin);
       break;
     }
     case PASSWORD: {
@@ -93,7 +79,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         },
       })
         .then(saveUserPassword)
-        .catch(handleError);
+        .catch(handleErrorPassword);
       break;
     }
     case PASSWORD_CHANGE: {
@@ -110,7 +96,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         },
       })
         .then(saveUserPasswordChange)
-        .catch(handleError);
+        .catch(handleErrorPasswordChange);
       break;
     }
     default:
