@@ -31,9 +31,9 @@ const HeaderSerie = ({
   handleAdd,
   handleDelete
 }) => {
-  console.log(status)
-  console.log(statusAdd)
-  console.log(statusDelete)
+  //console.log(status)
+  //console.log(statusAdd)
+  //console.log(statusDelete)
   const handleClickAdd= (evt) => {
     evt.preventDefault();
     var id = slug.match(/[0-9]+/g)
@@ -81,7 +81,7 @@ const HeaderSerie = ({
         <p><span style={{fontWeight: "bold"}}>Nombre de saisons :</span> {numberSeasons} </p>
         <p><span style={{fontWeight: "bold"}}>Nombre d'épisodes :</span> {numberEpisodes} </p>
         <p><span style={{fontWeight: "bold"}}>Durée moyenne d'un épisode :</span> {runTime.slice(0, 2)} min</p>        
-        <p><span style={{fontWeight: "bold"}}>Disponible sur : </span> {networks[0].name}</p>
+       
         <p><span style={{fontWeight: "bold"}}>Produit par :</span>
           <ul>
             {productions.map((production) => 

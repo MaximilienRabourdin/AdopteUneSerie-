@@ -10,7 +10,7 @@ export default styled.div`
   height: 100px;
   width: 100px;
   position: absolute;
-  top: 35%%;
+  top: 35%;
   left: 35%;
 }
 .div

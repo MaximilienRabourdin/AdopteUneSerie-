@@ -12,11 +12,6 @@ export default {
         "category": "with_networks"
     },
     {
-        "id": 3078,
-        "name": "Produit par OCS",
-        "category": "with_networks"
-    },
-    {
         "id": 1024,
         "name": "Produit par Amazon Prime",
         "category": "with_networks"

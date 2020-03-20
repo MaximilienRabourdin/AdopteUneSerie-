@@ -10,13 +10,14 @@ const infoMiddleware = (store) => (next) => (action) => {
       axios.get('http://209.182.238.244/back/show/' + action.id)
         // succès
         .then((response) => {
-          //console.log("response middleware",response.data);
+          console.log("response middleware",response.data);
           store.dispatch(saveSerieInfo(response.data));
           store.dispatch(setLoad(true));
         })
         // échec
         .catch((error) => {
-          console.log('Une erreur s\'est produite', error);
+         // console.log('Une erreur s\'est produite', error);
+         //console.log("info middleware error")
         });
       break;
       case LOAD_CHECK:
