@@ -14,10 +14,6 @@ left: 0;
 right: 0;
 }
 
-
-#logoMobile{
-  left: 160px;
-}
 .topMobile {
   position: relative;
   width: 100%;
@@ -36,7 +32,7 @@ right: 0;
   box-shadow: 10px -15px 10px -10px #437B98,
               -10px -15px 10px -10px #437B98;
   width: 100%;
-  padding-top: 10px;
+  padding: 7px 5px 7px 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

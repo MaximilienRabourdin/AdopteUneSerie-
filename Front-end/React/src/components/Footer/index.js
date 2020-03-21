@@ -12,7 +12,7 @@ import Twitter from './Twitter';
 const Footer = () => (
 
   <FooterStyled>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minDeviceWidth={701}>
 
       <div id="DesktopFooter">
         <Twitter href="#" className="tweet" />
@@ -25,7 +25,7 @@ const Footer = () => (
     </MediaQuery>
 
 
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxDeviceWidth={700}>
       <div id="MobileFooter">
         <Twitter href="#" className="tweet" />
         <Facebook href="#" className="fb" />

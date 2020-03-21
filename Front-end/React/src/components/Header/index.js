@@ -20,10 +20,10 @@ const Header = () => {
   return (
   <HeaderStyled>
 
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxDeviceWidth={700}>
       <div id="TOP">
         <div className="topMobile">
-          <Logo id="logoMobile" />
+          <Logo />
         </div>
         <div className="bottomMobile">
         {!(data) && 
@@ -43,7 +43,7 @@ const Header = () => {
       </div>
     </MediaQuery>
 
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minDeviceWidth={701}>
       <div className="topDesktop">
         <Logo id="logoDesktop" />
         <div id="signDesktop">

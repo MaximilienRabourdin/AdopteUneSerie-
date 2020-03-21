@@ -4,7 +4,7 @@ import MediaQuery from 'react-responsive';
 import PropTypes from 'prop-types';
 
 // == Import
-import Logo from 'src/components/Logo';
+import Logo from 'src/components/LogoSearch';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import AccountButton from 'src/components/AccountButton';
@@ -22,7 +22,7 @@ const Header = () => {
   return (
   <HeaderStyled>
 
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxDeviceWidth={1400}>
       <div id="TOP">
         <div className="topMobile">
           <Logo href="#" />
@@ -45,7 +45,7 @@ const Header = () => {
         </div>
       </div>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minDeviceWidth={1401}>
       <div className="topDesktop">
         <Logo href="#" />
         <SearchBar id="searchBar" />

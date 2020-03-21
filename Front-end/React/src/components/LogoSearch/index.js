@@ -9,16 +9,15 @@ import logo from 'src/assets/logo4.png'
 // == Composant
 const Logo = () => (
   <LogoStyled>
-    <MediaQuery maxDeviceWidth={700}>
+    <MediaQuery maxDeviceWidth={1400}>
     <Link to="/Accueil">
       <img src={logo} id="logoMobile" />
-      <p id="captionMobile">AdopteUneSérie</p>
     </Link>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={701}>
+    <MediaQuery minDeviceWidth={1401}>
     <Link to="/Accueil">
       <img src={logo} id="logoDesktop" />
-      <p id="captionDesktop">AdopteUneSérie</p>
+      <p id="caption">AdopteUneSérie</p>
     </Link>
     </MediaQuery>
   </LogoStyled>

@@ -4,7 +4,9 @@ export default styled.form`
 
 #mobile {
 text-align: center;
-margin: 2px;  
+margin: 2px;   
+display: flex;
+flex-direction: column;
 }
 .searchBar {
   margin: 1px;

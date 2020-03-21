@@ -60,10 +60,10 @@ import optionsInput from 'src/data/optionsMerge';
 
   return (
     <SearchBarStyled >
-      <MediaQuery maxDeviceWidth={425}>
+      <MediaQuery maxDeviceWidth={1400}>
         <div id="mobile">
           <Input
-            style={{ minWidth: '202px' }}
+            style={{ minWidth: '202px'}}
             className="searchBar"
             size="large"
             icon={{ name: 'search', circular: true, link: true }}
@@ -72,7 +72,7 @@ import optionsInput from 'src/data/optionsMerge';
             onChange={handleChange}
           />
           <Dropdown
-            style={{ minWidth: '202px', minheight: '38px' }}
+            style={{ minWidth: '202px', minHeight: '38px' }}
             className="dropdown"
             placeholder="Selectionnez vos critères"
             multiple
@@ -84,7 +84,7 @@ import optionsInput from 'src/data/optionsMerge';
         </div>
       </MediaQuery>
 
-      <MediaQuery minDeviceWidth={426}>
+      <MediaQuery minDeviceWidth={1401}>
         <div id="desktop">
           <Input
             style={{ minWidth: '302px' }}
