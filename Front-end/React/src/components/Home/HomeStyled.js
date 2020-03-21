@@ -1,18 +1,12 @@
 import styled from 'styled-components';
 
 export default styled.div`
-min-height: 100vh;
+min-height: 90vh;
 .search {
-  padding: 130px 60px 30px 60px;
+  padding: 150px 50px 30px 50px;
 }
 
-#accueilMobile{
-  justify-content: space-around;
-  margin-top: 50px;
-}
-#accueilDesktop{
-  justify-content: space-around;
-  margin: 50px 10% 0;
+#accueil{
 }
 
 .title{

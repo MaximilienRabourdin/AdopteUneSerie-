@@ -14,7 +14,7 @@ const Favorites = ({ series }) => (
     <Header/>
     <div className="search">
       <p>Mes favoris</p>
-        <Card.Group style={{justifyContent: 'space-between'}}>
+        <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
             return (
               <SerieCard key={card.tmdb_id} serie={card} />

@@ -16,7 +16,7 @@ const Recent = ({ series }) => (
     <Header/>
     <div className="search">
       <p>Sorties récentes</p>
-      <Card.Group style={{justifyContent: 'space-between'}}>
+      <Card.Group style={{justifyContent: 'center'}}>
         {series.map((card) => {
           if(!(card.poster_path === null)){
             return (

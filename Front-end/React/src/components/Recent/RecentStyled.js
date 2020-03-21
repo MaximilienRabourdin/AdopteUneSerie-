@@ -9,7 +9,7 @@ min-height: 100vh;
   padding: 15px 0 20px;
   text-align: center;
   color: #1A82AE;
-  font-size: 3em;
+  font-size: 2em;
   border-bottom: 5px solid #1A82AE;
   font-family: Georgia, sans serif;
   background: rgba(0, 0, 0, 0.3);

@@ -16,7 +16,7 @@ const Trending = ({ series }) => (
     <Header/>
     <div className="search">
      <p>Séries Tendances</p>
-        <Card.Group style={{justifyContent: 'space-between'}}>
+        <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
             if(!(card.poster_path === null)){
               return (
