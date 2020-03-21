@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 // == Import : local
 import App from 'src/components/App';
 import store from 'src/store';
+import ScrollToTop from 'src/selectors/scroll.js'
 
 import { loadSeriesTendance, loadSeriesTopRated, loadSeriesRecent} from 'src/actions/series';
 import { loadSeriesFavorites } from 'src/actions/favorite';
@@ -23,6 +24,7 @@ import { loadSeriesFavorites } from 'src/actions/favorite';
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>
+      <ScrollToTop/>
       <App />
     </BrowserRouter>
   </Provider>
