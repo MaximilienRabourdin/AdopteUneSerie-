@@ -63,7 +63,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="text"
         />  
         {(firstnameE.length>0)&&
-        <p style={{color:"red"}}>Votre prénom doit contenir au moins 2 caractères</p>
+        <p style={{color:"red"}}>{firstnameE}</p>
         }      
 
         <Field
@@ -74,7 +74,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="text"
         />  
         {(lastnameE.length>0)&&
-        <p style={{color:"red"}}>Votre nom doit contenir au moins 2 caractères</p>
+        <p style={{color:"red"}}>{lastnameE}</p>
         }  
         <Field
           value={email}
@@ -84,7 +84,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="email"
         />  
         {(emailE.length>0)&&
-        <p style={{color:"red"}}>Votre email est incorrecte</p>
+        <p style={{color:"red"}}>{emailE}</p>
         }  
 
         <Field
@@ -95,7 +95,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="password"
         />
         {(passwordE.length>0)&&
-        <p style={{color:"red"}}>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+        <p style={{color:"red"}}>{passwordE}</p>
         }  
         <Field
           value={confirmPassword}
@@ -136,7 +136,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="text"
         /> 
         {(firstnameE.length>0)&&
-        <p style={{color:"red"}}>Votre prénom doit contenir au moins 2 caractères</p>
+        <p style={{color:"red"}}>{firstnameE}</p>
         }      
 
         <Field
@@ -147,7 +147,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="text"
         />  
         {(lastnameE.length>0)&&
-        <p style={{color:"red"}}>Votre nom doit contenir au moins 2 caractères</p>
+        <p style={{color:"red"}}>{lastnameE}</p>
         }  
         <Field
           value={email}
@@ -157,7 +157,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="email"
         />  
         {(emailE.length>0)&&
-        <p style={{color:"red"}}>Votre email est incorrecte</p>
+        <p style={{color:"red"}}>{emailE}</p>
         }  
 
         <Field
@@ -168,7 +168,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
           type="password"
         />
         {(passwordE.length>0)&&
-        <p style={{color:"red"}}>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+        <p style={{color:"red"}}>{passwordE}</p>
         } 
         <Field
           value={confirmPassword}
