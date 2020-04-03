@@ -51,7 +51,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
   return (
     <RegisterStyled onSubmit={handleSubmit}>
     <Header/>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minWidth={426}>
       <form className="formDesktop">
         <h1 className="titleDesktop">Créer un compte</h1>
 
@@ -124,7 +124,7 @@ const Register = ({ firstname, status, error, lastname, email, password, confirm
         </div>
       </form>
     </MediaQuery>
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxWidth={425}>
       <form className="formMobile">
         <h1 className="titleMobile">Créer un compte</h1>
 

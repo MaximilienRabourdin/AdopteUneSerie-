@@ -39,7 +39,7 @@ const PasswordChange = ({password,status, error, newPassword, changeField, handl
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
     <Header />
-      <MediaQuery minDeviceWidth={426}>
+      <MediaQuery minWidth={426}>
         <form className="formDesktop">
           <h1 className="titleDesktop">Modifier mon mot de passe</h1>
           <Field
@@ -80,7 +80,7 @@ const PasswordChange = ({password,status, error, newPassword, changeField, handl
         </form>
       </MediaQuery>
 
-      <MediaQuery maxDeviceWidth={425}>
+      <MediaQuery maxWidth={425}>
         <form className="formMobile">
           <h1 className="titleMobile">Modifier mon mot de passe</h1>
           <Field

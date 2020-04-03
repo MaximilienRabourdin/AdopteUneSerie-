@@ -22,7 +22,7 @@ const Account = ({data, handleAccount}) => {
   return (
     <AccountStyled>
       <Header />
-        <MediaQuery minDeviceWidth={426}>
+        <MediaQuery minWidth={426}>
           <div className="divDesktop">
             <h1 className="titleDesktop">Mon compte</h1>
             <Table celled padded >
@@ -45,7 +45,7 @@ const Account = ({data, handleAccount}) => {
           </div>
         </MediaQuery>
   
-        <MediaQuery maxDeviceWidth={425}>
+        <MediaQuery maxWidth={425}>
           <div className="divMobile">
             <h1 className="titleMobile">Mon compte</h1>
             <Table celled padded >

@@ -32,7 +32,7 @@ const Password = ({ email, status, error, changeField, handlePassword }) => {
   return (
     <PasswordStyled onSubmit={handleSubmit}>
     <Header />
-      <MediaQuery minDeviceWidth={426}>
+      <MediaQuery minWidth={426}>
         <form className="formDesktop">
           <h1 className="titleDesktop">Mot de passe oublié</h1>
           <Field
@@ -67,7 +67,7 @@ const Password = ({ email, status, error, changeField, handlePassword }) => {
         </form>
       </MediaQuery>
 
-      <MediaQuery maxDeviceWidth={425}>
+      <MediaQuery maxWidth={425}>
         <form className="formMobile">
           <h1 className="titleMobile">Mot de passe oublié</h1>
           <Field

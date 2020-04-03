@@ -22,7 +22,7 @@ const Header = () => {
   return (
   <HeaderStyled>
 
-    <MediaQuery maxDeviceWidth={1400}>
+    <MediaQuery maxWidth={1400}>
       <div id="TOP">
         <div className="topMobile">
           <Logo href="#" />
@@ -45,7 +45,7 @@ const Header = () => {
         </div>
       </div>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={1401}>
+    <MediaQuery minWidth={1401}>
       <div className="topDesktop">
         <Logo href="#" />
         <SearchBar id="searchBar" />
