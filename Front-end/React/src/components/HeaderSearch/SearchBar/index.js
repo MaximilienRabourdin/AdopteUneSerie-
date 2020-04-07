@@ -60,7 +60,7 @@ import optionsInput from 'src/data/optionsMerge';
 
   return (
     <SearchBarStyled >
-      <MediaQuery maxDeviceWidth={1400}>
+      <MediaQuery maxWidth={1400}>
         <div id="mobile">
           <Input
             style={{ minWidth: '202px'}}
@@ -84,7 +84,7 @@ import optionsInput from 'src/data/optionsMerge';
         </div>
       </MediaQuery>
 
-      <MediaQuery minDeviceWidth={1401}>
+      <MediaQuery minWidth={1401}>
         <div id="desktop">
           <Input
             style={{ minWidth: '302px' }}

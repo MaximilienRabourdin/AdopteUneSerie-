@@ -15,7 +15,7 @@ import HomeStyled from './HomeStyled';
 
 const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
   <HomeStyled>
-   <MediaQuery maxDeviceWidth={425}>
+   <MediaQuery maxWidth={425}>
       <Header/>
       <div className="search">
         {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (
@@ -71,7 +71,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
         )}
       </div>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minWidth={426}>
        <Header/>
        <div className="search">
          {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length)>0) && (

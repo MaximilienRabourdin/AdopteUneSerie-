@@ -15,12 +15,12 @@ const LogOutButton = () => {
 
   return (
   <LogOutButtonStyled onClick={handleClick}>
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxWidth={425}>
       <Button onClick={handleClick} inverted color='blue'>
         <a href={"/Accueil"}>Déconnexion</a>
       </Button>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minWidth={426}>
       <Button onClick={handleClick} inverted color='blue'>
         <a href={"/Accueil"}>Déconnexion</a>
       </Button>

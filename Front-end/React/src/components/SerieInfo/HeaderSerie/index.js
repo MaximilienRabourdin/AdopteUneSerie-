@@ -48,7 +48,7 @@ const HeaderSerie = ({
 
   return (
     <header className="presentation">
-      <MediaQuery maxDeviceWidth={425}>
+      <MediaQuery maxWidth={425}>
         <img
           src={"https://image.tmdb.org/t/p/w500" + image}
           alt="serie photo"
@@ -143,7 +143,7 @@ const HeaderSerie = ({
         </Table>         
       </div>
       </MediaQuery>
-      <MediaQuery minDeviceWidth={426}>
+      <MediaQuery minWidth={426}>
         <img
           src={"https://image.tmdb.org/t/p/w500" + image}
           alt="serie photo"

@@ -10,7 +10,7 @@ import logo from 'src/assets/logo4.png'
 // == Composant
 const Intro = () => (
   <IntroStyled>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minWidth={426}>
         <div className="div"></div>
         <div className="div"></div>
         <div className="div"></div>
@@ -21,7 +21,7 @@ const Intro = () => (
           </Link>
         </div>            
     </MediaQuery>
-    <MediaQuery maxDeviceWidth={425}>     
+    <MediaQuery maxWidth={425}>     
       <Link to="/Accueil">
        <img id="mobile" src={logo} />
      </Link>          

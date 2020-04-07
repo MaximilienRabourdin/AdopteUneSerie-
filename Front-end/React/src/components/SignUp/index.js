@@ -9,12 +9,12 @@ import SignUpStyled from './SignUpStyled';
 // == Composant
 const SignUp = () => (
   <SignUpStyled>
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxWidth={425}>
       <Button inverted color='blue'>
         <a href={"/inscription"}>Inscription</a>
       </Button>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={426}>
+    <MediaQuery minWidth={426}>
       <Button inverted color='blue'>
         <a href={"/inscription"}>Inscription</a>
       </Button>

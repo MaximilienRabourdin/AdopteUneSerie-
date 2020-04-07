@@ -12,7 +12,7 @@ import ToggleStyled from './ToggleStyled';
 const Toggle = () => (
   <ToggleStyled>
 
-    <MediaQuery minDeviceWidth={405}>
+    <MediaQuery minWidth={405}>
 
       <Checkbox style={{ minWidth: '40px', minheight: '20px' }} toggle />
 

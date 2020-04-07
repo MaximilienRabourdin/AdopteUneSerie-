@@ -9,12 +9,12 @@ import SignInStyled from './SignInStyled';
 // == Composant
 const SignIn = () => (
   <SignInStyled>
-    <MediaQuery maxDeviceWidth={425}>
+    <MediaQuery maxWidth={425}>
       <Button inverted color='blue'>
         <a href={"/connexion"}>Connexion</a>
       </Button>
     </MediaQuery>
-    <MediaQuery minDeviceWidth={426} id="signInDesktop">
+    <MediaQuery minWidth={426} id="signInDesktop">
       <Button inverted color='blue'>
         <a href={"/connexion"}>Connexion</a>
       </Button>

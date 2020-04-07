@@ -33,7 +33,7 @@ const Login = ({ password, status, error, email, changeField, handleLogin }) => 
   return (
     <LoginStyled onSubmit={handleSubmit}>
     <Header />
-      <MediaQuery minDeviceWidth={426}>
+      <MediaQuery minWidth={426}>
         <form className="formDesktop">
           <h1 className="titleDesktop">Se connecter</h1>
           <Field
@@ -75,7 +75,7 @@ const Login = ({ password, status, error, email, changeField, handleLogin }) => 
         </form>
       </MediaQuery>
 
-      <MediaQuery maxDeviceWidth={425}>
+      <MediaQuery maxWidth={425}>
         <form className="formMobile">
           <h1 className="titleMobile">Se connecter</h1>
           <Field
