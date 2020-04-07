@@ -33,9 +33,11 @@ export default styled.div`
               -10px -15px 10px -10px #437B98;
   width: 100%;
   padding-top: 10px;
+  display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  -webkit-justify-content: center;
+  justify-content: center;
   position: fixed;
   z-index: 1;
 }
