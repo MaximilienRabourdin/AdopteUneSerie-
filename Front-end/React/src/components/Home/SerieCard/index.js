@@ -11,15 +11,12 @@ const SerieCard = ({ serie }) => {
   return (
     <Link to={"/serie/" + serie.id}>
     <CardStyled>
-        <Card  color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+        <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
           <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
           wrapped ui={false} 
+          style={{boxShadow: '10px 10px 30px #242222'}}
+          className='hover'
           />
-          <Card.Content>
-            <Card.Header>
-              {serie.name}
-            </Card.Header>
-          </Card.Content>
         </Card>
     </CardStyled>
       </Link>

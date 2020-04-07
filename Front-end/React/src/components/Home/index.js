@@ -32,7 +32,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
         {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
           <Card.Group itemsPerRow={4} stackable className="accueil">
             <Link to="/Tendances">
-              <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+              <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
                 wrapped ui={false} 
                 />
@@ -44,7 +44,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
               </Card>
             </Link>
             <Link to="/Mieux-notees">
-              <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+              <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
                 wrapped ui={false}  
                 />
@@ -56,7 +56,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
               </Card>
             </Link>
             <Link to="/Recentes">
-              <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+              <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
                 wrapped ui={false} 
                 />
@@ -88,7 +88,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
          {(idGenres.length=== 0 && idNetwork.length=== 0 && idNote.length=== 0 && idTime.length=== 0 && name.length=== 0) && (
            <Card.Group stackable className="accueil" style={{justifyContent: 'center'}}>
              <Link to="/Tendances">
-               <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                  <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
                  wrapped ui={false} 
                  />
@@ -100,7 +100,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
                </Card>
              </Link>
              <Link to="/Mieux-notees">
-               <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                  <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
                  />
                  <Card.Content>
@@ -111,7 +111,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
                </Card>
              </Link>
              <Link to="/Recentes">
-               <Card color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                  <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
                  wrapped ui={false} 
                  />

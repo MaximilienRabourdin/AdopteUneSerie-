@@ -6,9 +6,6 @@ min-height: 90vh;
   padding: 150px 50px 30px 50px;
 }
 
-#accueil{
-}
-
 .title{
   text-align: center;
 }
