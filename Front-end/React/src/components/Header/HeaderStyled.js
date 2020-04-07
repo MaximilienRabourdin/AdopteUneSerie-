@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
 #TOP{
-background-color: #343a40;
+background-color: #191D1F;
 height: 100px;
 border-bottom-left-radius: 15px;
 border-bottom-right-radius: 15px;
@@ -14,18 +14,9 @@ left: 0;
 right: 0;
 }
 
-.topMobile {
-  position: relative;
-  width: 100%;
-  padding-top: 36px;
-  padding-left : 170px;
-  top: 0;
-}
-
 .bottomMobile {
-  position: absolute;
   bottom: 0px;
-  background-color: #343a40;
+  background-color: #191D1F;
   height: 50px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -45,7 +36,7 @@ right: 0;
 .topDesktop {    
   width: 100%;
   padding: 0 15px 15px 15px;
-  background-color: #343a40;
+  background-color: #191D1F;
   height: 100px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;

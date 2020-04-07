@@ -9,5 +9,11 @@ min-height: 90vh;
 .title{
   text-align: center;
 }
+.hover:hover{
+  transform: scale(1.1);
+}
+.hover{
+  transition: transform .2s;
+}
 
 `;

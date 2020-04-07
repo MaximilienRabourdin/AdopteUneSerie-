@@ -3,16 +3,21 @@ import styled from 'styled-components';
 export default styled.div`
 min-height: 100vh;
 .search {
-  padding: 130px 50px 30px 50px;
+  padding: 130px 0 30px 0;
 }
-.search p{
-  padding: 15px 0 20px;
+
+.head{
+  position: fixed;
+  padding: 50px 0 60px;
   text-align: center;
-  color: #1A82AE;
+  color: #CC00FF;
   font-size: 2em;
-  border-bottom: 5px solid #1A82AE;
   font-family: Georgia, sans serif;
-  background: rgba(0, 0, 0, 0.3);
+  width: 100%; 
   margin-top: 20px;
+  position: fixed;
+  width: 100%;
+  height: 150px; 
 }
+
 `;

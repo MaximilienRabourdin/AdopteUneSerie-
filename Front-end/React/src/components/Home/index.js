@@ -35,6 +35,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500/gZ4I2qmGi9i0LavpfmjMaIbIgHv.jpg"} 
                 wrapped ui={false} 
+                className='hover'
                 />
                 <Card.Content>
                   <Card.Header className="title">
@@ -47,6 +48,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500\/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"} 
                 wrapped ui={false}  
+                className='hover'
                 />
                 <Card.Content>
                   <Card.Header className="title">
@@ -59,6 +61,7 @@ const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
               <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
                 <Image src={"https://image.tmdb.org/t/p/w500\/aiBu2lZ3Ub2dKbZ4vfOfqcPl3YR.jpg"}
                 wrapped ui={false} 
+                className='hover'
                 />
                 <Card.Content>
                   <Card.Header className="title">

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.div`
-background-color: #343a40;
+background-color: #191D1F;
 overflow: hidden;
 `;
