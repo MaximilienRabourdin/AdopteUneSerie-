@@ -23,7 +23,6 @@ right: 0;
 }
 
 .bottomMobile {
-  position: absolute;
   bottom: 0px;
   background-color: #343a40;
   height: 50px;

@@ -23,7 +23,6 @@ export default styled.div`
 
 
 .bottomMobile {
-  position: absolute;
   bottom: 0px;
   background-color: #343a40;
   height: 50px;
@@ -32,7 +31,7 @@ export default styled.div`
   box-shadow: 10px -15px 10px -10px #437B98,
               -10px -15px 10px -10px #437B98;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 7px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
