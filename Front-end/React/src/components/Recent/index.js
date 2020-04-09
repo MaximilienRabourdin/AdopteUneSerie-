@@ -31,7 +31,7 @@ const Recent = ({ series }) => (
       backgroundRepeat: 'repeat-x'}}>
       <span className="neonStyle">Sorties récentes</span>
       </div>
-      <Card.Group style={{justifyContent: 'center', marginTop: '210px}}>
+      <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
         {series.map((card) => {
           if(!(card.poster_path === null)){
             return (
