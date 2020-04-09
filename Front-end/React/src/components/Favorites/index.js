@@ -7,14 +7,28 @@ import { Card } from 'semantic-ui-react';
 import SerieCard from 'src/components/SerieCard';
 import FavoritesStyled from './FavoritesStyled';
 import Header from 'src/containers/Header';
+import IMG from 'src/images/head.png';
 
 // == Composant
+
+window.addEventListener('scroll', () =>{  
+  var intScrollTop = window.scrollY;
+  var y = 150;
+  var opacity = ((y - intScrollTop) / y);
+  document.querySelector(".head").style.opacity=opacity;
+});
+
 const Favorites = ({ series }) => (
   <FavoritesStyled>
     <Header/>
     <div className="search">
-      <p>Mes favoris</p>
-        <Card.Group style={{justifyContent: 'center'}}>
+    <div className="head" style={{backgroundImage: `url(${IMG})`,
+    backgroundSize: 'cover', 
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'repeat-x'}}>
+    <span className="neonStyle">Mes favoris</span>
+    </div>
+        <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
           {series.map((card) => {
             return (
               <SerieCard key={card.tmdb_id} serie={card} />

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
 color: #1A82AE; 
 top: 40px; 
+font-family: "Vibur", cursive;
 
 
 #logoDesktop{
@@ -15,7 +16,7 @@ top: 40px;
 #caption{
   position: absolute;
   top: 72px; 
-  left:155px;
+  left:167px;
 }
 
 

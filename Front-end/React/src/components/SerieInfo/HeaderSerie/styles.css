@@ -1,7 +1,12 @@
 .presentation {
   min-height: 90vh;
 }
-
+h1{
+  font-family: "Vibur", cursive;
+}
+h3{
+  font-family: "Vibur", cursive;
+}
 .presentation-image-desktop {
     background-repeat : no-repeat;
     background-position: center;
@@ -20,12 +25,35 @@
   text-align: center;
   background: rgba(0, 0, 0, 0.3);
   border-bottom: solid 1px #1A82AE;
+  padding-top: 8px;
 }
 
 .presentation-title-desktop{
   font-size: 2.5em;
   text-transform: uppercase;
-  color: white;
+  color: black;
+  animation: neon .08s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+  }
 }
 .presentation-content-desktop p{
   font-size: 1.5em;
@@ -63,12 +91,14 @@
   text-align: center;
   background: rgba(0,0,0,0.3);
   border-bottom: solid 1px #1A82AE;
+  padding-top: 8px;
 }
 
 .presentation-title-mobile {
   text-transform: uppercase;
-  font-size: 1.8em;
-  color: white;
+  font-size: 1.5em;
+  color: black;
+  animation: neon .08s ease-in-out infinite alternate;
 }
 
 .presentation-content-mobile p{

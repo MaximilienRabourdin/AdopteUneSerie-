@@ -9,7 +9,7 @@ export default styled.div`
   flex-direction: row;
   justify-content : space-evenly;
   bottom: 0;
-  background-color: #343a40;
+  background-color: #191D1F;
   height: 50px;
   width: 100%;
   color: white;
@@ -28,7 +28,7 @@ flex-direction: flex-end;
   display: flex;
   flex-direction: row;
   justify-content : space-evenly;
-  background-color: #343a40;
+  background-color: #191D1F;
   padding: 0 2em 5em 2em ;
   height: 40px;
   width: 100%;

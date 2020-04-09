@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
+font-family: "Vibur", cursive;
 min-height: 90vh;
  .formDesktop{
    background-color : white;
@@ -17,8 +18,9 @@ min-height: 90vh;
  } 
   
   .titleDesktop {
+    font-family: "Vibur", cursive;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: ${theme.gutter / 3}rem;
   }
 
@@ -58,6 +60,7 @@ min-height: 90vh;
  } 
   
   .titleMobile {
+    font-family: "Vibur", cursive;
     text-align: center;
     font-size: 2rem;
     margin-bottom: ${theme.gutter / 3}rem;

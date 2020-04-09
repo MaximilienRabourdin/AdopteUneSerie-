@@ -12,6 +12,13 @@ import IMG from 'src/images/head.png';
 
 // == Composant
 
+window.addEventListener('scroll', () =>{  
+  var intScrollTop = window.scrollY;
+  var y = 150;
+  var opacity = ((y - intScrollTop) / y);
+  document.querySelector(".head").style.opacity=opacity;
+});
+
 const Trending = ({ series }) => (
   <TrendingStyled>
     <Header/>
@@ -19,8 +26,8 @@ const Trending = ({ series }) => (
       <div className="head" style={{backgroundImage: `url(${IMG})`,
       backgroundSize: 'cover', 
       backgroundPosition: 'center center',
-      backgroundRepeat: 'repeat-x',}}>
-      SERIES TENDANCES
+      backgroundRepeat: 'repeat-x'}}>
+      <span className="neonStyle">Séries tendances</span>
       </div>
       <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
         {series.map((card) => {

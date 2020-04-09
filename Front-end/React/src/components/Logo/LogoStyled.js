@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
 color: #1A82AE; 
 
+font-family: "Vibur", cursive;
 
 #logoDesktop{
   position: absolute;
@@ -14,13 +15,13 @@ color: #1A82AE;
 #captionDesktop{
   position: absolute;
   top: 72px; 
-  left:153px;
+  left:167px;
 }
 
 #captionMobile{
   position: absolute;
   top: 72px; 
-  left: 38%;
+  left: 42%;
 }
 
 #logoMobile{

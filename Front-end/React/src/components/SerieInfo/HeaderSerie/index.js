@@ -56,15 +56,15 @@ const HeaderSerie = ({
           />
         <div className="presentation-content-mobile">
         {(status === 200)&&
-          <h1 className="presentation-title-desktop">{name}
+          <h1 className="presentation-title-mobile">{name}
           <HeartFilled onClick={handleClickDelete} style={{transform: "scale(0.7)", color: "red"}} /></h1>
         }
         {(status === 204)&&
-          <h1 className="presentation-title-desktop">{name}
+          <h1 className="presentation-title-mobile">{name}
           <HeartOutlined onClick={handleClickAdd} style={{transform: "scale(0.7)", color: "red"}} /></h1>
         }
         {(!status)&&
-          <h1 className="presentation-title-desktop">{name}</h1>
+          <h1 className="presentation-title-mobile">{name}</h1>
         }
 
           <p><Icon color = "yellow" name="star"/> {vote}/10 ({voteCount})</p>
@@ -111,7 +111,7 @@ const HeaderSerie = ({
         <Divider section />
 
         <h3>Saisons</h3>
-        <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+        <Table celled padded style={{backgroundColor: '#191D1F', color: 'white' }}>
           <Table.Body>
             {seasons.map((season) => {
               if (parseInt(season.season_number)>0){
@@ -129,7 +129,7 @@ const HeaderSerie = ({
         <Divider section />
 
         <h3>Casting</h3>
-        <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+        <Table celled padded style={{backgroundColor: '#191D1F', color: 'white' }}>
           <Table.Body>
             {cast.map((name =>  
               <Table.Row>
@@ -206,7 +206,7 @@ const HeaderSerie = ({
           <Divider section />
 
           <h1>Saisons</h1>
-          <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+          <Table celled padded style={{backgroundColor: '#191D1F', color: 'white' }}>
             <Table.Body>
               {seasons.map((season) => {
                 if (parseInt(season.season_number)>0){
@@ -224,7 +224,7 @@ const HeaderSerie = ({
           <Divider section />
   
           <h1>Casting</h1>
-          <Table celled padded style={{backgroundColor: '#343a40', color: 'white' }}>
+          <Table celled padded style={{backgroundColor: '#191D1F', color: 'white' }}>
             <Table.Body>
               {cast.map((name =>  
                 <Table.Row>

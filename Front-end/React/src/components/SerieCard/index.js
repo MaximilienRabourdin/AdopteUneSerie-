@@ -15,11 +15,6 @@ const SerieCard = ({ serie }) => {
           <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
           wrapped ui={false} 
           />
-          <Card.Content>
-            <Card.Header>
-              {serie.name}
-            </Card.Header>
-          </Card.Content>
         </Card>
     </CardStyled>
       </Link>
