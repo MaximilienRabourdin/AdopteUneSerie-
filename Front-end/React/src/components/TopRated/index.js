@@ -31,12 +31,20 @@ const TopRated = ({ series }) => (
       backgroundRepeat: 'repeat-x'}}>
           <span className="neonStyle">Séries les mieux notées</span>ry>
           </div>
+          <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
+            {series.map((card) => {
+              if(!(card.poster_path === null)){
+                return (
+                  <SerieCard key={card.id} serie={card} />
+                )
+              }
+            })}
+          </Card.Group>
         </MediaQuery>
         <MediaQuery maxWidth={425}>
         <div className="headMobile">
           <span className="neonStyleMobile">Séries les mieux notées</span>
       </div>
-        </MediaQuery>
         <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
             if(!(card.poster_path === null)){
@@ -46,6 +54,7 @@ const TopRated = ({ series }) => (
             }
           })}
         </Card.Group>
+        </MediaQuery>
     </div>
   </TopRatedStyled>
 );
