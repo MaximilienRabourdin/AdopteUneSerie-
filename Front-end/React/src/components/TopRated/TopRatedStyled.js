@@ -13,7 +13,12 @@ min-height: 100vh;
   font-size: 2em;
   width: 100%; 
   margin-top: 20px;
-  position: fixed;
+  height: 150px; 
+}
+.headMobile{
+  padding: 50px 0 60px;
+  text-align: center;
+  font-size: 2em;
   width: 100%;
   height: 150px; 
 }
@@ -21,7 +26,13 @@ min-height: 100vh;
 .neonStyle{
   font-size: 2em;
   color: black;
-  font-family: "Vibur", cursive;
+  font-family: "Rajdhani", cursive;
+  animation: neon .08s ease-in-out infinite alternate;
+}
+.neonStyleMobile{
+  font-size: 1.1em;
+  color: black;
+  font-family: "Rajdhani", cursive;
   animation: neon .08s ease-in-out infinite alternate;
 }
 

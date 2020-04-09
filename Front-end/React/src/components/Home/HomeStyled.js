@@ -9,7 +9,7 @@ min-height: 90vh;
 .style{
   font-size: 1.8em;
   color: black;
-  font-family: "Vibur", cursive;
+  font-family: "Rajdhani", cursive;
   animation: neon .08s ease-in-out infinite alternate;
 }
 

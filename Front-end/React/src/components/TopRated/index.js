@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
+import MediaQuery from 'react-responsive';
 
 // == Import
 import SerieCard from 'src/containers/SerieCard';
@@ -23,13 +24,20 @@ const TopRated = ({ series }) => (
   <TopRatedStyled>
     <Header/>
     <div className="search">
-    <div className="head" style={{backgroundImage: `url(${IMG})`,
-    backgroundSize: 'cover', 
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'repeat-x'}}>
-    <span className="neonStyle">Séries les mieux notées</span>
-    </div>
-        <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
+        <MediaQuery minWidth={426}>
+      <div className="head" style={{backgroundImage: `url(${IMG})`,
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center center',
+      backgroundRepeat: 'repeat-x'}}>
+          <span className="neonStyle">Séries les mieux notées</span>ry>
+          </div>
+        </MediaQuery>
+        <MediaQuery maxWidth={425}>
+        <div className="headMobile">
+          <span className="neonStyleMobile">Séries les mieux notées</span>
+      </div>
+        </MediaQuery>
+        <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
             if(!(card.poster_path === null)){
               return (

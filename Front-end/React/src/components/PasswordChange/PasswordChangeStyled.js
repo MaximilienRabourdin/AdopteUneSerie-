@@ -5,7 +5,7 @@ import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
 min-height: 69vh;
-font-family: "Vibur", cursive;
+font-family: "Rajdhani", cursive;
  .formDesktop{
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
@@ -18,7 +18,7 @@ font-family: "Vibur", cursive;
  } 
   
   .titleDesktop {
-    font-family: "Vibur", cursive;
+    font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: ${theme.gutter / 3}rem;
@@ -60,7 +60,7 @@ font-family: "Vibur", cursive;
  } 
   
   .titleMobile {
-    font-family: "Vibur", cursive;
+    font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2rem;
     margin-bottom: ${theme.gutter / 3}rem;
