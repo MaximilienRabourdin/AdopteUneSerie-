@@ -1,20 +1,20 @@
-// == Import npm
+// Import npm
 import React from 'react';
 
-// == Import
+// Import
 import ContactStyled from './ContactStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const Contact = () => (
 
   <ContactStyled>
-  <Header/>
+    <Header/>
     Contact
   </ContactStyled>
 
 );
 
 
-// == Export
+// Export
 export default Contact;

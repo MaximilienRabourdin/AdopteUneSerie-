@@ -1,20 +1,18 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import PropTypes from 'prop-types';
 
-// == Import
+// Import
 import Logo from 'src/components/LogoSearch';
-import SignIn from 'src/components/SignIn';
-import SignUp from 'src/components/SignUp';
-import AccountButton from 'src/components/AccountButton';
-import LogOutButton from 'src/components/LogOutButton';
-import FavoritesButton from 'src/components/FavoritesButton';
+import SignIn from 'src/components/Header/SignIn';
+import SignUp from 'src/components/Header/SignUp';
+import AccountButton from 'src/components/Header/AccountButton';
+import LogOutButton from 'src/components/Header/LogOutButton';
+import FavoritesButton from 'src/components/Header/FavoritesButton';
 import HeaderStyled from './HeaderStyled';
 import SearchBar from 'src/containers/SearchBar';
-import Toggle from './Toggle';
 
-// == Composant
+// Composant
 const Header = () => {
 
   var data = sessionStorage.getItem('token');
@@ -72,5 +70,5 @@ const Header = () => {
 };
 
 
-// == Export
+// Export
 export default Header;

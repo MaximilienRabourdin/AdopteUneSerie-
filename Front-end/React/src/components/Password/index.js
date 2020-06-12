@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
-	// == Import
+	// Import
 import PasswordStyled from './PasswordStyled';
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
 
 
-// == Composant
+// Composant
 const Password = ({ email, status, error, changeField, handlePassword }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();
@@ -114,5 +114,5 @@ Password.propTypes = {
   handlePassword: PropTypes.func.isRequired,
 };
 
-// == Export
+// Export
 export default Password;

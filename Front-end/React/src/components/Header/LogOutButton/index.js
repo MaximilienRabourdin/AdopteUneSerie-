@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { Button } from 'semantic-ui-react'
 
-// == Import
+// Import
 import LogOutButtonStyled from './LogOutButtonStyled';
 
-// == Composant
+// Composant
 const LogOutButton = () => {
 
   const handleClick= (evt) => {
@@ -31,5 +31,5 @@ const LogOutButton = () => {
 };
 
 
-// == Export
+// Export
 export default LogOutButton;

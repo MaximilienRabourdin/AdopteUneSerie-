@@ -1,10 +1,10 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
-// == Import
+// Import
 import FacebookStyled from './FacebookStyled';
 
-// == Composant
+// Composant
 const Facebook = () => (
   <FacebookStyled>
 
@@ -18,5 +18,5 @@ const Facebook = () => (
   </FacebookStyled>
 );
 
-// == Export
+// Export
 export default Facebook;

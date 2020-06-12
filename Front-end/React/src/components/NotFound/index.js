@@ -1,11 +1,11 @@
-// == Import npm
+// Import npm
 import React from 'react';
 
-// == Import
+// Import
 import NotFoundStyled from './NotFoundStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const NotFound = () => (
   <NotFoundStyled>
   <Header />
@@ -17,5 +17,5 @@ const NotFound = () => (
   </NotFoundStyled>
 );
 
-// == Export
+// Export
 export default NotFound;

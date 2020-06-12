@@ -1,27 +1,27 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { Button } from 'semantic-ui-react'
 
-// == Import
-import AccountButtonStyled from './AccountButtonStyled';
+// Import
+import SignUpStyled from './SignUpStyled';
 
-// == Composant
-const AccountButton = () => (
-  <AccountButtonStyled>
+// Composant
+const SignUp = () => (
+  <SignUpStyled>
     <MediaQuery maxWidth={425}>
       <Button inverted color='blue'>
-        <a href={"/mon-compte"}>Mon compte</a>
+        <a href={"/inscription"}>Inscription</a>
       </Button>
     </MediaQuery>
     <MediaQuery minWidth={426}>
       <Button inverted color='blue'>
-        <a href={"/mon-compte"}>Mon compte</a>
+        <a href={"/inscription"}>Inscription</a>
       </Button>
     </MediaQuery>
-  </AccountButtonStyled>
+  </SignUpStyled>
 );
 
 
-// == Export
-export default AccountButton;
+// Export
+export default SignUp;

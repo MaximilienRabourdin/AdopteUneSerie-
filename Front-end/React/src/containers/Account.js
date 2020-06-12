@@ -4,7 +4,7 @@ import Account from 'src/components/Account';
 // Action Creators
 import { account } from 'src/actions/account';
 
-// == Data / state
+// Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => {
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-// == Actions / dispatch
+// Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({

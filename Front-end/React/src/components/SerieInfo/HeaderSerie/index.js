@@ -1,4 +1,4 @@
-// == Import : npm
+// Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 //import { Rating } from 'semantic-ui-react'
@@ -6,10 +6,10 @@ import MediaQuery from 'react-responsive';
 import { Divider, Icon, Table} from 'semantic-ui-react'
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
-// == Import : local
+// Import : local
 import './styles.css';
 
-// == Composant
+// Composant
 const HeaderSerie = ({
   slug,
   status,
@@ -267,5 +267,5 @@ HeaderSerie.propTypes = {
 };
 
 
-// == Export
+// Export
 export default HeaderSerie;

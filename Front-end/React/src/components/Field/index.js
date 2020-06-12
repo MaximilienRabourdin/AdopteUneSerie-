@@ -1,11 +1,11 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// == Import
+// Import
 import FieldStyled from './FieldStyled';
 
-// == Composant
+// Composant
 const Field = ({
   value,
   onChange,
@@ -54,5 +54,5 @@ Field.defaultProps = {
   type: 'text',
 };
 
-// == Export
+// Export
 export default Field;

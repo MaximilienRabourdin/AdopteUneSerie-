@@ -1,10 +1,10 @@
-// == Import : npm
+// Import : npm
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-// == Import : local
+// Import : local
 import App from 'src/components/App';
 import store from 'src/store';
 import ScrollToTop from 'src/selectors/scroll.js'
@@ -18,7 +18,7 @@ import { loadSeriesFavorites } from 'src/actions/favorite';
  store.dispatch(loadSeriesRecent());
  store.dispatch(loadSeriesFavorites());
  //store.dispatch(loadSerieInfo());
-// == Render
+// Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (

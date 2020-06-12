@@ -4,7 +4,7 @@ import Home from 'src/components/Home';
 
 // Action Creators
 
-// == Data / state
+// Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => ({
   serieInput: state.home.serieInput,
 });
 
-// == Actions / dispatch
+// Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = {};

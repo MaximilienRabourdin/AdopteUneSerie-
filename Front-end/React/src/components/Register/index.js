@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
-// == Import	// == Import
+// Import	// Import
 import RegisterStyled from './RegisterStyled';
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
 
 
-// == Composant	// == Composant
+// Composant	// Composant
 const Register = ({ firstname, status, error, lastname, email, password, confirmPassword, changeField, handleRegister }) => {
   const handleSubmit= (evt) => {
     evt.preventDefault();

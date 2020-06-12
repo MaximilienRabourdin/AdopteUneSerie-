@@ -1,13 +1,13 @@
-// == Import : npm
+// Import : npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { Link } from "react-router-dom";
 
-// == Import : local
+// Import : local
 import IntroStyled from './IntroStyled.module.js';
 import logo from 'src/assets/logo4.png'
 
-// == Composant
+// Composant
 const Intro = () => (
   <IntroStyled>
     <MediaQuery minWidth={426}>
@@ -29,5 +29,5 @@ const Intro = () => (
   </IntroStyled>
 );
 
-// == Export
+// Export
 export default Intro;

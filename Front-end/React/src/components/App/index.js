@@ -1,9 +1,9 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Route, Switch } from 'react-router-dom';
 
-// == Import
+// Import
 import SerieInfo from 'src/containers/SerieInfo';
 import Intro from 'src/components/Intro';
 import Home from 'src/containers/Home';
@@ -13,10 +13,10 @@ import Recent from 'src/containers/Recent';
 import Login from 'src/containers/Login';
 import Password from 'src/containers/Password';
 import Register from 'src/containers/Register';
-import Contact from 'src/components/Contact';
-import Cookie from 'src/components/Cookie';
-import FAQ from 'src/components/FAQ';
-import Notices from 'src/components/Notices';
+import Contact from 'src/components/Footer/Contact';
+import Cookie from 'src/components/Footer/Cookie';
+import FAQ from 'src/components/Footer/FAQ';
+import Notices from 'src/components/Footer/Notices';
 import Account from 'src/containers/Account';
 import PasswordChange from 'src/containers/PasswordChange';
 import Favorites from 'src/containers/Favorites';
@@ -24,12 +24,10 @@ import NotFound from 'src/components/NotFound';
 import Footer from 'src/components/Footer';
 import AppStyled from './AppStyled';
 
-// == Composant
+// Composant
 const App = () => (
   <AppStyled>
     <Switch>
-      {/* on peut passer la prop component avec le composant
-      si on a pas de data à transmettre */}
       <Route exact path="/" component={Intro} /> 
       <Route exact path="/Accueil" component={Home} />
       <Route exact path="/Tendances" component={Trending} />
@@ -54,5 +52,5 @@ const App = () => (
   </AppStyled>
 );
 
-// == Export
+// Export
 export default App;

@@ -5,11 +5,11 @@ import SerieCard from 'src/components/Home/SerieCard';
 
 import { loadSerieInfo } from 'src/actions/serieInfo';
 
-// == Data / state
+// Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 
-// == Actions / dispatch
+// Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({

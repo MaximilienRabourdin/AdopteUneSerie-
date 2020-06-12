@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { Link } from "react-router-dom";
-// == Import
+// Import
 import LogoStyled from './LogoStyled';
 import logo from 'src/assets/logo4.png'
 
-// == Composant
+// Composant
 const Logo = () => (
   <LogoStyled>
     <MediaQuery maxWidth={700}>
@@ -25,5 +25,5 @@ const Logo = () => (
 );
 
 
-// == Export
+// Export
 export default Logo;

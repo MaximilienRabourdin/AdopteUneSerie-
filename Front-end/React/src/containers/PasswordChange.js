@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
   error: state.passwordChange.error,
 });
 
-// == Actions / dispatch
+// Actions / dispatch
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(changeField(value, name));

@@ -1,16 +1,15 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 
-// == Import
+// Import
 import SerieCard from 'src/components/SerieCard';
 import FavoritesStyled from './FavoritesStyled';
 import Header from 'src/containers/Header';
 import IMG from 'src/images/head.png';
 
-// == Composant
-
+// Scroll animation
 window.addEventListener('scroll', () =>{  
   var intScrollTop = window.scrollY;
   var y = 150;
@@ -22,19 +21,24 @@ const Favorites = ({ series }) => (
   <FavoritesStyled>
     <Header/>
     <div className="search">
-    <div className="head" style={{backgroundImage: `url(${IMG})`,
+    <div className="head" style={{
+    backgroundImage: `url(${IMG})`,
     backgroundSize: 'cover', 
     backgroundPosition: 'center center',
-    backgroundRepeat: 'repeat-x'}}>
+    backgroundRepeat: 'repeat-x',
+    }}>
     <span className="neonStyle">Mes favoris</span>
     </div>
-        <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
-          {series.map((card) => {
-            return (
-              <SerieCard key={card.tmdb_id} serie={card} />
-            )
-          })}
-        </Card.Group>
+      <Card.Group style={{
+        justifyContent: 'center',
+        marginTop: '210px',
+      }}>
+        {series.map((card) => {
+          return (
+            <SerieCard key={card.tmdb_id} serie={card} />
+          )
+        })}
+      </Card.Group>
     </div>
   </FavoritesStyled>
 );
@@ -46,5 +50,5 @@ Favorites.propTypes = {
 };
 
 
-// == Export
+// Export
 export default Favorites;

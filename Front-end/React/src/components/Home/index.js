@@ -1,4 +1,4 @@
-// == Import npm
+// Import npm
 /* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -6,12 +6,12 @@ import { Card, Image} from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import MediaQuery from 'react-responsive';
 
-// == Import
+// Import
 import SerieCard from 'src/containers/SerieCard';
 import Header from 'src/containers/HeaderSearch';
 import HomeStyled from './HomeStyled';
 
-// == Composant
+// Composant
 
 const Home = ({ name, serieInput, idGenres, idNetwork, idNote, idTime }) => (
   <HomeStyled>

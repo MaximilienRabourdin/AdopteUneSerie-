@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 
-// == Import
+// Import
 
 import FaqStyled from './FaqStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const FAQ = () => (
   <FaqStyled> 
   <Header/>   
@@ -14,5 +14,5 @@ const FAQ = () => (
   </FaqStyled>
 );
 
-// == Export
+// Export
 export default FAQ;

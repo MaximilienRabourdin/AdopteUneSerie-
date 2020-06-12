@@ -6,14 +6,14 @@ import SearchBar from 'src/components/HeaderSearch/SearchBar';
 import { saveSerie, changeDropdown } from 'src/actions/name';
 import { loadSerieInput, loadSerieDropdown} from 'src/actions/input';
 
-// == Data / state
+// Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
   inputValue: state.home.inputName,
 });
 
-// == Actions / dispatch
+// Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({

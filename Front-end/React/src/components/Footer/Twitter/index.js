@@ -1,11 +1,11 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
-// == Import
+// Import
 
 import TwitterStyled from './TwitterStyled';
 
-// == Composant
+// Composant
 
 const Twitter = () => (
 
@@ -16,5 +16,5 @@ const Twitter = () => (
 
   </TwitterStyled>
 );
-// == Export
+// Export
 export default Twitter;

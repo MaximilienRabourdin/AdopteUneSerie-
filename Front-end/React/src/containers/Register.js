@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 });
 
 
-// == Actions / dispatch
+// Actions / dispatch
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(changeField(value, name));

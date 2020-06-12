@@ -1,8 +1,8 @@
-// == Import : npm
+// Import : npm
 import React, { useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-// == Import : local
+// Import : local
 // Composants
 import HeaderSerie from 'src/containers/HeaderSerie';
 import Header from 'src/containers/Header';
@@ -10,7 +10,7 @@ import Header from 'src/containers/Header';
 // Style
 //import './styles.css';
 
-// == Composant
+// Composant
 function SerieInfo({ 
   serie,
   slug,
@@ -79,5 +79,5 @@ SerieInfo.propTypes = {
   ).isRequired,
 };
 
-// == Export
+// Export
 export default SerieInfo;

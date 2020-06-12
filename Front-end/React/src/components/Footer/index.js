@@ -1,14 +1,14 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 
-// == Import
+// Import
 import FooterStyled from './FooterStyled';
 import Toggle from './Toggle';
 import Facebook from './Facebook';
 import Twitter from './Twitter';
 
-// == Composant
+// Composant
 const Footer = () => (
 
   <FooterStyled>
@@ -40,5 +40,5 @@ const Footer = () => (
 
 );
 
-// == Export
+// Export
 export default Footer;

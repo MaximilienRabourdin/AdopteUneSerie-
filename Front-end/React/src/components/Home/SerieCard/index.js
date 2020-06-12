@@ -1,4 +1,4 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'semantic-ui-react';
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import CardStyled from './CardStyled';
 
-// == Composant
+// Composant
 const SerieCard = ({ serie }) => {
   return (
     <Link to={"/serie/" + serie.id}>
@@ -27,5 +27,5 @@ SerieCard.propTypes = {
   serie: PropTypes.object.isRequired,
   //click:  PropTypes.func.isRequired,
 };
-// == Export
+// Export
 export default SerieCard;

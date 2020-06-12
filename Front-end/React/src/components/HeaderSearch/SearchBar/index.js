@@ -1,17 +1,17 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Input, Dropdown } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
-// == Import
+// Import
 import SearchBarStyled from './SearchBarStyled';
 
-// == Options Table
+// Options Table
 import options from 'src/data/options';
 import optionsInput from 'src/data/optionsMerge';
 
-// == Composant
+// Composant
  const SearchBar = ({ inputValue, sendName, sendIds }) => {
 // const SearchBar = () => (
   
@@ -118,5 +118,5 @@ SearchBar.propTypes = {
 };
 
 
-// == Export
+// Export
 export default SearchBar;

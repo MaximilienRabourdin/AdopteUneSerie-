@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
-	// == Import
+	// Import
 import PasswordChangeStyled from './PasswordChangeStyled';
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
 
 
-// == Composant
+// Composant
 const PasswordChange = ({password,status, error, newPassword, changeField, handlePasswordChange }) => {
 
   const handleSubmit= (evt) => {
@@ -135,5 +135,5 @@ PasswordChange.propTypes = {
   handlePasswordChange: PropTypes.func.isRequired,
 };
 
-// == Export
+// Export
 export default PasswordChange;

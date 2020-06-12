@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 
-// == Import
+// Import
 
 import NoticesStyled from './NoticesStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const Notices = () => (
   <NoticesStyled>
   <Header/>
@@ -14,5 +14,5 @@ const Notices = () => (
   </NoticesStyled>
 );
 
-// == Export
+// Export
 export default Notices;

@@ -1,17 +1,17 @@
-// == Import npm
+// Import npm
 /* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
-// == Import
+// Import
 import SerieCard from 'src/containers/SerieCard';
 import Header from 'src/containers/Header';
 import RecentStyled from './RecentStyled';
 import IMG from 'src/images/head.png';
 
-// == Composant
+// Composant
 
 window.addEventListener('scroll', () =>{  
   var intScrollTop = window.scrollY;

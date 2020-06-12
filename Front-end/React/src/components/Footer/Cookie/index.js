@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 
-// == Import
+// Import
 
 import CookieStyled from './CookieStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const Cookie = () => (
   <CookieStyled>
   <Header/>
@@ -15,5 +15,5 @@ const Cookie = () => (
 );
 
 
-// == Export
+// Export
 export default Cookie;

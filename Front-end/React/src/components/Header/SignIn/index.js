@@ -1,12 +1,12 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { Button } from 'semantic-ui-react'
 
-// == Import
+// Import
 import SignInStyled from './SignInStyled';
 
-// == Composant
+// Composant
 const SignIn = () => (
   <SignInStyled>
     <MediaQuery maxWidth={425}>
@@ -23,5 +23,5 @@ const SignIn = () => (
 );
 
 
-// == Export
+// Export
 export default SignIn;

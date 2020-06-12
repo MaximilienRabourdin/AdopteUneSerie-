@@ -1,15 +1,15 @@
-// == Import npm
+// Import npm
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 import {Table} from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-// == Import
+// Import
 import AccountStyled from './AccountStyled';
 import Header from 'src/containers/Header';
 
-// == Composant
+// Composant
 const Account = ({data, handleAccount}) => {
 
   useEffect(() => {
@@ -76,5 +76,5 @@ Account.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-// == Export
+// Export
 export default Account;

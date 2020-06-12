@@ -5,7 +5,7 @@ import SerieInfo from 'src/components/SerieInfo';
 import { loadSerieInfo } from 'src/actions/serieInfo';
 import { loadCheck } from 'src/actions/favorite';
 
-// == Data / state
+// Data / state
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// == Actions / dispatch
+// Actions / dispatch
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({
