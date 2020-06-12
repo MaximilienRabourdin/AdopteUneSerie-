@@ -2,7 +2,7 @@
 export const ACCOUNT = 'ACCOUNT';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 
-// Creators
+// Transfert token to server
 export const account = (token) => {
   console.log('action', token);
   return {
@@ -10,6 +10,7 @@ export const account = (token) => {
   token,
   }
 };
+// Save user infos to store if token is valid
 export const saveUserInfo = (data) => ({
   type: SAVE_USER_INFO,
   data

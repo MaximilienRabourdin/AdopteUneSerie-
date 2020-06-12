@@ -17,8 +17,6 @@ function SerieInfo({
   sendSlug,
   load,
   status,
-  statusAdd,
-  statusDelete,
  }) {
 
   useEffect(() => {
@@ -33,8 +31,6 @@ function SerieInfo({
         <HeaderSerie
           slug={slug}
           status={status}
-          statusAdd={statusAdd}
-          statusDelete={statusDelete}
           name={serie.name}
           image={serie.poster_path}
           vote={serie.vote_average}
@@ -62,8 +58,6 @@ function SerieInfo({
 
 SerieInfo.propTypes = {
   status: PropTypes.number.isRequired,
-  statusAdd: PropTypes.number.isRequired,
-  statusDelete: PropTypes.number.isRequired,
   serie: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   sendSlug: PropTypes.func.isRequired,

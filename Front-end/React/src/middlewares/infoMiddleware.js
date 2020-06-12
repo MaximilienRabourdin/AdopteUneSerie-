@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { LOAD_SERIE_INFO, saveSerieInfo, setLoad} from 'src/actions/serieInfo';
-import { LOAD_CHECK,  saveCheck, ADD_SERIE, saveAdd, DELETE_SERIE, saveDelete  } from 'src/actions/favorite';
+import { LOAD_CHECK,  saveCheck, ADD_SERIE, DELETE_SERIE } from 'src/actions/favorite';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -47,7 +47,6 @@ const infoMiddleware = (store) => (next) => (action) => {
         })
             .then((response) => {
               //console.log("response middleware",response.status);
-              store.dispatch(saveAdd(response.status));
               window.location.reload()
             })
             // échec
@@ -65,7 +64,6 @@ const infoMiddleware = (store) => (next) => (action) => {
           })
               .then((response) => {
                 //console.log("response middleware",response.status);
-                store.dispatch(saveDelete(response.status));
                 window.location.reload()
               })
               // échec

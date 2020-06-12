@@ -13,8 +13,6 @@ import './styles.css';
 const HeaderSerie = ({
   slug,
   status,
-  statusAdd,
-  statusDelete,
   name, 
   image, 
   vote, 
@@ -32,8 +30,6 @@ const HeaderSerie = ({
   handleDelete
 }) => {
   //console.log(status)
-  //console.log(statusAdd)
-  //console.log(statusDelete)
   const handleClickAdd= (evt) => {
     evt.preventDefault();
     var id = slug.match(/[0-9]+/g)
@@ -245,8 +241,6 @@ const HeaderSerie = ({
 HeaderSerie.propTypes = {
   slug: PropTypes.string.isRequired,
   status: PropTypes.number.isRequired,
-  statusAdd: PropTypes.number.isRequired,
-  statusDelete: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   vote: PropTypes.string.isRequired,
