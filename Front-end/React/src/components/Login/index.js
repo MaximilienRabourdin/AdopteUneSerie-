@@ -20,7 +20,7 @@ const Login = ({ password, status, error, email, changeField, handleLogin }) => 
   var data = sessionStorage.getItem('token');
   console.log(error)
 
-  //console.log(error
+  //console.log(error);
   var error401 = 0;
 
   //var data = sessionStorage.getItem('data');

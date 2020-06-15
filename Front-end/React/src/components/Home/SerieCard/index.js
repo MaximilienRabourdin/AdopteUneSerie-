@@ -10,22 +10,21 @@ import CardStyled from './CardStyled';
 const SerieCard = ({ serie }) => {
   return (
     <Link to={"/serie/" + serie.id}>
-    <CardStyled>
-        <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
-          <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
-          wrapped ui={false} 
-          style={{boxShadow: '10px 10px 30px #242222'}}
-          className='hover'
-          />
-        </Card>
-    </CardStyled>
-      </Link>
+      <CardStyled>
+          <Card style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+            <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
+            wrapped ui={false} 
+            style={{boxShadow: '10px 10px 30px #242222'}}
+            className='hover'
+            />
+          </Card>
+      </CardStyled>
+    </Link>
   );
 };
 
 SerieCard.propTypes = {
   serie: PropTypes.object.isRequired,
-  //click:  PropTypes.func.isRequired,
 };
 // Export
 export default SerieCard;

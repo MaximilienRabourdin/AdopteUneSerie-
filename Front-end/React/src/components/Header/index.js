@@ -18,13 +18,9 @@ const Header = () => {
 
   return (
   <HeaderStyled>
-
-    <MediaQuery maxWidth={700}>
-      <div id="TOP">
-        <div className="topMobile">
-          <Logo />
-        </div>
-        <div className="bottomMobile">
+    <div id="TOP">
+      <Logo />
+      <div id="sign">
         {!(data) && 
           <React.Fragment>
             <SignUp />
@@ -33,36 +29,13 @@ const Header = () => {
         }
         {(data) && 
           <React.Fragment>
-            <AccountButton />
-            <FavoritesButton />
+            <AccountButton className="signUpDesktop" />
+            <FavoritesButton className="signUpDesktop" />
             <LogOutButton />
         </React.Fragment>
         }  
-        </div>
       </div>
-    </MediaQuery>
-
-    <MediaQuery minWidth={701}>
-      <div className="topDesktop">
-        <Logo id="logoDesktop" />
-        <div id="signDesktop">
-        {!(data) && 
-          <React.Fragment>
-            <SignUp id="signUpDesktop" />
-            <SignIn />
-        </React.Fragment>
-        } 
-        {(data) && 
-          <React.Fragment>
-            <AccountButton className="signUpDesktop" />
-            <FavoritesButton className="signUpDesktop"  />
-            <LogOutButton />
-        </React.Fragment>
-        } 
-        </div> 
-      </div>
-    </MediaQuery>
-
+    </div>
   </HeaderStyled>
   );
 };
