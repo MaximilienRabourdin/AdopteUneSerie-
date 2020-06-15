@@ -4,7 +4,7 @@ import MediaQuery from 'react-responsive';
 import { Link } from "react-router-dom";
 
 // Import : local
-import IntroStyled from './IntroStyled.module.js';
+import IntroStyled from './IntroStyled.js';
 import logo from 'src/assets/logo4.png'
 
 // Composant

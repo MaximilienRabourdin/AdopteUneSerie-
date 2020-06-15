@@ -22,51 +22,31 @@ const Account = ({data, handleAccount}) => {
   return (
     <AccountStyled>
       <Header />
-        <MediaQuery minWidth={426}>
-          <div className="divDesktop">
-            <h1 className="titleDesktop">Mon compte</h1>
-            <Table celled padded >
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell singleLine>Mon prénom</Table.Cell>
-                  <Table.Cell singleLine>{data.firstname}</Table.Cell>
-                </Table.Row> 
-                <Table.Row>
-                  <Table.Cell singleLine>Mon nom</Table.Cell>
-                  <Table.Cell singleLine>{data.lastname}</Table.Cell>
-                </Table.Row> 
-                <Table.Row>
-                  <Table.Cell singleLine>Mon email</Table.Cell>
-                  <Table.Cell singleLine>{data.email}</Table.Cell>
-                </Table.Row> 
-              </Table.Body>
-            </Table> 
+      <div className="div">
+        <h1 className="title">Mon compte</h1>
+        <Table celled padded >
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell singleLine>Mon prénom</Table.Cell>
+              <Table.Cell singleLine>{data.firstname}</Table.Cell>
+            </Table.Row> 
+            <Table.Row>
+              <Table.Cell singleLine>Mon nom</Table.Cell>
+              <Table.Cell singleLine>{data.lastname}</Table.Cell>
+            </Table.Row> 
+            <Table.Row>
+              <Table.Cell singleLine>Mon email</Table.Cell>
+              <Table.Cell singleLine>{data.email}</Table.Cell>
+            </Table.Row> 
+          </Table.Body>
+        </Table>
+        <MediaQuery minWidth={426}> 
             <Link to="/modification-mot-de-passe" style={{marginLeft: "150px"}}>Modifier mon mot de passe</Link>
-          </div>
         </MediaQuery>
-  
         <MediaQuery maxWidth={425}>
-          <div className="divMobile">
-            <h1 className="titleMobile">Mon compte</h1>
-            <Table celled padded >
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell singleLine>Mon prénom</Table.Cell>
-                  <Table.Cell singleLine>{data.firstname}</Table.Cell>
-                </Table.Row> 
-                <Table.Row>
-                  <Table.Cell singleLine>Mon nom</Table.Cell>
-                  <Table.Cell singleLine>{data.lastname}</Table.Cell>
-                </Table.Row> 
-                <Table.Row>
-                  <Table.Cell singleLine>Mon email</Table.Cell>
-                  <Table.Cell singleLine>{data.email}</Table.Cell>
-                </Table.Row> 
-              </Table.Body>
-            </Table> 
             <Link to="/modification-mot-de-passe" style={{marginLeft: "50px"}}>Modifier mon mot de passe</Link>
-          </div>
         </MediaQuery>
+      </div>
     </AccountStyled>
   );
 };

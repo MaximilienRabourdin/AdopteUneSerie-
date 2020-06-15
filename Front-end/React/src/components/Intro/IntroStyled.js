@@ -4,7 +4,7 @@ export default styled.div`
 
   height: 100vh;
   overflow: hidden;
-  background: #343a40;
+  background: #191D1F;
 
 #mobile {
   height: 100px;
