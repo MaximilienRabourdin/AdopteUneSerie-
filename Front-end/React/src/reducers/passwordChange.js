@@ -1,9 +1,11 @@
-import { CHANGE_FIELD, SET_USER_PASSWORD_CHANGE, SET_ERROR } from 'src/actions/passwordChange';
-
 // Action Types
+import { 
+CHANGE_FIELD, 
+SET_USER_PASSWORD_CHANGE, 
+SET_ERROR,
+} from 'src/actions/passwordChange';
 
 // Initial State
-// state.auth....
 const initialState = {
   password: '',
   newPassword: '',
@@ -19,16 +21,16 @@ const passwordChangeReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-      case SET_USER_PASSWORD_CHANGE:
-        return {
-          ...state,
-          status: action.status,
-        };
-        case SET_ERROR:
-          return {
-            ...state,
-            error: action.error,
-          };
+    case SET_USER_PASSWORD_CHANGE:
+      return {
+        ...state,
+        status: action.status,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

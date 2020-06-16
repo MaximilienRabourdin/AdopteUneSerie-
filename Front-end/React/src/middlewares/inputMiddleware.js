@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-import { LOAD_SERIE_INPUT,LOAD_SERIE_DROPDOWN, saveSerieInput } from 'src/actions/input';
+import { 
+LOAD_SERIE_INPUT,
+LOAD_SERIE_DROPDOWN, 
+saveSerieInput, 
+} from 'src/actions/input';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -14,7 +18,7 @@ const infoMiddleware = (store) => (next) => (action) => {
         })
         // échec
         .catch((error) => {
-          console.log('Une erreur s\'est produite', error);
+         // console.log('Une erreur s\'est produite', error);
         });
         case LOAD_SERIE_DROPDOWN:
           axios({
@@ -37,7 +41,7 @@ const infoMiddleware = (store) => (next) => (action) => {
             })
             // échec
             .catch((error) => {
-              console.log('Une erreur s\'est produite', error);
+             // console.log('Une erreur s\'est produite', error);
             });
       break;
 

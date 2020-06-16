@@ -4,7 +4,7 @@ export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 
 // Transfert token to server
 export const account = (token) => {
-  console.log('action', token);
+  //console.log('action', token);
   return {
   type: ACCOUNT,
   token,

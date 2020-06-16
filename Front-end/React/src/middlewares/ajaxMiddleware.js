@@ -1,7 +1,18 @@
 import axios from 'axios';
 
-import { LOAD_SERIES_TENDANCE, LOAD_SERIES_TOP_RATED, LOAD_SERIES_RECENT, saveSeriesTendance, saveSeriesTopRated, saveSeriesRecent } from 'src/actions/series';
-import { LOAD_SERIES_FAVORITES, saveSeriesFavorites } from 'src/actions/favorite';
+import { 
+LOAD_SERIES_TENDANCE, 
+LOAD_SERIES_TOP_RATED, 
+LOAD_SERIES_RECENT, 
+saveSeriesTendance, 
+saveSeriesTopRated, 
+saveSeriesRecent,
+} from 'src/actions/series';
+
+import { 
+LOAD_SERIES_FAVORITES, 
+saveSeriesFavorites, 
+} from 'src/actions/favorite';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -14,11 +25,11 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         // succès
         .then((response) => {
           store.dispatch(saveSeriesFavorites(response.data));
-          //console.log(response.data)
+          // console.log(response.data)
         })
         // échec
         .catch((error) => {
-          console.log('Une erreur s\'est produite', error);
+        //  console.log('Une erreur s\'est produite', error);
         });
 
       // alternative à
@@ -35,7 +46,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         })
         // échec
         .catch((error) => {
-          console.log('Une erreur s\'est produite', error);
+          //console.log('Une erreur s\'est produite', error);
         });
 
       // alternative à
@@ -52,7 +63,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
           })
           // échec
           .catch((error) => {
-            console.log('Une erreur s\'est produite', error);
+            //console.log('Une erreur s\'est produite', error);
           });
   
         // alternative à
@@ -69,7 +80,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
             })
             // échec
             .catch((error) => {
-              console.log('Une erreur s\'est produite', error);
+              //console.log('Une erreur s\'est produite', error);
             });
     
           // alternative à

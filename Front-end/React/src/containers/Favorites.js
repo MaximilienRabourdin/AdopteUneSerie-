@@ -7,7 +7,7 @@ import Favorites from 'src/components/Favorites';
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => {
-  console.log(state.favorite.seriesFavorites)
+  //console.log(state.favorite.seriesFavorites)
   return {
   series: state.favorite.seriesFavorites,
   }

@@ -20,17 +20,17 @@ const loginReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-      case SET_USER:
-        return {
-          ...state,
-          status: action.status,
-          data: action.data,
-        };
-        case SET_ERROR:
-          return {
-            ...state,
-            error: action.error,
-          };
+    case SET_USER:
+      return {
+        ...state,
+        status: action.status,
+        data: action.data,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

@@ -1,7 +1,9 @@
-// Import
-  import { SAVE_SERIE_INFO, SET_LOAD } from 'src/actions/serieInfo';
+// Action Types
+import { 
+SAVE_SERIE_INFO,
+SET_LOAD,
+} from 'src/actions/serieInfo';
 // console.log(data);
-
 
 // Initial State
 const initialState = {

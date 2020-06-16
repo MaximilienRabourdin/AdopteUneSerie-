@@ -1,9 +1,11 @@
-import { CHANGE_FIELD, SET_USER, SET_ERROR } from 'src/actions/register';
-
 // Action Types
+import { 
+CHANGE_FIELD, 
+SET_USER, 
+SET_ERROR, 
+} from 'src/actions/register';
 
 // Initial State
-// state.auth....
 const initialState = {
   email: '',
   password: '',
@@ -23,17 +25,17 @@ const registerReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-      case SET_USER:
-        return {
-          ...state,
-          status: action.status,
-          data: action.data,
-        };
-        case SET_ERROR:
-          return {
-            ...state,
-            error: action.error,
-          };
+    case SET_USER:
+      return {
+        ...state,
+        status: action.status,
+        data: action.data,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

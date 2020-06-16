@@ -1,20 +1,25 @@
 import axios from 'axios';
 
 import {
-  LOGIN,
-  setUser,
-  setError,
+LOGIN,
+setUser,
+setError,
 } from 'src/actions/auth';
 import {
-  setUserPassword,
-  PASSWORD,
-  setErrorPassword,
+PASSWORD,
+setUserPassword,
+setErrorPassword,
 } from 'src/actions/password';
 import {
-  setUserPasswordChange,
-  PASSWORD_CHANGE,
-  setErrorPasswordChange,
+PASSWORD_CHANGE,
+setUserPasswordChange,
+setErrorPasswordChange,
 } from 'src/actions/passwordChange';
+
+import { 
+ACCOUNT, 
+saveUserInfo,
+} from 'src/actions/account';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
 
@@ -99,6 +104,25 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         .catch(handleErrorPasswordChange);
       break;
     }
+    case ACCOUNT: 
+      //console.log('middleware', action.token);
+      axios({
+        method: 'get',
+        url: 'http://209.182.238.244/back/api/myprofile',
+        headers: { Authorization: `Bearer ${action.token}` },
+      })
+        // succès
+        .then((response) => {
+          store.dispatch(saveUserInfo(response.data));
+        //  console.log('response middleware', response.data)
+        })
+        // échec
+        .catch((error) => {
+        //  console.log('Une erreur s\'est produite', error);
+        });
+        // alternative à
+        // axios.get('http://');
+      break;
     default:
       break;
   }

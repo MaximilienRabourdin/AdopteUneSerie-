@@ -1,7 +1,17 @@
 import axios from 'axios';
 
-import { LOAD_SERIE_INFO, saveSerieInfo, setLoad} from 'src/actions/serieInfo';
-import { LOAD_CHECK,  saveCheck, ADD_SERIE, DELETE_SERIE } from 'src/actions/favorite';
+import { 
+LOAD_SERIE_INFO, 
+saveSerieInfo, 
+setLoad,
+} from 'src/actions/serieInfo';
+
+import { 
+LOAD_CHECK,
+ADD_SERIE, 
+DELETE_SERIE,
+saveCheck,  
+} from 'src/actions/favorite';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -10,7 +20,7 @@ const infoMiddleware = (store) => (next) => (action) => {
       axios.get('http://209.182.238.244/back/show/' + action.id)
         // succès
         .then((response) => {
-          console.log("response middleware",response.data);
+          //console.log("response middleware",response.data);
           store.dispatch(saveSerieInfo(response.data));
           store.dispatch(setLoad(true));
         })
@@ -34,7 +44,7 @@ const infoMiddleware = (store) => (next) => (action) => {
           })
           // échec
           .catch((error) => {
-            console.log('Une erreur s\'est produite', error);
+            //console.log('Une erreur s\'est produite', error);
           });
         break;
         case ADD_SERIE:
@@ -51,7 +61,7 @@ const infoMiddleware = (store) => (next) => (action) => {
             })
             // échec
             .catch((error) => {
-              console.log('Une erreur s\'est produite', error);
+              //console.log('Une erreur s\'est produite', error);
             });
           break;
           case DELETE_SERIE:
@@ -68,7 +78,7 @@ const infoMiddleware = (store) => (next) => (action) => {
               })
               // échec
               .catch((error) => {
-                console.log('Une erreur s\'est produite', error);
+                //console.log('Une erreur s\'est produite', error);
               });
             break;
 

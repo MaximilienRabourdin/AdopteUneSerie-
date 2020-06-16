@@ -1,9 +1,11 @@
-import { CHANGE_FIELD, SET_USER_PASSWORD, SET_ERROR } from 'src/actions/password';
-
 // Action Types
+import { 
+CHANGE_FIELD, 
+SET_USER_PASSWORD, 
+SET_ERROR,
+} from 'src/actions/password';
 
 // Initial State
-// state.auth....
 const initialState = {
   email: '',
   status: 0,
@@ -18,16 +20,16 @@ const passwordReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-      case SET_USER_PASSWORD:
-        return {
-          ...state,
-          status: action.status,
-        };
-        case SET_ERROR:
-          return {
-            ...state,
-            error: action.error,
-          };
+    case SET_USER_PASSWORD:
+      return {
+        ...state,
+        status: action.status,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

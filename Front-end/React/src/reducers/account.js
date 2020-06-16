@@ -1,9 +1,6 @@
 import { SAVE_USER_INFO } from 'src/actions/account';
 
-// Action Types
-
 // Initial State
-// state.auth....
 const initialState = {
   data: {},
 };

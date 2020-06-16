@@ -11,15 +11,15 @@ import {
 
 // Initial State
 const initialState = {
-  seriesTendance: [],
-  seriesTopRated : [],
-  seriesRecent: [],
-  inputName: '',
   idGenres: '',
   idNetwork: '',
   idNote: '',
   idTime: '',
+  seriesTendance: [],
+  seriesTopRated : [],
+  seriesRecent: [],
   serieInput: [],
+  inputName: '',
 };
 
 const homeReducer = (state = initialState, action = {}) => {
@@ -53,14 +53,14 @@ const homeReducer = (state = initialState, action = {}) => {
         ...state, // state actuel
        inputName: action.value,
       };
-      case CHANGE_DROPDOWN:
-        return {
-          ...state, // state actuel
-         idGenres: action.idGenres,
-         idNetwork: action.idNetwork,
-         idNote: action.idNote,
-         idTime: action.idTime,
-        };
+    case CHANGE_DROPDOWN:
+      return {
+        ...state, // state actuel
+        idGenres: action.idGenres,
+        idNetwork: action.idNetwork,
+        idNote: action.idNote,
+        idTime: action.idTime,
+      };
     default:
      // console.log(state);
       return state;

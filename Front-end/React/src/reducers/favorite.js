@@ -1,5 +1,8 @@
 // Import
-import { SAVE_CHECK, SAVE_SERIES_FAVORITES} from 'src/actions/favorite';
+import { 
+SAVE_CHECK, 
+SAVE_SERIES_FAVORITES,
+ from 'src/actions/favorite';
 // console.log(data);
 
 
