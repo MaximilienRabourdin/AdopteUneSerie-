@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 // Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -5,69 +6,69 @@ import { Input, Dropdown } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
 // Import
-import SearchBarStyled from './SearchBarStyled';
 
 // Options Table
 import options from 'src/data/options';
 import optionsInput from 'src/data/optionsMerge';
+import SearchBarStyled from './SearchBarStyled';
 
 // Composant
- const SearchBar = ({ inputValue, sendName, sendIds }) => {
+const SearchBar = ({ inputValue, sendName, sendIds }) => {
 // const SearchBar = () => (
-  
+
   const handleChange = (evt) => {
-    //evt.preventDefault();
+    // evt.preventDefault();
     sendName(evt.target.value);
-  };
-  const handleChangeDropdown = (evt, {value}) => {
-    //console.log(optionsSelected(value));
-    var options = optionsSelected(value);
-    var idGenres = [];
-    var idNetwork = [];
-    var idNote = [];
-    var idTime = [];
-    options.map((option) => {
-      if (option[0].category === "with_genres"){
-        idGenres.push(option[0].id)
-      }
-      if (option[0].category === "with_networks"){
-        idNetwork.push(option[0].id)
-      }
-      if (option[0].category === "vote_average"){
-        idNote.push(option[0].id)
-      }
-      if (option[0].category === "with_runtime.lte"){
-        idTime.push(option[0].id)
-      }
-    })
-    var idGenres = idGenres.toString();
-    var idNetwork = idNetwork.toString();
-    var idNote = idNote.toString();
-    var idTime = idTime.toString();
-    sendIds(idGenres, idNetwork, idNote, idTime);
   };
 
   const optionsSelected = (value) => {
-    var options=[];
-    value.map((input) =>{ 
-      var option = optionsInput.filter((option) => option.name === input);
-      //console.log(option);
-      options.push(option);
-    }) 
-    return(options);
+    const optionItems = [];
+    value.map((input) => {
+      const option = optionsInput.filter((item) => item.name === input);
+      // console.log(option);
+      optionItems.push(option);
+    });
+    return (optionsSelected);
   };
 
+  const handleChangeDropdown = (evt, { value }) => {
+    // console.log(optionsSelected(value));
+    const optionInput = optionsSelected(value);
+    const idGenre = [];
+    const idNetworks = [];
+    const idNotes = [];
+    const idTimes = [];
+    optionInput.map((option) => {
+      if (option[0].category === 'with_genres') {
+        idGenre.push(option[0].id);
+      }
+      if (option[0].category === 'with_networks') {
+        idNetworks.push(option[0].id);
+      }
+      if (option[0].category === 'vote_average') {
+        idNotes.push(option[0].id);
+      }
+      if (option[0].category === 'with_runtime.lte') {
+        idTimes.push(option[0].id);
+      }
+    });
+    const idGenres = idGenre.toString();
+    const idNetwork = idNetworks.toString();
+    const idNote = idNotes.toString();
+    const idTime = idTimes.toString();
+    sendIds(idGenres, idNetwork, idNote, idTime);
+  };
 
   return (
-    <SearchBarStyled >
+    <SearchBarStyled>
       <MediaQuery maxWidth={1400}>
         <div id="mobile">
           <Input
-            style={{ minWidth: '202px'}}
+            style={{ minWidth: '202px' }}
             className="searchBar"
             size="large"
             icon={{ name: 'search', circular: true, link: true }}
-            placeholder="Recherchez une série" 
+            placeholder="Recherchez une série"
             value={inputValue}
             onChange={handleChange}
           />
@@ -80,7 +81,7 @@ import optionsInput from 'src/data/optionsMerge';
             selection
             onChange={handleChangeDropdown}
             options={options}
-          />             
+          />
         </div>
       </MediaQuery>
 
