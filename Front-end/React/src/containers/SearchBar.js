@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 // Du composant qui a besoin de data ou d'actions
 import SearchBar from 'src/components/HeaderSearch/SearchBar';
 

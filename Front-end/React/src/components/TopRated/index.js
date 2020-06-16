@@ -25,7 +25,9 @@ const TopRated = ({ series }) => (
     <Header/>
     <div className="search">
         <MediaQuery minWidth={426}>
-      <div className="head" style={{backgroundImage: `url(${IMG})`,
+      <div className="head" 
+      style={{
+      backgroundImage: `url(${IMG})`,
       backgroundSize: 'cover', 
       backgroundPosition: 'center center',
       backgroundRepeat: 'repeat-x'}}>
@@ -44,7 +46,7 @@ const TopRated = ({ series }) => (
         <MediaQuery maxWidth={425}>
         <div className="headMobile">
           <span className="neonStyleMobile">Séries les mieux notées</span>
-      </div>
+        </div>
         <Card.Group style={{justifyContent: 'center'}}>
           {series.map((card) => {
             if(!(card.poster_path === null)){

@@ -6,7 +6,9 @@ import theme from 'src/styles/theme';
 const LoginStyled = styled.div`
 font-family: "Rajdhani", cursive;
 min-height: 90vh;
- .formDesktop{
+
+@media only screen and (min-width: 426px){
+ .form {
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
@@ -17,14 +19,14 @@ min-height: 90vh;
   top: 200px;
  } 
   
-  .titleDesktop {
+  .title {
     font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: ${theme.gutter / 3}rem;
   }
 
-  .actionsDesktop {
+  .actions {
     margin-top: ${theme.gutter / 2}rem;
     text-align: center;
     /* & reprend la valeur du parent : ici ".actions" */
@@ -39,7 +41,7 @@ min-height: 90vh;
     }
   }
 
-  .linksDesktop {
+  .links {
     text-align: center;
     margin-top: ${theme.gutter / 2}rem;
     &-item {
@@ -47,8 +49,10 @@ min-height: 90vh;
       margin: ${theme.gutter / 6}rem
     }
   }
-  
-  .formMobile{
+}
+
+@media only screen and (max-width: 425px){
+  .form {
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
@@ -59,14 +63,14 @@ min-height: 90vh;
   top: 200px;
  } 
   
-  .titleMobile {
+  .title {
     font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2rem;
     margin-bottom: ${theme.gutter / 3}rem;
   }
 
-  .actionsMobile {
+  .actions {
     margin-top: ${theme.gutter / 2}rem;
     text-align: center;
     /* & reprend la valeur du parent : ici ".actions" */
@@ -81,7 +85,7 @@ min-height: 90vh;
     }
   }
   
-  .linksMobile {
+  .links {
     text-align: center;
     margin-top: ${theme.gutter / 2}rem;
     &-item {
@@ -89,6 +93,7 @@ min-height: 90vh;
       margin: ${theme.gutter / 6}rem
     }
   }
+}
   
 `;
 

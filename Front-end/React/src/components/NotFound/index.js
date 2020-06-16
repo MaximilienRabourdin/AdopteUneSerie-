@@ -8,12 +8,11 @@ import Header from 'src/containers/Header';
 // Composant
 const NotFound = () => (
   <NotFoundStyled>
-  <Header />
-  <div className="notFound">
-    <h2>Oops....</h2>
-    <p>Rien ici, désolé</p>
-  </div>
-    
+    <Header />
+    <div className="notFound">
+      <h2>Oops....</h2>
+      <p>Rien ici, désolé</p>
+    </div>
   </NotFoundStyled>
 );
 

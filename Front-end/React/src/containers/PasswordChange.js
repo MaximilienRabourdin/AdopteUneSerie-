@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 
+// Composant qui a besoin de data ou d'actions
 import PasswordChange from 'src/components/PasswordChange';
 
+// Action Creators
 import { passwordChange, changeField } from 'src/actions/passwordChange';
 
 
 //== Data / state
-
 const mapStateToProps = (state) => ({
   password: state.passwordChange.password,
   newPassword: state.passwordChange.newPassword,

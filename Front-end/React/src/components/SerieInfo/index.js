@@ -3,12 +3,8 @@ import React, { useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 // Import : local
-// Composants
 import HeaderSerie from 'src/containers/HeaderSerie';
 import Header from 'src/containers/Header';
-
-// Style
-//import './styles.css';
 
 // Composant
 function SerieInfo({ 

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-// Du composant qui a besoin de data ou d'actions
+
+// Composant qui a besoin de data ou d'actions
 import Account from 'src/components/Account';
+
 // Action Creators
 import { account } from 'src/actions/account';
 

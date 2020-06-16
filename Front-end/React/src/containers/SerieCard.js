@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
+
 // Du composant qui a besoin de data ou d'actions
 import SerieCard from 'src/components/Home/SerieCard';
-// Action Creators
 
+// Action Creators
 import { loadSerieInfo } from 'src/actions/serieInfo';
 
 // Data / state

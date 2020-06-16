@@ -10,14 +10,14 @@ import CardStyled from './CardStyled';
 const SerieCard = ({ serie }) => {
   return (
     <Link to={"/serie/" + serie.tmdb_id}>
-    <CardStyled>
-        <Card  color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
-          <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
-          wrapped ui={false} 
-          />
-        </Card>
-    </CardStyled>
-      </Link>
+      <CardStyled>
+          <Card  color='blue' style={{maxWidth: '90%', margin:'0 5% 5% 5%'}}>
+            <Image src={"https://image.tmdb.org/t/p/w500" + serie.poster_path} 
+            wrapped ui={false} 
+            />
+          </Card>
+      </CardStyled>
+    </Link>
   );
 };
 

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 
+// Du composant qui a besoin de data ou d'actions
 import Register from 'src/components/Register';
 
+// Action Creators
 import { register, changeField } from 'src/actions/register';
-
 
 //== Data / state
 const mapStateToProps = (state) => ({

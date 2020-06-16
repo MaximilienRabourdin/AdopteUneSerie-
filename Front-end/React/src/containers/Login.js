@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 
+// Composant qui a besoin de data ou d'actions
 import Login from 'src/components/Login';
 
+// Action Creators
 import { login, changeField } from 'src/actions/auth';
 
-
 //== Data / state
+// Notre composant à besoin de données depuis le state ?
+// On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
   email: state.login.email,
   password: state.login.password,

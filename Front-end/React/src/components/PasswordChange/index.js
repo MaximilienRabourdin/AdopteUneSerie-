@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import MediaQuery from 'react-responsive';
 
 	// Import
 import PasswordChangeStyled from './PasswordChangeStyled';
@@ -38,75 +37,32 @@ const PasswordChange = ({password,status, error, newPassword, changeField, handl
    }
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
-    <Header />
-      <MediaQuery minWidth={426}>
-        <form className="formDesktop">
-          <h1 className="titleDesktop">Modifier mon mot de passe</h1>
-          <Field
-          value={password}
-          onChange={changeField}
-          placeholder="Mot de passe actuel"
-          name="password"
-          type="password"
-          />
-          {(error409===409) &&
-            <p style={{color:"red"}}>{error.data.false}</p>
-          }
-          <Field
-          value={newPassword}
-          onChange={changeField}
-          placeholder="Nouveau mot de passe"
-          name="newPassword"
-          type="password"
-          />
-          {(error400===400) &&
-            <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
-          }
-
-          <div className="actionsDesktop">
-            {(status>0) && 
-              <p style={{color:"green"}}>
-                Mot de passe modifié
-              </p>
-            }
-            <Button 
-            className="ui blue button"
-            type="submit"
-            className="actions-button">
-              Envoyer
-            </Button>
-          
-          </div>
-        </form>
-      </MediaQuery>
-
-      <MediaQuery maxWidth={425}>
-        <form className="formMobile">
-          <h1 className="titleMobile">Modifier mon mot de passe</h1>
-          <Field
-          value={password}
-          onChange={changeField}
-          placeholder="Mot de passe actuel"
-          name="password"
-          type="password"
-          />
-          {(error409===409) &&
-            <p style={{color:"red"}}>{error.data.false}</p>
-          }
-          <Field
-          value={newPassword}
-          onChange={changeField}
-          placeholder="Nouveau mot de passe"
-          name="newPassword"
-          type="password"
-          />
-          {(error400===400) &&
-            <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
-          }
-
-          <div className="actionsMobile">
+      <Header />
+      <form className="form">
+        <h1 className="title">Modifier mon mot de passe</h1>
+        <Field
+        value={password}
+        onChange={changeField}
+        placeholder="Mot de passe actuel"
+        name="password"
+        type="password"
+        />
+        {(error409===409) &&
+          <p style={{color:"red"}}>{error.data.false}</p>
+        }
+        <Field
+        value={newPassword}
+        onChange={changeField}
+        placeholder="Nouveau mot de passe"
+        name="newPassword"
+        type="password"
+        />
+        {(error400===400) &&
+          <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
+        }
+        <div className="actions">
           {(status>0) && 
-            <p style={{color:"green"}}>            
+            <p style={{color:"green"}}>
               Mot de passe modifié
             </p>
           }
@@ -115,12 +71,11 @@ const PasswordChange = ({password,status, error, newPassword, changeField, handl
           type="submit"
           className="actions-button">
             Envoyer
-          </Button>        
-          </div>
-        </form>
-      </MediaQuery>
+          </Button>
+        
+        </div>
+      </form>
     </PasswordChangeStyled>
-
   );
 };
 

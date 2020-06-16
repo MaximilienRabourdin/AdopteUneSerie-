@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
+
 // Du composant qui a besoin de data ou d'actions
 import Recent from 'src/components/Recent';
-
-// Action Creators
 
 // Data / state
 // Notre composant à besoin de données depuis le state ?

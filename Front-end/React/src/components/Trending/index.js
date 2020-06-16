@@ -30,7 +30,9 @@ const Trending = ({ series }) => (
     <Header/>
     <div className="search">
       <MediaQuery minWidth={426}>
-        <div className="head" style={{backgroundImage: `url(${IMG})`,
+        <div className="head" 
+        style={{
+        backgroundImage: `url(${IMG})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center center',
         backgroundRepeat: 'repeat-x'}}>

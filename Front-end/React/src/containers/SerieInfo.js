@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+
 // Du composant qui a besoin de data ou d'actions
 import SerieInfo from 'src/components/SerieInfo';
+
 // Action Creators
 import { loadSerieInfo } from 'src/actions/serieInfo';
 import { loadCheck } from 'src/actions/favorite';
