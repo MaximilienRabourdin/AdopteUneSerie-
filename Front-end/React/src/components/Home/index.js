@@ -1,3 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
 // Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -22,8 +25,12 @@ const Home = ({
   <HomeStyled>
     <Header />
     <div className="search">
-      {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length) > 0) && (
-        <Card.Group style={{ justifyContent: 'center' }}>
+      {((idGenres.length || idNetwork.length || idNote.length || idTime.length || name.length) > 0)
+        && (
+        <Card.Group style={{
+          justifyContent: 'center',
+        }}
+        >
           {serieInput.map((card) => {
             if (!(card.poster_path === null)) {
               return (
@@ -32,8 +39,9 @@ const Home = ({
             }
           })}
         </Card.Group>
-      )}
-      {(idGenres.length === 0 && idNetwork.length === 0 && idNote.length === 0 && idTime.length === 0 && name.length === 0) && (
+        )}
+      {(idGenres.length === 0 && idNetwork.length === 0 && idNote.length === 0
+        && idTime.length === 0 && name.length === 0) && (
         <Card.Group className="accueil" style={{ justifyContent: 'center' }}>
           <Link to="/Tendances" style={{ marginBottom: '33px', textAlign: 'center' }}>
             <Card style={{ maxWidth: '90%', margin: '0 5% 5% 5%' }}>
@@ -76,10 +84,6 @@ Home.propTypes = {
   serieInput: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
-};
-
-Home.defaultProps = {
-  change: false,
 };
 
 export default Home;
