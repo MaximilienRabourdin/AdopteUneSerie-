@@ -1,86 +1,86 @@
 import axios from 'axios';
 
-import { 
-LOAD_SERIE_INFO, 
-saveSerieInfo, 
-setLoad,
+import {
+  LOAD_SERIE_INFO,
+  saveSerieInfo,
+  setLoad,
 } from 'src/actions/serieInfo';
 
-import { 
-LOAD_CHECK,
-ADD_SERIE, 
-DELETE_SERIE,
-saveCheck,  
+import {
+  LOAD_CHECK,
+  ADD_SERIE,
+  DELETE_SERIE,
+  saveCheck,
 } from 'src/actions/favorite';
 
 const infoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_SERIE_INFO:
-     //console.log("action middleware", action.id);
-      axios.get('http://209.182.238.244/back/show/' + action.id)
+      // console.log("action middleware", action.id);
+      axios.get(`http://209.182.238.244/back/show/${action.id}`)
         // succès
         .then((response) => {
-          //console.log("response middleware",response.data);
+          // console.log("response middleware",response.data);
           store.dispatch(saveSerieInfo(response.data));
           store.dispatch(setLoad(true));
         })
         // échec
         .catch((error) => {
-         // console.log('Une erreur s\'est produite', error);
-         //console.log("info middleware error")
+          // console.log('Une erreur s\'est produite', error);
+          // console.log("info middleware error")
         });
       break;
-      case LOAD_CHECK:
-       //console.log("action middleware", sessionStorage.getItem('token'));
-       axios({
+    case LOAD_CHECK:
+      // console.log("action middleware", sessionStorage.getItem('token'));
+      axios({
         method: 'get',
-        url: 'http://209.182.238.244/back/api/favorites/' + action.id + '/check',
+        url: `http://209.182.238.244/back/api/favorites/${action.id}/check`,
         withCredentials: true,
         headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
       })
-          .then((response) => {
-            //console.log("response middleware",response.status);
-            store.dispatch(saveCheck(response.status));
-          })
-          // échec
-          .catch((error) => {
-            //console.log('Une erreur s\'est produite', error);
-          });
-        break;
-        case ADD_SERIE:
-         //console.log("action middleware", sessionStorage.getItem('token'));
-         axios({
-          method: 'get',
-          url: 'http://209.182.238.244/back/api/favorites/' + action.id + '/add',
-          withCredentials: true,
-          headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
+        .then((response) => {
+          // console.log("response middleware",response.status);
+          store.dispatch(saveCheck(response.status));
         })
-            .then((response) => {
-              //console.log("response middleware",response.status);
-              window.location.reload()
-            })
-            // échec
-            .catch((error) => {
-              //console.log('Une erreur s\'est produite', error);
-            });
-          break;
-          case DELETE_SERIE:
-           //console.log("action middleware", sessionStorage.getItem('token'));
-           axios({
-            method: 'get',
-            url: 'http://209.182.238.244/back/api/favorites/' + action.id + '/delete',
-            withCredentials: true,
-            headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
-          })
-              .then((response) => {
-                //console.log("response middleware",response.status);
-                window.location.reload()
-              })
-              // échec
-              .catch((error) => {
-                //console.log('Une erreur s\'est produite', error);
-              });
-            break;
+      // échec
+        .catch((error) => {
+          // console.log('Une erreur s\'est produite', error);
+        });
+      break;
+    case ADD_SERIE:
+      // console.log("action middleware", sessionStorage.getItem('token'));
+      axios({
+        method: 'get',
+        url: `http://209.182.238.244/back/api/favorites/${action.id}/add`,
+        withCredentials: true,
+        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
+      })
+        .then((response) => {
+          // console.log("response middleware",response.status);
+          window.location.reload();
+        })
+      // échec
+        .catch((error) => {
+          // console.log('Une erreur s\'est produite', error);
+        });
+      break;
+    case DELETE_SERIE:
+      // console.log("action middleware", sessionStorage.getItem('token'));
+      axios({
+        method: 'get',
+        url: `http://209.182.238.244/back/api/favorites/${action.id}/delete`,
+        withCredentials: true,
+        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
+      })
+        .then((response) => {
+          // console.log("response middleware",response.status);
+          window.location.reload();
+        })
+      // échec
+        .catch((error) => {
+          // console.log('Une erreur s\'est produite', error);
+        });
+      break;
 
     default:
       break;

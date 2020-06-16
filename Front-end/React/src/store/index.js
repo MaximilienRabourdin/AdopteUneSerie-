@@ -13,11 +13,11 @@ import rootReducer from 'src/reducers';
 
 const enhancers = composeWithDevTools(
   applyMiddleware(
-      ajaxMiddleware,
-      infoMiddleware,
-      inputMiddleware,
-      authMiddleware,
-      registerMiddleware,
+    ajaxMiddleware,
+    infoMiddleware,
+    inputMiddleware,
+    authMiddleware,
+    registerMiddleware,
     // ... middlewares
   ),
 );

@@ -6,7 +6,7 @@ export const SET_LOAD = 'SET_LOAD';
 // Load serie data from server
 export const loadSerieInfo = (id) => ({
   type: LOAD_SERIE_INFO,
-  id
+  id,
 });
 
 // Save serie data to store

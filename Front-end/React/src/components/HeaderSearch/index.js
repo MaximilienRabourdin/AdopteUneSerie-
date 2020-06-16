@@ -9,38 +9,39 @@ import SignUp from 'src/components/Header/SignUp';
 import AccountButton from 'src/components/Header/AccountButton';
 import LogOutButton from 'src/components/Header/LogOutButton';
 import FavoritesButton from 'src/components/Header/FavoritesButton';
-import HeaderStyled from './HeaderStyled';
 import SearchBar from 'src/containers/SearchBar';
+import HeaderStyled from './HeaderStyled';
 
 // Composant
 const Header = () => {
-
-  var data = sessionStorage.getItem('token');
+  const data = sessionStorage.getItem('token');
 
   return (
-  <HeaderStyled>
-    <div id="TOP">
-      <div className="topMobile">
-        <Logo />
-        <SearchBar />
-      </div>  
-      <div id="sign">
-        {!(data) && 
-          <React.Fragment>
+    <HeaderStyled>
+      <div id="TOP">
+        <div className="topMobile">
+          <Logo />
+          <SearchBar />
+        </div>
+        <div id="sign">
+          {!(data)
+          && (
+          <>
             <SignUp />
             <SignIn />
-          </React.Fragment>
-        }
-        {(data) && 
-          <React.Fragment>
+          </>
+          )}
+          {(data)
+          && (
+          <>
             <AccountButton className="signUpDesktop" />
             <FavoritesButton className="signUpDesktop" />
             <LogOutButton />
-        </React.Fragment>
-        }  
+          </>
+          )}
+        </div>
       </div>
-    </div>
-  </HeaderStyled>
+    </HeaderStyled>
   );
 };
 

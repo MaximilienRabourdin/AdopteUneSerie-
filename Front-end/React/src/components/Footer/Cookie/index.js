@@ -3,13 +3,13 @@ import React from 'react';
 
 // Import
 
-import CookieStyled from './CookieStyled';
 import Header from 'src/containers/Header';
+import CookieStyled from './CookieStyled';
 
 // Composant
 const Cookie = () => (
   <CookieStyled>
-  <Header/>
+    <Header />
     Cookie
   </CookieStyled>
 );

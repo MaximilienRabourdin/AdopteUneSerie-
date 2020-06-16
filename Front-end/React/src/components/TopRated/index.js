@@ -1,5 +1,4 @@
 // Import npm
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
@@ -8,55 +7,58 @@ import MediaQuery from 'react-responsive';
 // Import
 import SerieCard from 'src/containers/SerieCard';
 import Header from 'src/containers/Header';
-import TopRatedStyled from './TopRatedStyled';
 import IMG from 'src/images/head.png';
+import TopRatedStyled from './TopRatedStyled';
 
 // Composant
 
-window.addEventListener('scroll', () =>{  
-  var intScrollTop = window.scrollY;
-  var y = 150;
-  var opacity = ((y - intScrollTop) / y);
-  document.querySelector(".head").style.opacity=opacity;
+window.addEventListener('scroll', () => {
+  const intScrollTop = window.scrollY;
+  const y = 150;
+  const opacity = ((y - intScrollTop) / y);
+  document.querySelector('.head').style.opacity = opacity;
 });
 
 const TopRated = ({ series }) => (
   <TopRatedStyled>
-    <Header/>
+    <Header />
     <div className="search">
-        <MediaQuery minWidth={426}>
-      <div className="head" 
-      style={{
-      backgroundImage: `url(${IMG})`,
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'repeat-x'}}>
+      <MediaQuery minWidth={426}>
+        <div
+          className="head"
+          style={{
+            backgroundImage: `url(${IMG})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'repeat-x',
+          }}
+        >
           <span className="neonStyle">Séries les mieux notées</span>ry>
-          </div>
-          <Card.Group style={{justifyContent: 'center', marginTop: '210px'}}>
-            {series.map((card) => {
-              if(!(card.poster_path === null)){
-                return (
-                  <SerieCard key={card.id} serie={card} />
-                )
-              }
-            })}
-          </Card.Group>
-        </MediaQuery>
-        <MediaQuery maxWidth={425}>
-        <div className="headMobile">
-          <span className="neonStyleMobile">Séries les mieux notées</span>
         </div>
-        <Card.Group style={{justifyContent: 'center'}}>
+        <Card.Group style={{ justifyContent: 'center', marginTop: '210px' }}>
           {series.map((card) => {
-            if(!(card.poster_path === null)){
+            if (!(card.poster_path === null)) {
               return (
                 <SerieCard key={card.id} serie={card} />
-              )
+              );
             }
           })}
         </Card.Group>
-        </MediaQuery>
+      </MediaQuery>
+      <MediaQuery maxWidth={425}>
+        <div className="headMobile">
+          <span className="neonStyleMobile">Séries les mieux notées</span>
+        </div>
+        <Card.Group style={{ justifyContent: 'center' }}>
+          {series.map((card) => {
+            if (!(card.poster_path === null)) {
+              return (
+                <SerieCard key={card.id} serie={card} />
+              );
+            }
+          })}
+        </Card.Group>
+      </MediaQuery>
     </div>
   </TopRatedStyled>
 );

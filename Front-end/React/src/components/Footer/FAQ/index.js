@@ -3,13 +3,13 @@ import React from 'react';
 
 // Import
 
-import FaqStyled from './FaqStyled';
 import Header from 'src/containers/Header';
+import FaqStyled from './FaqStyled';
 
 // Composant
 const FAQ = () => (
-  <FaqStyled> 
-  <Header/>   
+  <FaqStyled>
+    <Header />
     FAQ
   </FaqStyled>
 );

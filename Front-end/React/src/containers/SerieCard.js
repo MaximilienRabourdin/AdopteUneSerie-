@@ -14,9 +14,9 @@ import { loadSerieInfo } from 'src/actions/serieInfo';
 // Notre composant à besoin d'agir sur le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({
-    click: (value) => { 
-      dispatch(loadSerieInfo(value))
-    },
+  click: (value) => {
+    dispatch(loadSerieInfo(value));
+  },
 });
 
 // création du lien : container

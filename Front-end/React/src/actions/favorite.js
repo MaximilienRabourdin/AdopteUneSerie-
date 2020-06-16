@@ -20,7 +20,7 @@ export const saveSeriesFavorites = (series) => ({
 // Load "favorite status" of a serie from server
 export const loadCheck = (id) => ({
   type: LOAD_CHECK,
-  id
+  id,
 });
 
 // Save "favorite status" of a serie in store
@@ -32,12 +32,11 @@ export const saveCheck = (status) => ({
 // Add a serie in "user favorite list" in server
 export const addSerie = (id) => ({
   type: ADD_SERIE,
-  id
+  id,
 });
 
 // Delete a serie in "user favorite list" in server
 export const deleteSerie = (id) => ({
   type: DELETE_SERIE,
-  id
+  id,
 });
-

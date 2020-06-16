@@ -1,24 +1,24 @@
 import axios from 'axios';
 
 import {
-LOGIN,
-setUser,
-setError,
+  LOGIN,
+  setUser,
+  setError,
 } from 'src/actions/auth';
 import {
-PASSWORD,
-setUserPassword,
-setErrorPassword,
+  PASSWORD,
+  setUserPassword,
+  setErrorPassword,
 } from 'src/actions/password';
 import {
-PASSWORD_CHANGE,
-setUserPasswordChange,
-setErrorPasswordChange,
+  PASSWORD_CHANGE,
+  setUserPasswordChange,
+  setErrorPasswordChange,
 } from 'src/actions/passwordChange';
 
-import { 
-ACCOUNT, 
-saveUserInfo,
+import {
+  ACCOUNT,
+  saveUserInfo,
 } from 'src/actions/account';
 
 // Fonction utilisée par les différents catch pour la gestion de l'erreur
@@ -27,11 +27,11 @@ saveUserInfo,
 const ajaxMiddleware = (store) => (next) => (action) => {
   // Fonction utilisée pour sauvegarder l'utilisateur dans le store via le then
   const saveUser = (response) => {
-    if (response.status === 200){
-      sessionStorage.setItem("token", response.data.token);    
+    if (response.status === 200) {
+      sessionStorage.setItem('token', response.data.token);
       store.dispatch(setUser(response.status, response.data));
-      //console.log("200", response.data);
-      window.location.href = "/Accueil";
+      // console.log("200", response.data);
+      window.location.href = '/Accueil';
     }
   };
   const handleErrorLogin = (error) => {
@@ -46,11 +46,11 @@ const ajaxMiddleware = (store) => (next) => (action) => {
 
   const saveUserPassword = (response) => {
     store.dispatch(setUserPassword(response.status));
-    window.location.href = "/Accueil";
+    window.location.href = '/Accueil';
   };
   const saveUserPasswordChange = (response) => {
-      store.dispatch(setUserPasswordChange(response.status));
-      window.location.href = "/Accueil";
+    store.dispatch(setUserPasswordChange(response.status));
+    window.location.href = '/Accueil';
   };
   // En fonction de l'action, je réagis
   switch (action.type) {
@@ -61,10 +61,10 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         method: 'post',
         url: 'http://209.182.238.244/back/api/login_check',
         withCredentials: true,
-        headers: { 'Content-Type':'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         data: {
-          "username": state.login.email,
-          "password": state.login.password,
+          username: state.login.email,
+          password: state.login.password,
         },
       })
         .then(saveUser)
@@ -78,9 +78,9 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         method: 'post',
         url: 'http://209.182.238.244/back/user/forget',
         withCredentials: true,
-        headers: { 'Content-Type':'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         data: {
-          "email": state.login.email,
+          email: state.login.email,
         },
       })
         .then(saveUserPassword)
@@ -96,16 +96,16 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
         headers: { Authorization: `Bearer ${action.token}` },
         data: {
-          "actual_password": state.passwordChange.password,
-          "plainPassword": state.passwordChange.newPassword,
+          actual_password: state.passwordChange.password,
+          plainPassword: state.passwordChange.newPassword,
         },
       })
         .then(saveUserPasswordChange)
         .catch(handleErrorPasswordChange);
       break;
     }
-    case ACCOUNT: 
-      //console.log('middleware', action.token);
+    case ACCOUNT:
+      // console.log('middleware', action.token);
       axios({
         method: 'get',
         url: 'http://209.182.238.244/back/api/myprofile',
@@ -120,8 +120,8 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
         //  console.log('Une erreur s\'est produite', error);
         });
-        // alternative à
-        // axios.get('http://');
+      // alternative à
+      // axios.get('http://');
       break;
     default:
       break;

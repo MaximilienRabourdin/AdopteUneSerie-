@@ -2,8 +2,8 @@
 import React from 'react';
 
 // Import
-import NotFoundStyled from './NotFoundStyled';
 import Header from 'src/containers/Header';
+import NotFoundStyled from './NotFoundStyled';
 
 // Composant
 const NotFound = () => (

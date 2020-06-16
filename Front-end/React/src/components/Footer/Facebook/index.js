@@ -7,14 +7,9 @@ import FacebookStyled from './FacebookStyled';
 // Composant
 const Facebook = () => (
   <FacebookStyled>
-
     <div id="facebook">
-
       <Icon disabled className="facebook f" />
-
-
     </div>
-
   </FacebookStyled>
 );
 

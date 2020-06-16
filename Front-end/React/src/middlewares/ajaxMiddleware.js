@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-import { 
-LOAD_SERIES_TENDANCE, 
-LOAD_SERIES_TOP_RATED, 
-LOAD_SERIES_RECENT, 
-saveSeriesTendance, 
-saveSeriesTopRated, 
-saveSeriesRecent,
+import {
+  LOAD_SERIES_TENDANCE,
+  LOAD_SERIES_TOP_RATED,
+  LOAD_SERIES_RECENT,
+  saveSeriesTendance,
+  saveSeriesTopRated,
+  saveSeriesRecent,
 } from 'src/actions/series';
 
-import { 
-LOAD_SERIES_FAVORITES, 
-saveSeriesFavorites, 
+import {
+  LOAD_SERIES_FAVORITES,
+  saveSeriesFavorites,
 } from 'src/actions/favorite';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -46,46 +46,46 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         })
         // échec
         .catch((error) => {
-          //console.log('Une erreur s\'est produite', error);
+          // console.log('Une erreur s\'est produite', error);
         });
 
       // alternative à
       // axios.get('http://localhost:3001/recipes');
       break;
-      case LOAD_SERIES_TOP_RATED:
-        axios({
-          method: 'post',
-          url: 'http://209.182.238.244/back/discover/top_rated/{1}',
+    case LOAD_SERIES_TOP_RATED:
+      axios({
+        method: 'post',
+        url: 'http://209.182.238.244/back/discover/top_rated/{1}',
+      })
+      // succès
+        .then((response) => {
+          store.dispatch(saveSeriesTopRated(response.data));
         })
-          // succès
-          .then((response) => {
-            store.dispatch(saveSeriesTopRated(response.data));
-          })
-          // échec
-          .catch((error) => {
-            //console.log('Une erreur s\'est produite', error);
-          });
-  
-        // alternative à
-        // axios.get('http://localhost:3001/recipes');
-        break;
-        case LOAD_SERIES_RECENT:
-          axios({
-            method: 'post',
-            url: 'http://209.182.238.244/back/discover/recent/{1}',
-          })
-            // succès
-            .then((response) => {
-              store.dispatch(saveSeriesRecent(response.data));
-            })
-            // échec
-            .catch((error) => {
-              //console.log('Une erreur s\'est produite', error);
-            });
-    
-          // alternative à
-          // axios.get('http://localhost:3001/recipes');
-          break;
+      // échec
+        .catch((error) => {
+          // console.log('Une erreur s\'est produite', error);
+        });
+
+      // alternative à
+      // axios.get('http://localhost:3001/recipes');
+      break;
+    case LOAD_SERIES_RECENT:
+      axios({
+        method: 'post',
+        url: 'http://209.182.238.244/back/discover/recent/{1}',
+      })
+      // succès
+        .then((response) => {
+          store.dispatch(saveSeriesRecent(response.data));
+        })
+      // échec
+        .catch((error) => {
+          // console.log('Une erreur s\'est produite', error);
+        });
+
+      // alternative à
+      // axios.get('http://localhost:3001/recipes');
+      break;
 
     default:
       break;

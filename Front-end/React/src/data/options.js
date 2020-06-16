@@ -5,32 +5,32 @@ import runtime from 'src/data/runTimeMax';
 
 import optionsInput from 'src/data/optionsMerge';
 
-const genresOptions = genres.genres.map( state => ({
+const genresOptions = genres.genres.map((state) => ({
   key: state.id,
   text: state.name,
   value: state.name,
-  style: { color: 'teal' }
+  style: { color: 'teal' },
 }
 ));
-const networksOptions = networks.networks.map( state => ({
+const networksOptions = networks.networks.map((state) => ({
   key: state.id,
   text: state.name,
   value: state.name,
-  style: { color: 'green' }
+  style: { color: 'green' },
 }
 ));
-const notesOptions = notes.notes.map( state => ({
+const notesOptions = notes.notes.map((state) => ({
   key: state.id,
   text: state.name,
   value: state.name,
-  style: { color: 'orange' }
+  style: { color: 'orange' },
 }
 ));
-const runtimeOptions = runtime.runtime.map( state => ({
+const runtimeOptions = runtime.runtime.map((state) => ({
   key: state.id,
   text: state.name,
   value: state.name,
-  style: { color: 'purple' }
+  style: { color: 'purple' },
 }
 ));
 

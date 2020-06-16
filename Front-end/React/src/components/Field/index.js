@@ -14,7 +14,7 @@ const Field = ({
   type,
 }) => {
   const handleChange = (evt) => {
-   // console.log(evt.target.value);
+    // console.log(evt.target.value);
     onChange(evt.target.value, name);
   };
 
@@ -23,7 +23,7 @@ const Field = ({
       <label
         className="label"
         htmlFor={name}
-        style={{fontSize: "1.5em"}}
+        style={{ fontSize: '1.5em' }}
       >
         {placeholder}
       </label>

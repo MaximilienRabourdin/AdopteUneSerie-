@@ -1,5 +1,5 @@
 // Import : npm
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Import : local
@@ -7,23 +7,22 @@ import HeaderSerie from 'src/containers/HeaderSerie';
 import Header from 'src/containers/Header';
 
 // Composant
-function SerieInfo({ 
+function SerieInfo({
   serie,
   slug,
   sendSlug,
   load,
   status,
- }) {
-
+}) {
   useEffect(() => {
-    var id = slug.match(/[0-9]+/g)
-   sendSlug(id);
-  },[]);
+    const id = slug.match(/[0-9]+/g);
+    sendSlug(id);
+  }, []);
 
-  if(load){
+  if (load) {
     return (
       <div className="recipe">
-        <Header/>
+        <Header />
         <HeaderSerie
           slug={slug}
           status={status}
@@ -43,13 +42,12 @@ function SerieInfo({
         />
       </div>
     );
-  } else {
-    return (
-      <div>
-          Loading...
-      </div>
-    );
   }
+  return (
+    <div>
+      Loading...
+    </div>
+  );
 }
 
 SerieInfo.propTypes = {
@@ -68,10 +66,10 @@ SerieInfo.propTypes = {
   numberEpisodes: PropTypes.string.isRequired,
   runTime: PropTypes.string.isRequired,
   networks: PropTypes.arrayOf(
-    PropTypes.object.isRequired 
+    PropTypes.object.isRequired,
   ).isRequired,
   productions: PropTypes.arrayOf(
-    PropTypes.object.isRequired 
+    PropTypes.object.isRequired,
   ).isRequired,
 };
 

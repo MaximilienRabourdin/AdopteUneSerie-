@@ -1,20 +1,20 @@
 // Action Types
-import { 
-CHANGE_FIELD, 
-SET_USER, 
-SET_ERROR, 
+import {
+  CHANGE_FIELD,
+  SET_USER,
+  SET_ERROR,
 } from 'src/actions/register';
 
 // Initial State
 const initialState = {
   email: '',
   password: '',
-  confirmPassword:'',
+  confirmPassword: '',
   firstname: '',
   lastname: '',
   status: 0,
   data: {},
-  error:{},
+  error: {},
 };
 
 // Reducer

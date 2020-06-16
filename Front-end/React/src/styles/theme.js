@@ -5,8 +5,8 @@ export default {
     content: '#252525',
     light: '#FFFFFF',
     lighter: '#FFFFFF',
-    
+
   },
-  
+
   gutter: 2,
 };

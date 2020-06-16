@@ -13,30 +13,31 @@ import HeaderStyled from './HeaderStyled';
 
 // Composant
 const Header = () => {
-
-  var data = sessionStorage.getItem('token');
+  const data = sessionStorage.getItem('token');
 
   return (
-  <HeaderStyled>
-    <div id="TOP">
-      <Logo />
-      <div id="sign">
-        {!(data) && 
-          <React.Fragment>
+    <HeaderStyled>
+      <div id="TOP">
+        <Logo />
+        <div id="sign">
+          {!(data)
+          && (
+          <>
             <SignUp />
             <SignIn />
-          </React.Fragment>
-        }
-        {(data) && 
-          <React.Fragment>
+          </>
+          )}
+          {(data)
+          && (
+          <>
             <AccountButton className="signUpDesktop" />
             <FavoritesButton className="signUpDesktop" />
             <LogOutButton />
-        </React.Fragment>
-        }  
+          </>
+          )}
+        </div>
       </div>
-    </div>
-  </HeaderStyled>
+    </HeaderStyled>
   );
 };
 

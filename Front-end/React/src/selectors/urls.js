@@ -1,8 +1,4 @@
 import slugify from 'slugify';
-import genres from 'src/data/genres';
-import networks from 'src/data/networks';
-import notes from 'src/data/notes';
-import runtime from 'src/data/runTimeMax';
 
 export const getSlugFromString = (string) => {
   const slug = slugify(string, {

@@ -7,7 +7,7 @@ import PasswordChange from 'src/components/PasswordChange';
 import { passwordChange, changeField } from 'src/actions/passwordChange';
 
 
-//== Data / state
+// == Data / state
 const mapStateToProps = (state) => ({
   password: state.passwordChange.password,
   newPassword: state.passwordChange.newPassword,

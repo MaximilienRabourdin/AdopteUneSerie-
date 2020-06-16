@@ -1,11 +1,11 @@
 // Import npm
 import React from 'react';
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
 
 // Composant
 const SignIn = () => (
-  <Button inverted color='blue'>
-    <a href={"/connexion"}>Connexion</a>
+  <Button inverted color="blue">
+    <a href="/connexion">Connexion</a>
   </Button>
 );
 

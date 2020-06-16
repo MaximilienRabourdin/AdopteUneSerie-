@@ -2,14 +2,14 @@
 import React from 'react';
 
 // Import
-import ContactStyled from './ContactStyled';
 import Header from 'src/containers/Header';
+import ContactStyled from './ContactStyled';
 
 // Composant
 const Contact = () => (
 
   <ContactStyled>
-    <Header/>
+    <Header />
     Contact
   </ContactStyled>
 

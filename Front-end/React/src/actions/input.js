@@ -6,7 +6,7 @@ export const SAVE_SERIE_INPUT = 'SAVE_SERIE_INPUT';
 // Load serie data from server
 export const loadSerieInput = (value) => ({
   type: LOAD_SERIE_INPUT,
-  value
+  value,
 });
 
 // Save serie data in the store

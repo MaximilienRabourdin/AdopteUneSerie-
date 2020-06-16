@@ -11,7 +11,7 @@ import { loadCheck } from 'src/actions/favorite';
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state, ownProps) => {
-  //console.log("state SerieInfo", state.serie.serie);
+  // console.log("state SerieInfo", state.serie.serie);
   return {
     serie: state.serie.serie,
     slug: ownProps.location.pathname,

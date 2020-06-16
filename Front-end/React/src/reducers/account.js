@@ -8,11 +8,11 @@ const initialState = {
 // Reducer
 const accountReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-      case SAVE_USER_INFO:
-        return {
-          ...state,
-          data: action.data,
-        };
+    case SAVE_USER_INFO:
+      return {
+        ...state,
+        data: action.data,
+      };
     default:
       return state;
   }

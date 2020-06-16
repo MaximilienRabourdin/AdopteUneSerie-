@@ -3,76 +3,77 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
-	// Import
-import PasswordChangeStyled from './PasswordChangeStyled';
+// Import
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
+import PasswordChangeStyled from './PasswordChangeStyled';
 
 
 // Composant
-const PasswordChange = ({password,status, error, newPassword, changeField, handlePasswordChange }) => {
-
-  const handleSubmit= (evt) => {
+const PasswordChange = ({
+  password, status, error, newPassword, changeField, handlePasswordChange,
+}) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    var token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     handlePasswordChange(token);
   };
 
-  console.log(error)
+  console.log(error);
 
-  var error409=0;
-  var error400=0;
+  let error409 = 0;
+  let error400 = 0;
 
-  if(error) {     
+  if (error) {
     if (error.status) {
-      if (error.status===409) {
+      if (error.status === 409) {
         error409 = 409;
-        //console.log(error.status)
+        // console.log(error.status)
       }
-      if (error.status===400) {
+      if (error.status === 400) {
         error400 = 400;
-        //console.log(error.status)
+        // console.log(error.status)
       }
     }
-   }
+  }
   return (
     <PasswordChangeStyled onSubmit={handleSubmit}>
       <Header />
       <form className="form">
         <h1 className="title">Modifier mon mot de passe</h1>
         <Field
-        value={password}
-        onChange={changeField}
-        placeholder="Mot de passe actuel"
-        name="password"
-        type="password"
+          value={password}
+          onChange={changeField}
+          placeholder="Mot de passe actuel"
+          name="password"
+          type="password"
         />
-        {(error409===409) &&
-          <p style={{color:"red"}}>{error.data.false}</p>
-        }
+        {(error409 === 409)
+          && <p style={{ color: 'red' }}>{error.data.false}</p>}
         <Field
-        value={newPassword}
-        onChange={changeField}
-        placeholder="Nouveau mot de passe"
-        name="newPassword"
-        type="password"
+          value={newPassword}
+          onChange={changeField}
+          placeholder="Nouveau mot de passe"
+          name="newPassword"
+          type="password"
         />
-        {(error400===400) &&
-          <p style={{color:"red"}}>{error.data.errors.plainPassword}</p>
-        }
+        {(error400 === 400)
+          && <p style={{ color: 'red' }}>{error.data.errors.plainPassword}</p>}
         <div className="actions">
-          {(status>0) && 
-            <p style={{color:"green"}}>
+          {(status > 0)
+            && (
+            <p style={{ color: 'green' }}>
               Mot de passe modifié
             </p>
-          }
-          <Button 
-          className="ui blue button"
-          type="submit"
-          className="actions-button">
+            )}
+          <Button
+            className="ui blue button"
+            type="submit"
+            className="actions-button"
+          >
             Envoyer
           </Button>
-        
+
         </div>
       </form>
     </PasswordChangeStyled>
@@ -82,7 +83,7 @@ const PasswordChange = ({password,status, error, newPassword, changeField, handl
 PasswordChange.propTypes = {
   status: PropTypes.number.isRequired,
   error: PropTypes.objectOf(
-    PropTypes.object.isRequired
+    PropTypes.object.isRequired,
   ).isRequired,
   password: PropTypes.string.isRequired,
   newPassword: PropTypes.string.isRequired,

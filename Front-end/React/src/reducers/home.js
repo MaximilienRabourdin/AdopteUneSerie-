@@ -1,13 +1,13 @@
 // Import
 import { SAVE_SERIES_TENDANCE, SAVE_SERIES_TOP_RATED, SAVE_SERIES_RECENT } from 'src/actions/series';
-import { SAVE_SERIE_INPUT} from 'src/actions/input';
+import { SAVE_SERIE_INPUT } from 'src/actions/input';
 // console.log(data);
 
 import {
   SAVE_SERIE,
-  CHANGE_DROPDOWN
+  CHANGE_DROPDOWN,
 } from 'src/actions/name';
-  
+
 
 // Initial State
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
   idNote: '',
   idTime: '',
   seriesTendance: [],
-  seriesTopRated : [],
+  seriesTopRated: [],
   seriesRecent: [],
   serieInput: [],
   inputName: '',
@@ -25,25 +25,25 @@ const initialState = {
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_SERIES_TENDANCE:
-      //console.log(action.series);
-     return {
+      // console.log(action.series);
+      return {
         ...state, // state actuel
         seriesTendance: action.series,
       };
     case SAVE_SERIES_TOP_RATED:
-      //console.log(action.series);
+      // console.log(action.series);
       return {
         ...state, // state actuel
-        seriesTopRated : action.series,
+        seriesTopRated: action.series,
       };
     case SAVE_SERIES_RECENT:
-      //console.log(action.series);
+      // console.log(action.series);
       return {
         ...state, // state actuel
         seriesRecent: action.series,
       };
     case SAVE_SERIE_INPUT:
-     // console.log(action.serieInput);
+      // console.log(action.serieInput);
       return {
         ...state, // state actuel
         serieInput: action.serieInput,
@@ -51,7 +51,7 @@ const homeReducer = (state = initialState, action = {}) => {
     case SAVE_SERIE:
       return {
         ...state, // state actuel
-       inputName: action.value,
+        inputName: action.value,
       };
     case CHANGE_DROPDOWN:
       return {
@@ -62,7 +62,7 @@ const homeReducer = (state = initialState, action = {}) => {
         idTime: action.idTime,
       };
     default:
-     // console.log(state);
+      // console.log(state);
       return state;
   }
 };

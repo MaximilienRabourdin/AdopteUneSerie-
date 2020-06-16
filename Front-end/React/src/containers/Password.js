@@ -6,7 +6,7 @@ import Password from 'src/components/Password';
 // Action Creators
 import { password, changeField } from 'src/actions/password';
 
-//== Data / state
+// == Data / state
 const mapStateToProps = (state) => ({
   email: state.password.email,
   status: state.password.status,

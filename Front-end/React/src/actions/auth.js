@@ -28,8 +28,3 @@ export const setError = (error) => ({
 export const login = () => ({
   type: LOGIN,
 });
-
-
-
-
-

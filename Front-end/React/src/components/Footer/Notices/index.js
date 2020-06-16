@@ -3,13 +3,13 @@ import React from 'react';
 
 // Import
 
-import NoticesStyled from './NoticesStyled';
 import Header from 'src/containers/Header';
+import NoticesStyled from './NoticesStyled';
 
 // Composant
 const Notices = () => (
   <NoticesStyled>
-  <Header/>
+    <Header />
     Mentions Légales
   </NoticesStyled>
 );

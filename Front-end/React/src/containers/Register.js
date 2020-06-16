@@ -6,11 +6,11 @@ import Register from 'src/components/Register';
 // Action Creators
 import { register, changeField } from 'src/actions/register';
 
-//== Data / state
+// == Data / state
 const mapStateToProps = (state) => ({
   email: state.register.email,
   password: state.register.password,
-  confirmPassword : state.register.confirmPassword,
+  confirmPassword: state.register.confirmPassword,
   firstname: state.register.firstname,
   lastname: state.register.lastname,
   status: state.register.status,

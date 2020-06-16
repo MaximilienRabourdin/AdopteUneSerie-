@@ -10,10 +10,7 @@ import TwitterStyled from './TwitterStyled';
 const Twitter = () => (
 
   <TwitterStyled>
-
-
     <Icon disabled name="twitter" />
-
   </TwitterStyled>
 );
 // Export
