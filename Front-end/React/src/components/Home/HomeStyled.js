@@ -6,7 +6,7 @@ min-height: 90vh;
   padding: 150px 50px 30px 50px;
 }
 
-.style{
+.style {
   font-size: 1.8em;
   color: black;
   font-family: "Rajdhani", cursive;

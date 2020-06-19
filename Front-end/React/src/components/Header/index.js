@@ -1,6 +1,5 @@
 // Import npm
 import React from 'react';
-import MediaQuery from 'react-responsive';
 
 // Import
 import Logo from 'src/components/Logo';
@@ -13,29 +12,28 @@ import HeaderStyled from './HeaderStyled';
 
 // Composant
 const Header = () => {
-  const data = sessionStorage.getItem('token');
+  // Récupération du token enregistré dans le session storage à la connexion
+  const token = sessionStorage.getItem('token');
 
   return (
     <HeaderStyled>
       <div id="TOP">
         <Logo />
-        <div id="sign">
-          {!(data)
+        {!(token)
           && (
-          <>
-            <SignUp />
-            <SignIn />
-          </>
+            <div id="sign">
+              <SignUp />
+              <SignIn />
+            </div>
           )}
-          {(data)
+        {(token)
           && (
-          <>
-            <AccountButton className="signUpDesktop" />
-            <FavoritesButton className="signUpDesktop" />
-            <LogOutButton />
-          </>
+            <div id="sign">
+              <AccountButton className="Desktop" />
+              <FavoritesButton className="Desktop" />
+              <LogOutButton />
+            </div>
           )}
-        </div>
       </div>
     </HeaderStyled>
   );

@@ -1,6 +1,5 @@
 // Import npm
 import React from 'react';
-import MediaQuery from 'react-responsive';
 
 // Import
 import Logo from 'src/components/LogoSearch';
@@ -23,23 +22,21 @@ const Header = () => {
           <Logo />
           <SearchBar />
         </div>
-        <div id="sign">
-          {!(data)
+        {!(data)
           && (
-          <>
-            <SignUp />
-            <SignIn />
-          </>
+            <div id="sign">
+              <SignUp />
+              <SignIn />
+            </div>
           )}
-          {(data)
+        {(data)
           && (
-          <>
-            <AccountButton className="signUpDesktop" />
-            <FavoritesButton className="signUpDesktop" />
-            <LogOutButton />
-          </>
+            <div id="sign">
+              <AccountButton className="signUpDesktop" />
+              <FavoritesButton className="signUpDesktop" />
+              <LogOutButton />
+            </div>
           )}
-        </div>
       </div>
     </HeaderStyled>
   );

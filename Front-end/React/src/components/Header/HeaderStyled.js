@@ -26,7 +26,7 @@ export default styled.div`
     right: 4%; 
   }
 
-  .signUpDesktop {
+  .Desktop {
     margin-right: 10px;
   }
 }

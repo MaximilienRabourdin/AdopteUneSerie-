@@ -9,7 +9,7 @@ const initialState = {
   password: '',
   status: 0,
   data: {},
-  error:{},
+  error: {},
 };
 
 // Reducer

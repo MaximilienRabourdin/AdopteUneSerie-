@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 // On prépare un objet avec les props attendues par le composant
 const mapDispatchToProps = (dispatch) => ({
   handleAccount: (token) => {
-    //console.log('containers', token);
+    // console.log('containers', token);
     dispatch(account(token));
   },
 });

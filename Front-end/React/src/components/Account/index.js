@@ -14,9 +14,11 @@ const Account = ({
   data,
   handleAccount,
 }) => {
+  // Récupération du token enregistré dans le session storage à la connexion
   useEffect(() => {
     const token = sessionStorage.getItem('token');
     // console.log('components', token);
+    // Renvoi du token au serveur pour récupérer les infos du user
     handleAccount(token);
   }, []);
 
