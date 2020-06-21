@@ -13,14 +13,18 @@ import optionsInput from 'src/data/optionsMerge';
 import SearchBarStyled from './SearchBarStyled';
 
 // Composant
-const SearchBar = ({ inputValue, sendName, sendIds }) => {
-// const SearchBar = () => (
-
+const SearchBar = ({
+  inputValue,
+  sendName,
+  sendIds,
+}) => {
+  // Envoie de l'input au serveur
   const handleChange = (evt) => {
     // evt.preventDefault();
     sendName(evt.target.value);
   };
 
+  // On filtre les input du dropdown
   const optionsSelected = (value) => {
     const optionItems = [];
     value.map((input) => {
@@ -28,9 +32,10 @@ const SearchBar = ({ inputValue, sendName, sendIds }) => {
       // console.log(option);
       optionItems.push(option);
     });
-    return (optionsSelected);
+    return (optionItems);
   };
 
+  // On trie les input filtrés du dropdown par genre networks... puis on envoie au serveur
   const handleChangeDropdown = (evt, { value }) => {
     // console.log(optionsSelected(value));
     const optionInput = optionsSelected(value);
@@ -67,13 +72,20 @@ const SearchBar = ({ inputValue, sendName, sendIds }) => {
             style={{ minWidth: '202px' }}
             className="searchBar"
             size="large"
-            icon={{ name: 'search', circular: true, link: true }}
+            icon={{
+              name: 'search',
+              circular: true,
+              link: true,
+            }}
             placeholder="Recherchez une série"
             value={inputValue}
             onChange={handleChange}
           />
           <Dropdown
-            style={{ minWidth: '202px', minHeight: '38px' }}
+            style={{
+              minWidth: '202px',
+              minHeight: '38px',
+            }}
             className="dropdown"
             placeholder="Selectionnez vos critères"
             multiple
@@ -91,13 +103,20 @@ const SearchBar = ({ inputValue, sendName, sendIds }) => {
             style={{ minWidth: '302px' }}
             className="searchBar"
             size="large"
-            icon={{ name: 'search', circular: true, link: true }}
+            icon={{
+              name: 'search',
+              circular: true,
+              link: true,
+            }}
             placeholder="Recherchez une série"
             value={inputValue}
             onChange={handleChange}
           />
           <Dropdown
-            style={{ minWidth: '302px', minHeight: '38px' }}
+            style={{
+              minWidth: '302px',
+              minHeight: '38px',
+            }}
             className="dropdown"
             placeholder="Selectionnez vos critères"
             multiple

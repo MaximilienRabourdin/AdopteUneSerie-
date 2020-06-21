@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Import : local
 import logo from 'src/assets/logo4.png';
-import IntroStyled from './IntroStyled.js';
+import IntroStyled from './IntroStyled';
 
 // Composant
 const Intro = () => (
@@ -17,13 +17,20 @@ const Intro = () => (
       <div className="div" />
       <div className="div">
         <Link to="/Accueil">
-          <img src={logo} />
+          <img
+            alt="logo"
+            src={logo}
+          />
         </Link>
       </div>
     </MediaQuery>
     <MediaQuery maxWidth={425}>
       <Link to="/Accueil">
-        <img id="mobile" src={logo} />
+        <img
+          id="mobile"
+          alt="logo"
+          src={logo}
+        />
       </Link>
     </MediaQuery>
   </IntroStyled>

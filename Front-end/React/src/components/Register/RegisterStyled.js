@@ -6,7 +6,16 @@ import theme from 'src/styles/theme';
 const LoginStyled = styled.div`
 min-height: 150vh;
 font-family: "Rajdhani", cursive;
- .formDesktop{
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+
+@media only screen and (min-width: 426px){
+ .form {
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
@@ -15,16 +24,14 @@ font-family: "Rajdhani", cursive;
   border: 2px solid black;
   position: absolute;
   top: 150px;
- } 
-  
-  .titleDesktop {
+ }   
+  .title {
     font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: ${theme.gutter / 3}rem;
   }
-
-  .actionsDesktop {
+  .actions {
     margin-top: ${theme.gutter / 2}rem;
     text-align: center;
     /* & reprend la valeur du parent : ici ".actions" */
@@ -38,8 +45,7 @@ font-family: "Rajdhani", cursive;
       font-weight: 500;
     }
   }
-
-  .linksDesktop {
+  .links {
     text-align: center;
     margin-top: ${theme.gutter / 2}rem;
     &-item {
@@ -47,8 +53,9 @@ font-family: "Rajdhani", cursive;
       margin: ${theme.gutter / 6}rem
     }
   }
-  
-  .formMobile{
+} 
+@media only screen and (max-width: 425px){
+  .form {
    background-color : white;
   padding: ${theme.gutter/ 2}rem;
   border-radius: ${theme.gutter / 3}rem;
@@ -57,16 +64,14 @@ font-family: "Rajdhani", cursive;
   border: 2px solid black;
   position: absolute;
   top: 130px;
- } 
-  
-  .titleMobile {
+ }   
+  .title {
     font-family: "Rajdhani", cursive;
     text-align: center;
     font-size: 2rem;
     margin-bottom: ${theme.gutter / 3}rem;
   }
-
-  .actionsMobile {
+  .actions {
     margin-top: ${theme.gutter / 2}rem;
     text-align: center;
     /* & reprend la valeur du parent : ici ".actions" */
@@ -79,9 +84,8 @@ font-family: "Rajdhani", cursive;
       border-radius: ${theme.gutter / 4}rem;
       font-weight: 700;
     }
-  }
-  
-  .linksMobile {
+  }  
+  .links {
     text-align: center;
     margin-top: ${theme.gutter / 2}rem;
     &-item {
@@ -89,7 +93,7 @@ font-family: "Rajdhani", cursive;
       margin: ${theme.gutter / 6}rem
     }
   }
-  
+}  
 `;
 
 export default LoginStyled;

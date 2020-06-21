@@ -13,7 +13,7 @@ import HeaderStyled from './HeaderStyled';
 
 // Composant
 const Header = () => {
-  const data = sessionStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
 
   return (
     <HeaderStyled>
@@ -22,14 +22,14 @@ const Header = () => {
           <Logo />
           <SearchBar />
         </div>
-        {!(data)
+        {!(token)
           && (
             <div id="sign">
               <SignUp />
               <SignIn />
             </div>
           )}
-        {(data)
+        {(token)
           && (
             <div id="sign">
               <AccountButton className="signUpDesktop" />

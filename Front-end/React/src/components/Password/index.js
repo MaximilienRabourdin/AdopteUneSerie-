@@ -1,8 +1,8 @@
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import MediaQuery from 'react-responsive';
 
 // Import
 import Field from 'src/components/Field';
@@ -71,7 +71,6 @@ Password.propTypes = {
   error: PropTypes.objectOf(
     PropTypes.object.isRequired,
   ).isRequired,
-  status: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,

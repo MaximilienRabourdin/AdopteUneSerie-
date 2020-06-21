@@ -10,7 +10,12 @@ import CardStyled from './CardStyled';
 const SerieCard = ({ serie }) => (
   <Link to={`/serie/${serie.id}`}>
     <CardStyled>
-      <Card style={{ maxWidth: '90%', margin: '0 5% 5% 5%' }}>
+      <Card
+        style={{
+          maxWidth: '90%',
+          margin: '0 5% 5% 5%',
+        }}
+      >
         <Image
           src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
           wrapped

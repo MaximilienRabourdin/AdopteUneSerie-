@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
 // Import
@@ -19,7 +18,7 @@ const PasswordChange = ({
     handlePasswordChange(token);
   };
 
-  console.log(error);
+  // console.log(error);
 
   let error409 = 0;
   let error400 = 0;

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // Import : local
 import HeaderSerie from 'src/containers/HeaderSerie';
 import Header from 'src/containers/Header';
+import LoadingStyled from './LoadingStyled';
 
 // Composant
 function SerieInfo({
@@ -45,32 +46,23 @@ function SerieInfo({
   }
   return (
     <div>
-      Loading...
+      <LoadingStyled>
+        <Header />
+        <div
+          className="head"
+        >
+          <span className="neonStyle">Loading... </span>
+        </div>
+      </LoadingStyled>
     </div>
   );
 }
 
 SerieInfo.propTypes = {
   status: PropTypes.number.isRequired,
-  serie: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   sendSlug: PropTypes.func.isRequired,
   load: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  vote: PropTypes.string.isRequired,
-  voteCount: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  airDate: PropTypes.string.isRequired,
-  numberSeasons: PropTypes.string.isRequired,
-  numberEpisodes: PropTypes.string.isRequired,
-  runTime: PropTypes.string.isRequired,
-  networks: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  productions: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
 };
 
 // Export

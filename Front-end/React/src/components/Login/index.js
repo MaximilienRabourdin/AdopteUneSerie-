@@ -12,7 +12,11 @@ import LoginStyled from './LoginStyled';
 
 // Composant
 const Login = ({
-  password, status, error, email, changeField, handleLogin,
+  password,
+  error,
+  email,
+  changeField,
+  handleLogin,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -20,12 +24,10 @@ const Login = ({
   };
 
   const data = sessionStorage.getItem('token');
-  console.log(error);
-
   // console.log(error);
+
   let error401 = 0;
 
-  // var data = sessionStorage.getItem('data');
   if (error) {
     if (error.status) {
       error401 = 401;
@@ -51,7 +53,9 @@ const Login = ({
           name="password"
           type="password"
         />
-        <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+        <p>Votre mot de passe doit contenir au moins: 8 caractères, une majuscule, une minuscule,
+          un chiffre et un caractère spécial
+        </p>
 
         <div className="actions">
           {(data)
@@ -77,7 +81,6 @@ const Login = ({
 };
 
 Login.propTypes = {
-  status: PropTypes.number.isRequired,
   error: PropTypes.objectOf(
     PropTypes.object.isRequired,
   ).isRequired,

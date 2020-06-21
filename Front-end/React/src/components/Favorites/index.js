@@ -17,6 +17,7 @@ window.addEventListener('scroll', () => {
   document.querySelector('.head').style.opacity = opacity;
 });
 
+// Composants
 const Favorites = ({ series }) => (
   <FavoritesStyled>
     <Header />

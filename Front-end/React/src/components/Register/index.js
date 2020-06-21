@@ -1,23 +1,31 @@
+// Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import MediaQuery from 'react-responsive';
 
-// Import	// Import
+// Import
 import Field from 'src/components/Field';
 import Header from 'src/containers/Header';
 import RegisterStyled from './RegisterStyled';
 
-
-// Composant	// Composant
+// Composant
 const Register = ({
-  firstname, status, error, lastname, email, password, confirmPassword, changeField, handleRegister,
+  firstname,
+  status,
+  error,
+  lastname,
+  email,
+  password,
+  confirmPassword,
+  changeField,
+  handleRegister,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
   };
+  // Vérification des inputs
   // console.log("components", status);
   let firstnameE = '';
   let lastnameE = '';
@@ -53,144 +61,73 @@ const Register = ({
   return (
     <RegisterStyled onSubmit={handleSubmit}>
       <Header />
-      <MediaQuery minWidth={426}>
-        <form className="formDesktop">
-          <h1 className="titleDesktop">Créer un compte</h1>
+      <form className="form">
+        <h1 className="textDecorationStyle: ">Créer un compte</h1>
 
-          <Field
-            value={firstname}
-            onChange={changeField}
-            placeholder="Prénom"
-            name="firstname"
-            type="text"
-          />
-          {(firstnameE.length > 0)
-        && <p style={{ color: 'red' }}>{firstnameE}</p>}
+        <Field
+          value={firstname}
+          onChange={changeField}
+          placeholder="Prénom"
+          name="firstname"
+          type="text"
+        />
+        {(firstnameE.length > 0)
+        && <p className="red">{firstnameE}</p>}
 
-          <Field
-            value={lastname}
-            onChange={changeField}
-            placeholder="Nom de famille"
-            name="lastname"
-            type="text"
-          />
-          {(lastnameE.length > 0)
-        && <p style={{ color: 'red' }}>{lastnameE}</p>}
-          <Field
-            value={email}
-            onChange={changeField}
-            placeholder="Votre email"
-            name="email"
-            type="email"
-          />
-          {(emailE.length > 0)
-        && <p style={{ color: 'red' }}>{emailE}</p>}
+        <Field
+          value={lastname}
+          onChange={changeField}
+          placeholder="Nom de famille"
+          name="lastname"
+          type="text"
+        />
+        {(lastnameE.length > 0)
+        && <p className="red">{lastnameE}</p>}
+        <Field
+          value={email}
+          onChange={changeField}
+          placeholder="Votre email"
+          name="email"
+          type="email"
+        />
+        {(emailE.length > 0)
+        && <p className="red">{emailE}</p>}
 
-          <Field
-            value={password}
-            onChange={changeField}
-            placeholder="Mot de passe"
-            name="password"
-            type="password"
-          />
-          {(passwordE.length > 0)
-        && <p style={{ color: 'red' }}>{passwordE}</p>}
-          <Field
-            value={confirmPassword}
-            onChange={changeField}
-            placeholder="Confirmation mot de passe"
-            name="confirmPassword"
-            type="password"
-          />
+        <Field
+          value={password}
+          onChange={changeField}
+          placeholder="Mot de passe"
+          name="password"
+          type="password"
+        />
+        {(passwordE.length > 0)
+        && <p className="red">{passwordE}</p>}
+        <Field
+          value={confirmPassword}
+          onChange={changeField}
+          placeholder="Confirmation mot de passe"
+          name="confirmPassword"
+          type="password"
+        />
 
-          <div className="actionsDesktop">
-            {(status > 0)
-        && <p style={{ color: 'green' }}>L'inscription a bien été prise en compte</p>}
-            {(error409 === 409)
-        && <p style={{ color: 'red' }}>Ce compte existe déjà</p>}
-            <Button
-              className="ui blue button"
-              type="submit"
-              className="actions-button"
-            >
-              Valider
-            </Button>
-          </div>
+        <div className="actions">
+          {(status > 0)
+        && <p className="green">L'inscription a bien été prise en compte</p>}
+          {(error409 === 409)
+        && <p className="red">Ce compte existe déjà</p>}
+          <Button
+            className="ui blue button"
+            type="submit"
+            className="actions-button"
+          >
+            Valider
+          </Button>
+        </div>
 
-          <div className="linksDesktop">
-            <Link className="links-item" to="/connexion">Connexion</Link>
-          </div>
-        </form>
-      </MediaQuery>
-      <MediaQuery maxWidth={425}>
-        <form className="formMobile">
-          <h1 className="titleMobile">Créer un compte</h1>
-
-          <Field
-            value={firstname}
-            onChange={changeField}
-            placeholder="Prénom"
-            name="firstname"
-            type="text"
-          />
-          {(firstnameE.length > 0)
-        && <p style={{ color: 'red' }}>{firstnameE}</p>}
-
-          <Field
-            value={lastname}
-            onChange={changeField}
-            placeholder="Nom de famille"
-            name="lastname"
-            type="text"
-          />
-          {(lastnameE.length > 0)
-        && <p style={{ color: 'red' }}>{lastnameE}</p>}
-          <Field
-            value={email}
-            onChange={changeField}
-            placeholder="Votre email"
-            name="email"
-            type="email"
-          />
-          {(emailE.length > 0)
-        && <p style={{ color: 'red' }}>{emailE}</p>}
-
-          <Field
-            value={password}
-            onChange={changeField}
-            placeholder="Mot de passe"
-            name="password"
-            type="password"
-          />
-          {(passwordE.length > 0)
-        && <p style={{ color: 'red' }}>{passwordE}</p>}
-          <Field
-            value={confirmPassword}
-            onChange={changeField}
-            placeholder="Confirmation mot de passe"
-            name="confirmPassword"
-            type="password"
-          />
-
-          <div className="actionsMobile">
-            {(status > 0)
-        && <p style={{ color: 'green' }}>L'inscription a bien été prise en compte</p>}
-            {(error409 == 409)
-          && <p style={{ color: 'red' }}>Ce compte existe déjà</p>}
-            <Button
-              className="ui blue button"
-              type="submit"
-              className="actions-button"
-            >
-              Valider
-            </Button>
-          </div>
-
-          <div className="linksMobile">
-            <Link className="links-item" to="/connexion">Connexion</Link>
-          </div>
-        </form>
-      </MediaQuery>
+        <div className="links">
+          <Link className="links-item" to="/connexion">Connexion</Link>
+        </div>
+      </form>
     </RegisterStyled>
   );
 };

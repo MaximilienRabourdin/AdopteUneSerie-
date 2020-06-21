@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 // Import : npm
 import React from 'react';
-import PropTypes from 'prop-types';
 // import { Rating } from 'semantic-ui-react'
 import MediaQuery from 'react-responsive';
 import { Divider, Icon, Table } from 'semantic-ui-react';
@@ -41,26 +41,39 @@ const HeaderSerie = ({
     handleDelete(id);
   };
 
-
   return (
     <header className="presentation">
       <MediaQuery maxWidth={425}>
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
-          alt="serie photo"
+          alt="serie"
           className="presentation-image-mobile"
         />
         <div className="presentation-content-mobile">
+          {/* Série déjà présente dans les favoris */}
           {(status === 200)
           && (
           <h1 className="presentation-title-mobile">{name}
-            <HeartFilled onClick={handleClickDelete} style={{ transform: 'scale(0.7)', color: 'red' }} />
+            <HeartFilled
+              onClick={handleClickDelete}
+              style={{
+                transform: 'scale(0.7)',
+                color: 'red',
+              }}
+            />
           </h1>
           )}
+          {/* Série non présente dans les favoris */}
           {(status === 204)
           && (
           <h1 className="presentation-title-mobile">{name}
-            <HeartOutlined onClick={handleClickAdd} style={{ transform: 'scale(0.7)', color: 'red' }} />
+            <HeartOutlined
+              onClick={handleClickAdd}
+              style={{
+                transform: 'scale(0.7)',
+                color: 'red',
+              }}
+            />
           </h1>
           )}
           {(!status)
@@ -87,24 +100,31 @@ const HeaderSerie = ({
           {(networks.length > 0)
           && (
           <p><span style={{ fontWeight: 'bold' }}>Disponible sur : </span>
-            <ul>
-              {networks.map((network) => <li>{network.name}</li>)}
-            </ul>
+            <span>
+              {networks.map((network) => <li key={network.name}>{network.name}</li>)}
+            </span>
           </p>
           )}
           {(productions.length > 0)
           && (
           <p><span style={{ fontWeight: 'bold' }}>Produit par :</span>
-            <ul>
-              {productions.map((production) => <li>{production.name}</li>)}
-            </ul>
+            <span>
+              {productions.map((production) => <li key={production.name}>{production.name}</li>)}
+            </span>
           </p>
           )}
 
           <Divider section />
 
           <h3>Saisons</h3>
-          <Table celled padded style={{ backgroundColor: '#191D1F', color: 'white' }}>
+          <Table
+            celled
+            padded
+            style={{
+              backgroundColor: '#191D1F',
+              color: 'white',
+            }}
+          >
             <Table.Body>
               {seasons.map((season) => {
                 if (parseInt(season.season_number) > 0) {
@@ -122,12 +142,19 @@ const HeaderSerie = ({
           <Divider section />
 
           <h3>Casting</h3>
-          <Table celled padded style={{ backgroundColor: '#191D1F', color: 'white' }}>
+          <Table
+            celled
+            padded
+            style={{
+              backgroundColor: '#191D1F',
+              color: 'white',
+            }}
+          >
             <Table.Body>
-              {cast.map(((name) => (
+              {cast.map(((infos) => (
                 <Table.Row>
-                  <Table.Cell singleLine>{name.protagonist}</Table.Cell>
-                  {name.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
+                  <Table.Cell singleLine>{infos.protagonist}</Table.Cell>
+                  {infos.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
                 </Table.Row>
               )
               ))}
@@ -138,20 +165,34 @@ const HeaderSerie = ({
       <MediaQuery minWidth={426}>
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
-          alt="serie photo"
+          alt="serie"
           className="presentation-image-desktop"
         />
         <div className="presentation-content-desktop">
+          {/* Série déjà présente dans les favoris */}
           {(status === 200)
           && (
           <h1 className="presentation-title-desktop">{name}
-            <HeartFilled onClick={handleClickDelete} style={{ transform: 'scale(0.7)', color: 'red' }} />
+            <HeartFilled
+              onClick={handleClickDelete}
+              style={{
+                transform: 'scale(0.7)',
+                color: 'red',
+              }}
+            />
           </h1>
           )}
+          {/* Série non présente dans les favoris */}
           {(status === 204)
           && (
           <h1 className="presentation-title-desktop">{name}
-            <HeartOutlined onClick={handleClickAdd} style={{ transform: 'scale(0.7)', color: 'red' }} />
+            <HeartOutlined
+              onClick={handleClickAdd}
+              style={{
+                transform: 'scale(0.7)',
+                color: 'red',
+              }}
+            />
           </h1>
           )}
           {(!status)
@@ -178,17 +219,17 @@ const HeaderSerie = ({
           {(networks.length > 0)
             && (
             <p><span style={{ fontWeight: 'bold' }}>Disponible sur : </span>
-              <ul>
-                {networks.map((network) => <li>{network.name}</li>)}
-              </ul>
+              <span>
+                {networks.map((network) => <li key={network.name}>{network.name}</li>)}
+              </span>
             </p>
             )}
           {(productions.length > 0)
             && (
             <p><span style={{ fontWeight: 'bold' }}>Produit par :</span>
-              <ul>
-                {productions.map((production) => <li>{production.name}</li>)}
-              </ul>
+              <span>
+                {productions.map((production) => <li key={production.name}>{production.name}</li>)}
+              </span>
             </p>
             )}
 
@@ -215,10 +256,10 @@ const HeaderSerie = ({
           <h1>Casting</h1>
           <Table celled padded style={{ backgroundColor: '#191D1F', color: 'white' }}>
             <Table.Body>
-              {cast.map(((name) => (
+              {cast.map(((infos) => (
                 <Table.Row>
-                  <Table.Cell singleLine>{name.protagonist}</Table.Cell>
-                  {name.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
+                  <Table.Cell singleLine>{infos.protagonist}</Table.Cell>
+                  {infos.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
                 </Table.Row>
               )
               ))}
@@ -229,35 +270,6 @@ const HeaderSerie = ({
     </header>
   );
 };
-
-HeaderSerie.propTypes = {
-  slug: PropTypes.string.isRequired,
-  status: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  vote: PropTypes.string.isRequired,
-  voteCount: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  airDate: PropTypes.string.isRequired,
-  numberSeasons: PropTypes.string.isRequired,
-  numberEpisodes: PropTypes.string.isRequired,
-  runTime: PropTypes.string.isRequired,
-  networks: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  productions: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  seasons: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  cast: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-  handleAdd: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired,
-};
-
 
 // Export
 export default HeaderSerie;

@@ -9,12 +9,15 @@ import LogoStyled from './LogoStyled';
 const Logo = () => (
   <LogoStyled>
     <Link to="/Accueil">
-      <img src={logo} id="logo" />
+      <img
+        src={logo}
+        id="logo"
+        alt="logo"
+      />
       <p id="caption">AdopteUneSérie</p>
     </Link>
   </LogoStyled>
 );
-
 
 // Export
 export default Logo;
