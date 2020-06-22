@@ -6,7 +6,7 @@ export default styled.div`
   #TOP {    
     width: 100%;
     padding: 0 15px 15px 15px;
-    background-color: #191D1F;
+    background: linear-gradient(0.25turn, #191D1F, black, #191D1F);
     height: 100px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -33,7 +33,7 @@ export default styled.div`
 
 @media only screen and (max-width: 700px){
   #TOP {
-    background-color: #191D1F;
+    background: linear-gradient(0.25turn, #191D1F, black, #191D1F);
     height: 100px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -49,7 +49,7 @@ export default styled.div`
     top:unset;
     right: unset;
     bottom: 0px;
-    background-color: #191D1F;
+    background: linear-gradient(0.25turn, #191D1F, black, #191D1F);
     height: 50px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;

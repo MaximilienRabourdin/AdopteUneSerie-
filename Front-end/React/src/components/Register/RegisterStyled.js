@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
-min-height: 150vh;
+min-height: 100vh;
 font-family: "Rajdhani", cursive;
 
 .red {

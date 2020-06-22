@@ -2,17 +2,32 @@ import styled from 'styled-components';
 
 export default styled.div`
 
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
-  background: #191D1F;
+  background: linear-gradient(0.25turn, #191D1F, black, #191D1F);
+
+#logo {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 40%;
+  left: 33%;
+  right: 33%;
+}
 
 #mobile {
   height: 100px;
   width: 100px;
-  position: absolute;
-  top: 35%;
-  left: 35%;
+  position: relative;
+  top: 40%;
 }
+  #caption {
+    position: absolute;
+    top: 110px;
+  }
+
 .div
 {
   position: absolute;
@@ -25,7 +40,7 @@ export default styled.div`
   overflow: hidden;
   border-radius: 50%;
   box-shadow: inset 0 50px 150px rgba(0, 0, 0, 1);
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid orange;
   animation: animate 1s ease-in-out forwards;
 }
 
@@ -44,7 +59,7 @@ export default styled.div`
 .div:nth-child(1)
 {
   width: 1500px;
-  height: 1500px;
+  height: 1350px;
 }
 .div:nth-child(2)
 {

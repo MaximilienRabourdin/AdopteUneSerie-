@@ -62,7 +62,7 @@ const Register = ({
     <RegisterStyled onSubmit={handleSubmit}>
       <Header />
       <form className="form">
-        <h1 className="textDecorationStyle: ">Créer un compte</h1>
+        <h1 className="title">Créer un compte</h1>
 
         <Field
           value={firstname}

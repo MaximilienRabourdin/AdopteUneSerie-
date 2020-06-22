@@ -31,7 +31,7 @@ const Home = ({
   idTime,
 }) => {
   if (loadTrending && loadTopRated && loadRecent) {
-    //console.log(seriesTrending[0].poster_path);
+    // console.log(seriesTrending[0].poster_path);
     return (
       <HomeStyled>
         <Header />

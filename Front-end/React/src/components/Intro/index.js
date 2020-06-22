@@ -25,12 +25,13 @@ const Intro = () => (
       </div>
     </MediaQuery>
     <MediaQuery maxWidth={425}>
-      <Link to="/Accueil">
+      <Link id="logo" to="/Accueil">
         <img
           id="mobile"
           alt="logo"
           src={logo}
         />
+        <p id="caption">AdopteUneSérie</p>
       </Link>
     </MediaQuery>
   </IntroStyled>

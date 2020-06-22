@@ -28,7 +28,7 @@ import AppStyled from './AppStyled';
 const App = () => (
   <AppStyled>
     <Switch>
-      <Route exact path="/" component={Intro} /> 
+      <Route exact path="/" component={Intro} />
       <Route exact path="/Accueil" component={Home} />
       <Route exact path="/Tendances" component={Trending} />
       <Route exact path="/Mieux-Notees" component={TopRated} />

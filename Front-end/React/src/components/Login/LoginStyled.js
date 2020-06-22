@@ -5,7 +5,7 @@ import theme from 'src/styles/theme';
 
 const LoginStyled = styled.div`
 font-family: "Rajdhani", cursive;
-min-height: 90vh;
+min-height: 100vh;
 
 @media only screen and (min-width: 426px){
  .form {

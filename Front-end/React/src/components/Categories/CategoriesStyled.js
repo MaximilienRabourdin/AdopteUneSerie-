@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
 min-height: 100vh;
+
 .search {
   padding: 130px 0 30px 0;
 }
@@ -15,29 +16,27 @@ min-height: 100vh;
   margin-top: 20px;
   height: 150px; 
 }
-.headMobile{
-  padding: 50px 0 60px;
-  text-align: center;
-  font-size: 2em;
-  width: 100%;
-  height: 150px; 
-}
 
-.neonStyle{
-  font-size: 2em;
-  color: black;
-  font-family: "Rajdhani", cursive;
-  animation: neons 3s ease infinite;
-  -moz-animation: neons 3s ease infinite;
-  -webkit-animation: neons 3s ease infinite;
-}
-.neonStyleMobile{
-  font-size: 1.2em;
-  color: black;
-  font-family: "Rajdhani", cursive;
-  animation: neons 3s ease infinite;
-  -moz-animation: neons 3s ease infinite;
-  -webkit-animation: neons 3s ease infinite;
+@media only screen and (min-width: 426px){
+  .neonStyle{
+    font-size: 2em;
+    color: black;
+    font-family: "Rajdhani", cursive;
+    animation: neons 3s ease infinite;
+    -moz-animation: neons 3s ease infinite;
+    -webkit-animation: neons 3s ease infinite;
+  }
+} 
+
+@media only screen and (max-width: 425px){
+  .neonStyle{
+    font-size: 1.2em;
+    color: black;
+    font-family: "Rajdhani", cursive;
+    animation: neons 3s ease infinite;
+    -moz-animation: neons 3s ease infinite;
+    -webkit-animation: neons 3s ease infinite;
+  }
 }
 
 @keyframes neons {
