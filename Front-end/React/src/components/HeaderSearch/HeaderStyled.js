@@ -61,7 +61,7 @@ export default styled.div`
     box-shadow: 10px -15px 10px -10px #437B98,
                 -10px -15px 10px -10px #437B98;
     width: 100%;
-    padding-top: 10px;
+    padding: 7px 5px 7px 8px;
     display: -webkit-flex;
     display: flex;
     flex-direction: row;

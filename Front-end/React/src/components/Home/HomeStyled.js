@@ -10,27 +10,32 @@ min-height: 90vh;
   font-size: 1.8em;
   color: black;
   font-family: "Rajdhani", cursive;
-  animation: neon .08s ease-in-out infinite alternate;
+  animation: neons 3s ease infinite;
+  -moz-animation: neons 3s ease infinite;
+  -webkit-animation: neons 3s ease infinite;
 }
 
-@keyframes neon {
-  from {
-    text-shadow:
-    0 0 6px rgba(202,228,225,0.92),
-    0 0 30px rgba(202,228,225,0.34),
-    0 0 12px rgba(30,132,242,0.52),
-    0 0 21px rgba(30,132,242,0.92),
-    0 0 34px rgba(30,132,242,0.78),
-    0 0 54px rgba(30,132,242,0.92);
+@keyframes neons {
+  0%,
+  100% {
+    text-shadow: 
+    0 0 1vw #FA1C16, 
+    0 0 3vw #FA1C16, 
+    0 0 10vw #FA1C16, 
+    0 0 10vw #FA1C16, 
+    0 0 .4vw #FED128, 
+    .5vw .5vw .1vw #806914;
+    color: #FED128;
   }
-  to {
-    text-shadow:
-    0 0 6px rgba(202,228,225,0.98),
-    0 0 30px rgba(202,228,225,0.42),
-    0 0 12px rgba(30,132,242,0.58),
-    0 0 22px rgba(30,132,242,0.84),
-    0 0 38px rgba(30,132,242,0.88),
-    0 0 60px rgba(30,132,242,1);
+  50% {
+    text-shadow: 
+    0 0 .5vw #800E0B, 
+    0 0 1.5vw #800E0B, 
+    0 0 5vw #800E0B, 
+    0 0 5vw #800E0B, 
+    0 0 .2vw #800E0B, 
+    .5vw .5vw .1vw #40340A;
+    color: #806914;
   }
 }
 
