@@ -7,17 +7,17 @@ import { BrowserRouter } from 'react-router-dom';
 // Import : local
 import App from 'src/components/App';
 import store from 'src/store';
-import ScrollToTop from 'src/selectors/scroll.js'
+import ScrollToTop from 'src/selectors/scroll';
 
 // Action Types
-import { 
-loadSeriesTendance, 
-loadSeriesTopRated, 
-loadSeriesRecent,
+import {
+  loadSeriesTendance,
+  loadSeriesTopRated,
+  loadSeriesRecent,
 } from 'src/actions/series';
 
-import { 
-loadSeriesFavorites,
+import {
+  loadSeriesFavorites,
 } from 'src/actions/favorite';
 
 // Charge les data depuis l'api
@@ -32,7 +32,7 @@ store.dispatch(loadSeriesFavorites());
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>
-      <ScrollToTop/>
+      <ScrollToTop />
       <App />
     </BrowserRouter>
   </Provider>

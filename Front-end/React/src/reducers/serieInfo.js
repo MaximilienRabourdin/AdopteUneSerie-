@@ -7,7 +7,7 @@ import {
 
 // Initial State
 const initialState = {
-  serie: [],
+  serie: {},
   load: false,
 };
 

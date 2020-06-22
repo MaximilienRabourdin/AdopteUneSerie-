@@ -9,42 +9,44 @@ import Header from 'src/containers/Header';
 import IMG from 'src/images/head.png';
 import FavoritesStyled from './FavoritesStyled';
 
-// Scroll animation
-window.addEventListener('scroll', () => {
-  const intScrollTop = window.scrollY;
-  const y = 150;
-  const opacity = ((y - intScrollTop) / y);
-  document.querySelector('.head').style.opacity = opacity;
-});
-
 // Composants
-const Favorites = ({ series }) => (
-  <FavoritesStyled>
-    <Header />
-    <div className="search">
-      <div
-        className="head"
-        style={{
-          backgroundImage: `url(${IMG})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'repeat-x',
+const Favorites = ({ series }) => {
+  // Scroll animation
+  window.addEventListener('scroll', () => {
+    const intScrollTop = window.scrollY;
+    const y = 150;
+    const opacity = ((y - intScrollTop) / y);
+    document.querySelector('.head').style.opacity = opacity;
+  });
+  return (
+    <FavoritesStyled>
+      <Header />
+      <div className="search">
+        <div
+          className="head"
+          style={{
+            backgroundImage: `url(${IMG})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'repeat-x',
+          }}
+        >
+          <span className="neonStyle">Mes favoris</span>
+        </div>
+        <Card.Group style={{
+          justifyContent: 'center',
+          marginTop: '210px',
         }}
-      >
-        <span className="neonStyle">Mes favoris</span>
+        >
+          {series.map((card) => (
+            <SerieCard key={card.tmdb_id} serie={card} />
+          ))}
+        </Card.Group>
       </div>
-      <Card.Group style={{
-        justifyContent: 'center',
-        marginTop: '210px',
-      }}
-      >
-        {series.map((card) => (
-          <SerieCard key={card.tmdb_id} serie={card} />
-        ))}
-      </Card.Group>
-    </div>
-  </FavoritesStyled>
-);
+    </FavoritesStyled>
+  );
+    
+};
 
 Favorites.propTypes = {
   series: PropTypes.arrayOf(

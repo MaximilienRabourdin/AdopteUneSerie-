@@ -129,7 +129,7 @@ const HeaderSerie = ({
               {seasons.map((season) => {
                 if (parseInt(season.season_number) > 0) {
                   return (
-                    <Table.Row>
+                    <Table.Row key={season.season_number}>
                       <Table.Cell singleLine>Saison {season.season_number}</Table.Cell>
                       <Table.Cell singleLine>{season.episode_count} épisodes</Table.Cell>
                     </Table.Row>
@@ -152,7 +152,7 @@ const HeaderSerie = ({
           >
             <Table.Body>
               {cast.map(((infos) => (
-                <Table.Row>
+                <Table.Row key={infos}>
                   <Table.Cell singleLine>{infos.protagonist}</Table.Cell>
                   {infos.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
                 </Table.Row>
@@ -241,7 +241,7 @@ const HeaderSerie = ({
               {seasons.map((season) => {
                 if (parseInt(season.season_number) > 0) {
                   return (
-                    <Table.Row>
+                    <Table.Row key={season.season_number}>
                       <Table.Cell singleLine>Saison {season.season_number}</Table.Cell>
                       <Table.Cell singleLine>{season.episode_count} épisodes</Table.Cell>
                     </Table.Row>
@@ -257,7 +257,7 @@ const HeaderSerie = ({
           <Table celled padded style={{ backgroundColor: '#191D1F', color: 'white' }}>
             <Table.Body>
               {cast.map(((infos) => (
-                <Table.Row>
+                <Table.Row key={infos}>
                   <Table.Cell singleLine>{infos.protagonist}</Table.Cell>
                   {infos.actors.map((actor) => <Table.Cell singleLine>{actor.name}</Table.Cell>)}
                 </Table.Row>

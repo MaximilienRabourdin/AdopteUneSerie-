@@ -15,6 +15,7 @@ function SerieInfo({
   load,
   status,
 }) {
+  // console.log(serie);
   useEffect(() => {
     const id = slug.match(/[0-9]+/g);
     sendSlug(id);
@@ -59,6 +60,7 @@ function SerieInfo({
 }
 
 SerieInfo.propTypes = {
+  serie: PropTypes.object.isRequired,
   status: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
   sendSlug: PropTypes.func.isRequired,
