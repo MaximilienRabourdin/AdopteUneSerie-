@@ -1,5 +1,12 @@
 // Import
-import { SAVE_SERIES_TENDANCE, SAVE_SERIES_TOP_RATED, SAVE_SERIES_RECENT } from 'src/actions/series';
+import {
+  SAVE_SERIES_TENDANCE,
+  SAVE_SERIES_TOP_RATED,
+  SAVE_SERIES_RECENT,
+  SET_LOAD_TENDANCE,
+  SET_LOAD_TOP_RATED,
+  SET_LOAD_RECENT,
+} from 'src/actions/series';
 import { SAVE_SERIE_INPUT } from 'src/actions/input';
 // console.log(data);
 
@@ -20,6 +27,9 @@ const initialState = {
   seriesRecent: [],
   serieInput: [],
   inputName: '',
+  loadTendance: false,
+  loadTopRated: false,
+  loadRecent: false,
 };
 
 const homeReducer = (state = initialState, action = {}) => {
@@ -60,6 +70,24 @@ const homeReducer = (state = initialState, action = {}) => {
         idNetwork: action.idNetwork,
         idNote: action.idNote,
         idTime: action.idTime,
+      };
+    case SET_LOAD_TENDANCE:
+      // console.log(action.serie);
+      return {
+        ...state, // state actuel
+        loadTendance: action.load,
+      };
+    case SET_LOAD_TOP_RATED:
+      // console.log(action.serie);
+      return {
+        ...state, // state actuel
+        loadTopRated: action.load,
+      };
+    case SET_LOAD_RECENT:
+      // console.log(action.serie);
+      return {
+        ...state, // state actuel
+        loadRecent: action.load,
       };
     default:
       // console.log(state);

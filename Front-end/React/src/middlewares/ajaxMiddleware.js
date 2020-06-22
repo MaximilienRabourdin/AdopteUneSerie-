@@ -4,6 +4,9 @@ import {
   LOAD_SERIES_TENDANCE,
   LOAD_SERIES_TOP_RATED,
   LOAD_SERIES_RECENT,
+  setLoadTendance,
+  setLoadTopRated,
+  setLoadRecent,
   saveSeriesTendance,
   saveSeriesTopRated,
   saveSeriesRecent,
@@ -43,6 +46,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
         // succès
         .then((response) => {
           store.dispatch(saveSeriesTendance(response.data));
+          store.dispatch(setLoadTendance(true));
         })
         // échec
         .catch((error) => {
@@ -60,6 +64,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       // succès
         .then((response) => {
           store.dispatch(saveSeriesTopRated(response.data));
+          store.dispatch(setLoadTopRated(true));
         })
       // échec
         .catch((error) => {
@@ -77,6 +82,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
       // succès
         .then((response) => {
           store.dispatch(saveSeriesRecent(response.data));
+          store.dispatch(setLoadRecent(true));
         })
       // échec
         .catch((error) => {

@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 // Composant
 const SignIn = () => (
-  <Button inverted color="blue">
+  <Button inverted color="orange">
     <a href="/connexion">Connexion</a>
   </Button>
 );

@@ -7,7 +7,7 @@ import Home from 'src/components/Home';
 // Notre composant à besoin de données depuis le state ?
 // On prépare un objet avec les props attendues par le composant
 const mapStateToProps = (state) => ({
-  series: state.home.seriesTendance,
+  seriesTrending: state.home.seriesTendance,
   seriesTopRated: state.home.seriesTopRated,
   seriesRecent: state.home.seriesRecent,
   name: state.home.inputName,
@@ -16,6 +16,9 @@ const mapStateToProps = (state) => ({
   idNote: state.home.idNote,
   idTime: state.home.idTime,
   serieInput: state.home.serieInput,
+  loadTrending: state.home.loadTendance,
+  loadTopRated: state.home.loadTopRated,
+  loadRecent: state.home.loadRecent,
 });
 
 // Actions / dispatch

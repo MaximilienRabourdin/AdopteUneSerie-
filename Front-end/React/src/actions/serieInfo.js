@@ -15,7 +15,7 @@ export const saveSerieInfo = (serie) => ({
   serie,
 });
 
-// Save the load's status 
+// Save the load's status
 export const setLoad = (load) => ({
   type: SET_LOAD,
   load,

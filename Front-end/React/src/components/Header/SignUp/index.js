@@ -8,7 +8,7 @@ import SignUpStyled from './SignUpStyled';
 // Composant
 const SignUp = () => (
   <SignUpStyled>
-    <Button inverted color="blue">
+    <Button inverted color="orange">
       <a href="/inscription">Inscription</a>
     </Button>
   </SignUpStyled>
