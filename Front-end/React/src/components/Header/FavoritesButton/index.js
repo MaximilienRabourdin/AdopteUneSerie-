@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 // Composant
 const FavoritesButton = () => (
-  <Button inverted color="blue">
+  <Button inverted color="orange">
     <a href="/Favoris">Favoris</a>
   </Button>
 );

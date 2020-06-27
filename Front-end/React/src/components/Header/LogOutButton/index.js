@@ -9,7 +9,7 @@ const LogOutButton = () => {
   };
 
   return (
-    <Button onClick={handleClick} inverted color="blue">
+    <Button onClick={handleClick} inverted color="orange">
       <a href="/Accueil">Déconnexion</a>
     </Button>
   );

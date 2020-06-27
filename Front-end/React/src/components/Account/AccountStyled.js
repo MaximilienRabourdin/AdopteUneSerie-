@@ -5,11 +5,16 @@ import theme from 'src/styles/theme';
 const AccountStyled = styled.div`
 min-height: 100vh;
 overflow: hidden;
+  
+.links {
+  text-align: center;
+}
 
 @media only screen and (min-width: 426px){
- .div {
+ .myAccount {
+    overflow: hidden;
     background-color : white;
-    padding: ${theme.gutter/ 2}rem;
+    padding: ${theme.gutter / 2}rem 0;
     border-radius: ${theme.gutter / 3}rem;
     width: 33%;
     margin: 0 33%;  
@@ -26,7 +31,7 @@ overflow: hidden;
 } 
 
 @media only screen and (max-width: 425px){
-  .div {
+  .myAccount {
     background-color : white;
     padding: ${theme.gutter/ 2}rem;
     border-radius: ${theme.gutter / 3}rem;

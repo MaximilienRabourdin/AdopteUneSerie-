@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 // Composant
 const AccountButton = () => (
-  <Button inverted color="blue">
+  <Button inverted color="orange">
     <a href="/mon-compte">Mon compte</a>
   </Button>
 );

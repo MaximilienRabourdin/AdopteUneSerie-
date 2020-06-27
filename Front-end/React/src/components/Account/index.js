@@ -1,7 +1,6 @@
 // Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
 import { Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +25,7 @@ const Account = ({
   return (
     <AccountStyled>
       <Header />
-      <div className="div">
+      <div className="myAccount">
         <h1 className="title">Mon compte</h1>
         <Table celled padded>
           <Table.Body>
@@ -44,12 +43,9 @@ const Account = ({
             </Table.Row>
           </Table.Body>
         </Table>
-        <MediaQuery minWidth={426}>
-          <Link to="/modification-mot-de-passe" style={{ marginLeft: '150px' }}>Modifier mon mot de passe</Link>
-        </MediaQuery>
-        <MediaQuery maxWidth={425}>
-          <Link to="/modification-mot-de-passe" style={{ marginLeft: '50px' }}>Modifier mon mot de passe</Link>
-        </MediaQuery>
+        <div className="links">
+          <Link className="link" to="/modification-mot-de-passe">Modifier mon mot de passe</Link>
+        </div>
       </div>
     </AccountStyled>
   );
