@@ -21,7 +21,7 @@
     "@typescript-eslint/parser": "^3.3.0",
     "babel-eslint": "*",
     "babel-loader": "^8.0.0-beta",
-    "bundle-stats": "^2.2.0",
+    "bundle-stats": "1.15.8",
     "chai": "^4.2.0",
     "clean-webpack-plugin": "*",
     "copy-webpack-plugin": "*",
