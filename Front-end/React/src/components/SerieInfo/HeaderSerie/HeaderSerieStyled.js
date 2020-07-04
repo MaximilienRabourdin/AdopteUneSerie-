@@ -96,7 +96,7 @@ h3{
     font-size: 0.9em;
   }
   .synopsis h3{
-    color: #FB4264;
+    color: orange;
   }
 }
 @keyframes neons {

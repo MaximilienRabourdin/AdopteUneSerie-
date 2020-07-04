@@ -80,7 +80,7 @@ const Home = ({
                   }}
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500${seriesTrending[1].poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${seriesTrending[0].poster_path}`}
                     wrapped
                     ui={false}
                   />
@@ -122,7 +122,7 @@ const Home = ({
                   }}
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500${seriesRecent[1].poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${seriesRecent[0].poster_path}`}
                     wrapped
                     ui={false}
                   />
