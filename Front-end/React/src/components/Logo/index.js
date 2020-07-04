@@ -8,7 +8,7 @@ import LogoStyled from './LogoStyled';
 // Composant
 const Logo = () => (
   <LogoStyled>
-    <Link to="/Accueil">
+    <Link id="head" to="/Accueil">
       <img
         src={logo}
         id="logo"

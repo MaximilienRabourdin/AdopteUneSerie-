@@ -20,18 +20,16 @@ font-family: "Rajdhani", cursive;
 }
 
 @media only screen and (max-width: 700px){
+  #head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
   #logo {
-    position: absolute;
-    top: 8px; 
-    left: 45%;
-    right: 45%;
     height: 65px;
     width:65px;
-  }
-  #caption {
-    position: absolute;
-    top: 72px; 
-    left: 43%;
   }
 }
 `;
