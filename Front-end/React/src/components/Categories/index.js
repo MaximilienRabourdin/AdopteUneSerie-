@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
-import MediaQuery from 'react-responsive';
 
 // Import
 import SerieCard from 'src/containers/SerieCard';

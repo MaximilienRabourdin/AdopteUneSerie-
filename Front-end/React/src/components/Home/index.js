@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-useless-escape */
 /* eslint-disable consistent-return */
@@ -31,6 +32,18 @@ const Home = ({
   idTime,
 }) => {
   if (loadTrending && loadTopRated && loadRecent) {
+    let indexPosterTrending = 0;
+    while (seriesTrending[indexPosterTrending].poster_path === null) {
+      indexPosterTrending++;
+    }
+    let indexPosterTopRated = 1;
+    while (seriesTopRated[indexPosterTopRated].poster_path === null) {
+      indexPosterTopRated++;
+    }
+    let indexPosterRecent = 0;
+    while (seriesRecent[indexPosterRecent].poster_path === null) {
+      indexPosterRecent++;
+    }
     // console.log(seriesTrending[0].poster_path);
     return (
       <HomeStyled>
@@ -80,7 +93,7 @@ const Home = ({
                   }}
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500${seriesTrending[0].poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${seriesTrending[indexPosterTrending].poster_path}`}
                     wrapped
                     ui={false}
                   />
@@ -101,7 +114,7 @@ const Home = ({
                   }}
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500${seriesTopRated[1].poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${seriesTopRated[indexPosterTopRated].poster_path}`}
                     wrapped
                     ui={false}
                   />
@@ -122,7 +135,7 @@ const Home = ({
                   }}
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500${seriesRecent[0].poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${seriesRecent[indexPosterRecent].poster_path}`}
                     wrapped
                     ui={false}
                   />
